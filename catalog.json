@@ -63,8 +63,8 @@
       "asset": "aimech-1.0.1.mpext",
       "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aimech-1.0.1.mpext",
       "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aimech-1.0.1.mpext",
-      "sha256": "d5a1be9a75afc754d099107659398c14863cbedf1a9d4255fd7d6ab11856bd44",
-      "status": "published",
+      "sha256": "78243de7acf84a3334bab8ea75d0f5f1beb04883d0ba6bc7b550c59db073bb3d",
+      "status": "draft",
       "productIcons": {
         "aimech": "python/_images/product-cards/aimech.png"
       }
@@ -125,15 +125,15 @@
       "packageId": "sensor",
       "name": "输入模块",
       "description": "适用于 Hiwonder Python 产品的基础输入传感器积木包。",
-      "version": "1.0.1",
+      "version": "1.21.2",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "sensor-1.0.1.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.0.1.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.0.1.mpext",
-      "sha256": "d74e30d65769e0c728a84f3b184e2a65dee82556ad9266abe0073348f797924f",
-      "status": "published",
+      "asset": "sensor-1.21.2.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.21.2.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.21.2.mpext",
+      "sha256": "c3ec9cbe8cbe22b105c8991283c6a625c1571406e3a5372614b261931f0cd567",
+      "status": "draft",
       "productIcons": {
         "button-module": "python/_images/product-cards/button-module.png",
         "color-sensor": "python/_images/product-cards/color-sensor.png",

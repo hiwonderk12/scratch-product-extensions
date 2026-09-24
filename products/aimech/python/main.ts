@@ -161,7 +161,7 @@ time.sleep(0.05)`);
         Generator.addCode(`button${keys}.read()`);
     }
 
-    //% block="设置小车以 [SPEED] 转/分钟的转速 [ORIENTION]" blockType="command"
+    //% block="设置小车以[SPEED]转/分钟的转速[ORIENTION]" blockType="command"
     //% SPEED.shadow="number" SPEED.defl="60"
     //% ORIENTION.shadow="dropdown" ORIENTION.options="oriention2" ORIENTION.defl="1"
     export function motor_speed_set(parameter: any, block: any) {
@@ -172,7 +172,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.run_rpm(${speed}*${oriention})`);
     }
 
-    //% block="设置小车以 [SPEED] 转/分钟的转速 [ORIENTION] [DISTANCE] 厘米" blockType="command"
+    //% block="设置小车以[SPEED]转/分钟的转速 [ORIENTION] [DISTANCE] 厘米" blockType="command"
     //% SPEED.shadow="number" SPEED.defl="60"
     //% ORIENTION.shadow="dropdown" ORIENTION.options="oriention2" ORIENTION.defl="1"
     //% DISTANCE.shadow="number" DISTANCE.defl="100"
@@ -185,7 +185,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.run_distance(${distance}*${oriention},${speed})`);
     }
 
-    //% block="设置小车以 [SPEED] 转/分钟的转速 [TURN] [ANGLE] 度" blockType="command"
+    //% block="设置小车以[SPEED]转/分钟的转速 [TURN] [ANGLE] 度" blockType="command"
     //% SPEED.shadow="number" SPEED.defl="60"
     //% TURN.shadow="dropdown" TURN.options="orientionTurn" TURN.defl="1"
     //% ANGLE.shadow="number" ANGLE.defl="90"
@@ -209,7 +209,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.motor_run_rpm(${wheel},${speed})`);
     }
 
-    //% block="设置 [WHEEL] 以 [SPEED] 转/分钟的转速运行 [ANGLE] 度" blockType="command"
+    //% block="设置[WHEEL]以[SPEED]转/分钟的转速运行[ANGLE]度" blockType="command"
     //% WHEEL.shadow="dropdown" WHEEL.options="wheel" WHEEL.defl="1"
     //% SPEED.shadow="number" SPEED.defl="60"
     //% ANGLE.shadow="number" ANGLE.defl="180"
@@ -222,7 +222,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.motor_run_angle(${wheel},${angle},${speed})`);
     }
 
-    //% block="设置左轮(EM1)转速 [SPEED] 转/分钟 右轮(EM2)转速 [SPEED2] 转/分钟" blockType="command"
+    //% block="设置左轮(EM1)转速[SPEED]转/分钟, 右轮(EM2)转速[SPEED2]转/分钟" blockType="command"
     //% SPEED.shadow="number" SPEED.defl="60"
     //% SPEED2.shadow="number" SPEED2.defl="60"
     export function set_motor_run_two_wheel(parameter: any, block: any) {
@@ -233,7 +233,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.motors_run_rpm(${speed},${speed2})`);
     }
 
-    //% block="设置左轮(EM1)动力 [SPEED] % 右轮(EM2)动力 [SPEED2] %" blockType="command"
+    //% block="设置左轮(EM1)动力 [SPEED] %, 右轮(EM2)动力 [SPEED2] %" blockType="command"
     //% SPEED.shadow="number" SPEED.defl="25"
     //% SPEED2.shadow="number" SPEED2.defl="25"
     export function set_motor_run_two_wheel_percent(parameter: any, block: any) {
@@ -253,7 +253,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.stop(${wheel})`);
     }
 
-    //% block="获取 [WHEEL] 转过的度数" blockType="reporter"
+    //% block="获取[WHEEL] 转过的度数" blockType="reporter"
     //% WHEEL.shadow="dropdown" WHEEL.options="wheel2" WHEEL.defl="1"
     export function get_servo_run_angle(parameter: any, block: any) {
         const wheel = parameter.WHEEL.code;
@@ -271,7 +271,7 @@ time.sleep(0.05)`);
         Generator.addCode(`motor.reset_motor_angle(${wheel})`);
     }
 
-    //% block="设置小车进行PD调节巡线 偏差值 [OFFSET] 基础速度 [SPEED] 最大速度 [MAXSPEED] Kp值 [KP] Kd值 [KD]" blockType="command"
+    //% block="设置小车进行PD调节巡线（偏差值 [OFFSET] 基础速度 [SPEED] 最大速度 [MAXSPEED] Kp值 [KP] Kd值 [KD]）" blockType="command"
     //% OFFSET.shadow="number" OFFSET.defl="0"
     //% SPEED.shadow="number" SPEED.defl="50"
     //% MAXSPEED.shadow="number" MAXSPEED.defl="150"
