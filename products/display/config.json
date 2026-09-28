@@ -1,0 +1,522 @@
+{
+  "name": {
+    "zh-cn": "输出模块",
+    "en": "Output Modules"
+  },
+  "description": {
+    "zh-cn": "适用于 Hiwonder Python 产品的输出模块积木包。",
+    "en": "Output module blocks for Hiwonder Python products."
+  },
+  "author": "Hiwonder",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "display",
+  "platform": [
+    "win",
+    "mac",
+    "web",
+    "linux"
+  ],
+  "version": "1.4.1",
+  "scratchEditor": {
+    "color1": "#FF6347",
+    "color2": "#FF6347",
+    "color3": "#FF6347",
+    "categories": [
+      {
+        "id": "rgb-module",
+        "name": "RGB模块",
+        "blocks": [
+          "aimech_rgb_module_color_set",
+          "aimech_rgb_module_color_select",
+          "aimech_rgb_module_breath_one",
+          "aimech_rgb_module_breath",
+          "aimech_rgb_module_close"
+        ]
+      },
+      {
+        "id": "dot-matrix",
+        "name": "点阵屏",
+        "blocks": [
+          "aimech_matrixLed_brightness",
+          "aimech_matrixLed_show_num",
+          "aimech_matrixLed_show_str",
+          "aimech_matrixLed_pos_onoff",
+          "aimech_matrix_led",
+          "aimech_clear_matrix_led",
+          "aiblocksboard_matrixLed_brightness",
+          "aiblocksboard_matrixLed_show_num",
+          "aiblocksboard_matrixLed_show_str",
+          "aiblocksboard_matrixLed_pos_onoff",
+          "aiblocksboard_matrix_led",
+          "aiblocksboard_clear_matrix_led"
+        ]
+      },
+      {
+        "id": "digit-display",
+        "name": "数码管",
+        "blocks": [
+          "aimech_digit_show_num",
+          "aiblocksboard_digit_show_num"
+        ]
+      },
+      {
+        "id": "oled",
+        "name": "OLED-12864",
+        "blocks": [
+          "aimech_oled_init",
+          "aiblocks_oled_init",
+          "oled_draw_ascii",
+          "oled_point",
+          "oled_clear",
+          "oled_draw_hline",
+          "oled_draw_vline",
+          "oled_draw_line",
+          "oled_draw_rect"
+        ]
+      },
+      {
+        "id": "mp3",
+        "name": "MP3 模块",
+        "blocks": [
+          "mp3_init",
+          "mp3_play_song_num",
+          "mp3_play_control",
+          "mp3_play_mode",
+          "mp3_set_volume"
+        ]
+      },
+      {
+        "id": "rgb-light",
+        "name": "RGB 灯带",
+        "blocks": [
+          "rgb_color_set",
+          "led_color_select",
+          "led_close"
+        ]
+      },
+      {
+        "id": "fan",
+        "name": "风扇模块",
+        "blocks": [
+          "fan_module_speed"
+        ]
+      },
+      {
+        "id": "fan-iic",
+        "name": "IIC 风扇",
+        "blocks": [
+          "aiblocks_fan_iic_set_module_speed"
+        ]
+      }
+    ],
+    "blocks": {
+      "aimech_rgb_module_color_set": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/rgb.svg"
+      },
+      "aimech_rgb_module_color_select": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/rgb.svg"
+      },
+      "aimech_rgb_module_breath_one": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/rgb.svg"
+      },
+      "aimech_rgb_module_breath": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/rgb.svg"
+      },
+      "aimech_rgb_module_close": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/rgb.svg"
+      },
+      "aimech_matrixLed_brightness": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aidoggy"
+        ],
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aimech_matrixLed_show_num": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aidoggy"
+        ],
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aimech_matrixLed_show_str": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aidoggy"
+        ],
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aimech_matrixLed_pos_onoff": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aidoggy"
+        ],
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aimech_matrix_led": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aidoggy"
+        ],
+        "arguments": {
+          "MATRIX": {
+            "type": "ledmatrix",
+            "defaultValue": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aimech_clear_matrix_led": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aidoggy"
+        ],
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aiblocksboard_matrixLed_brightness": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aiblocksboard_matrixLed_show_num": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aiblocksboard_matrixLed_show_str": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aiblocksboard_matrixLed_pos_onoff": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aiblocksboard_matrix_led": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "arguments": {
+          "MATRIX": {
+            "type": "ledmatrix",
+            "defaultValue": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aiblocksboard_clear_matrix_led": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/dot.svg"
+      },
+      "aimech_digit_show_num": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/digit.svg"
+      },
+      "aiblocksboard_digit_show_num": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/digit.svg"
+      },
+      "aimech_oled_init": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "aiblocks_oled_init": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_draw_ascii": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_point": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_clear": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_draw_hline": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_draw_vline": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_draw_line": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "oled_draw_rect": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "aiblocksboard"
+        ],
+        "templateSelector": {
+          "argument": "SHAPE",
+          "cases": {
+            "0": "my_oled.rect({XPOS},{YPOS},{XPOS1},{YPOS1})",
+            "1": "my_oled.fill_rect({XPOS},{YPOS},{XPOS1},{YPOS1})"
+          }
+        },
+        "blockIcon": "_images/blocks/oled.svg"
+      },
+      "mp3_play_control": {
+        "templateSelector": {
+          "argument": "PLAYSTATUS",
+          "cases": {
+            "0": "mp3.play()",
+            "1": "mp3.pause()",
+            "2": "mp3.prev()",
+            "3": "mp3.next()"
+          }
+        },
+        "blockIcon": "_images/blocks/mp3.svg"
+      },
+      "mp3_play_mode": {
+        "templateSelector": {
+          "argument": "PLAYMODE",
+          "cases": {
+            "0": "mp3.loop_on()",
+            "1": "mp3.loop_off()"
+          }
+        },
+        "blockIcon": "_images/blocks/mp3.svg"
+      },
+      "rgb_color_set": {
+        "templateSelector": {
+          "argument": "NUMS",
+          "cases": {
+            "15": "myrgb_{PORT}.fill({RED},{GREEN},{BLUE})\nmyrgb_{PORT}.write()"
+          }
+        },
+        "blockIcon": "_images/blocks/strip.svg"
+      },
+      "led_color_select": {
+        "templateSelector": {
+          "argument": "NUMS",
+          "cases": {
+            "15": "myrgb_{PORT}.fill({COLOR.rgb})\nmyrgb_{PORT}.write()"
+          }
+        },
+        "blockIcon": "_images/blocks/strip.svg"
+      },
+      "led_close": {
+        "templateSelector": {
+          "argument": "NUMS",
+          "cases": {
+            "15": "myrgb_{PORT}.clear()"
+          }
+        },
+        "blockIcon": "_images/blocks/strip.svg"
+      },
+      "aiblocks_fan_iic_set_module_speed": {
+        "products": [
+          "aiblocksboard"
+        ],
+        "blockIcon": "_images/blocks/fan.svg"
+      },
+      "mp3_init": {
+        "blockIcon": "_images/blocks/mp3.svg"
+      },
+      "mp3_play_song_num": {
+        "blockIcon": "_images/blocks/mp3.svg"
+      },
+      "mp3_set_volume": {
+        "blockIcon": "_images/blocks/mp3.svg"
+      },
+      "fan_module_speed": {
+        "blockIcon": "_images/blocks/fan.svg"
+      }
+    }
+  },
+  "asset": {
+    "python": {
+      "dir": "python/",
+      "version": "1.4.1",
+      "main": "main.ts",
+      "dependencies": {},
+      "files": [
+        "_menus/index.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "name": {
+    "zh-cn": "动力模块",
+    "en": "Actuator Modules"
+  },
+  "description": {
+    "zh-cn": "适用于 Hiwonder Python 产品的动力模块积木包。",
+    "en": "Actuator blocks for Hiwonder Python products."
+  },
+  "author": "Hiwonder",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "actuator",
+  "platform": [
+    "win",
+    "mac",
+    "web",
+    "linux"
+  ],
+  "version": "1.2.1",
+  "scratchEditor": {
+    "color1": "#2D87C9",
+    "color2": "#2D87C9",
+    "color3": "#2D87C9",
+    "categories": [
+      {
+        "id": "bus-servo",
+        "name": "总线舵机",
+        "blocks": [
+          "set_bus_servo",
+          "set_bus_servo_motor_speed",
+          "load_bus_servo",
+          "unload_bus_servo",
+          "get_bus_servo_pos"
+        ]
+      },
+      {
+        "id": "iic-pwm",
+        "name": "IIC转PWM控制模块",
+        "blocks": [
+          "aimecha_iicpwm_init",
+          "iicpwm_set_pos",
+          "iicpwm_set_speed"
+        ]
+      },
+      {
+        "id": "fan",
+        "name": "风扇",
+        "blocks": [
+          "aimech_fan_iic_set_module_speed"
+        ]
+      },
+      {
+        "id": "xarm-series",
+        "name": "AI机甲串联机械臂",
+        "blocks": [
+          "aimech_3dof_arm_init",
+          "aimech_3dof_arm_move"
+        ]
+      },
+      {
+        "id": "xarm-linkage",
+        "name": "AI机甲连杆机械臂",
+        "blocks": [
+          "aimech_rod_arm_init",
+          "aimech_rod_reach_detect",
+          "aimech_rod_arm_move"
+        ]
+      }
+    ],
+    "blocks": {
+      "aimech_fan_iic_set_module_speed": {
+        "productArguments": {
+          "aidoggy": {
+            "PORT": {
+              "menu": "aidoggy_iicport",
+              "defaultValue": "3"
+            }
+          }
+        },
+        "blockIcon": "_images/blocks/fan.svg"
+      },
+      "set_bus_servo": {
+        "blockIcon": "_images/blocks/servo.svg"
+      },
+      "set_bus_servo_motor_speed": {
+        "blockIcon": "_images/blocks/servo.svg"
+      },
+      "load_bus_servo": {
+        "blockIcon": "_images/blocks/servo.svg"
+      },
+      "unload_bus_servo": {
+        "blockIcon": "_images/blocks/servo.svg"
+      },
+      "get_bus_servo_pos": {
+        "blockIcon": "_images/blocks/servo.svg"
+      },
+      "aimech_3dof_arm_init": {
+        "blockIcon": "_images/blocks/claw.svg"
+      },
+      "aimech_3dof_arm_move": {
+        "blockIcon": "_images/blocks/claw.svg"
+      }
+    }
+  },
+  "asset": {
+    "python": {
+      "dir": "python/",
+      "version": "1.2.1",
+      "main": "main.ts",
+      "dependencies": {},
+      "files": [
+        "_menus/index.json"
+      ]
+    }
+  }
+}

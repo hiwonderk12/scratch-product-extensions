@@ -1,0 +1,54 @@
+{
+  "name": {
+    "zh-cn": "通信模块",
+    "en": "Communication Modules"
+  },
+  "description": {
+    "zh-cn": "适用于 Hiwonder Python 产品的通信模块积木包。",
+    "en": "Communication module blocks for Hiwonder Python products."
+  },
+  "author": "Hiwonder",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "communication",
+  "platform": [
+    "win",
+    "mac",
+    "web",
+    "linux"
+  ],
+  "version": "1.0.1",
+  "scratchEditor": {
+    "color1": "#EE799F",
+    "color2": "#EE799F",
+    "color3": "#EE799F",
+    "categories": [
+      {
+        "id": "communication",
+        "name": "PS3手柄",
+        "blocks": [
+          "ps3_init",
+          "ps3_get_address",
+          "ps3_disconnect",
+          "ps3_is_connected",
+          "ps3_set_led",
+          "ps3_set_rumble",
+          "ps3_get_keys",
+          "ps3_get_axis",
+          "ps3_get_sensor"
+        ]
+      }
+    ]
+  },
+  "asset": {
+    "python": {
+      "dir": "python/",
+      "version": "1.0.1",
+      "main": "main.ts",
+      "dependencies": {},
+      "files": [
+        "_menus/index.json"
+      ]
+    }
+  }
+}

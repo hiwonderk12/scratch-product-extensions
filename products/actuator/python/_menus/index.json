@@ -1,0 +1,44 @@
+{
+  "aimech_iicport": {
+    "menu": [
+      ["A", "1"],
+      ["B", "2"],
+      ["C", "3"],
+      ["D", "4"],
+      ["E", "5"],
+      ["J", "9"],
+      ["K", "10"]
+    ],
+    "default_aimecha_iicpwm_init_PORT": "1"
+  },
+  "iic_pwm_port": {
+    "menu": [
+      ["1", "1"],
+      ["2", "2"]
+    ],
+    "default_iicpwm_set_pos_NUM": "1",
+    "default_iicpwm_set_speed_NUM": "1"
+  },
+  "aidoggy_iicport": {
+    "menu": [
+      ["C", "3"],
+      ["D", "4"],
+      ["E", "5"],
+      ["F", "6"]
+    ]
+  },
+  "arm_3dof": {
+    "menu": [
+      ["短机械臂", "0"],
+      ["长机械臂", "1"]
+    ],
+    "default_aimech_3dof_arm_init_ARM": "0"
+  },
+  "delay_select": {
+    "menu": [
+      ["不延时", "False"],
+      ["延时", "True"]
+    ],
+    "default_aimech_rod_arm_move_VALUE4": "False"
+  }
+}

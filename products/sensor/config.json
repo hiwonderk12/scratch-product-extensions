@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.0",
+  "version": "1.22.1",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -343,12 +343,14 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "minihexa_wondercamInitI2c": {
         "products": [
           "minihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "getFwVersion": {
         "products": [
@@ -358,7 +360,8 @@
           "aiquadrupedpro",
           "aihexa",
           "minihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "getFuncNumber": {
         "products": [
@@ -383,7 +386,8 @@
             "8": "cam.QrCode",
             "9": "cam.BarCode"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "getCurrentFunc": {
         "products": [
@@ -393,7 +397,8 @@
           "aiquadrupedpro",
           "aihexa",
           "minihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "switchFunc": {
         "products": [
@@ -420,7 +425,8 @@
             "10": "cam.switchFunc(cam.NumberRecognition)",
             "11": "cam.switchFunc(cam.LandmarkRecognition)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "setLed": {
         "products": [
@@ -437,7 +443,8 @@
             "0": "cam.setLed(cam.LED_OFF)",
             "1": "cam.setLed(cam.LED_ON)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "wondercamUpdateResult": {
         "products": [
@@ -447,7 +454,8 @@
           "aiquadrupedpro",
           "aihexa",
           "minihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "isAnyFaceDetected": {
         "products": [
@@ -457,7 +465,8 @@
           "aiquadrupedpro",
           "aihexa",
           "minihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "numOfDetectedFaces": {
         "products": [
@@ -467,7 +476,8 @@
           "aiquadrupedpro",
           "aihexa",
           "minihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
       },
       "linefollower6_one_status": {
         "templateSelector": {
@@ -477,7 +487,7 @@
             "1": "(linefollow6.get_result_data() & {NUM}) > 0"
           }
         },
-        "blockIcon": "_images/linefollow.svg"
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower6_status": {
         "arguments": {
@@ -486,7 +496,7 @@
             "defaultValue": "00"
           }
         },
-        "blockIcon": "_images/linefollow.svg"
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower8_one_status": {
         "templateSelector": {
@@ -495,8 +505,7 @@
             "0": "(linefollow8.get_result_data() & {NUM}) == 0",
             "1": "(linefollow8.get_result_data() & {NUM}) > 0"
           }
-        },
-        "blockIcon": "_images/linefollow.svg"
+        }
       },
       "linefollower8_status": {
         "arguments": {
@@ -504,8 +513,7 @@
             "type": "line8",
             "defaultValue": "00"
           }
-        },
-        "blockIcon": "_images/linefollow.svg"
+        }
       },
       "linefollower_one_status": {
         "templateSelector": {
@@ -514,7 +522,8 @@
             "0": "(linefollow.get_result_data() & {NUM}) == 0",
             "1": "(linefollow.get_result_data() & {NUM}) > 0"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower_status_result": {
         "arguments": {
@@ -522,7 +531,8 @@
             "type": "line4",
             "defaultValue": "00"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower_status": {
         "arguments": {
@@ -530,7 +540,8 @@
             "type": "line4",
             "defaultValue": "00"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower4_one_status": {
         "templateSelector": {
@@ -539,7 +550,8 @@
             "0": "(linefollow4.get_result_data() & {NUM}) == 0",
             "1": "(linefollow4.get_result_data() & {NUM}) > 0"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower4_status_result": {
         "arguments": {
@@ -547,7 +559,8 @@
             "type": "line4",
             "defaultValue": "00"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "k230_face_recognition_get_arg_by_name": {
         "templateSelector": {
@@ -555,7 +568,8 @@
           "cases": {
             "1": "k230.get_key_result('extra',{VALUE},'extra',1)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_face2_near_center": {
         "templateSelector": {
@@ -567,7 +581,8 @@
             "3": "k230.near_center_result('extra',3)",
             "4": "k230.near_center_result('extra',4)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_facial_args": {
         "templateSelector": {
@@ -576,7 +591,8 @@
             "0": "k230.near_center_result('extra',0)",
             "1": "k230.near_center_result('extra',1)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_gaze_near_center": {
         "templateSelector": {
@@ -589,7 +605,8 @@
             "4": "k230.near_center_result('extra',4)",
             "5": "k230.near_center_result('extra',5)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_result_person_keypoint_get_arg": {
         "templateSelector": {
@@ -630,7 +647,8 @@
             "32": "k230.get_key_result('id',{NAME},'keypoints',32)",
             "33": "k230.get_key_result('id',{NAME},'keypoints',33)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_person_keypoint_near_center": {
         "templateSelector": {
@@ -671,7 +689,8 @@
             "32": "k230.near_center_result('keypoints',32)",
             "33": "k230.near_center_result('keypoints',33)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_result_hand_keypoint_get_arg": {
         "templateSelector": {
@@ -720,7 +739,8 @@
             "40": "k230.get_key_result('id',{NAME},'keypoints',40)",
             "41": "k230.get_key_result('id',{NAME},'keypoints',41)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_hand_near_center": {
         "templateSelector": {
@@ -769,7 +789,8 @@
             "40": "k230.near_center_result('keypoints',40)",
             "41": "k230.near_center_result('keypoints',41)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_result_hand_gesture_get_pos_arg": {
         "templateSelector": {
@@ -777,7 +798,8 @@
           "cases": {
             "0": "k230.near_center_result('extra',0)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_fall_near_center": {
         "templateSelector": {
@@ -785,7 +807,8 @@
           "cases": {
             "1": "k230.near_center_result('extra',1)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_result_self_learn_get_pos_arg": {
         "templateSelector": {
@@ -793,7 +816,8 @@
           "cases": {
             "1": "k230.get_key_result('extra',{NAME},'extra',1)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_result_single_color_get_pos_arg": {
         "templateSelector": {
@@ -801,7 +825,8 @@
           "cases": {
             "color": "k230.near_center_result('color')"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_color_near_center": {
         "templateSelector": {
@@ -809,7 +834,8 @@
           "cases": {
             "color": "k230.near_center_result('color')"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_result_multi_color_get_pos_arg": {
         "templateSelector": {
@@ -817,7 +843,8 @@
           "cases": {
             "color": "k230.get_key_result('color',{NAME.colorName},'color')"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_object_classify_parameter": {
         "templateSelector": {
@@ -825,7 +852,8 @@
           "cases": {
             "0": "k230.near_center_result('extra',0)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_object_parameter": {
         "templateSelector": {
@@ -834,7 +862,8 @@
             "0": "k230.near_center_result('extra',0)",
             "1": "k230.near_center_result('extra',1)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_traffic_sign_near_center": {
         "templateSelector": {
@@ -843,7 +872,8 @@
             "0": "k230.near_center_result('extra',0)",
             "1": "k230.near_center_result('extra',1)"
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_aimecanum_set_mcp_default": {
         "products": [
@@ -859,7 +889,8 @@
           "_mcp_k230_arm_claw = {\"type\":\"function\",\"function\":{\"name\":\"arm_claw\",\"description\":\"控制机械臂夹爪的打开和闭合\",\"parameters\":{\"type\":\"object\",\"properties\":{\"angle\":{\"type\":\"integer\",\"description\":\"夹爪的开合角度，范围在500-1000，默认为500闭合，1000完全张开\"},\"time_count\":{\"type\":\"integer\",\"description\":\"运动时间，单位ms，根据运动距离和速度自动计算，通常在100-1000ms，不能超过1000ms，默认为100ms\"}},\"required\":[\"angle\"]}},\"block\":5}",
           "_mcp_k230_sonar_getDistance = {\"type\":\"function\",\"function\":{\"name\":\"sonar_getDistance\",\"description\":\"超声波测距时调用，返回值为测量到的距离，单位cm，一般在2-400cm之间\",\"parameters\":{\"type\":\"object\",\"properties\":{}}},\"block\":3}",
           "_mcp_k230_sonar_setRGB = {\"type\":\"function\",\"function\":{\"name\":\"sonar_setRGB\",\"description\":\"设置超声波模块上的RGB灯颜色，参数范围都是0-255\",\"parameters\":{\"type\":\"object\",\"properties\":{\"red\":{\"type\":\"integer\"},\"green\":{\"type\":\"integer\"},\"blue\":{\"type\":\"integer\"}},\"required\":[\"red\",\"green\",\"blue\"]}},\"block\":3}"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_aiquadruped_set_mcp_default": {
         "products": [
@@ -875,7 +906,8 @@
           "_mcp_k230_sonar_getDistance = {\"type\":\"function\",\"function\":{\"name\":\"sonar_getDistance\",\"description\":\"超声波测距时调用，返回值为测量到的距离，单位cm，一般在2-400cm之间\",\"parameters\":{\"type\":\"object\",\"properties\":{}}},\"block\":3}",
           "_mcp_k230_sonar_setRGB = {\"type\":\"function\",\"function\":{\"name\":\"sonar_setRGB\",\"description\":\"设置超声波模块上的RGB灯颜色，参数范围都是0-255\",\"parameters\":{\"type\":\"object\",\"properties\":{\"red\":{\"type\":\"integer\"},\"green\":{\"type\":\"integer\"},\"blue\":{\"type\":\"integer\"}},\"required\":[\"red\",\"green\",\"blue\"]}},\"block\":3}",
           "_mcp_k230_robot_runAction = {\"type\":\"function\",\"function\":{\"name\":\"robot_runAction\",\"description\":\"控制机器人执行动作，动作组开始执行时就会回复，时长未知，所以只需说动作已执行\",\"parameters\":{\"type\":\"object\",\"properties\":{\"num\":{\"type\":\"string\",\"description\":\"动作编号\"},\"count\":{\"type\":\"integer\",\"description\":\"动作执行的次数，默认为1，最大为10，超过10会被当做10执行\"}},\"required\":[\"num\",\"count\"]}},\"block\":10}"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_aiquadrupedpro_set_mcp_default": {
         "products": [
@@ -892,7 +924,8 @@
           "_mcp_k230_sonar_setRGB = {\"type\":\"function\",\"function\":{\"name\":\"sonar_setRGB\",\"description\":\"设置超声波模块上的RGB灯颜色，参数范围都是0-255\",\"parameters\":{\"type\":\"object\",\"properties\":{\"red\":{\"type\":\"integer\"},\"green\":{\"type\":\"integer\"},\"blue\":{\"type\":\"integer\"}},\"required\":[\"red\",\"green\",\"blue\"]}},\"block\":3}",
           "_mcp_k230_robot_runAction = {\"type\":\"function\",\"function\":{\"name\":\"robot_runAction\",\"description\":\"控制机器人执行动作，动作组开始执行时就会回复，时长未知，所以只需说动作已执行\",\"parameters\":{\"type\":\"object\",\"properties\":{\"num\":{\"type\":\"string\",\"description\":\"动作编号\"},\"count\":{\"type\":\"integer\",\"description\":\"动作执行的次数，默认为1，最大为10，超过10会被当做10执行\"}},\"required\":[\"num\",\"count\"]}},\"block\":10}",
           "_mcp_k230_robot_set_pose = {\"type\":\"function\",\"function\":{\"name\":\"robot_set_pose\",\"description\":\"控制身体姿态时调用\",\"parameters\":{\"type\":\"object\",\"properties\":{\"x_offset\":{\"type\":\"integer\",\"description\":\"x轴方向偏移，正整数为右平移，负整数为左平移，默认为10，范围[-20,20]\"},\"y_offset\":{\"type\":\"integer\",\"description\":\"y轴方向偏移，正整数为向前平移，负整数为向后平移，默认为10，范围[-20,20]\"},\"z_offset\":{\"type\":\"integer\",\"description\":\"身体抬升降低，正为抬升，默认为10，范围[-15,20]\"},\"pitch\":{\"type\":\"integer\",\"description\":\"pitch角度偏转，范围[-20,20]\"},\"roll\":{\"type\":\"integer\",\"description\":\"roll角度偏转，范围[-20,20]\"},\"yaw\":{\"type\":\"integer\",\"description\":\"yaw角度偏转，范围[-20,20]\"},\"run_time\":{\"type\":\"integer\",\"description\":\"变化时间，单位ms，默认500ms\"}},\"required\":[\"x_offset\",\"y_offset\",\"z_offset\",\"pitch\",\"roll\",\"yaw\",\"run_time\"]}},\"block\":10}"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_aihexa_set_mcp_default": {
         "products": [
@@ -909,7 +942,8 @@
           "_mcp_k230_sonar_setRGB = {\"type\":\"function\",\"function\":{\"name\":\"sonar_setRGB\",\"description\":\"设置超声波模块上的RGB灯颜色，参数范围都是0-255\",\"parameters\":{\"type\":\"object\",\"properties\":{\"red\":{\"type\":\"integer\"},\"green\":{\"type\":\"integer\"},\"blue\":{\"type\":\"integer\"}},\"required\":[\"red\",\"green\",\"blue\"]}},\"block\":3}",
           "_mcp_k230_robot_runAction = {\"type\":\"function\",\"function\":{\"name\":\"robot_runAction\",\"description\":\"控制机器人执行动作，动作组开始执行时就会回复，时长未知，所以只需说动作已执行\",\"parameters\":{\"type\":\"object\",\"properties\":{\"num\":{\"type\":\"string\",\"description\":\"动作编号\"},\"count\":{\"type\":\"integer\",\"description\":\"动作执行的次数，默认为1，最大为10，超过10会被当做10执行\"}},\"required\":[\"num\",\"count\"]}},\"block\":10}",
           "_mcp_k230_robot_set_pose = {\"type\":\"function\",\"function\":{\"name\":\"robot_set_pose\",\"description\":\"控制身体姿态时调用\",\"parameters\":{\"type\":\"object\",\"properties\":{\"x_offset\":{\"type\":\"integer\",\"description\":\"x轴方向偏移，正整数为右平移，负整数为左平移，默认为10，范围[-20,20]\"},\"y_offset\":{\"type\":\"integer\",\"description\":\"y轴方向偏移，正整数为向前平移，负整数为向后平移，默认为10，范围[-20,20]\"},\"z_offset\":{\"type\":\"integer\",\"description\":\"身体抬升降低，正为抬升，默认为10，范围[-15,20]\"},\"pitch\":{\"type\":\"integer\",\"description\":\"pitch角度偏转，范围[-20,20]\"},\"roll\":{\"type\":\"integer\",\"description\":\"roll角度偏转，范围[-20,20]\"},\"yaw\":{\"type\":\"integer\",\"description\":\"yaw角度偏转，范围[-20,20]\"},\"run_time\":{\"type\":\"integer\",\"description\":\"变化时间，单位ms，默认500ms\"}},\"required\":[\"x_offset\",\"y_offset\",\"z_offset\",\"pitch\",\"roll\",\"yaw\",\"run_time\"]}},\"block\":10}"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_default_mcp_name": {
         "products": [
@@ -929,13 +963,15 @@
               "menu": "mcp_names2"
             }
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_robot_set_pose_params": {
         "products": [
           "aiquadrupedpro",
           "aihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_robot_move_params": {
         "products": [
@@ -949,7 +985,8 @@
               "menu": "robot_move_params2"
             }
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_robot_runAction_params": {
         "products": [
@@ -957,17 +994,20 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_motor_speed_params": {
         "products": [
           "aimecanum"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_move_distance_params": {
         "products": [
           "aimecanum"
-        ]
+        ],
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_get_arm_move_to_yz_params": {
         "products": [
@@ -983,53 +1023,434 @@
               "menu": "arm_move_to_yz_params2"
             }
           }
-        }
+        },
+        "blockIcon": "_images/blocks/k230.svg"
       },
       "aimech_led_ultrasonic_init": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_get_led_ultrasonic_distance": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_set_led_ultrasonic_color": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_set_led_ultrasonic_color_arg": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_close_led_ultrasonic": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_set_led_ultrasonic_breath": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_set_led_ultrasonic_random": {
-        "blockIcon": "_images/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_linefollower6_init": {
-        "blockIcon": "_images/linefollow.svg"
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower6_set_threshold": {
-        "blockIcon": "_images/linefollow.svg"
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower6_get_value": {
-        "blockIcon": "_images/linefollow.svg"
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
       "linefollower6_read_offset": {
-        "blockIcon": "_images/linefollow.svg"
+        "blockIcon": "_images/blocks/linefollow.svg"
       },
-      "linefollower8_init": {
-        "blockIcon": "_images/linefollow.svg"
+      "linefollower8_init": {},
+      "linefollower8_get_value": {},
+      "aimech_read_knob": {
+        "blockIcon": "_images/blocks/knob.svg"
       },
-      "linefollower8_get_value": {
-        "blockIcon": "_images/linefollow.svg"
+      "aimech_read_light": {
+        "blockIcon": "_images/blocks/light.svg"
+      },
+      "aimech_get_rain_drop_value": {
+        "blockIcon": "_images/blocks/raindrop.svg"
+      },
+      "aimech_get_soil_value": {
+        "blockIcon": "_images/blocks/soil.svg"
+      },
+      "aimech_get_avoid_value": {
+        "blockIcon": "_images/blocks/avoid.svg"
+      },
+      "get_ultrasonic_distance": {
+        "blockIcon": "_images/blocks/ultra.svg"
+      },
+      "aimech_colorsensor_init": {
+        "blockIcon": "_images/blocks/color.svg"
+      },
+      "aiblocks_check_color": {
+        "blockIcon": "_images/blocks/color.svg"
+      },
+      "aiblocks_get_color": {
+        "blockIcon": "_images/blocks/color.svg"
+      },
+      "aiblocks_get_color_arg": {
+        "blockIcon": "_images/blocks/color.svg"
+      },
+      "aimech_temphumi_init": {
+        "blockIcon": "_images/blocks/temphumi.svg"
+      },
+      "aimech_get_temp_and_humi": {
+        "blockIcon": "_images/blocks/temphumi.svg"
+      },
+      "aimech_get_temp_or_humi": {
+        "blockIcon": "_images/blocks/temphumi.svg"
+      },
+      "aimech_linefollower_init": {
+        "blockIcon": "_images/blocks/linefollow.svg"
+      },
+      "linefollower_read_offset": {
+        "blockIcon": "_images/blocks/linefollow.svg"
+      },
+      "linefollower4_init": {
+        "blockIcon": "_images/blocks/linefollow.svg"
+      },
+      "linefollower4_read_offset": {
+        "blockIcon": "_images/blocks/linefollow.svg"
+      },
+      "aimech_imu_init": {
+        "blockIcon": "_images/blocks/acceleration.svg"
+      },
+      "get_euler_angle_element_value": {
+        "blockIcon": "_images/blocks/acceleration.svg"
+      },
+      "get_euler_angle": {
+        "blockIcon": "_images/blocks/acceleration.svg"
+      },
+      "get_euler_angle_element": {
+        "blockIcon": "_images/blocks/acceleration.svg"
+      },
+      "aimech_wonderecho_init": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_get_results": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_results": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_get_result_num": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_speech_cmd": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_speech_cmd_number": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_speech_play": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "wonderecho_speech_play_number": {
+        "blockIcon": "_images/blocks/asr.svg"
+      },
+      "k230_aimech_init": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_mode": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_run": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_volumn": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_wifi": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_update_detect_result": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_mcp_action_setting": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_mcp_move_setting": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_mcp_setting": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_exists": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_get_result": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_send_mcp_result": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_get_buzzer_params": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_get_rgb_light_params": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_get_sonar_rgb_params": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_get_arm_claw_params": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face_exists": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face2_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face2_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_face_pose_get_oriention": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face3_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_face3_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_facial_detect": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_gaze_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_gaze_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_gaze_near_center_result": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_person_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_person_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_person_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_person_point_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_person2_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_person_keypoint_detect_name": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_hand_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_hand_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_hand_detected_posture": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_gesture_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_gesture_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_hand_gesture_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_hand_gesture_get_pos_arg_by_name": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_fall_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_fall_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_fall_near_center_result": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_target_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_target_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_dynamic_gesture_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_dynamic_gesture_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_self_learn_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_single_color": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_single_color_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_single_color_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_multi_color_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_color_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_color_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_color_near_center_name": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_line_color": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_set_line_color_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_line_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_line_detect_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_ocr_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_ocr_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_ocr_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_ocr_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_license_plate_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_license_plate_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_lpr_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_lpr_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_object_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_object_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_object_named_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_trash_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_trash_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_garbage_get_name_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_trash_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_garbage_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_traffic_sign_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_traffic_sign_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_traffic_get_name_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_april_tag_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_april_tag_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_apriltag_get_name_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_april_tag_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_apriltag_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_dm_code_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_dm_code_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_dmcode_get_name_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_dm_code_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_dmcode_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_qr_code_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_qr_code_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_orcode_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_qr_code_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_orcode_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_barcode_detected": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_barcode_count": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_barcode_get_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_barcode_near_center": {
+        "blockIcon": "_images/blocks/k230.svg"
+      },
+      "k230_result_barcode_get_pos_arg": {
+        "blockIcon": "_images/blocks/k230.svg"
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.0",
+      "version": "1.22.1",
       "main": "main.ts",
       "dependencies": {},
       "files": [

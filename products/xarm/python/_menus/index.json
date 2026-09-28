@@ -1,0 +1,27 @@
+{
+  "arm": {
+    "menu": [
+      ["机械臂", "_armId"],
+      ["机械爪", "_clawId"]
+    ],
+    "default_aimech_servo_enable_ARM": "_armId",
+    "default_aimech_servo_disable_ARM": "_armId",
+    "default_aimech_set_servo_pose_time_ARM": "_armId",
+    "default_aimech_get_angle_ARM": "_armId",
+    "default_aimech_set_servo_stop_ARM": "_armId"
+  },
+  "arm_3dof": {
+    "menu": [
+      ["短机械臂", "0"],
+      ["长机械臂", "1"]
+    ],
+    "default_aimech_3dof_arm_init_ARM": "0"
+  },
+  "delay_select": {
+    "menu": [
+      ["不延时", "False"],
+      ["延时", "True"]
+    ],
+    "default_aimech_rod_arm_move_VALUE4": "False"
+  }
+}

@@ -2,6 +2,37 @@
   "formatVersion": 1,
   "packages": [
     {
+      "packageId": "actuator",
+      "name": "动力模块",
+      "status": "draft",
+      "productIcons": {
+        "bus-servo": "python/_images/product-cards/bus-servo.png",
+        "fan": "python/_images/product-cards/fan.png",
+        "iic-pwm": "python/_images/product-cards/iic-pwm.png",
+        "long-motor": "python/_images/product-cards/long-motor.png",
+        "servo-180": "python/_images/product-cards/servo-180.png",
+        "servo-360": "python/_images/product-cards/servo-360.png",
+        "wondercode-bus-servo-15d": "python/_images/product-cards/wondercode-bus-servo-15d.png",
+        "wondercode-bus-servo-6kg": "python/_images/product-cards/wondercode-bus-servo-6kg.png",
+        "wondercode-conveyor": "python/_images/product-cards/wondercode-conveyor.png",
+        "wondercode-encoder-motor": "python/_images/product-cards/wondercode-encoder-motor.png",
+        "wondercode-motor": "python/_images/product-cards/wondercode-motor.png",
+        "wondercode-servo-180": "python/_images/product-cards/wondercode-servo-180.png",
+        "wondercode-servo-270": "python/_images/product-cards/wondercode-servo-270.png",
+        "wondercode-servo-360": "python/_images/product-cards/wondercode-servo-360.png",
+        "wondercode-stepper": "python/_images/product-cards/wondercode-stepper.png"
+      },
+      "description": "适用于 Hiwonder Python 产品的动力模块积木包。",
+      "version": "1.2.1",
+      "provider": "github",
+      "repository": "heyanjun963/scratch-product-extensions",
+      "tag": "python-blocks-v1.0.1",
+      "asset": "actuator-1.2.1.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/actuator-1.2.1.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/actuator-1.2.1.mpext",
+      "sha256": "40438cd7c7bb7453c1eeed7c51e717f008c490529afedea068134e6f8e59a7af"
+    },
+    {
       "packageId": "aidoggy",
       "name": "AiDoggy",
       "description": "适用于 AiDoggy 四足机器狗的 Python 积木拓展包。",
@@ -22,15 +53,15 @@
       "packageId": "aihexa",
       "name": "AI机甲六足机器人",
       "description": "适用于 AI机甲六足机器人的 Python 积木拓展包。",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "aihexa-1.0.2.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aihexa-1.0.2.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aihexa-1.0.2.mpext",
-      "sha256": "b0c4773e8cb734ac6edad4efe6ef20a522445e53c0818efa34c0235504c4e19e",
-      "status": "published",
+      "asset": "aihexa-1.0.3.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aihexa-1.0.3.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aihexa-1.0.3.mpext",
+      "sha256": "52c86e252f7bb3c51979c770b8c2c7fd599a92e17c2c8d61f70047dea1f2cab7",
+      "status": "draft",
       "productIcons": {
         "aihexa": "python/_images/product-cards/aihexa.png"
       }
@@ -39,15 +70,15 @@
       "packageId": "aimecanum",
       "name": "AI机甲麦轮车",
       "description": "适用于 AI机甲麦轮车的 Python 积木拓展包。",
-      "version": "0.2.6",
+      "version": "0.2.8",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "aimecanum-0.2.6.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aimecanum-0.2.6.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aimecanum-0.2.6.mpext",
-      "sha256": "24be7760c151f89b9eeb27f7b58bc2bac8f0c2020697bdd521d533ee75b144ad",
-      "status": "published",
+      "asset": "aimecanum-0.2.8.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aimecanum-0.2.8.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aimecanum-0.2.8.mpext",
+      "sha256": "32449a2334fd3f9b209c96482e03b80fc444fec5b6790b60028d5fa965556d50",
+      "status": "draft",
       "productIcons": {
         "aimecanum": "python/_images/product-cards/aimecanum.png"
       }
@@ -56,32 +87,48 @@
       "packageId": "aimech",
       "name": "AI机甲双驱车",
       "description": "适用于 AI机甲双驱车的 Python 积木拓展包。",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "aimech-1.0.1.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aimech-1.0.1.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aimech-1.0.1.mpext",
-      "sha256": "78243de7acf84a3334bab8ea75d0f5f1beb04883d0ba6bc7b550c59db073bb3d",
+      "asset": "aimech-1.0.2.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aimech-1.0.2.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aimech-1.0.2.mpext",
+      "sha256": "9bc383abf9d4a1027f70911914668f4554e9f708af65319678aad9f437037aba",
       "status": "draft",
       "productIcons": {
         "aimech": "python/_images/product-cards/aimech.png"
       }
     },
     {
+      "packageId": "ainova",
+      "name": "AiNova(标准版)",
+      "status": "planned",
+      "productIcons": {
+        "wondercode-ainova": "python/_images/product-cards/wondercode-ainova.png"
+      }
+    },
+    {
+      "packageId": "ainovab",
+      "name": "AiNova(入门版)",
+      "status": "planned",
+      "productIcons": {
+        "wondercode-ainovab": "python/_images/product-cards/wondercode-ainovab.png"
+      }
+    },
+    {
       "packageId": "aiquadruped",
       "name": "AI机甲四足机器人",
       "description": "适用于 AI机甲四足机器人的 Python 积木拓展包。",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "aiquadruped-1.0.1.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aiquadruped-1.0.1.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aiquadruped-1.0.1.mpext",
-      "sha256": "30a8bb16bf742cd78679821bfb3bb278aac1a2e1d96e35c90278787a224a340a",
-      "status": "published",
+      "asset": "aiquadruped-1.0.2.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aiquadruped-1.0.2.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aiquadruped-1.0.2.mpext",
+      "sha256": "18d5c4274a6ab557aa4d11e9b44e69052bec97be1e1172fdf21dbdf17005ef4a",
+      "status": "draft",
       "productIcons": {
         "aiquadruped": "python/_images/product-cards/aiquadruped.png"
       }
@@ -90,17 +137,91 @@
       "packageId": "aiquadrupedpro",
       "name": "AI机甲四足竞赛版",
       "description": "适用于 AI机甲四足竞赛版的 Python 积木拓展包。",
+      "version": "1.0.2",
+      "provider": "github",
+      "repository": "heyanjun963/scratch-product-extensions",
+      "tag": "python-blocks-v1.0.1",
+      "asset": "aiquadrupedpro-1.0.2.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aiquadrupedpro-1.0.2.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aiquadrupedpro-1.0.2.mpext",
+      "sha256": "d9abc72619dc9754cb67f637eb6cbd92c854c5aae96b3234cf8a376ebb79b4d8",
+      "status": "draft",
+      "productIcons": {
+        "aiquadrupedpro": "python/_images/product-cards/aiquadrupedpro.png"
+      }
+    },
+    {
+      "packageId": "communication",
+      "name": "通信模块",
+      "status": "draft",
+      "productIcons": {
+        "communication": "python/_images/product-cards/communication.png",
+        "wondercode-ps2": "python/_images/product-cards/wondercode-ps2.png",
+        "wondercode-ps3": "python/_images/product-cards/wondercode-ps3.png",
+        "wondercode-wifi": "python/_images/product-cards/wondercode-wifi.png"
+      },
+      "description": "适用于 Hiwonder Python 产品的通信模块积木包。",
       "version": "1.0.1",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "aiquadrupedpro-1.0.1.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/aiquadrupedpro-1.0.1.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/aiquadrupedpro-1.0.1.mpext",
-      "sha256": "b6e9afd3839c61deac94e006d8f2209c424f98c63a9f31cb79d3dd7924429543",
-      "status": "published",
+      "asset": "communication-1.0.1.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/communication-1.0.1.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/communication-1.0.1.mpext",
+      "sha256": "d8ce5a9da597dfd12ffe4786848be080051e03ae79df8de783e0c13b3fa05a57"
+    },
+    {
+      "packageId": "corex",
+      "name": "CoreX",
+      "status": "planned",
       "productIcons": {
-        "aiquadrupedpro": "python/_images/product-cards/aiquadrupedpro.png"
+        "wondercode-corex": "python/_images/product-cards/wondercode-corex.png"
+      }
+    },
+    {
+      "packageId": "display",
+      "name": "输出模块",
+      "status": "draft",
+      "productIcons": {
+        "digit-display": "python/_images/product-cards/digit-display.png",
+        "dot-matrix": "python/_images/product-cards/dot-matrix.png",
+        "oled": "python/_images/product-cards/oled.png",
+        "rgb-module": "python/_images/product-cards/rgb-module.png",
+        "wondercode-digit-display": "python/_images/product-cards/wondercode-digit-display.png",
+        "wondercode-dot-matrix": "python/_images/product-cards/wondercode-dot-matrix.png",
+        "wondercode-fan-black": "python/_images/product-cards/wondercode-fan-black.png",
+        "wondercode-fan-iic": "python/_images/product-cards/wondercode-fan-iic.png",
+        "wondercode-fan-white": "python/_images/product-cards/wondercode-fan-white.png",
+        "wondercode-mp3": "python/_images/product-cards/wondercode-mp3.png",
+        "wondercode-oled": "python/_images/product-cards/wondercode-oled.png",
+        "wondercode-rgb-module": "python/_images/product-cards/wondercode-rgb-module.png",
+        "wondercode-rgb-strip": "python/_images/product-cards/wondercode-rgb-strip.png",
+        "wondercode-tts": "python/_images/product-cards/wondercode-tts.png"
+      },
+      "description": "适用于 Hiwonder Python 产品的输出模块积木包。",
+      "version": "1.4.1",
+      "provider": "github",
+      "repository": "heyanjun963/scratch-product-extensions",
+      "tag": "python-blocks-v1.0.1",
+      "asset": "display-1.4.1.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/display-1.4.1.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/display-1.4.1.mpext",
+      "sha256": "c9cddcc6b46572c47c6d8ad1274c516fc7de10fee0bf56e20ffddf30558c39c5"
+    },
+    {
+      "packageId": "k12esp32",
+      "name": "K12 ESP32",
+      "status": "planned",
+      "productIcons": {
+        "wondercode-k12esp32": "python/_images/product-cards/wondercode-k12esp32.png"
+      }
+    },
+    {
+      "packageId": "mechdog",
+      "name": "MechDog",
+      "status": "planned",
+      "productIcons": {
+        "wondercode-mechdog": "python/_images/product-cards/wondercode-mechdog.png"
       }
     },
     {
@@ -125,14 +246,14 @@
       "packageId": "sensor",
       "name": "输入模块",
       "description": "适用于 Hiwonder Python 产品的基础输入传感器积木包。",
-      "version": "1.22.0",
+      "version": "1.22.1",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "sensor-1.22.0.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.22.0.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.22.0.mpext",
-      "sha256": "3463cad21f9247b9f644735797683fe508dd97ea4359202236339affac9ab39b",
+      "asset": "sensor-1.22.1.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.22.1.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.22.1.mpext",
+      "sha256": "141d442bfb6334950462b3826acefe9cd9a4ce360d229a82a926a1e2690d922f",
       "status": "draft",
       "productIcons": {
         "button-module": "python/_images/product-cards/button-module.png",
@@ -183,118 +304,33 @@
       }
     },
     {
-      "packageId": "actuator",
-      "name": "动力模块",
-      "status": "planned",
-      "productIcons": {
-        "bus-servo": "python/_images/product-cards/bus-servo.png",
-        "fan": "python/_images/product-cards/fan.png",
-        "iic-pwm": "python/_images/product-cards/iic-pwm.png",
-        "long-motor": "python/_images/product-cards/long-motor.png",
-        "servo-180": "python/_images/product-cards/servo-180.png",
-        "servo-360": "python/_images/product-cards/servo-360.png",
-        "wondercode-bus-servo-15d": "python/_images/product-cards/wondercode-bus-servo-15d.png",
-        "wondercode-bus-servo-6kg": "python/_images/product-cards/wondercode-bus-servo-6kg.png",
-        "wondercode-conveyor": "python/_images/product-cards/wondercode-conveyor.png",
-        "wondercode-encoder-motor": "python/_images/product-cards/wondercode-encoder-motor.png",
-        "wondercode-motor": "python/_images/product-cards/wondercode-motor.png",
-        "wondercode-servo-180": "python/_images/product-cards/wondercode-servo-180.png",
-        "wondercode-servo-270": "python/_images/product-cards/wondercode-servo-270.png",
-        "wondercode-servo-360": "python/_images/product-cards/wondercode-servo-360.png",
-        "wondercode-stepper": "python/_images/product-cards/wondercode-stepper.png"
-      }
-    },
-    {
-      "packageId": "communication",
-      "name": "通信模块",
-      "status": "planned",
-      "productIcons": {
-        "communication": "python/_images/product-cards/communication.png",
-        "wondercode-ps2": "python/_images/product-cards/wondercode-ps2.png",
-        "wondercode-ps3": "python/_images/product-cards/wondercode-ps3.png",
-        "wondercode-wifi": "python/_images/product-cards/wondercode-wifi.png"
-      }
-    },
-    {
-      "packageId": "display",
-      "name": "输出模块",
-      "status": "planned",
-      "productIcons": {
-        "digit-display": "python/_images/product-cards/digit-display.png",
-        "dot-matrix": "python/_images/product-cards/dot-matrix.png",
-        "oled": "python/_images/product-cards/oled.png",
-        "rgb-module": "python/_images/product-cards/rgb-module.png",
-        "wondercode-digit-display": "python/_images/product-cards/wondercode-digit-display.png",
-        "wondercode-dot-matrix": "python/_images/product-cards/wondercode-dot-matrix.png",
-        "wondercode-fan-black": "python/_images/product-cards/wondercode-fan-black.png",
-        "wondercode-fan-iic": "python/_images/product-cards/wondercode-fan-iic.png",
-        "wondercode-fan-white": "python/_images/product-cards/wondercode-fan-white.png",
-        "wondercode-mp3": "python/_images/product-cards/wondercode-mp3.png",
-        "wondercode-oled": "python/_images/product-cards/wondercode-oled.png",
-        "wondercode-rgb-module": "python/_images/product-cards/wondercode-rgb-module.png",
-        "wondercode-rgb-strip": "python/_images/product-cards/wondercode-rgb-strip.png",
-        "wondercode-tts": "python/_images/product-cards/wondercode-tts.png"
-      }
-    },
-    {
-      "packageId": "xarm",
-      "name": "机械臂",
-      "status": "planned",
-      "productIcons": {
-        "wondercode-aiarm": "python/_images/product-cards/wondercode-aiarm.png",
-        "wondercode-xarm": "python/_images/product-cards/wondercode-xarm.png",
-        "xarm": "python/_images/product-cards/xarm.png",
-        "xarm-linkage": "python/_images/product-cards/xarm-linkage.png",
-        "xarm-series": "python/_images/product-cards/xarm-series.png"
-      }
-    },
-    {
-      "packageId": "ainova",
-      "name": "AiNova(标准版)",
-      "status": "planned",
-      "productIcons": {
-        "wondercode-ainova": "python/_images/product-cards/wondercode-ainova.png"
-      }
-    },
-    {
-      "packageId": "ainovab",
-      "name": "AiNova(入门版)",
-      "status": "planned",
-      "productIcons": {
-        "wondercode-ainovab": "python/_images/product-cards/wondercode-ainovab.png"
-      }
-    },
-    {
-      "packageId": "corex",
-      "name": "CoreX",
-      "status": "planned",
-      "productIcons": {
-        "wondercode-corex": "python/_images/product-cards/wondercode-corex.png"
-      }
-    },
-    {
-      "packageId": "k12esp32",
-      "name": "K12 ESP32",
-      "status": "planned",
-      "productIcons": {
-        "wondercode-k12esp32": "python/_images/product-cards/wondercode-k12esp32.png"
-      }
-    },
-    {
-      "packageId": "mechdog",
-      "name": "MechDog",
-      "status": "planned",
-      "productIcons": {
-        "wondercode-mechdog": "python/_images/product-cards/wondercode-mechdog.png"
-      }
-    },
-    {
       "packageId": "tonybot",
       "name": "Tonybot",
       "status": "planned",
       "productIcons": {
         "wondercode-tonybot": "python/_images/product-cards/wondercode-tonybot.png"
       }
+    },
+    {
+      "packageId": "xarm",
+      "name": "机械臂模块",
+      "status": "draft",
+      "productIcons": {
+        "wondercode-aiarm": "python/_images/product-cards/wondercode-aiarm.png",
+        "wondercode-xarm": "python/_images/product-cards/wondercode-xarm.png",
+        "xarm": "python/_images/product-cards/xarm.png",
+        "xarm-linkage": "python/_images/product-cards/xarm-linkage.png",
+        "xarm-series": "python/_images/product-cards/xarm-series.png"
+      },
+      "description": "适用于 Hiwonder Python 产品的机械臂积木包。",
+      "version": "1.1.1",
+      "provider": "github",
+      "repository": "heyanjun963/scratch-product-extensions",
+      "tag": "python-blocks-v1.0.1",
+      "asset": "xarm-1.1.1.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/xarm-1.1.1.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/xarm-1.1.1.mpext",
+      "sha256": "1826b0a069837f389210e38cfc76b8c4a084e10a76edaf6521c5d776e91570f0"
     }
   ]
 }

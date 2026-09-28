@@ -17,75 +17,121 @@
     "web",
     "linux"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scratchEditor": {
     "color1": "#1874cd",
-    "color2": "#145fa8",
-    "color3": "#104b85",
+    "color2": "#1874cd",
+    "color3": "#1874cd",
     "categories": [
       {
         "id": "main",
         "name": "主程序",
         "hideLabel": true,
-        "blocks": ["start_thread", "start_run_thread"]
+        "blocks": [
+          "start_thread",
+          "start_run_thread"
+        ]
       },
       {
         "id": "boardResource",
         "name": "板载资源",
         "hideLabel": false,
         "blocks": [
-          "buzzer_tone_set", "buzzer_tone_set_arg", "buzzer_tone_set_volume",
-          "close_buzzer", "close_lowpower_warning", "get_battery_level"
+          "buzzer_tone_set",
+          "buzzer_tone_set_arg",
+          "buzzer_tone_set_volume",
+          "close_buzzer",
+          "close_lowpower_warning",
+          "get_battery_level"
         ]
       },
       {
         "id": "rgb",
         "name": "RGB彩灯",
         "hideLabel": false,
-        "blocks": ["set_led_color", "set_led_color_arg", "rgb_module_breath_one", "rgb_module_breath", "close_led"]
+        "blocks": [
+          "set_led_color",
+          "set_led_color_arg",
+          "rgb_module_breath_one",
+          "rgb_module_breath",
+          "close_led"
+        ]
       },
       {
         "id": "output",
         "name": "输出打印",
         "hideLabel": false,
-        "blocks": ["print_str", "print_number"]
+        "blocks": [
+          "print_str",
+          "print_number"
+        ]
       },
       {
         "id": "button",
         "name": "按键",
         "hideLabel": false,
-        "blocks": ["when_key_click_thread", "when_key_longclick_thread", "key_is_pressed"]
+        "blocks": [
+          "when_key_click_thread",
+          "when_key_longclick_thread",
+          "key_is_pressed"
+        ]
       },
       {
         "id": "motion",
         "name": "运动控制",
         "hideLabel": false,
         "blocks": [
-          "robot_init_foot", "robot_set_foot", "robot_reset", "robot_move",
-          "robot_move_step", "robot_move_xyz", "robot_move_xyz_step", "robot_stop_run",
-          "robot_run_action", "robot_stop_action", "robot_height", "robot_run_pose",
-          "robot_servo_set", "get_robot_servo_pos", "set_all_robot_servo_load"
+          "robot_init_foot",
+          "robot_set_foot",
+          "robot_reset",
+          "robot_move",
+          "robot_move_step",
+          "robot_move_xyz",
+          "robot_move_xyz_step",
+          "robot_stop_run",
+          "robot_run_action",
+          "robot_stop_action",
+          "robot_height",
+          "robot_run_pose",
+          "robot_servo_set",
+          "get_robot_servo_pos",
+          "set_all_robot_servo_load"
         ]
       },
       {
         "id": "imu",
         "name": "IMU传感器",
         "hideLabel": false,
-        "blocks": ["imu_init", "imu_cali", "get_euler_angle_element_value"]
+        "blocks": [
+          "imu_init",
+          "imu_cali",
+          "get_euler_angle_element_value"
+        ]
       },
       {
         "id": "bluetooth",
         "name": "蓝牙通信",
         "hideLabel": false,
         "blocks": [
-          "set_ble_mode", "ble_is_connected", "get_ble_mac", "ble_wait_end",
-          "read_ble_data", "get_ble_cmd", "get_ble_args", "ble_write"
+          "set_ble_mode",
+          "ble_is_connected",
+          "get_ble_mac",
+          "ble_wait_end",
+          "read_ble_data",
+          "get_ble_cmd",
+          "get_ble_args",
+          "ble_write"
         ]
       }
     ],
     "blocks": {
-      "start_thread": {"launcher": "Hiwonder.startMain({MAIN})", "section": "main"},
-      "start_run_thread": {"section": "setup"},
+      "start_thread": {
+        "launcher": "Hiwonder.startMain({MAIN})",
+        "section": "main"
+      },
+      "start_run_thread": {
+        "section": "setup"
+      },
       "when_key_click_thread": {
         "entryTemplate": "def on_button{KEYS}_clicked():",
         "entryFooter": "button{KEYS}.Clicked(on_button{KEYS}_clicked)",
@@ -127,10 +173,12 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "main": "main.ts",
       "dependencies": {},
-      "files": ["_menus/index.json"]
+      "files": [
+        "_menus/index.json"
+      ]
     }
   }
 }
