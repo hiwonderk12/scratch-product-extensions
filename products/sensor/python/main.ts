@@ -177,6 +177,40 @@ namespace sensor {
         Generator.addCode(`linefollow6.read_offset()`);
     }
 
+    // 八路巡线初始化维护独立设备对象，避免与四路、六路传感器状态互相覆盖。
+    //% block="初始化八路灰度巡线传感器IIC接口 [PORT]" blockType="command"
+    //% PORT.shadow="dropdown" PORT.options="aimech_iicport" PORT.defl="1"
+    export function linefollower8_init(parameter: any, block: any) {
+        const port = parameter.PORT.code;
+        Generator.addImport(`import Hiwonder_DEV`);
+        Generator.addObject("", "", `linefollow8 = Hiwonder_DEV.DEV_LINE_FOLLOW_8(Hiwonder_DEV.Port(${port}))`);
+    }
+
+    // 通道菜单保存 1-128 位掩码，模板选择器根据亮灭状态生成布尔表达式。
+    //% block="八路灰度巡线传感器通道 [NUM] 检测到 [LINE]" blockType="boolean"
+    //% NUM.shadow="dropdown" NUM.options="linefollows8Mask" NUM.defl="1"
+    //% LINE.shadow="dropdown" LINE.options="linedot2" LINE.defl="0"
+    export function linefollower8_one_status(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const status = parameter.LINE.code;
+        Generator.addCode(`(linefollow8.get_result_data() & ${num}) > ${status}`);
+    }
+
+    // LINE 参数由 editor 配置覆盖为 LINE8 可视化位掩码字段。
+    //% block="八路灰度巡线传感器通道检测到 [LINE]" blockType="boolean"
+    //% LINE.shadow="string" LINE.defl="00"
+    export function linefollower8_status(parameter: any, block: any) {
+        const status = parameter.LINE.code;
+        Generator.addCode(`linefollow8.get_result_data() == 0x${status}`);
+    }
+
+    //% block="八路灰度巡线传感器通道 [NUM] 灰度值" blockType="reporter"
+    //% NUM.shadow="dropdown" NUM.options="linefollows8" NUM.defl="1"
+    export function linefollower8_get_value(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`linefollow8.read_AnalogQuantity(${num})`);
+    }
+
     // 普通四路巡线初始化维护 linefollow，后续状态与偏差读取复用该对象。
     //% block="初始化四路巡线传感器IIC接口 [PORT]" blockType="command"
     //% PORT.shadow="dropdown" PORT.options="aimech_iicport" PORT.defl="1"

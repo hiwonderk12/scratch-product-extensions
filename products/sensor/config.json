@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.21.2",
+  "version": "1.22.0",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -115,6 +115,16 @@
           "linefollower6_set_threshold",
           "linefollower6_get_value",
           "linefollower6_read_offset"
+        ]
+      },
+      {
+        "id": "wondercode-line-8",
+        "name": "八路灰度巡线传感器",
+        "blocks": [
+          "linefollower8_init",
+          "linefollower8_one_status",
+          "linefollower8_status",
+          "linefollower8_get_value"
         ]
       },
       {
@@ -473,6 +483,25 @@
         "arguments": {
           "LINE": {
             "type": "line6",
+            "defaultValue": "00"
+          }
+        },
+        "blockIcon": "_images/linefollow.svg"
+      },
+      "linefollower8_one_status": {
+        "templateSelector": {
+          "argument": "LINE",
+          "cases": {
+            "0": "(linefollow8.get_result_data() & {NUM}) == 0",
+            "1": "(linefollow8.get_result_data() & {NUM}) > 0"
+          }
+        },
+        "blockIcon": "_images/linefollow.svg"
+      },
+      "linefollower8_status": {
+        "arguments": {
+          "LINE": {
+            "type": "line8",
             "defaultValue": "00"
           }
         },
@@ -988,13 +1017,19 @@
       },
       "linefollower6_read_offset": {
         "blockIcon": "_images/linefollow.svg"
+      },
+      "linefollower8_init": {
+        "blockIcon": "_images/linefollow.svg"
+      },
+      "linefollower8_get_value": {
+        "blockIcon": "_images/linefollow.svg"
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.21.0",
+      "version": "1.22.0",
       "main": "main.ts",
       "dependencies": {},
       "files": [
