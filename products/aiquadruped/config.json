@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scratchEditor": {
     "color1": "#1874cd",
     "color2": "#1874cd",
@@ -141,7 +141,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "main": "main.ts",
       "dependencies": {},
       "files": [

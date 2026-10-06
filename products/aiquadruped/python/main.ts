@@ -69,26 +69,30 @@ namespace aiquadruped {
         Generator.addCode(`Hiwonder.Battery_power()`);
     }
 
-    //% block="设置RGB彩灯颜色 [COLOR]" blockType="command"
+    //% block="设置RGB彩灯 [NUMS] 颜色 [COLOR]" blockType="command"
+    //% NUMS.shadow="dropdown" NUMS.options="nums" NUMS.defl="0"
     //% COLOR.shadow="string" COLOR.defl="#ff0000"
     export function set_led_color(parameter: any, block: any) {
+        const nums = parameter.NUMS.code;
         const color = parameter.COLOR.code;
         Generator.addImport(`import Hiwonder`);
         Generator.addObject("", "", `rgb = Hiwonder.RGB()`);
-        Generator.addCode(`rgb.setRGB(0,int(${color}[1:3],16),int(${color}[3:5],16),int(${color}[5:7],16))`);
+        Generator.addCode(`rgb.setRGB(${nums},int(${color}[1:3],16),int(${color}[3:5],16),int(${color}[5:7],16))`);
     }
 
-    //% block="设置RGB彩灯红色 [RED] 绿色 [GREEN] 蓝色 [BLUE]" blockType="command"
+    //% block="设置RGB彩灯 [NUMS] 红色 [RED] 绿色 [GREEN] 蓝色 [BLUE]" blockType="command"
+    //% NUMS.shadow="dropdown" NUMS.options="nums" NUMS.defl="0"
     //% RED.shadow="number" RED.defl="255"
     //% GREEN.shadow="number" GREEN.defl="0"
     //% BLUE.shadow="number" BLUE.defl="0"
     export function set_led_color_arg(parameter: any, block: any) {
+        const nums = parameter.NUMS.code;
         const red = parameter.RED.code;
         const green = parameter.GREEN.code;
         const blue = parameter.BLUE.code;
         Generator.addImport(`import Hiwonder`);
         Generator.addObject("", "", `rgb = Hiwonder.RGB()`);
-        Generator.addCode(`rgb.setRGB(0,${red},${green},${blue})`);
+        Generator.addCode(`rgb.setRGB(${nums},${red},${green},${blue})`);
     }
 
     //% block="设置RGB彩灯呼吸灯模式 颜色 [COLOR] 变化周期(0.5~20) [CYCLE] 秒" blockType="command"
@@ -109,9 +113,11 @@ namespace aiquadruped {
         Generator.addCode(`rgb.setRGBBreathingValue(5,10,15)`);
     }
 
-    //% block="关闭RGB彩灯" blockType="command"
+    //% block="关闭RGB彩灯 [NUMS]" blockType="command"
+    //% NUMS.shadow="dropdown" NUMS.options="nums" NUMS.defl="0"
     export function close_led(parameter: any, block: any) {
-        Generator.addCode(`rgb.setRGB(0,0,0,0)`);
+        const nums = parameter.NUMS.code;
+        Generator.addCode(`rgb.setRGB(${nums},0,0,0)`);
     }
 
     //% block="输出打印字符 [STR]" blockType="command"

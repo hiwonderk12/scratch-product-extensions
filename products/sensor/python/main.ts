@@ -1340,4 +1340,21 @@ namespace sensor {
     export function numOfDetectedFaces(parameter: any, block: any) {
         Generator.addCode(`cam.numOfDetectedFaces()`);
     }
+
+    // WonderLens 颜色识别 reporter 保留旧教案的参数结构和 Python 调用语义。
+    //% block="WonderLens 检测到颜色 ID [NUM] ?" blockType="boolean"
+    //% NUM.shadow="number" NUM.defl="1"
+    export function isColorOfIdDetected(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.isColorOfIdDetected(${num})`);
+    }
+
+    //% block="WonderLens 获取颜色 ID [NUM] 的 [POS]" blockType="reporter"
+    //% NUM.shadow="number" NUM.defl="1"
+    //% POS.shadow="dropdown" POS.options="wonderLensColorResult" POS.defl="0"
+    export function getColorOfId(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const pos = parameter.POS.code;
+        Generator.addCode(`cam.getColorOfId(${num})[${pos}]`);
+    }
 }

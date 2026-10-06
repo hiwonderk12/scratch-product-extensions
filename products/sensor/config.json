@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.1",
+  "version": "1.22.2",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -198,7 +198,9 @@
           "setLed",
           "wondercamUpdateResult",
           "isAnyFaceDetected",
-          "numOfDetectedFaces"
+          "numOfDetectedFaces",
+          "isColorOfIdDetected",
+          "getColorOfId"
         ]
       },
       {
@@ -469,6 +471,28 @@
         "blockIcon": "_images/blocks/cam.svg"
       },
       "numOfDetectedFaces": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isColorOfIdDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getColorOfId": {
         "products": [
           "aimech",
           "aimecanum",
@@ -1450,7 +1474,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.1",
+      "version": "1.22.2",
       "main": "main.ts",
       "dependencies": {},
       "files": [
