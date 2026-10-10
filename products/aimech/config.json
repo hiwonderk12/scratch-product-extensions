@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.0.2",
+  "version": "1.0.4",
   "scratchEditor": {
     "color1": "#1874cd",
     "color2": "#1874cd",
@@ -144,6 +144,11 @@
           "cases": {
             "0": "motor.motors_run_rpm({SPEED},{SPEED})"
           }
+        },
+        "arguments": {
+          "SPEED": {
+            "type": "slider150p"
+          }
         }
       },
       "set_motor_run_angle": {
@@ -151,6 +156,11 @@
           "argument": "WHEEL",
           "cases": {
             "0": "motor.motor_run_angle(1,{ANGLE},{SPEED})\nmotor.motor_run_angle(2,{ANGLE},{SPEED})"
+          }
+        },
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
           }
         }
       },
@@ -161,13 +171,81 @@
             "0": "motor.reset_motor_angle(1)\nmotor.reset_motor_angle(2)"
           }
         }
+      },
+      "buzzer_tone_set_volume": {
+        "arguments": {
+          "VALUE": {
+            "type": "slider"
+          }
+        }
+      },
+      "set_led_color": {
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
+      },
+      "set_led_color_arg": {
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
+      },
+      "motor_speed_set": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          }
+        }
+      },
+      "set_motor_run_distance": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          }
+        }
+      },
+      "set_motor_run_oriention_angle": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          }
+        }
+      },
+      "set_motor_run_two_wheel": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150p"
+          },
+          "SPEED2": {
+            "type": "slider150p"
+          }
+        }
+      },
+      "set_motor_run_two_wheel_percent": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider100"
+          },
+          "SPEED2": {
+            "type": "slider100"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.0.2",
+      "version": "1.0.4",
       "main": "main.ts",
       "dependencies": {},
       "files": [

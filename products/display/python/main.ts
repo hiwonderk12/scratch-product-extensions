@@ -375,4 +375,15 @@ namespace display {
         Generator.addObject("", "", `iic_fan_${port} = Hiwonder_IIC.DEV_FAN(iic,${port},0x58)`);
         Generator.addCode(`iic_fan_${port}.set_speed(${speed})`);
     }
+
+    // AI 产品 IIC 风扇由输出模块包提供，参数控件及产品范围在 config.json 中声明。
+    //% block="设置风扇接口 [PORT] 转速 [SPEED]" blockType="command"
+    //% PORT.shadow="dropdown" PORT.options="aimech_iicport" PORT.defl="1" SPEED.shadow="number" SPEED.defl="80"
+    export function aimech_fan_iic_set_module_speed(parameter: any, block: any) {
+        const port = parameter.PORT.code;
+        const speed = parameter.SPEED.code;
+        Generator.addImport(`import Hiwonder_DEV`);
+        Generator.addObject("", "", `iic_fan_${port} = Hiwonder_DEV.DEV_FAN(Hiwonder_DEV.Port(${port}))`);
+        Generator.addCode(`iic_fan_${port}.set_speed(${speed})`);
+    }
 }

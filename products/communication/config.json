@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scratchEditor": {
     "color1": "#EE799F",
     "color2": "#EE799F",
@@ -38,12 +38,21 @@
           "ps3_get_sensor"
         ]
       }
-    ]
+    ],
+    "blocks": {
+      "ps3_set_rumble": {
+        "arguments": {
+          "VALUE1": {
+            "type": "slider"
+          }
+        }
+      }
+    }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "main": "main.ts",
       "dependencies": {},
       "files": [

@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scratchEditor": {
     "color1": "#1874cd",
     "color2": "#1874cd",
@@ -167,13 +167,20 @@
             "5": "quadrupedpro.move(0,0,-{VALUE},{HEIGHT},{PERIOD},{VALUE2})"
           }
         }
+      },
+      "set_led_color": {
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "main": "main.ts",
       "dependencies": {},
       "files": [

@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "0.2.8",
+  "version": "0.2.9",
   "scratchEditor": {
     "color1": "#1874cd",
     "color2": "#1874cd",
@@ -178,13 +178,102 @@
             "defaultValue": "00"
           }
         }
+      },
+      "set_led_color": {
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
+      },
+      "set_motor_speed_all": {
+        "arguments": {
+          "SPEED1": {
+            "type": "slider150p"
+          },
+          "SPEED2": {
+            "type": "slider150p"
+          },
+          "SPEED3": {
+            "type": "slider150p"
+          },
+          "SPEED4": {
+            "type": "slider150p"
+          }
+        }
+      },
+      "set_motor_speed_one": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150p"
+          }
+        }
+      },
+      "set_motor_speed_two": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150p"
+          }
+        }
+      },
+      "move_oriention": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          }
+        }
+      },
+      "move_oriention_angle": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          },
+          "ORIENTION": {
+            "type": "slider180"
+          }
+        }
+      },
+      "move_distance": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          }
+        }
+      },
+      "move_all": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider"
+          }
+        }
+      },
+      "turn_percent": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider"
+          }
+        }
+      },
+      "turn_speed": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider150"
+          }
+        }
+      },
+      "set_led_ultrasonic_color": {
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "0.2.8",
+      "version": "0.2.9",
       "main": "main.ts",
       "dependencies": {},
       "files": [

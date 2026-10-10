@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.2",
+  "version": "1.22.3",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -1057,10 +1057,26 @@
         "blockIcon": "_images/blocks/ultra.svg"
       },
       "aimech_set_led_ultrasonic_color": {
-        "blockIcon": "_images/blocks/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg",
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
       },
       "aimech_set_led_ultrasonic_color_arg": {
-        "blockIcon": "_images/blocks/ultra.svg"
+        "blockIcon": "_images/blocks/ultra.svg",
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
       },
       "aimech_close_led_ultrasonic": {
         "blockIcon": "_images/blocks/ultra.svg"
@@ -1474,7 +1490,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.2",
+      "version": "1.22.3",
       "main": "main.ts",
       "dependencies": {},
       "files": [

@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.4.1",
+  "version": "1.4.2",
   "scratchEditor": {
     "color1": "#FF6347",
     "color2": "#FF6347",
@@ -106,7 +106,8 @@
         "id": "fan-iic",
         "name": "IIC 风扇",
         "blocks": [
-          "aiblocks_fan_iic_set_module_speed"
+          "aiblocks_fan_iic_set_module_speed",
+          "aimech_fan_iic_set_module_speed"
         ]
       }
     ],
@@ -119,7 +120,18 @@
           "aiquadrupedpro",
           "aihexa"
         ],
-        "blockIcon": "_images/blocks/rgb.svg"
+        "blockIcon": "_images/blocks/rgb.svg",
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
       },
       "aimech_rgb_module_color_select": {
         "products": [
@@ -129,7 +141,12 @@
           "aiquadrupedpro",
           "aihexa"
         ],
-        "blockIcon": "_images/blocks/rgb.svg"
+        "blockIcon": "_images/blocks/rgb.svg",
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
       },
       "aimech_rgb_module_breath_one": {
         "products": [
@@ -178,7 +195,12 @@
             }
           }
         },
-        "blockIcon": "_images/blocks/dot.svg"
+        "blockIcon": "_images/blocks/dot.svg",
+        "arguments": {
+          "BRIGHT": {
+            "type": "slider8"
+          }
+        }
       },
       "aimech_matrixLed_show_num": {
         "products": [
@@ -285,7 +307,12 @@
         "products": [
           "aiblocksboard"
         ],
-        "blockIcon": "_images/blocks/dot.svg"
+        "blockIcon": "_images/blocks/dot.svg",
+        "arguments": {
+          "BRIGHT": {
+            "type": "slider8"
+          }
+        }
       },
       "aiblocksboard_matrixLed_show_num": {
         "products": [
@@ -468,7 +495,18 @@
             "15": "myrgb_{PORT}.fill({RED},{GREEN},{BLUE})\nmyrgb_{PORT}.write()"
           }
         },
-        "blockIcon": "_images/blocks/strip.svg"
+        "blockIcon": "_images/blocks/strip.svg",
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
       },
       "led_color_select": {
         "templateSelector": {
@@ -477,7 +515,12 @@
             "15": "myrgb_{PORT}.fill({COLOR.rgb})\nmyrgb_{PORT}.write()"
           }
         },
-        "blockIcon": "_images/blocks/strip.svg"
+        "blockIcon": "_images/blocks/strip.svg",
+        "arguments": {
+          "COLOR": {
+            "type": "square_color"
+          }
+        }
       },
       "led_close": {
         "templateSelector": {
@@ -492,7 +535,12 @@
         "products": [
           "aiblocksboard"
         ],
-        "blockIcon": "_images/blocks/fan.svg"
+        "blockIcon": "_images/blocks/fan.svg",
+        "arguments": {
+          "SPEED": {
+            "type": "slider100"
+          }
+        }
       },
       "mp3_init": {
         "blockIcon": "_images/blocks/mp3.svg"
@@ -501,17 +549,42 @@
         "blockIcon": "_images/blocks/mp3.svg"
       },
       "mp3_set_volume": {
-        "blockIcon": "_images/blocks/mp3.svg"
+        "blockIcon": "_images/blocks/mp3.svg",
+        "arguments": {
+          "VALUE": {
+            "type": "slider30"
+          }
+        }
       },
       "fan_module_speed": {
-        "blockIcon": "_images/blocks/fan.svg"
+        "blockIcon": "_images/blocks/fan.svg",
+        "arguments": {
+          "SPEED": {
+            "type": "slider100"
+          }
+        }
+      },
+      "aimech_fan_iic_set_module_speed": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa"
+        ],
+        "blockIcon": "_images/blocks/fan.svg",
+        "arguments": {
+          "SPEED": {
+            "type": "slider100"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "main": "main.ts",
       "dependencies": {},
       "files": [
