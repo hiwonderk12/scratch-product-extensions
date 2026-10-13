@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.3",
+  "version": "1.22.5",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -187,10 +187,161 @@
       },
       {
         "id": "wonder-lens",
-        "name": "WonderLens视觉模块",
+        "name": {
+          "zh-cn": "WonderLens",
+          "en": "WonderLens"
+        },
+        "subcategories": [
+          {
+            "id": "wonder-lens-face",
+            "name": {
+              "zh-cn": "人脸识别",
+              "en": "Face recognition"
+            },
+            "blocks": [
+              "isAnyFaceDetected",
+              "numOfDetectedFaces",
+              "isAnyLearnedFaceRec",
+              "numOfLearnedFaceRec",
+              "isAnyUnlearnedFaceDetected",
+              "isFaceOfIdRec",
+              "getFaceOfId",
+              "getUnlearnedFaceOfIndex"
+            ]
+          },
+          {
+            "id": "wonder-lens-object",
+            "name": {
+              "zh-cn": "物体识别",
+              "en": "Object recognition"
+            },
+            "blocks": [
+              "isAnyObjDetected",
+              "isObjOfIdDetected",
+              "getObjTotal",
+              "getObjOfId"
+            ]
+          },
+          {
+            "id": "wonder-lens-classification",
+            "name": {
+              "zh-cn": "图像分类",
+              "en": "Image classification"
+            },
+            "blocks": [
+              "getClMaxProbId",
+              "getClnMaxProb",
+              "getClnProbOfId"
+            ]
+          },
+          {
+            "id": "wonder-lens-feature",
+            "name": {
+              "zh-cn": "特征学习",
+              "en": "Feature learning"
+            },
+            "blocks": [
+              "getFLMaxProbId",
+              "getFLnMaxProb",
+              "getFLnProbOfId"
+            ]
+          },
+          {
+            "id": "wonder-lens-color",
+            "name": {
+              "zh-cn": "颜色识别",
+              "en": "Color recognition"
+            },
+            "blocks": [
+              "isAnyColorDetectd",
+              "numOfColorDetected",
+              "isColorOfIdDetected",
+              "getColorOfId"
+            ]
+          },
+          {
+            "id": "wonder-lens-line",
+            "name": {
+              "zh-cn": "巡线识别",
+              "en": "Line recognition"
+            },
+            "blocks": [
+              "isAnyLineDetected",
+              "setRoi",
+              "numOfLineDetected",
+              "isLineOfIdDetected",
+              "getLineOfId"
+            ]
+          },
+          {
+            "id": "wonder-lens-tag",
+            "name": {
+              "zh-cn": "标签识别",
+              "en": "Tag recognition"
+            },
+            "blocks": [
+              "isAnyTagDetected",
+              "numOfTagDetected",
+              "isTagOfIdDetected",
+              "numOfTagIdDetected",
+              "getDataOfTagIdIndex"
+            ]
+          },
+          {
+            "id": "wonder-lens-qr",
+            "name": {
+              "zh-cn": "二维码识别",
+              "en": "QR code recognition"
+            },
+            "blocks": [
+              "isAnyQrCodeDetected",
+              "lenOfQrCodeData",
+              "getStrFromQrCode",
+              "getBytesFromCode"
+            ]
+          },
+          {
+            "id": "wonder-lens-barcode",
+            "name": {
+              "zh-cn": "条形码识别",
+              "en": "Bar code recognition"
+            },
+            "blocks": [
+              "isAnyBarCodeDetected",
+              "lenOfBarCode",
+              "getStrFromBarCode",
+              "getBytesFromBarCode"
+            ]
+          },
+          {
+            "id": "wonder-lens-number",
+            "name": {
+              "zh-cn": "数字识别",
+              "en": "Number Recognition"
+            },
+            "blocks": [
+              "getNumTagMaxProbId",
+              "getNumTagMaxProb",
+              "getNumTagProbOfId"
+            ]
+          },
+          {
+            "id": "wonder-lens-landmark",
+            "name": {
+              "zh-cn": "路标识别",
+              "en": "Landmark Recognition"
+            },
+            "blocks": [
+              "getOrientionTagMaxProbId",
+              "getOrientionTagMaxProb",
+              "getOrientionTagProbOfId"
+            ]
+          }
+        ],
         "blocks": [
           "aimech_wondercamInitI2c",
           "minihexa_wondercamInitI2c",
+          "aiblocks_wondercamInitI2c",
           "getFwVersion",
           "getFuncNumber",
           "getCurrentFunc",
@@ -199,8 +350,50 @@
           "wondercamUpdateResult",
           "isAnyFaceDetected",
           "numOfDetectedFaces",
+          "isAnyLearnedFaceRec",
+          "numOfLearnedFaceRec",
+          "isAnyUnlearnedFaceDetected",
+          "isFaceOfIdRec",
+          "getFaceOfId",
+          "getUnlearnedFaceOfIndex",
+          "isAnyObjDetected",
+          "isObjOfIdDetected",
+          "getObjTotal",
+          "getObjOfId",
+          "getClMaxProbId",
+          "getClnMaxProb",
+          "getClnProbOfId",
+          "getFLMaxProbId",
+          "getFLnMaxProb",
+          "getFLnProbOfId",
+          "isAnyColorDetectd",
+          "numOfColorDetected",
           "isColorOfIdDetected",
-          "getColorOfId"
+          "getColorOfId",
+          "isAnyLineDetected",
+          "setRoi",
+          "numOfLineDetected",
+          "isLineOfIdDetected",
+          "getLineOfId",
+          "isAnyTagDetected",
+          "numOfTagDetected",
+          "isTagOfIdDetected",
+          "numOfTagIdDetected",
+          "getDataOfTagIdIndex",
+          "isAnyQrCodeDetected",
+          "lenOfQrCodeData",
+          "getStrFromQrCode",
+          "getBytesFromCode",
+          "isAnyBarCodeDetected",
+          "lenOfBarCode",
+          "getStrFromBarCode",
+          "getBytesFromBarCode",
+          "getNumTagMaxProbId",
+          "getNumTagMaxProb",
+          "getNumTagProbOfId",
+          "getOrientionTagMaxProbId",
+          "getOrientionTagMaxProb",
+          "getOrientionTagProbOfId"
         ]
       },
       {
@@ -338,6 +531,591 @@
       }
     ],
     "blocks": {
+      "isAnyLearnedFaceRec": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "numOfLearnedFaceRec": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyUnlearnedFaceDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isFaceOfIdRec": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getFaceOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getUnlearnedFaceOfIndex": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyObjDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isObjOfIdDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg",
+        "templateSelector": {
+          "argument": "NUM",
+          "cases": {
+            "1": "cam.isObjOfIdDetected(cam.Aeroplane)",
+            "2": "cam.isObjOfIdDetected(cam.Bicycle)",
+            "3": "cam.isObjOfIdDetected(cam.Bird)",
+            "4": "cam.isObjOfIdDetected(cam.Boat)",
+            "5": "cam.isObjOfIdDetected(cam.Bottle)",
+            "6": "cam.isObjOfIdDetected(cam.Bus)",
+            "7": "cam.isObjOfIdDetected(cam.Car)",
+            "8": "cam.isObjOfIdDetected(cam.Cat)",
+            "9": "cam.isObjOfIdDetected(cam.Chair)",
+            "10": "cam.isObjOfIdDetected(cam.Cow)",
+            "11": "cam.isObjOfIdDetected(cam.Diningtable)",
+            "12": "cam.isObjOfIdDetected(cam.Dog)",
+            "13": "cam.isObjOfIdDetected(cam.Horse)",
+            "14": "cam.isObjOfIdDetected(cam.Motorbike)",
+            "15": "cam.isObjOfIdDetected(cam.Person)",
+            "16": "cam.isObjOfIdDetected(cam.Pottedplant)",
+            "17": "cam.isObjOfIdDetected(cam.Sheep)",
+            "18": "cam.isObjOfIdDetected(cam.Sofa)",
+            "19": "cam.isObjOfIdDetected(cam.Train)",
+            "20": "cam.isObjOfIdDetected(cam.Monitor)"
+          }
+        }
+      },
+      "getObjTotal": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg",
+        "templateSelector": {
+          "argument": "NUM",
+          "cases": {
+            "1": "cam.numOfObjOfIdDetected(cam.Aeroplane)",
+            "2": "cam.numOfObjOfIdDetected(cam.Bicycle)",
+            "3": "cam.numOfObjOfIdDetected(cam.Bird)",
+            "4": "cam.numOfObjOfIdDetected(cam.Boat)",
+            "5": "cam.numOfObjOfIdDetected(cam.Bottle)",
+            "6": "cam.numOfObjOfIdDetected(cam.Bus)",
+            "7": "cam.numOfObjOfIdDetected(cam.Car)",
+            "8": "cam.numOfObjOfIdDetected(cam.Cat)",
+            "9": "cam.numOfObjOfIdDetected(cam.Chair)",
+            "10": "cam.numOfObjOfIdDetected(cam.Cow)",
+            "11": "cam.numOfObjOfIdDetected(cam.Diningtable)",
+            "12": "cam.numOfObjOfIdDetected(cam.Dog)",
+            "13": "cam.numOfObjOfIdDetected(cam.Horse)",
+            "14": "cam.numOfObjOfIdDetected(cam.Motorbike)",
+            "15": "cam.numOfObjOfIdDetected(cam.Person)",
+            "16": "cam.numOfObjOfIdDetected(cam.Pottedplant)",
+            "17": "cam.numOfObjOfIdDetected(cam.Sheep)",
+            "18": "cam.numOfObjOfIdDetected(cam.Sofa)",
+            "19": "cam.numOfObjOfIdDetected(cam.Train)",
+            "20": "cam.numOfObjOfIdDetected(cam.Monitor)"
+          }
+        }
+      },
+      "getObjOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg",
+        "templateSelector": {
+          "argument": "NUM",
+          "cases": {
+            "1": "cam.getObjOfId(cam.Aeroplane,{INDEX})[{POS}]",
+            "2": "cam.getObjOfId(cam.Bicycle,{INDEX})[{POS}]",
+            "3": "cam.getObjOfId(cam.Bird,{INDEX})[{POS}]",
+            "4": "cam.getObjOfId(cam.Boat,{INDEX})[{POS}]",
+            "5": "cam.getObjOfId(cam.Bottle,{INDEX})[{POS}]",
+            "6": "cam.getObjOfId(cam.Bus,{INDEX})[{POS}]",
+            "7": "cam.getObjOfId(cam.Car,{INDEX})[{POS}]",
+            "8": "cam.getObjOfId(cam.Cat,{INDEX})[{POS}]",
+            "9": "cam.getObjOfId(cam.Chair,{INDEX})[{POS}]",
+            "10": "cam.getObjOfId(cam.Cow,{INDEX})[{POS}]",
+            "11": "cam.getObjOfId(cam.Diningtable,{INDEX})[{POS}]",
+            "12": "cam.getObjOfId(cam.Dog,{INDEX})[{POS}]",
+            "13": "cam.getObjOfId(cam.Horse,{INDEX})[{POS}]",
+            "14": "cam.getObjOfId(cam.Motorbike,{INDEX})[{POS}]",
+            "15": "cam.getObjOfId(cam.Person,{INDEX})[{POS}]",
+            "16": "cam.getObjOfId(cam.Pottedplant,{INDEX})[{POS}]",
+            "17": "cam.getObjOfId(cam.Sheep,{INDEX})[{POS}]",
+            "18": "cam.getObjOfId(cam.Sofa,{INDEX})[{POS}]",
+            "19": "cam.getObjOfId(cam.Train,{INDEX})[{POS}]",
+            "20": "cam.getObjOfId(cam.Monitor,{INDEX})[{POS}]"
+          }
+        }
+      },
+      "getClMaxProbId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getClnMaxProb": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getClnProbOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getFLMaxProbId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getFLnMaxProb": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getFLnProbOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyColorDetectd": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "numOfColorDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyLineDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "setRoi": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "numOfLineDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isLineOfIdDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getLineOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyTagDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "numOfTagDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isTagOfIdDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "numOfTagIdDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getDataOfTagIdIndex": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyQrCodeDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "lenOfQrCodeData": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getStrFromQrCode": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getBytesFromCode": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "isAnyBarCodeDetected": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "lenOfBarCode": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getStrFromBarCode": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getBytesFromBarCode": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getNumTagMaxProbId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getNumTagMaxProb": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getNumTagProbOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getOrientionTagMaxProbId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getOrientionTagMaxProb": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "getOrientionTagProbOfId": {
+        "products": [
+          "aimech",
+          "aimecanum",
+          "aiquadruped",
+          "aiquadrupedpro",
+          "aihexa",
+          "minihexa",
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
+      "aiblocks_wondercamInitI2c": {
+        "products": [
+          "aiblocks"
+        ],
+        "blockIcon": "_images/blocks/cam.svg"
+      },
       "aimech_wondercamInitI2c": {
         "products": [
           "aimech",
@@ -361,7 +1139,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -372,7 +1151,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "templateSelector": {
           "argument": "NUM",
@@ -386,7 +1166,9 @@
             "6": "cam.LineFollowing",
             "7": "cam.AprilTag",
             "8": "cam.QrCode",
-            "9": "cam.BarCode"
+            "9": "cam.BarCode",
+            "10": "cam.NumberRecognition",
+            "11": "cam.LandmarkRecognition"
           }
         },
         "blockIcon": "_images/blocks/cam.svg"
@@ -398,7 +1180,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -409,7 +1192,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "templateSelector": {
           "argument": "NUM",
@@ -437,7 +1221,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "templateSelector": {
           "argument": "ONOFF",
@@ -455,7 +1240,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -466,7 +1252,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -477,7 +1264,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -488,7 +1276,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -499,7 +1288,8 @@
           "aiquadruped",
           "aiquadrupedpro",
           "aihexa",
-          "minihexa"
+          "minihexa",
+          "aiblocks"
         ],
         "blockIcon": "_images/blocks/cam.svg"
       },
@@ -1490,11 +2280,13 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.3",
+      "version": "1.22.5",
       "main": "main.ts",
       "dependencies": {},
       "files": [
-        "_menus/index.json"
+        "_menus/index.json",
+        "_locales/en.json",
+        "_locales/zh-cn.json"
       ]
     }
   }

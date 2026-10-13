@@ -1357,4 +1357,318 @@ namespace sensor {
         const pos = parameter.POS.code;
         Generator.addCode(`cam.getColorOfId(${num})[${pos}]`);
     }
+
+    // AI Blocks 使用独立 IIC 总线对象；该入口不混入 Hiwonder_DEV 产品的初始化。
+    //% block="初始化 WonderLens IIC接口 [IICPORT]" blockType="command"
+    //% IICPORT.shadow="dropdown" IICPORT.options="aiblocks_iicport" IICPORT.defl="1"
+    export function aiblocks_wondercamInitI2c(parameter: any, block: any) {
+        const port = parameter.IICPORT.code;
+        Generator.addImport(`import Hiwonder_IIC`);
+        Generator.addObject("", "", `iic = Hiwonder_IIC.IIC()`);
+        Generator.addObject("", "", `cam = Hiwonder_IIC.WonderCam(iic,${port})`);
+    }
+
+    // 人脸识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="识别到了已经学习的人脸 ?" blockType="boolean"
+    export function isAnyLearnedFaceRec(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyLearnedFaceRec()`);
+    }
+
+    // 人脸识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取识别到的已经学习的人脸数量" blockType="reporter"
+    export function numOfLearnedFaceRec(parameter: any, block: any) {
+        Generator.addCode(`cam.numOfLearnedFaceRec()`);
+    }
+
+    // 人脸识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="识别到了未学习的人脸 ?" blockType="boolean"
+    export function isAnyUnlearnedFaceDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyUnlearnedFaceDetected()`);
+    }
+
+    // 人脸识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="识别到了人脸ID [NUM] ?" blockType="boolean"
+    //% NUM.shadow="number" NUM.defl="1"
+    export function isFaceOfIdRec(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.isFaceOfIdRec(${num})`);
+    }
+
+    // 人脸识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取人脸ID [NUM] 的数据 [POS]" blockType="reporter"
+    //% NUM.shadow="number" NUM.defl="1"
+    //% POS.shadow="dropdown" POS.options="wonderLensColorResult" POS.defl="0"
+    export function getFaceOfId(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const pos = parameter.POS.code;
+        Generator.addCode(`cam.getFaceOfId(${num})[${pos}]`);
+    }
+
+    // 人脸识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取第 [NUM] 个未学习的人脸数据 [POS]" blockType="reporter"
+    //% NUM.shadow="number" NUM.defl="1"
+    //% POS.shadow="dropdown" POS.options="wonderLensColorResult" POS.defl="0"
+    export function getUnlearnedFaceOfIndex(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const pos = parameter.POS.code;
+        Generator.addCode(`cam.getUnlearnedFaceOfIndex(${num})[${pos}]`);
+    }
+
+    // 物体识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="识别到了任意物品？" blockType="boolean"
+    export function isAnyObjDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyObjDetected()`);
+    }
+
+    // 物体识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="识别到了物体 [NUM] ?" blockType="boolean"
+    //% NUM.shadow="dropdown" NUM.options="wonderLensObjects" NUM.defl="1"
+    export function isObjOfIdDetected(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.isObjOfIdDetected(${num})`);
+    }
+
+    // 物体识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取识别到的物体 [NUM] 总数" blockType="reporter"
+    //% NUM.shadow="dropdown" NUM.options="wonderLensObjects" NUM.defl="1"
+    export function getObjTotal(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.numOfObjOfIdDetected(${num})`);
+    }
+
+    // 物体识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取第 [INDEX] 个识别到的物体 [NUM] 数据 [POS]" blockType="reporter"
+    //% NUM.shadow="dropdown" NUM.options="wonderLensObjects" NUM.defl="1"
+    //% INDEX.shadow="number" INDEX.defl="1"
+    //% POS.shadow="dropdown" POS.options="wonderLensColorResult" POS.defl="0"
+    export function getObjOfId(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const index = parameter.INDEX.code;
+        const pos = parameter.POS.code;
+        Generator.addCode(`cam.getObjOfId(${num},${index})[${pos}]`);
+    }
+
+    // 图像分类：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取图像分类置信度最大的ID" blockType="reporter"
+    export function getClMaxProbId(parameter: any, block: any) {
+        Generator.addCode(`cam.getClMaxProbId()`);
+    }
+
+    // 图像分类：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取图像分类最大置信度" blockType="reporter"
+    export function getClnMaxProb(parameter: any, block: any) {
+        Generator.addCode(`cam.getClMaxProb()`);
+    }
+
+    // 图像分类：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取图像ID [INDEX] 置信度" blockType="reporter"
+    //% INDEX.shadow="number" INDEX.defl="1"
+    export function getClnProbOfId(parameter: any, block: any) {
+        const index = parameter.INDEX.code;
+        Generator.addCode(`cam.getClProbOfId(${index})`);
+    }
+
+    // 特征学习：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取特征学习置信度最大的ID" blockType="reporter"
+    export function getFLMaxProbId(parameter: any, block: any) {
+        Generator.addCode(`cam.getFLMaxProbId()`);
+    }
+
+    // 特征学习：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取特征学习最大置信度" blockType="reporter"
+    export function getFLnMaxProb(parameter: any, block: any) {
+        Generator.addCode(`cam.getFLMaxProb()`);
+    }
+
+    // 特征学习：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取特征学习ID [INDEX] 的置信度" blockType="reporter"
+    //% INDEX.shadow="number" INDEX.defl="1"
+    export function getFLnProbOfId(parameter: any, block: any) {
+        const index = parameter.INDEX.code;
+        Generator.addCode(`cam.getFLProbOfId(${index})`);
+    }
+
+    // 颜色识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否检测到了任意颜色？" blockType="boolean"
+    export function isAnyColorDetectd(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyColorDetected()`);
+    }
+
+    // 颜色识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取检测到的颜色总数" blockType="reporter"
+    export function numOfColorDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.numOfColorDetected()`);
+    }
+
+    // 巡线识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否检测到了线?" blockType="boolean"
+    export function isAnyLineDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyLineDetected()`);
+    }
+
+    // 巡线识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="设置视觉巡线的识别区域，区域的左上角坐标 X [XPOS] Y [YPOS] 宽 [WIDTH] 高 [HEIGHT]" blockType="command"
+    //% XPOS.shadow="number" XPOS.defl="0"
+    //% YPOS.shadow="number" YPOS.defl="0"
+    //% WIDTH.shadow="number" WIDTH.defl="320"
+    //% HEIGHT.shadow="number" HEIGHT.defl="240"
+    export function setRoi(parameter: any, block: any) {
+        const xpos = parameter.XPOS.code;
+        const ypos = parameter.YPOS.code;
+        const width = parameter.WIDTH.code;
+        const height = parameter.HEIGHT.code;
+        Generator.addCode(`cam.setRoi(${xpos},${ypos},${width},${height})`);
+    }
+
+    // 巡线识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取识别到的线的总数" blockType="reporter"
+    export function numOfLineDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.numOfLineDetected()`);
+    }
+
+    // 巡线识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否识别到了线ID [NUM] ?" blockType="boolean"
+    //% NUM.shadow="number" NUM.defl="1"
+    export function isLineOfIdDetected(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.isLineOfIdDetected(${num})`);
+    }
+
+    // 巡线识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取线ID [NUM] 的数据 [POS]" blockType="reporter"
+    //% NUM.shadow="number" NUM.defl="1"
+    //% POS.shadow="dropdown" POS.options="wonderLensLineResult" POS.defl="0"
+    export function getLineOfId(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const pos = parameter.POS.code;
+        Generator.addCode(`cam.getLineOfId(${num})[${pos}]`);
+    }
+
+    // 标签识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否识别到任意标签？" blockType="boolean"
+    export function isAnyTagDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyTagDetected()`);
+    }
+
+    // 标签识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取识别到的标签总数" blockType="reporter"
+    export function numOfTagDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.numOfTagDetected()`);
+    }
+
+    // 标签识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否识别到标签ID [NUM] ?" blockType="boolean"
+    //% NUM.shadow="number" NUM.defl="1"
+    export function isTagOfIdDetected(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.isTagOfIdDetected(${num})`);
+    }
+
+    // 标签识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取识别到的标签ID [NUM] 总数" blockType="reporter"
+    //% NUM.shadow="number" NUM.defl="1"
+    export function numOfTagIdDetected(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        Generator.addCode(`cam.numOfTagIdDetected(${num})`);
+    }
+
+    // 标签识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取第 [INDEX] 识别到的标签ID [NUM] 的数据 [POS]" blockType="reporter"
+    //% NUM.shadow="number" NUM.defl="1"
+    //% INDEX.shadow="number" INDEX.defl="1"
+    //% POS.shadow="dropdown" POS.options="wonderLensTagResult" POS.defl="0"
+    export function getDataOfTagIdIndex(parameter: any, block: any) {
+        const num = parameter.NUM.code;
+        const index = parameter.INDEX.code;
+        const pos = parameter.POS.code;
+        Generator.addCode(`cam.getDataOfTagIdIndex(${num},${index})[${pos}]`);
+    }
+
+    // 二维码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否有二维码被识别到？" blockType="boolean"
+    export function isAnyQrCodeDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyQrCodeDetected()`);
+    }
+
+    // 二维码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取二维码的长度" blockType="reporter"
+    export function lenOfQrCodeData(parameter: any, block: any) {
+        Generator.addCode(`cam.lenOfQrCodeData()`);
+    }
+
+    // 二维码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="以字符的格式获取二维码的内容" blockType="reporter"
+    export function getStrFromQrCode(parameter: any, block: any) {
+        Generator.addCode(`cam.getStrFromQrCode()`);
+    }
+
+    // 二维码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="以bytes(字节数组)的格式获取二维码的内容" blockType="reporter"
+    export function getBytesFromCode(parameter: any, block: any) {
+        Generator.addCode(`cam.getBytesFromCode()`);
+    }
+
+    // 条形码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="是否有条形码被识别到？" blockType="boolean"
+    export function isAnyBarCodeDetected(parameter: any, block: any) {
+        Generator.addCode(`cam.isAnyBarCodeDetected()`);
+    }
+
+    // 条形码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取条形码的长度" blockType="reporter"
+    export function lenOfBarCode(parameter: any, block: any) {
+        Generator.addCode(`cam.lenOfBarCode()`);
+    }
+
+    // 条形码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="以字符的格式获取条形码的内容" blockType="reporter"
+    export function getStrFromBarCode(parameter: any, block: any) {
+        Generator.addCode(`cam.getStrFromBarCode()`);
+    }
+
+    // 条形码识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="以bytes(字节数组)的格式获取条形码的内容" blockType="reporter"
+    export function getBytesFromBarCode(parameter: any, block: any) {
+        Generator.addCode(`cam.getBytesFromBarCode()`);
+    }
+
+    // 数字识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取数字识别置信度最大的数字" blockType="reporter"
+    export function getNumTagMaxProbId(parameter: any, block: any) {
+        Generator.addCode(`cam.getNumMaxProbOfId()`);
+    }
+
+    // 数字识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取数字识别最大的置信度" blockType="reporter"
+    export function getNumTagMaxProb(parameter: any, block: any) {
+        Generator.addCode(`cam.getNumMaxProb()`);
+    }
+
+    // 数字识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取数字 [INDEX] 的置信度" blockType="reporter"
+    //% INDEX.shadow="dropdown" INDEX.options="wonderLensNumberIds" INDEX.defl="1"
+    export function getNumTagProbOfId(parameter: any, block: any) {
+        const index = parameter.INDEX.code;
+        Generator.addCode(`cam.getNumProbOfId(${index})`);
+    }
+
+    // 路标识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取路标识别置信度最大的编号" blockType="reporter"
+    export function getOrientionTagMaxProbId(parameter: any, block: any) {
+        Generator.addCode(`cam.getLandmarkMaxProbId()`);
+    }
+
+    // 路标识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取路标识别最大的置信度" blockType="reporter"
+    export function getOrientionTagMaxProb(parameter: any, block: any) {
+        Generator.addCode(`cam.getLandmarkMaxProb()`);
+    }
+
+    // 路标识别：通过共享 cam 生成固件查询调用，参数名保持项目序列化约定。
+    //% block="获取路标 [ORIENTION] 的置信度" blockType="reporter"
+    //% ORIENTION.shadow="dropdown" ORIENTION.options="wonderLensLandmarkIds" ORIENTION.defl="1"
+    export function getOrientionTagProbOfId(parameter: any, block: any) {
+        const oriention = parameter.ORIENTION.code;
+        Generator.addCode(`cam.getLandmarkProbOfId(${oriention})`);
+    }
 }
