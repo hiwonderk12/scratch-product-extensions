@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "0.2.9",
+  "version": "0.2.10",
   "scratchEditor": {
     "color1": "#1874cd",
     "color2": "#1874cd",
@@ -267,13 +267,66 @@
             "type": "square_color"
           }
         }
+      },
+      "buzzer_tone_set_volume": {
+        "arguments": {
+          "VALUE": {
+            "type": "slider"
+          }
+        }
+      },
+      "set_led_color_arg": {
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
+      },
+      "set_x_y_speed": {
+        "arguments": {
+          "SPEED1": {
+            "type": "slider"
+          },
+          "SPEED2": {
+            "type": "slider"
+          }
+        }
+      },
+      "move_all_angle": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider"
+          },
+          "ORIENTION": {
+            "type": "slider180"
+          }
+        }
+      },
+      "set_led_ultrasonic_color_arg": {
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "0.2.9",
+      "version": "0.2.10",
       "main": "main.ts",
       "dependencies": {},
       "files": [
