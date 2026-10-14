@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.1.1",
+  "version": "1.1.2",
   "scratchEditor": {
     "color1": "#00B2EE",
     "color2": "#00B2EE",
@@ -68,7 +68,12 @@
         "blockIcon": "_images/blocks/claw.svg"
       },
       "aimech_set_servo_pose_time": {
-        "blockIcon": "_images/blocks/claw.svg"
+        "blockIcon": "_images/blocks/claw.svg",
+        "arguments": {
+          "POS": {
+            "type": "slider1000"
+          }
+        }
       },
       "aimech_get_angle": {
         "blockIcon": "_images/blocks/claw.svg"
@@ -87,7 +92,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "main": "main.ts",
       "dependencies": {},
       "files": [

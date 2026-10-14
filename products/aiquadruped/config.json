@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scratchEditor": {
     "color1": "#1874cd",
     "color2": "#1874cd",
@@ -149,13 +149,40 @@
             "type": "slider127"
           }
         }
+      },
+      "buzzer_tone_set_volume": {
+        "arguments": {
+          "VALUE": {
+            "type": "slider"
+          }
+        }
+      },
+      "set_led_color_arg": {
+        "arguments": {
+          "RED": {
+            "type": "slider255"
+          },
+          "GREEN": {
+            "type": "slider255"
+          },
+          "BLUE": {
+            "type": "slider255"
+          }
+        }
+      },
+      "robot_run_action": {
+        "arguments": {
+          "STEP": {
+            "type": "slider127"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "main": "main.ts",
       "dependencies": {},
       "files": [

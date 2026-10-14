@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.5",
+  "version": "1.22.6",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -1988,7 +1988,12 @@
         "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_set_volumn": {
-        "blockIcon": "_images/blocks/k230.svg"
+        "blockIcon": "_images/blocks/k230.svg",
+        "arguments": {
+          "VALUE": {
+            "type": "slider"
+          }
+        }
       },
       "k230_set_wifi": {
         "blockIcon": "_images/blocks/k230.svg"
@@ -1997,13 +2002,31 @@
         "blockIcon": "_images/blocks/k230.svg"
       },
       "k230_mcp_action_setting": {
-        "blockIcon": "_images/blocks/k230.svg"
+        "blockIcon": "_images/blocks/k230.svg",
+        "arguments": {
+          "COMMAND": {
+            "type": "largetext"
+          }
+        }
       },
       "k230_mcp_move_setting": {
-        "blockIcon": "_images/blocks/k230.svg"
+        "blockIcon": "_images/blocks/k230.svg",
+        "arguments": {
+          "COMMAND": {
+            "type": "largetext"
+          }
+        }
       },
       "k230_mcp_setting": {
-        "blockIcon": "_images/blocks/k230.svg"
+        "blockIcon": "_images/blocks/k230.svg",
+        "arguments": {
+          "COMMAND": {
+            "type": "largetext"
+          },
+          "PARAMS": {
+            "type": "largetext"
+          }
+        }
       },
       "k230_result_exists": {
         "blockIcon": "_images/blocks/k230.svg"
@@ -2280,7 +2303,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.5",
+      "version": "1.22.6",
       "main": "main.ts",
       "dependencies": {},
       "files": [

@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.2.2",
+  "version": "1.2.3",
   "scratchEditor": {
     "color1": "#2D87C9",
     "color2": "#2D87C9",
@@ -78,7 +78,12 @@
             }
           }
         },
-        "blockIcon": "_images/blocks/fan.svg"
+        "blockIcon": "_images/blocks/fan.svg",
+        "arguments": {
+          "SPEED": {
+            "type": "slider100"
+          }
+        }
       },
       "set_bus_servo": {
         "blockIcon": "_images/blocks/servo.svg",
@@ -110,13 +115,27 @@
       },
       "aimech_3dof_arm_move": {
         "blockIcon": "_images/blocks/claw.svg"
+      },
+      "iicpwm_set_pos": {
+        "arguments": {
+          "ANGLE": {
+            "type": "slider180z"
+          }
+        }
+      },
+      "iicpwm_set_speed": {
+        "arguments": {
+          "SPEED": {
+            "type": "slider100"
+          }
+        }
       }
     }
   },
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.2.2",
+      "version": "1.2.3",
       "main": "main.ts",
       "dependencies": {},
       "files": [
