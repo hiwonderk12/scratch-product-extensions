@@ -1,6 +1,13 @@
 # 产品积木拓展库
 
-本仓库集中发布产品积木拓展包。你可以在图形化编程软件中导入 `.sbext` 或 Mind+ Python `.mpext` 文件，为对应产品添加积木和 Python 代码生成支持。
+本仓库集中发布产品积木拓展包。你可以在图形化编程软件中导入 `.sbext` 或 Python `.mpext` 文件，为对应产品添加积木和 Python 代码生成支持。
+
+## 公开说明用语
+
+README、产品介绍、包内文档和作者注释统一使用“Python 产品积木包”“MPEXT 产品包”及“积木声明注解”等中性名称，不展示其他公司的软件名称或商标。
+清理说明用语不修改扩展名、参数注解、opcode、SDK API 或导入兼容协议。
+包内文档/注释变化也会改变下载文件摘要，应递增补丁版本、重新打包并同步 catalog；不要覆盖同版本历史资产。
+当前有效包以 catalog 为准。dist 中的历史包保留归档，不代表当前推荐版本；已发布的历史 Release 未在本地任务中重写。
 
 ## 参数输入控件
 
@@ -29,7 +36,7 @@
 }
 ```
 
-`python/main.ts` 保留 Mind+ 标准 `shadow="number"` / `shadow="string"` 注解和默认值。
+`python/main.ts` 使用 `shadow="number"` / `shadow="string"` 积木声明注解并保留默认值。
 编辑器读取包内 `scratchEditor` 元数据后应用专用控件；需要覆盖初始值时，在同一参数对象中声明 `defaultValue`。
 每次修改控件声明都应升级包版本、重新打包并同步 catalog 与编辑器离线快照。
 
@@ -73,14 +80,23 @@ WonderCode 素材使用各自卡片 ID 命名，不能因产品同名而交叉�
 
 ## 可用产品
 
-| 产品 | 当前版本 | 下载 |
+| 产品 / 包 ID | 当前版本 | 状态 |
 | - | - | - |
-| AiDoggy | 0.1.4 | [Releases](https://github.com/heyanjun963/scratch-product-extensions/releases) |
-| AI机甲双驱车 | 1.0.4（本地草稿） | [Releases](https://github.com/heyanjun963/scratch-product-extensions/releases) |
-| AI机甲麦轮车 | 0.2.9（本地草稿） | [Releases](https://github.com/heyanjun963/scratch-product-extensions/releases) |
-| miniHexa | 0.1.3（本地草稿） | [Releases](https://github.com/heyanjun963/scratch-product-extensions/releases) |
+| 动力模块 / `actuator` | 1.2.4 | 本地草稿 |
+| AiDoggy / `aidoggy` | 0.1.4 | 已发布 |
+| AI机甲六足机器人 / `aihexa` | 1.0.6 | 本地草稿 |
+| AI机甲麦轮车 / `aimecanum` | 0.2.11 | 本地草稿 |
+| AI机甲双驱车 / `aimech` | 1.0.5 | 本地草稿 |
+| AiNova-入门版 / `ainovab` | 0.1.2 | 本地草稿 |
+| AI机甲四足机器人 / `aiquadruped` | 1.0.6 | 本地草稿 |
+| AI机甲四足竞赛版 / `aiquadrupedpro` | 1.0.5 | 本地草稿 |
+| 通信模块 / `communication` | 1.0.3 | 本地草稿 |
+| 输出模块 / `display` | 1.4.3 | 本地草稿 |
+| miniHexa / `minihexa` | 0.1.4 | 本地草稿 |
+| 输入模块 / `sensor` | 1.22.8 | 本地草稿 |
+| 机械臂模块 / `xarm` | 1.1.3 | 本地草稿 |
 
-本批次 8 个产品包统一使用 `python-blocks-v1.0.1` Release；上传验收完成后在远程 catalog 中标记为 `published`。
+当前发布状态以 catalog 为准；草稿包尚未上传或发布，不保证 Releases 页面已提供该文件。
 
 ## 下载与安装
 
@@ -128,3 +144,8 @@ sha256sum ./aimecanum-0.2.6.mpext
 - 软件版本。
 - 拓展包版本或 Release 标签。
 - 问题复现步骤和错误截图。
+
+## 本地审阅与说明维护
+
+- [2026-10-15 迁移代码审阅](docs/reviews/2026-10-15-uncommitted-products-review.md)
+- [2026-10-15 产品说明用语清理](docs/reviews/2026-10-15-product-copy-cleanup.md)

@@ -1,4 +1,4 @@
-// AI机甲麦轮车 Mind+ Python 作者源：积木与代码模板由已校对的声明式产品包机械迁移。
+// AI机甲麦轮车 Python 作者源：积木与代码模板由已校对的声明式产品包机械迁移。
 //% color="#1874cd" iconWidth=50 iconHeight=40
 namespace aimecanum {
     //% block="主程序" blockType="hat"

@@ -1,4 +1,4 @@
-// 通信模块 Mind+ Python 作者源：维护 AI 产品 PS3 手柄的积木与代码生成规则。
+// 通信模块 Python 作者源：维护 AI 产品 PS3 手柄的积木与代码生成规则。
 //% color="#ee799f" iconWidth=50 iconHeight=40
 namespace communication {
     //% block="初始化手柄，MAC地址 [STR]" blockType="command"

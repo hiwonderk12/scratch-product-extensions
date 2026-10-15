@@ -14,6 +14,6 @@
 
 ## 源码说明
 
-- `config.json`：Mind+ 产品元数据、分类及 Scratch 兼容字段。
-- `python/main.ts`：Mind+ 积木声明和受限 Python Generator 规则。
+- `config.json`：产品元数据、分类及 Scratch 兼容字段。
+- `python/main.ts`：积木声明和受限 Python Generator 规则。
 - `python/_menus/index.json`：积木下拉菜单。

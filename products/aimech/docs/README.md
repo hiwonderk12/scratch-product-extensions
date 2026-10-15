@@ -1,8 +1,8 @@
 # AI机甲双驱车产品包
 
-本目录是 `aimech` Mind+ Python 拓展的唯一作者源。
+本目录是 `aimech` Python 拓展的唯一作者源。
 
-- `config.json`：维护 1.0.1 版本、分类顺序、帽子积木入口和菜单分支模板。
+- `config.json`：维护产品版本、分类顺序、帽子积木入口和菜单分支模板。
 - `python/main.ts`：维护旧 VM 中 40 个启用积木及其 Python 生成规则。
 - `python/_menus/index.json`：维护启用积木引用的菜单显示文本和原始 value。
 

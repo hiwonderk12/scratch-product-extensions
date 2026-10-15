@@ -1,4 +1,4 @@
-// 机械臂模块 Mind+ Python 作者源：维护基础机械臂与串联机械臂的 Python 生成规则。
+// 机械臂模块 Python 作者源：维护基础机械臂与串联机械臂的 Python 生成规则。
 //% color="#2d87c9" iconWidth=50 iconHeight=40
 namespace xarm {
     //% block="将机械臂舵机ID设置为 [SERVO]" blockType="command"

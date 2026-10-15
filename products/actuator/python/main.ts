@@ -1,4 +1,4 @@
-// 动力模块 Mind+ Python 作者源：维护总线舵机与 IIC 转 PWM 的 Python 生成规则。
+// 动力模块 Python 作者源：维护总线舵机与 IIC 转 PWM 的 Python 生成规则。
 //% color="#d05b33" iconWidth=50 iconHeight=40
 namespace actuator {
     //% block="设置总线舵机编号 [SERVO] 位置 (0~1000) [POS] 运行时间 (ms) [TIME]" blockType="command"

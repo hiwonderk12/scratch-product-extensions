@@ -1,4 +1,4 @@
-// 输出模块 Mind+ Python 作者源：维护 AI 产品 RGB 和 16×8 点阵屏的 Python 生成规则。
+// 输出模块 Python 作者源：维护 AI 产品 RGB 和 16×8 点阵屏的 Python 生成规则。
 //% color="#ff6347" iconWidth=50 iconHeight=40
 namespace display {
     //% block="设置RGB模块接口 [PORT] 红色值 [RED] 绿色值 [GREEN] 蓝色值 [BLUE]" blockType="command"
