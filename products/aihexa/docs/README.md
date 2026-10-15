@@ -1,8 +1,8 @@
 # AI机甲六足机器人产品包
 
-本目录是 `aihexa` Mind+ Python 拓展的唯一作者源。
+本目录是 `aihexa` Python 拓展的唯一作者源。
 
-- `config.json`：维护 1.0.2 版本、分类顺序、帽子积木入口和方向分支模板。
+- `config.json`：维护产品版本、分类顺序、帽子积木入口和方向分支模板。
 - `python/main.ts`：维护旧 VM 中 42 个启用积木及其最终生效的 Python 生成规则。
 - `python/_menus/index.json`：维护启用积木引用的菜单显示文本和原始 value。
 

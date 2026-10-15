@@ -9,7 +9,7 @@
   "isBoard": false,
   "id": "minihexa",
   "platform": ["win", "mac", "web", "linux"],
-  "version": "0.1.3",
+  "version": "0.1.4",
   "scratchEditor": {
     "categories": [
       {"id": "entry", "name": "", "hideLabel": true, "blocks": ["start_thread", "start_run_thread"]},
@@ -130,7 +130,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "main": "main.ts",
       "dependencies": {},
       "files": ["_menus/index.json"]

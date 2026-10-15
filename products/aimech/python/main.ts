@@ -1,4 +1,4 @@
-// AI机甲双驱车 Mind+ Python 作者源：维护旧 VM 启用积木与 Python 生成规则。
+// AI机甲双驱车 Python 作者源：维护旧 VM 启用积木与 Python 生成规则。
 //% color="#1874cd" iconWidth=50 iconHeight=40
 namespace aimech {
     //% block="主程序" blockType="hat"

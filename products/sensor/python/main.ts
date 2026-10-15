@@ -1,4 +1,4 @@
-// 输入模块 Mind+ Python 作者源：维护基础传感器及其 Python 生成规则。
+// 输入模块 Python 作者源：维护基础传感器及其 Python 生成规则。
 //% color="#2e8b57" iconWidth=50 iconHeight=40
 namespace sensor {
     //% block="接口 [PORT] 旋钮模拟值(0~100)" blockType="reporter"

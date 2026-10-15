@@ -1,4 +1,4 @@
-// miniHexa Mind+ Python 作者源：声明积木外观，并通过 Generator 白名单描述旧版 Python 生成规则。
+// miniHexa Python 作者源：声明积木外观，并通过 Generator 白名单描述旧版 Python 生成规则。
 //% color="#336699" iconWidth=50 iconHeight=40
 namespace minihexa {
     //% block="主程序" blockType="hat"

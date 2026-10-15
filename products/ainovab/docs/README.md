@@ -1,11 +1,12 @@
 # AiNova 入门版（WonderCode）
 
-更新：2026-10-14。包 ID：`ainovab`，草稿版本：`0.1.1`。仅适配 WonderCode profile。
+更新：2026-10-15。包 ID：`ainovab`，草稿版本：`0.1.2`。仅适配 WonderCode profile。
+本版只清理产品说明用语，保留 0.1.1 的全部接口与 Python 生成行为。
 
 ## 作者源与旧版证据
 
 - `config.json`：主程序、CoreX 控制器及九个子分类、固定菜单分支、事件签名、自定义输入。
-- `python/main.ts`：54 个启用 opcode 的 Mind+ 标准接口和声明式 Python 模板。
+- `python/main.ts`：54 个启用 opcode 的积木声明接口和声明式 Python 模板。
 - `python/_menus/index.json` 与 `_locales/{zh-cn,en,zh-tw,ko}.json`：15 个实际菜单与旧四语文案。
 - `python/_images/icon.svg`、`block.svg`：从旧 ASAR 的实际资源复制；保留已有卡片 PNG。
 - `docs/codegen-cases.json`：253 个静态模板用例；动态回退及真实 VM 输出由编辑器回归验证。
@@ -39,6 +40,6 @@ ASAR SHA256：`56ecd940208d66d37d4c116dd84c22cb2447a036bbbcbb49af7099c4654d7fce`
 - 未启用的五个旧生成器不迁移：motor_speed_num_set、motor_speed_num_stop、ir_pressed、ir_longpressed、en_motorDrawMainProc。
 - Arduino 生成、AiNova 标准版、其他 WonderCode 主控及共享模块不迁移。
 - 依赖设备已有的 Hiwonder、PID、Hiwonder_BLE SDK；不联网安装固件或第三方模块。
-- 草稿包与编辑器离线快照已校验；人工界面、旧项目恢复、固件 API、真实串口上传尚未验收。未提交、推送或发布。
+- 草稿包与编辑器离线快照已校验；人工界面、旧项目恢复、固件 API、真实串口上传尚未验收。作者迁移实现已纳入 2026-10-15 本地提交 01e4a4d；编辑器配套仍未提交，未推送或发布。
 
 完整进度与盘点见编辑器仓库 `dosc/progress/2026-10-14-wondercode-ainovab-migration.md` 和 `dosc/progress/wondercode-product-migration-inventory.md`。
