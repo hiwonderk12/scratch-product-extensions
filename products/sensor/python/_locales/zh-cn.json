@@ -1,4 +1,6 @@
 {
+  "sensor.get_knob_ad|block": "旋钮模块接口 [ADPORT] 的AD值(0~255)",
+  "sensor.k12esp32_get_knob_ad|block": "旋钮模块接口 [ADPORT] 的AD值(0~255)",
   "sensor.aimech_wondercamInitI2c|block": "初始化 WonderLens IIC接口 [IICPORT]",
   "sensor.minihexa_wondercamInitI2c|block": "初始化 WonderLens IIC接口",
   "sensor.getFwVersion|block": "WonderLens 当前固件版本",

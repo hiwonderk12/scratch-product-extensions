@@ -10,6 +10,27 @@ namespace sensor {
         Generator.addCode(`knob.read_value()`);
     }
 
+    // WonderCode 非 K12 主控用 ADC SDK，按接口分别初始化，不能复用 Lab 的百分比读数。
+    //% block="旋钮模块接口 [ADPORT] 的AD值(0~255)" blockType="reporter"
+    //% ADPORT.shadow="dropdown" ADPORT.options="adport" ADPORT.defl="1"
+    export function get_knob_ad(parameter: any, block: any) {
+        const port = parameter.ADPORT.code;
+        Generator.addImport(`import Hiwonder`);
+        Generator.addImport(`import Hiwonder_ADC`);
+        Generator.addObject("", "", `knob_${port} = Hiwonder_ADC.Knob(Hiwonder.Port(${port}))`);
+        Generator.addCode(`knob_${port}.read()`);
+    }
+
+    // K12 保留旧独立 opcode 和 DEV SDK，主控卡片迁移前不开放加载入口。
+    //% block="旋钮模块接口 [ADPORT] 的AD值(0~255)" blockType="reporter"
+    //% ADPORT.shadow="dropdown" ADPORT.options="k12esp32_io_single_port" ADPORT.defl="5"
+    export function k12esp32_get_knob_ad(parameter: any, block: any) {
+        const port = parameter.ADPORT.code;
+        Generator.addImport(`import Hiwonder_DEV`);
+        Generator.addObject("", "", `knob_${port} = Hiwonder_DEV.DEV_KNOB(Hiwonder_DEV.Port(${port}))`);
+        Generator.addCode(`knob_${port}.read()`);
+    }
+
     //% block="接口 [PORT] 光敏模拟值(0~100)" blockType="reporter"
     //% PORT.shadow="dropdown" PORT.options="aimech_iicport" PORT.defl="1"
     export function aimech_read_light(parameter: any, block: any) {

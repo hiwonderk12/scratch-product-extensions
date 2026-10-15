@@ -109,12 +109,21 @@
       }
     },
     {
-      "packageId": "ainovab",
-      "name": "AiNova(入门版)",
-      "status": "planned",
       "productIcons": {
         "wondercode-ainovab": "python/_images/product-cards/wondercode-ainovab.png"
-      }
+      },
+      "packageId": "ainovab",
+      "name": "AiNova-入门版",
+      "description": "WonderCode AiNova 入门版 Python 产品积木包（旧版 2.2.8 逻辑迁移）。",
+      "version": "0.1.1",
+      "provider": "github",
+      "repository": "heyanjun963/scratch-product-extensions",
+      "tag": "python-blocks-v1.0.1",
+      "asset": "ainovab-0.1.1.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/ainovab-0.1.1.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/ainovab-0.1.1.mpext",
+      "sha256": "a1f46c7b5eea0af9950389724cee6696dde81ba62c1117f158b3f6d8fd5e77c1",
+      "status": "draft"
     },
     {
       "packageId": "aiquadruped",
@@ -243,17 +252,17 @@
       }
     },
     {
-      "packageId": "sensor",
+"packageId": "sensor",
       "name": "输入模块",
       "description": "适用于 Hiwonder Python 产品的基础输入传感器积木包。",
-      "version": "1.22.6",
+      "version": "1.22.7",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "sensor-1.22.6.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.22.6.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.22.6.mpext",
-      "sha256": "07a1a05ae2cf6335fddaf7b8a3998cc69a899f2a7df708a208eaf81ae96489c5",
+      "asset": "sensor-1.22.7.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.22.7.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.22.7.mpext",
+      "sha256": "135a923a0e6cd351d9b2701448e915a1ed227c887bb3a3114075cdfbea4c46df",
       "status": "draft",
       "productIcons": {
         "button-module": "python/_images/product-cards/button-module.png",
