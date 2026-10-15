@@ -1,0 +1,596 @@
+{
+  "name": {
+    "zh-cn": "AiNova-入门版",
+    "en": "AiNova-entry-level",
+    "zh-tw": "AiNova-入門版",
+    "ko": "AiNova 기본 버전"
+  },
+  "description": {
+    "zh-cn": "WonderCode AiNova 入门版 Python 产品积木包（旧版 2.2.8 逻辑迁移）。",
+    "en": "Python blocks for the WonderCode AiNova basic kit.",
+    "zh-tw": "WonderCode AiNova 入門版 Python 產品積木包。",
+    "ko": "WonderCode AiNova 기본 키트의 Python 블록 확장."
+  },
+  "author": "Hiwonder",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "ainovab",
+  "platform": [
+    "win",
+    "mac",
+    "web",
+    "linux"
+  ],
+  "version": "0.1.1",
+  "scratchEditor": {
+    "color1": "#EF8C4D",
+    "color2": "#EF8C4D",
+    "color3": "#EF8C4D",
+    "categories": [
+      {
+        "id": "main",
+        "name": {
+          "zh-cn": "主程序",
+          "en": "Main program",
+          "zh-tw": "主程式",
+          "ko": "메인 프로그램"
+        },
+        "hideLabel": true,
+        "blocks": [
+          "start_thread",
+          "start_run_thread"
+        ]
+      },
+      {
+        "id": "controller",
+        "name": {
+          "zh-cn": "CoreX控制器",
+          "en": "CoreX Board",
+          "zh-tw": "CoreX控制器",
+          "ko": "CoreX 보드"
+        },
+      "blocks": ["when_key_click_thread","when_key_long_pressed_thread","en_motorSetType","en_motorResetCounter","en_motorSetSpeed","en_motorSetSpeedArg","en_motorGetSpeed","en_motorGetCounter","en_motorStop","en_motorDrawInit","en_motorDrawPutData","en_motorTurn","motor_speed_set","motor_speed_set_arg","motor_speed_set_wheel","motor_speed_stop","pid_value","set_pid_value","update_pid_value","output_pid_value","reset_pid_value","print_str","print_number","led_color_set","led_color_set_arg","led_color_select","led_close","buzzer_tone_set","buzzer_tone_set_arg","buzzer_play_melody","set_buzzer_bpm","get_buzzer_bpm","set_buzzer_volume","buzzer_isFinish","disable_lowPower_alarm","key_detect","get_sound","get_battery_level","set_ble_mode","ble_is_connected","get_ble_mac","ble_wait_end","read_ble_data","get_ble_cmd","get_ble_args","ble_write","when_get_irkey_thread","when_irkey_longPress_thread","when_irkey_stop_thread","send_irkey","learn_mode","send_learn_code"],
+      "subcategories": [
+          {
+            "id": "events",
+            "name": {
+              "zh-cn": "事件程序",
+              "en": "events",
+              "zh-tw": "事件程序",
+              "ko": "이벤트"
+            },
+            "blocks": [
+              "when_key_click_thread",
+              "when_key_long_pressed_thread"
+            ]
+          },
+          {
+            "id": "encoder",
+            "name": {
+              "zh-cn": "编码电机",
+              "en": "Encoder motor",
+              "zh-tw": "編碼電機",
+              "ko": "엔코더 모터"
+            },
+            "blocks": [
+              "en_motorSetType",
+              "en_motorResetCounter",
+              "en_motorSetSpeed",
+              "en_motorSetSpeedArg",
+              "en_motorGetSpeed",
+              "en_motorGetCounter",
+              "en_motorStop",
+              "en_motorDrawInit",
+              "en_motorDrawPutData",
+              "en_motorTurn"
+            ]
+          },
+          {
+            "id": "motor",
+            "name": {
+              "zh-cn": "普通电机",
+              "en": "motor control",
+              "zh-tw": "普通電機",
+              "ko": "모터 컨트롤"
+            },
+            "blocks": [
+              "motor_speed_set",
+              "motor_speed_set_arg",
+              "motor_speed_set_wheel",
+              "motor_speed_stop"
+            ]
+          },
+          {
+            "id": "pid",
+            "name": {
+              "zh-cn": "PID控制器",
+              "en": "PID controller",
+              "zh-tw": "PID控制器",
+              "ko": "PID 컨트롤러"
+            },
+            "blocks": [
+              "pid_value",
+              "set_pid_value",
+              "update_pid_value",
+              "output_pid_value",
+              "reset_pid_value"
+            ]
+          },
+          {
+            "id": "output",
+            "name": {
+              "zh-cn": "输出打印",
+              "en": "output",
+              "zh-tw": "輸出列印",
+              "ko": "출력"
+            },
+            "blocks": [
+              "print_str",
+              "print_number"
+            ]
+          },
+          {
+            "id": "led",
+            "name": {
+              "zh-cn": "LED控制",
+              "en": "LED control",
+              "zh-tw": "LED控制",
+              "ko": "LED 제어"
+            },
+            "blocks": [
+              "led_color_set",
+              "led_color_set_arg",
+              "led_color_select",
+              "led_close"
+            ]
+          },
+          {
+            "id": "board",
+            "name": {
+              "zh-cn": "板载资源",
+              "en": "board resource",
+              "zh-tw": "板載資源",
+              "ko": "보드 자원"
+            },
+            "blocks": [
+              "buzzer_tone_set",
+              "buzzer_tone_set_arg",
+              "buzzer_play_melody",
+              "set_buzzer_bpm",
+              "get_buzzer_bpm",
+              "set_buzzer_volume",
+              "buzzer_isFinish",
+              "disable_lowPower_alarm",
+              "key_detect",
+              "get_sound",
+              "get_battery_level"
+            ]
+          },
+          {
+            "id": "bluetooth",
+            "name": {
+              "zh-cn": "蓝牙通信",
+              "en": "Bluetooth",
+              "zh-tw": "藍牙通信",
+              "ko": "블루투스"
+            },
+            "blocks": [
+              "set_ble_mode",
+              "ble_is_connected",
+              "get_ble_mac",
+              "ble_wait_end",
+              "read_ble_data",
+              "get_ble_cmd",
+              "get_ble_args",
+              "ble_write"
+            ]
+          },
+          {
+            "id": "infrared",
+            "name": {
+              "zh-cn": "红外遥控",
+              "en": "ir remote control",
+              "zh-tw": "紅外遙控",
+              "ko": "적외선 원격 제어"
+            },
+            "blocks": [
+              "when_get_irkey_thread",
+              "when_irkey_longPress_thread",
+              "when_irkey_stop_thread",
+              "send_irkey",
+              "learn_mode",
+              "send_learn_code"
+            ]
+          }
+        ]
+      }
+    ],
+    "blocks": {
+      "start_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "main",
+        "launcher": "Hiwonder.startMain({MAIN})"
+      },
+      "start_run_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "setup"
+      },
+      "when_key_click_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "main",
+        "entryTemplate": "def on_button_{BUTTON}_clicked():",
+        "entryFooter": "Hiwonder.Button_{BUTTON}.Clicked(on_button_{BUTTON}_clicked)"
+      },
+      "when_key_long_pressed_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "main",
+        "entryTemplate": "def on_button_{BUTTON}_longPressed():",
+        "entryFooter": "Hiwonder.Button_{BUTTON}.Longpressed(on_button_{BUTTON}_longPressed)"
+      },
+      "en_motorSetType": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "TYPE",
+          "cases": {
+            "0": "en_motor.setType(en_motor.TT_MOTOR)",
+            "1": "en_motor.setType(en_motor.N20_MOTOR)"
+          }
+        }
+      },
+      "en_motorResetCounter": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "INDEX",
+          "cases": {
+            "0": "en_motor.resetCounter(en_motor.AllMotor)",
+            "1": "en_motor.resetCounter(en_motor.Motor1)",
+            "2": "en_motor.resetCounter(en_motor.Motor2)"
+          }
+        }
+      },
+      "en_motorSetSpeed": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "INDEX",
+          "cases": {
+            "0": "en_motor.setSpeed(en_motor.AllMotor,{NUM})",
+            "1": "en_motor.setSpeed(en_motor.Motor1,{NUM})",
+            "2": "en_motor.setSpeed(en_motor.Motor2,{NUM})"
+          }
+        },
+        "arguments": {
+          "NUM": {
+            "type": "slider200",
+            "defaultValue": 30
+          }
+        }
+      },
+      "en_motorSetSpeedArg": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "INDEX",
+          "matchInputCode": true,
+          "cases": {
+            "0": "en_motor.setSpeed(en_motor.AllMotor,{NUM})",
+            "1": "en_motor.setSpeed(en_motor.Motor1,{NUM})",
+            "2": "en_motor.setSpeed(en_motor.Motor2,{NUM})"
+          }
+        },
+        "arguments": {
+          "NUM": {
+            "type": "slider200",
+            "defaultValue": 30
+          }
+        }
+      },
+      "en_motorGetSpeed": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "INDEX",
+          "cases": {
+            "0": "en_motor.getSpeed(en_motor.AllMotor)",
+            "1": "en_motor.getSpeed(en_motor.Motor1)",
+            "2": "en_motor.getSpeed(en_motor.Motor2)"
+          }
+        }
+      },
+      "en_motorGetCounter": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "INDEX",
+          "cases": {
+            "0": "en_motor.getCounter(en_motor.AllMotor)",
+            "1": "en_motor.getCounter(en_motor.Motor1)",
+            "2": "en_motor.getCounter(en_motor.Motor2)"
+          }
+        }
+      },
+      "en_motorStop": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "INDEX",
+          "cases": {
+            "0": "en_motor.stop(en_motor.AllMotor)",
+            "1": "en_motor.stop(en_motor.Motor1)",
+            "2": "en_motor.stop(en_motor.Motor2)"
+          }
+        }
+      },
+      "en_motorDrawInit": {
+        "blockIcon": "_images/block.svg"
+      },
+      "en_motorDrawPutData": {
+        "blockIcon": "_images/block.svg"
+      },
+      "en_motorTurn": {
+        "blockIcon": "_images/block.svg"
+      },
+      "motor_speed_set": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "ORIENTION",
+          "cases": {
+            "1": "Motor.setSpeed({SPEED},{SPEED})",
+            "2": "Motor.setSpeed(-{SPEED},-{SPEED})",
+            "3": "Motor.setSpeed({SPEED},-{SPEED})",
+            "4": "Motor.setSpeed(-{SPEED},{SPEED})"
+          }
+        },
+        "arguments": {
+          "SPEED": {
+            "type": "slider",
+            "defaultValue": 60
+          }
+        }
+      },
+      "motor_speed_set_arg": {
+        "blockIcon": "_images/block.svg",
+        "arguments": {
+          "SPEED": {
+            "type": "slider100",
+            "defaultValue": 60
+          }
+        }
+      },
+      "motor_speed_set_wheel": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "WHEEL",
+          "cases": {
+            "1": "Motor.setSpeed(M2=(-({SPEED}) if {ORIENTION} == 2 else {SPEED}))",
+            "2": "Motor.setSpeed(M1=(-({SPEED}) if {ORIENTION} == 2 else {SPEED}))"
+          }
+        },
+        "arguments": {
+          "SPEED": {
+            "type": "slider",
+            "defaultValue": 60
+          }
+        }
+      },
+      "motor_speed_stop": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "WHEEL",
+          "cases": {
+            "1": "Motor.setSpeed(M2=0)",
+            "2": "Motor.setSpeed(M1=0)",
+            "3": "Motor.setSpeed(0,0)"
+          }
+        }
+      },
+      "pid_value": {
+        "blockIcon": "_images/block.svg"
+      },
+      "set_pid_value": {
+        "blockIcon": "_images/block.svg"
+      },
+      "update_pid_value": {
+        "blockIcon": "_images/block.svg"
+      },
+      "output_pid_value": {
+        "blockIcon": "_images/block.svg"
+      },
+      "reset_pid_value": {
+        "blockIcon": "_images/block.svg"
+      },
+      "print_str": {
+        "blockIcon": "_images/block.svg"
+      },
+      "print_number": {
+        "blockIcon": "_images/block.svg"
+      },
+      "led_color_set": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "NUMS",
+          "cases": {
+            "0": "Hiwonder.Neopixel_onboard.setItem(0,{RED},{GREEN},{BLUE})\nHiwonder.Neopixel_onboard.write()",
+            "1": "Hiwonder.Neopixel_onboard.setItem(1,{RED},{GREEN},{BLUE})\nHiwonder.Neopixel_onboard.write()",
+            "2": "Hiwonder.Neopixel_onboard.setItem(2,{RED},{GREEN},{BLUE})\nHiwonder.Neopixel_onboard.write()",
+            "3": "Hiwonder.Neopixel_onboard.setItem(3,{RED},{GREEN},{BLUE})\nHiwonder.Neopixel_onboard.write()",
+            "4": "Hiwonder.Neopixel_onboard.setItem(4,{RED},{GREEN},{BLUE})\nHiwonder.Neopixel_onboard.write()",
+            "5": "Hiwonder.Neopixel_onboard.setItem(5,{RED},{GREEN},{BLUE})\nHiwonder.Neopixel_onboard.write()",
+            "6": "Hiwonder.Neopixel_onboard.fill({RED},{GREEN},{BLUE})"
+          }
+        },
+        "arguments": {
+          "RED": {
+            "type": "slider255",
+            "defaultValue": 255
+          },
+          "GREEN": {
+            "type": "slider255",
+            "defaultValue": 0
+          },
+          "BLUE": {
+            "type": "slider255",
+            "defaultValue": 0
+          }
+        }
+      },
+      "led_color_set_arg": {
+        "blockIcon": "_images/block.svg",
+        "arguments": {
+          "RED": {
+            "type": "slider255",
+            "defaultValue": 255
+          },
+          "GREEN": {
+            "type": "slider255",
+            "defaultValue": 0
+          },
+          "BLUE": {
+            "type": "slider255",
+            "defaultValue": 0
+          }
+        }
+      },
+      "led_color_select": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "NUMS",
+          "cases": {
+            "0": "Hiwonder.Neopixel_onboard.setItem(0,{COLOR.rgb})\nHiwonder.Neopixel_onboard.write()",
+            "1": "Hiwonder.Neopixel_onboard.setItem(1,{COLOR.rgb})\nHiwonder.Neopixel_onboard.write()",
+            "2": "Hiwonder.Neopixel_onboard.setItem(2,{COLOR.rgb})\nHiwonder.Neopixel_onboard.write()",
+            "3": "Hiwonder.Neopixel_onboard.setItem(3,{COLOR.rgb})\nHiwonder.Neopixel_onboard.write()",
+            "4": "Hiwonder.Neopixel_onboard.setItem(4,{COLOR.rgb})\nHiwonder.Neopixel_onboard.write()",
+            "5": "Hiwonder.Neopixel_onboard.setItem(5,{COLOR.rgb})\nHiwonder.Neopixel_onboard.write()",
+            "6": "Hiwonder.Neopixel_onboard.fill({COLOR.rgb})"
+          }
+        },
+        "arguments": {
+          "COLOR": {
+            "type": "square_color",
+            "defaultValue": "#ff0000"
+          }
+        }
+      },
+      "led_close": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "NUMS",
+          "cases": {
+            "0": "Hiwonder.Neopixel_onboard.setItem(0,0,0,0)\nHiwonder.Neopixel_onboard.write()",
+            "1": "Hiwonder.Neopixel_onboard.setItem(1,0,0,0)\nHiwonder.Neopixel_onboard.write()",
+            "2": "Hiwonder.Neopixel_onboard.setItem(2,0,0,0)\nHiwonder.Neopixel_onboard.write()",
+            "3": "Hiwonder.Neopixel_onboard.setItem(3,0,0,0)\nHiwonder.Neopixel_onboard.write()",
+            "4": "Hiwonder.Neopixel_onboard.setItem(4,0,0,0)\nHiwonder.Neopixel_onboard.write()",
+            "5": "Hiwonder.Neopixel_onboard.setItem(5,0,0,0)\nHiwonder.Neopixel_onboard.write()",
+            "6": "Hiwonder.Neopixel_onboard.clear()\ntime.sleep(0.01)"
+          }
+        }
+      },
+      "buzzer_tone_set": {
+        "blockIcon": "_images/block.svg"
+      },
+      "buzzer_tone_set_arg": {
+        "blockIcon": "_images/block.svg"
+      },
+      "buzzer_play_melody": {
+        "blockIcon": "_images/block.svg"
+      },
+      "set_buzzer_bpm": {
+        "blockIcon": "_images/block.svg"
+      },
+      "get_buzzer_bpm": {
+        "blockIcon": "_images/block.svg"
+      },
+      "set_buzzer_volume": {
+        "blockIcon": "_images/block.svg"
+      },
+      "buzzer_isFinish": {
+        "blockIcon": "_images/block.svg"
+      },
+      "disable_lowPower_alarm": {
+        "blockIcon": "_images/block.svg"
+      },
+      "key_detect": {
+        "blockIcon": "_images/block.svg"
+      },
+      "get_sound": {
+        "blockIcon": "_images/block.svg"
+      },
+      "get_battery_level": {
+        "blockIcon": "_images/block.svg"
+      },
+      "set_ble_mode": {
+        "blockIcon": "_images/block.svg",
+        "templateSelector": {
+          "argument": "MODE",
+          "cases": {
+            "3": "ble = Hiwonder_BLE.BLE(Hiwonder_BLE.MODE_BLE_SLAVE, name = {NAME})",
+            "4": "ble = Hiwonder_BLE.BLE(Hiwonder_BLE.MODE_BLE_MASTER, name = {NAME})"
+          }
+        }
+      },
+      "ble_is_connected": {
+        "blockIcon": "_images/block.svg"
+      },
+      "get_ble_mac": {
+        "blockIcon": "_images/block.svg"
+      },
+      "ble_wait_end": {
+        "blockIcon": "_images/block.svg"
+      },
+      "read_ble_data": {
+        "blockIcon": "_images/block.svg"
+      },
+      "get_ble_cmd": {
+        "blockIcon": "_images/block.svg"
+      },
+      "get_ble_args": {
+        "blockIcon": "_images/block.svg"
+      },
+      "ble_write": {
+        "blockIcon": "_images/block.svg"
+      },
+      "when_get_irkey_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "main",
+        "entryTemplate": "def on_irkey_{IRKEY}_clicked():",
+        "entryFooter": "Hiwonder.Ir.Clicked(Hiwonder.Ir.{IRKEY},on_irkey_{IRKEY}_clicked)"
+      },
+      "when_irkey_longPress_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "main",
+        "entryTemplate": "def on_irkey_{IRKEY}_longPressed():",
+        "entryFooter": "Hiwonder.Ir.Longpressed(Hiwonder.Ir.{IRKEY},on_irkey_{IRKEY}_longPressed)"
+      },
+      "when_irkey_stop_thread": {
+        "blockIcon": "_images/block.svg",
+        "section": "main",
+        "entryTemplate": "def on_irkey_released_lp():",
+        "entryFooter": "Hiwonder.Ir.Released_lp(on_irkey_released_lp)"
+      },
+      "send_irkey": {
+        "blockIcon": "_images/block.svg"
+      },
+      "learn_mode": {
+        "blockIcon": "_images/block.svg"
+      },
+      "send_learn_code": {
+        "blockIcon": "_images/block.svg"
+      }
+    }
+  },
+  "asset": {
+    "python": {
+      "dir": "python/",
+      "version": "0.1.1",
+      "main": "main.ts",
+      "dependencies": {},
+      "files": [
+        "_menus/index.json",
+        "_images/icon.svg",
+        "_images/block.svg",
+        "_images/product-cards/wondercode-ainovab.png",
+        "_locales/zh-cn.json",
+        "_locales/en.json",
+        "_locales/zh-tw.json",
+        "_locales/ko.json"
+      ]
+    }
+  }
+}

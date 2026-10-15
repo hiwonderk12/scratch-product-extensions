@@ -1,4 +1,6 @@
 {
+  "sensor.get_knob_ad|block": "Get Knob module port [ADPORT] value(0~255)",
+  "sensor.k12esp32_get_knob_ad|block": "Get Knob module port [ADPORT] value(0~255)",
   "sensor.aiblocks_wondercamInitI2c|block": "WonderLens initalize port [IICPORT]",
   "sensor.getFwVersion|block": "WonderLens get current firmware version",
   "sensor.getFuncNumber|block": "function [NUM]",

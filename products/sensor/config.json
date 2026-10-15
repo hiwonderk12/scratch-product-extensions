@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.6",
+  "version": "1.22.7",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -29,6 +29,11 @@
         "blocks": [
           "aimech_read_knob"
         ]
+      },
+      {
+        "id": "wondercode-knob",
+        "name": {"zh-cn": "旋钮模块", "en": "Knob module"},
+        "blocks": ["get_knob_ad", "k12esp32_get_knob_ad"]
       },
       {
         "id": "light-sensor",
@@ -1891,6 +1896,14 @@
       },
       "linefollower8_init": {},
       "linefollower8_get_value": {},
+      "get_knob_ad": {
+        "products": ["wondercode-ainovab", "wondercode-ainova", "wondercode-aiarm", "wondercode-xarm", "wondercode-mechdog", "wondercode-tonybot", "wondercode-minihexa", "wondercode-corex"],
+        "blockIcon": "_images/blocks/knob.svg"
+      },
+      "k12esp32_get_knob_ad": {
+        "products": ["wondercode-k12esp32"],
+        "blockIcon": "_images/blocks/knob.svg"
+      },
       "aimech_read_knob": {
         "blockIcon": "_images/blocks/knob.svg"
       },
@@ -2303,7 +2316,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.6",
+      "version": "1.22.7",
       "main": "main.ts",
       "dependencies": {},
       "files": [
