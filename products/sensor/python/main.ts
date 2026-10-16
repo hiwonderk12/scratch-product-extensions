@@ -31,6 +31,60 @@ namespace sensor {
         Generator.addCode(`knob_${port}.read()`);
     }
 
+    //% block="光线等级接口 [ADPORT]" blockType="reporter"
+    //% ADPORT.shadow="dropdown" ADPORT.options="adport" ADPORT.defl="1"
+    export function get_light_level(parameter: any, block: any) {
+        const port = parameter.ADPORT.code;
+        Generator.addImport(`import Hiwonder`);
+        Generator.addImport(`import Hiwonder_ADC`);
+        Generator.addObject("", "", `light_${port} = Hiwonder_ADC.LightSensor(Hiwonder.Port(${port}))`);
+        Generator.addCode(`light_${port}.read()`);
+    }
+
+    //% block="光敏传感器接口 [PORT] 亮度" blockType="reporter"
+    //% PORT.shadow="dropdown" PORT.options="k12esp32_io_single_port" PORT.defl="5"
+    export function k12esp32_get_light_level(parameter: any, block: any) {
+        const port = parameter.PORT.code;
+        Generator.addImport(`import Hiwonder_DEV`);
+        Generator.addObject("", "", `light_${port} = Hiwonder_DEV.DEV_LIGHT(Hiwonder_DEV.Port(${port}))`);
+        Generator.addCode(`light_${port}.read_value()`);
+    }
+
+    //% block="光敏传感器(接口3)亮度" blockType="reporter"
+    export function mechdog_get_light_level(parameter: any, block: any) {
+        Generator.addImport(`import Hiwonder`);
+        Generator.addObject("", "", `adc = Hiwonder.LightSensor()`);
+        Generator.addCode(`adc.read()`);
+    }
+
+    //% block="光敏传感器接口 [PORT] 亮度" blockType="reporter"
+    //% PORT.shadow="dropdown" PORT.options="tonybot_io_single_port" PORT.defl="2"
+    export function tonybot_get_light_level(parameter: any, block: any) {
+        const port = parameter.PORT.code;
+        Generator.addImport(`import Hiwonder`);
+        Generator.addObject("", "", `light_${port} = Hiwonder.LightSensor(${port})`);
+        Generator.addCode(`light_${port}.read()`);
+    }
+
+    //% block="获取土壤传感器接口 [ADPORT] 湿度值(0~255)" blockType="reporter"
+    //% ADPORT.shadow="dropdown" ADPORT.options="adport" ADPORT.defl="1"
+    export function get_soil_moisture_value(parameter: any, block: any) {
+        const port = parameter.ADPORT.code;
+        Generator.addImport(`import Hiwonder`);
+        Generator.addImport(`import Hiwonder_ADC`);
+        Generator.addObject("", "", `soil_${port} = Hiwonder_ADC.SoilSensor(Hiwonder.Port(${port}))`);
+        Generator.addCode(`soil_${port}.read()`);
+    }
+
+    //% block="获取土壤传感器接口 [ADPORT] 湿度值(0~255)" blockType="reporter"
+    //% ADPORT.shadow="dropdown" ADPORT.options="k12esp32_io_single_port" ADPORT.defl="5"
+    export function k12esp32_get_soil_moisture_value(parameter: any, block: any) {
+        const port = parameter.ADPORT.code;
+        Generator.addImport(`import Hiwonder_DEV`);
+        Generator.addObject("", "", `soil_${port} = Hiwonder_DEV.DEV_SOIL(Hiwonder_DEV.Port(${port}))`);
+        Generator.addCode(`soil_${port}.read()`);
+    }
+
     //% block="接口 [PORT] 光敏模拟值(0~100)" blockType="reporter"
     //% PORT.shadow="dropdown" PORT.options="aimech_iicport" PORT.defl="1"
     export function aimech_read_light(parameter: any, block: any) {

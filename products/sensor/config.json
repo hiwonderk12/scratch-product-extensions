@@ -17,7 +17,7 @@
     "web",
     "linux"
   ],
-  "version": "1.22.8",
+  "version": "1.22.9",
   "scratchEditor": {
     "color1": "#7B68EE",
     "color2": "#7B68EE",
@@ -34,6 +34,16 @@
         "id": "wondercode-knob",
         "name": {"zh-cn": "旋钮模块", "en": "Knob module"},
         "blocks": ["get_knob_ad", "k12esp32_get_knob_ad"]
+      },
+      {
+        "id": "wondercode-light",
+        "name": {"zh-cn": "光敏传感器", "en": "Light sensor"},
+        "blocks": ["get_light_level", "k12esp32_get_light_level", "mechdog_get_light_level", "tonybot_get_light_level"]
+      },
+      {
+        "id": "wondercode-soil",
+        "name": {"zh-cn": "土壤传感器", "en": "Soil moisture sensor"},
+        "blocks": ["get_soil_moisture_value", "k12esp32_get_soil_moisture_value"]
       },
       {
         "id": "light-sensor",
@@ -1896,6 +1906,30 @@
       },
       "linefollower8_init": {},
       "linefollower8_get_value": {},
+      "get_light_level": {
+        "products": ["wondercode-ainovab", "wondercode-ainova", "wondercode-aiarm", "wondercode-xarm", "wondercode-minihexa", "wondercode-corex"],
+        "blockIcon": "_images/blocks/light.svg"
+      },
+      "k12esp32_get_light_level": {
+        "products": ["wondercode-k12esp32"],
+        "blockIcon": "_images/blocks/light.svg"
+      },
+      "mechdog_get_light_level": {
+        "products": ["wondercode-mechdog"],
+        "blockIcon": "_images/blocks/light.svg"
+      },
+      "tonybot_get_light_level": {
+        "products": ["wondercode-tonybot"],
+        "blockIcon": "_images/blocks/light.svg"
+      },
+      "get_soil_moisture_value": {
+        "products": ["wondercode-ainovab", "wondercode-ainova", "wondercode-aiarm", "wondercode-xarm", "wondercode-mechdog", "wondercode-tonybot", "wondercode-minihexa", "wondercode-corex"],
+        "blockIcon": "_images/blocks/soil.svg"
+      },
+      "k12esp32_get_soil_moisture_value": {
+        "products": ["wondercode-k12esp32"],
+        "blockIcon": "_images/blocks/soil.svg"
+      },
       "get_knob_ad": {
         "products": ["wondercode-ainovab", "wondercode-ainova", "wondercode-aiarm", "wondercode-xarm", "wondercode-mechdog", "wondercode-tonybot", "wondercode-minihexa", "wondercode-corex"],
         "blockIcon": "_images/blocks/knob.svg"
@@ -2316,7 +2350,7 @@
   "asset": {
     "python": {
       "dir": "python/",
-      "version": "1.22.8",
+      "version": "1.22.9",
       "main": "main.ts",
       "dependencies": {},
       "files": [

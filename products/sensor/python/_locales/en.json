@@ -1,4 +1,10 @@
 {
+  "sensor.get_light_level|block": "Light level port [ADPORT]",
+  "sensor.k12esp32_get_light_level|block": "Light sensor port [PORT] brightness",
+  "sensor.mechdog_get_light_level|block": "Light sensor (port 3) brightness",
+  "sensor.tonybot_get_light_level|block": "Light sensor port [PORT] brightness",
+  "sensor.get_soil_moisture_value|block": "Get Soil moisture sensor port [ADPORT] humidity value(0~255)",
+  "sensor.k12esp32_get_soil_moisture_value|block": "Get Soil moisture sensor port [ADPORT] humidity value(0~255)",
   "sensor.get_knob_ad|block": "Get Knob module port [ADPORT] value(0~255)",
   "sensor.k12esp32_get_knob_ad|block": "Get Knob module port [ADPORT] value(0~255)",
   "sensor.aiblocks_wondercamInitI2c|block": "WonderLens initalize port [IICPORT]",

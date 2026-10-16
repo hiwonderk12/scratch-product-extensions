@@ -1,4 +1,10 @@
 {
+  "sensor.get_light_level|block": "光线等级接口 [ADPORT]",
+  "sensor.k12esp32_get_light_level|block": "光敏传感器接口 [PORT] 亮度",
+  "sensor.mechdog_get_light_level|block": "光敏传感器(接口3)亮度",
+  "sensor.tonybot_get_light_level|block": "光敏传感器接口 [PORT] 亮度",
+  "sensor.get_soil_moisture_value|block": "获取土壤传感器接口 [ADPORT] 湿度值(0~255)",
+  "sensor.k12esp32_get_soil_moisture_value|block": "获取土壤传感器接口 [ADPORT] 湿度值(0~255)",
   "sensor.get_knob_ad|block": "旋钮模块接口 [ADPORT] 的AD值(0~255)",
   "sensor.k12esp32_get_knob_ad|block": "旋钮模块接口 [ADPORT] 的AD值(0~255)",
   "sensor.aimech_wondercamInitI2c|block": "初始化 WonderLens IIC接口 [IICPORT]",

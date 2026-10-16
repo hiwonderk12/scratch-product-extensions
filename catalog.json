@@ -252,17 +252,17 @@
       }
     },
     {
-"packageId": "sensor",
+      "packageId": "sensor",
       "name": "输入模块",
       "description": "适用于 Hiwonder Python 产品的基础输入传感器积木包。",
-      "version": "1.22.8",
+      "version": "1.22.9",
       "provider": "github",
       "repository": "heyanjun963/scratch-product-extensions",
       "tag": "python-blocks-v1.0.1",
-      "asset": "sensor-1.22.8.mpext",
-      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.22.8.mpext",
-      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.22.8.mpext",
-      "sha256": "a3a04b402c672986226878dc73412fa7da2e1f01f215ab068a721ae2ed206ef3",
+      "asset": "sensor-1.22.9.mpext",
+      "downloadUrl": "https://raw.githubusercontent.com/heyanjun963/scratch-product-extensions/main/dist/sensor-1.22.9.mpext",
+      "releaseDownloadUrl": "https://github.com/heyanjun963/scratch-product-extensions/releases/download/python-blocks-v1.0.1/sensor-1.22.9.mpext",
+      "sha256": "83b5f37b059ca011363668e9153e31ee68f5a2e2eac94d9cc4d7e2bce7330eb6",
       "status": "draft",
       "productIcons": {
         "button-module": "python/_images/product-cards/button-module.png",
