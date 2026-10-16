@@ -2,6 +2,8 @@
 
 本仓库集中发布产品积木拓展包。你可以在图形化编程软件中导入 `.sbext` 或 Python `.mpext` 文件，为对应产品添加积木和 Python 代码生成支持。
 
+开发者从[开发文档入口](docs/README.md)开始，具体操作见[产品包维护手册](docs/development.md)。公开文档只维护开发接口、操作方法和产品维护约束，不存放内部审阅或阶段执行记录。
+
 ## 公开说明用语
 
 README、产品介绍、包内文档和作者注释统一使用“Python 产品积木包”“MPEXT 产品包”及“积木声明注解”等中性名称，不展示其他公司的软件名称或商标。
@@ -145,7 +147,7 @@ sha256sum ./aimecanum-0.2.6.mpext
 - 拓展包版本或 Release 标签。
 - 问题复现步骤和错误截图。
 
-## 本地审阅与说明维护
+## 开发资料
 
-- [2026-10-15 迁移代码审阅](docs/reviews/2026-10-15-uncommitted-products-review.md)
-- [2026-10-15 产品说明用语清理](docs/reviews/2026-10-15-product-copy-cleanup.md)
+- [开发文档入口](docs/README.md)
+- [产品包维护手册](docs/development.md)
