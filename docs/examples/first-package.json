@@ -1,0 +1,14 @@
+{
+  "name": {
+    "zh-cn": "文本演示",
+    "en": "Text demo",
+    "zh-tw": "文字示範",
+    "ko": "텍스트 예제"
+  },
+  "description": {
+    "zh-cn": "将文本生成为 Python 输出语句，无需硬件",
+    "en": "Generate Python text output without hardware",
+    "zh-tw": "將文字產生為 Python 輸出語句，無需硬體",
+    "ko": "하드웨어 없이 Python 텍스트 출력 코드 생성"
+  }
+}

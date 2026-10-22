@@ -1,0 +1,55 @@
+{
+  "product": "robots/minihexa",
+  "modules": {
+    "input/infrared-sensor": {
+      "variant": "hiwonder-dev-raw-io",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.minihexa_io_single_port": {
+          "bindings": {
+            "sensor_minihexa_get_avoid_value.PORT": "32",
+            "sensor_aimech_get_avoid_value.PORT": "32"
+          }
+        },
+        "sensor.aimech_iicport": {
+          "bindings": {}
+        }
+      }
+    },
+    "input/led-ultrasonic": {
+      "variant": "hiwonder-dev-onboard",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_led_ultrasonic_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/wonder-echo": {
+      "variant": "hiwonder-dev-onboard",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_wonderecho_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/wonder-lens": {
+      "variant": "hiwonder-dev-onboard",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {}
+    }
+  }
+}

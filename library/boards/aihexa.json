@@ -1,0 +1,19 @@
+{
+  "product": "robots/aihexa",
+  "extends": "library/support/ai-series.json",
+  "modules": {
+    "input/k230-vision": {
+      "variant": "hiwonder-dev-hexa",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_k230_aimech_init.PORT": "1"
+          }
+        }
+      }
+    }
+  }
+}

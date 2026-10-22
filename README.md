@@ -1,153 +1,31 @@
-# 产品积木拓展库
+# WonderLab 积木拓展库
 
-本仓库集中发布产品积木拓展包。你可以在图形化编程软件中导入 `.sbext` 或 Python `.mpext` 文件，为对应产品添加积木和 Python 代码生成支持。
+为 WonderLab 添加自定义积木，用于课程活动和硬件控制。
+你可以使用现成积木包，也可以从“显示文本”示例开始，制作自己的积木包。
+当前支持生成 **Python** 代码。
 
-开发者从[开发文档入口](docs/README.md)开始，具体操作见[产品包维护手册](docs/development.md)。公开文档只维护开发接口、操作方法和产品维护约束，不存放内部审阅或阶段执行记录。
+## 适用软件
 
-## 公开说明用语
+需要支持原生类积木包、配套版本选择与项目版本锁的 WonderLab 桌面软件。
+普通 Scratch 或未提供这些能力的旧版软件不能直接使用。
+具体要求与入口见[导入与使用](docs/importing.md)。
 
-README、产品介绍、包内文档和作者注释统一使用“Python 产品积木包”“MPEXT 产品包”及“积木声明注解”等中性名称，不展示其他公司的软件名称或商标。
-清理说明用语不修改扩展名、参数注解、opcode、SDK API 或导入兼容协议。
-包内文档/注释变化也会改变下载文件摘要，应递增补丁版本、重新打包并同步 catalog；不要覆盖同版本历史资产。
-当前有效包以 catalog 为准。dist 中的历史包保留归档，不代表当前推荐版本；已发布的历史 Release 未在本地任务中重写。
+## 使用现成积木包
 
-## 参数输入控件
+从可信作者获取适配的软件版本及完整配套 ZIP，按[导入指南](docs/importing.md)安装、选择主控并添加模块。
+当前仓库提供开发源码，尚未提供正式原生发行集合；GitHub 的源码 **Download ZIP 不是积木安装包**。
 
-输入控件由产品包的 `config.json` 声明。编辑器按参数类型注册控件，新产品可直接复用已支持的类型。
-功能积木仍由 `python/main.ts` 中的函数定义；例如 `set_motor_speed_all` 是功能积木，`slider150p` 是速度参数的输入方式。
+## 制作第一个积木包
 
-在 `scratchEditor.blocks.<opcode>.arguments.<参数名>.type` 中选择类型：
+按[完整入门教程](docs/getting-started.md)，准备环境、创建文本示例、修改积木、接入一个主控，再生成配套 ZIP 并导入软件查看 Python。
+不需要硬件、不需要修改软件源码，也不需要先了解内部标识。
+主控和模块需要同一套配置；教程会一起打包，不是仅导入一个模块 ZIP。
 
-```json
-{
-  "scratchEditor": {
-    "blocks": {
-      "set_motor_speed_all": {
-        "arguments": {
-          "SPEED1": {"type": "slider150p"},
-          "SPEED2": {"type": "slider150p"}
-        }
-      },
-      "set_led_color": {
-        "arguments": {
-          "COLOR": {"type": "square_color"}
-        }
-      }
-    }
-  }
-}
-```
+## 文档与帮助
 
-`python/main.ts` 使用 `shadow="number"` / `shadow="string"` 积木声明注解并保留默认值。
-编辑器读取包内 `scratchEditor` 元数据后应用专用控件；需要覆盖初始值时，在同一参数对象中声明 `defaultValue`。
-每次修改控件声明都应升级包版本、重新打包并同步 catalog 与编辑器离线快照。
+- [导入与使用](docs/importing.md)：软件要求、安装、离线重开与常见问题。
+- [第一个积木包](docs/getting-started.md)：从环境准备到配套导入。
+- [文档导航](docs/README.md)：已有积木维护、接口、端口与命令参考。
+- [可选 AI 辅助](docs/ai-assisted.md)：描述需求、准备资料与人工核对。
 
-| 类型示例 | 输入方式 |
-| --- | --- |
-| `number` | 普通数字输入 |
-| `slider150` | 0～150 的整数滑块，支持手填 |
-| `slider150p` | -150～150 的整数滑块，支持手填 |
-| `slider180` | -180～180 的整数滑块，支持手填 |
-| `square_color` | 方形颜色输入与离散色板 |
-| `largetext` | 多行文本编辑，确认后保存 |
-| `ledmatrix` | 16×8 点阵编辑 |
-| `line4` / `line6` / `line8` | 对应路数的巡线位掩码选择 |
-
-滑块预设类型为 `slider`、`slider100`、`slider90`、`slider127`、`slider150`、`slider150p`、
-`slider180`、`slider180z`、`slider360`、`slider200`、`slider200p`、`slider255`、`slider270`、
-`slider8`、`slider30`、`slider2500`、`slider1000`、`slider1000p`、`slider0180`、`slider10`。
-这些名称对应预设范围；拖动受范围约束，导入与手填保留原数值。
-
-## 产品卡片图标
-
-编辑器拓展库的实际图片由所属产品包维护，统一保存在
-`products/<package-id>/python/_images/product-cards/`。`catalog.json` 对应的 `packages[]` 条目通过
-`productIcons` 声明卡片 ID 与包内相对路径：
-
-```json
-{
-  "packageId": "aiquadrupedpro",
-  "productIcons": {
-    "aiquadrupedpro": "python/_images/product-cards/aiquadrupedpro.png"
-  }
-}
-```
-
-一个 MPEXT 可以对应多张模块卡片，因此卡片 ID 不要求等于 `packageId`。共享包内的 WonderLab 与
-WonderCode 素材使用各自卡片 ID 命名，不能因产品同名而交叉复用。尚未完成代码迁移的产品可以使用
-`status: "planned"` 条目发布卡片素材；该条目不参与积木包下载。
-
-打包工具会递归收集产品目录，`product-cards/` 中的实际图片会随产品源码进入 MPEXT。图片更新只修改所属
-产品目录及映射；`python/_images/icon.svg` 或 `icon.png` 仍只负责积木分类菜单图标。
-
-## 可用产品
-
-| 产品 / 包 ID | 当前版本 | 状态 |
-| - | - | - |
-| 动力模块 / `actuator` | 1.2.4 | 本地草稿 |
-| AiDoggy / `aidoggy` | 0.1.4 | 已发布 |
-| AI机甲六足机器人 / `aihexa` | 1.0.6 | 本地草稿 |
-| AI机甲麦轮车 / `aimecanum` | 0.2.11 | 本地草稿 |
-| AI机甲双驱车 / `aimech` | 1.0.5 | 本地草稿 |
-| AiNova-入门版 / `ainovab` | 0.1.2 | 本地草稿 |
-| AI机甲四足机器人 / `aiquadruped` | 1.0.6 | 本地草稿 |
-| AI机甲四足竞赛版 / `aiquadrupedpro` | 1.0.5 | 本地草稿 |
-| 通信模块 / `communication` | 1.0.3 | 本地草稿 |
-| 输出模块 / `display` | 1.4.3 | 本地草稿 |
-| miniHexa / `minihexa` | 0.1.4 | 本地草稿 |
-| 输入模块 / `sensor` | 1.22.9 | 本地草稿 |
-| 机械臂模块 / `xarm` | 1.1.3 | 本地草稿 |
-
-当前发布状态以 catalog 为准；草稿包尚未上传或发布，不保证 Releases 页面已提供该文件。
-
-## 下载与安装
-
-1. 打开本仓库的 [Releases](https://github.com/heyanjun963/scratch-product-extensions/releases) 页面。
-2. 找到与你的产品匹配的版本。
-3. 在 **Assets** 中下载扩展名为 `.sbext` 或 `.mpext` 的文件。
-4. 在软件中打开“拓展库”，进入“用户拓展”。
-5. 使用本地导入功能选择下载的 `.sbext` 或 `.mpext` 文件。
-
-请勿下载 GitHub 自动生成的 **Source code** 压缩包。该文件只包含仓库源码，不能作为拓展包导入。
-
-## 版本与发布批次
-
-产品版本由各自的 `version` 字段维护，客户端使用它判断更新。一次 Release 可以包含多个产品包，所有包共享产品仓库配置中的 `releaseTag`。当前批次标签为：
-
-```text
-python-blocks-v1.0.1
-```
-
-例如，`aihexa-1.0.2.mpext` 和 `aimecanum-0.2.6.mpext` 都从上述 Release 下载。升级前请阅读 Release 的更新说明；需要使用旧版本时，可以在 Releases 页面下载历史发布包。
-
-## 校验下载文件
-
-每个发布版本都在 `catalog.json` 中提供 SHA256。下载完成后可以验证文件是否完整。
-
-Windows PowerShell：
-
-```powershell
-(Get-FileHash ".\aimecanum-0.2.6.mpext" -Algorithm SHA256).Hash.ToLower()
-```
-
-macOS 或 Linux：
-
-```sh
-sha256sum ./aimecanum-0.2.6.mpext
-```
-
-计算结果应与 `catalog.json` 中对应版本的 `sha256` 完全一致。
-
-## 问题反馈
-
-使用中遇到问题时，请在 [Issues](https://github.com/heyanjun963/scratch-product-extensions/issues) 提交反馈，并提供：
-
-- 产品名称和型号。
-- 软件版本。
-- 拓展包版本或 Release 标签。
-- 问题复现步骤和错误截图。
-
-## 开发资料
-
-- [开发文档入口](docs/README.md)
-- [产品包维护手册](docs/development.md)
+遇到问题时，请提供软件版本、包版本、操作步骤和完整错误信息；不要上传含个人信息的课程文件。

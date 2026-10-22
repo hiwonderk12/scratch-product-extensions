@@ -1,0 +1,8 @@
+{
+  "id": "long-motor",
+  "name": {
+    "zh-cn": "长电机"
+  },
+  "legacySources": [],
+  "icon": "assets/cards/actuator.png"
+}

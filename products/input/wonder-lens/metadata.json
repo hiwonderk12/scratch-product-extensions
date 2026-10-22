@@ -1,0 +1,13 @@
+{
+  "id": "wonder-lens",
+  "legacySources": [],
+  "icon": "assets/cards/sensor.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "1.0.0",
+  "namespace": "sensor",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

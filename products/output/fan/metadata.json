@@ -1,0 +1,17 @@
+{
+  "id": "fan",
+  "legacySources": [],
+  "icon": "assets/cards/actuator.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "1.0.0",
+  "namespace": "actuator",
+  "namespaces": [
+    "actuator",
+    "display"
+  ],
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

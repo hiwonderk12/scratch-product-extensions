@@ -1,0 +1,8 @@
+{
+  "id": "servo-360",
+  "name": {
+    "zh-cn": "360°舵机"
+  },
+  "legacySources": [],
+  "icon": "assets/cards/actuator.png"
+}

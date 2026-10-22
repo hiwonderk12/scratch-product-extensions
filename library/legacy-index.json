@@ -1,0 +1,2374 @@
+{
+  "formatVersion": 1,
+  "profile": "wonderlab",
+  "blocks": {
+    "actuator_aimech_3dof_arm_init": {
+      "module": "power/xarm-series",
+      "source": "src/index.ts"
+    },
+    "actuator_aimech_3dof_arm_move": {
+      "module": "power/xarm-series",
+      "source": "src/index.ts"
+    },
+    "actuator_aimech_fan_iic_set_module_speed": {
+      "module": "output/fan",
+      "source": "src/index.ts"
+    },
+    "actuator_aimech_rod_arm_init": {
+      "module": "power/xarm-linkage",
+      "source": "src/index.ts"
+    },
+    "actuator_aimech_rod_arm_move": {
+      "module": "power/xarm-linkage",
+      "source": "src/index.ts"
+    },
+    "actuator_aimech_rod_reach_detect": {
+      "module": "power/xarm-linkage",
+      "source": "src/index.ts"
+    },
+    "actuator_aimecha_iicpwm_init": {
+      "module": "power/iic-pwm",
+      "source": "src/index.ts"
+    },
+    "actuator_get_bus_servo_pos": {
+      "module": "power/bus-servo",
+      "source": "src/index.ts"
+    },
+    "actuator_iicpwm_set_pos": {
+      "module": "power/iic-pwm",
+      "source": "src/index.ts"
+    },
+    "actuator_iicpwm_set_speed": {
+      "module": "power/iic-pwm",
+      "source": "src/index.ts"
+    },
+    "actuator_load_bus_servo": {
+      "module": "power/bus-servo",
+      "source": "src/index.ts"
+    },
+    "actuator_set_bus_servo": {
+      "module": "power/bus-servo",
+      "source": "src/index.ts"
+    },
+    "actuator_set_bus_servo_motor_speed": {
+      "module": "power/bus-servo",
+      "source": "src/index.ts"
+    },
+    "actuator_unload_bus_servo": {
+      "module": "power/bus-servo",
+      "source": "src/index.ts"
+    },
+    "aidoggy_buzzer_tone_set": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_buzzer_tone_set_arg": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_get_battery_level": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_print_number": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_print_str": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_run_action": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_run_action_name": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_gait": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_low_battery_alarm": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_move": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_move_xyz": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_pose": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_stop": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_turn": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_start_run_thread": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_start_thread": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_stop_action": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aihexa_ble_is_connected": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_ble_wait_end": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_ble_write": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_buzzer_tone_set": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_buzzer_tone_set_arg": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_buzzer_tone_set_volume": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_close_buzzer": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_close_led": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_close_lowpower_warning": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_get_battery_level": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_get_ble_args": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_get_ble_cmd": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_get_ble_mac": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_get_euler_angle_element_value": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_get_robot_servo_pos": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_imu_cali": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_imu_init": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_key_is_pressed": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_print_number": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_print_str": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_read_ble_data": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_rgb_module_breath": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_rgb_module_breath_one": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_height": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_move": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_move_step": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_move_xyz": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_move_xyz_step": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_reset": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_run_action": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_run_pose": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_servo_set": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_stop_action": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_robot_stop_run": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_set_all_robot_servo_load": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_set_ble_mode": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_set_led_color": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_set_led_color_arg": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_start_run_thread": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_start_thread": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_when_key_click_thread": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aihexa_when_key_longclick_thread": {
+      "module": "robots/aihexa",
+      "source": "src/index.ts"
+    },
+    "aimecanum_ble_is_connected": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_ble_wait_end": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_ble_write": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_buzzer_tone_set": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_buzzer_tone_set_arg": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_buzzer_tone_set_volume": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_close_buzzer": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_close_led": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_close_led_ultrasonic": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_close_lowpower_warning": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_battery_level": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_ble_args": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_ble_cmd": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_ble_mac": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_euler_angle_element_value": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_led_ultrasonic_distance": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_get_motor_angle": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_imu_cali": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_imu_init": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_is_all_ready": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_is_motor_ready": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_key_is_pressed": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_linefollower6_get_value": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_linefollower6_one_status": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_linefollower6_read_offset": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_linefollower6_set_threshold": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_linefollower6_status": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_all": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_all_angle": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_distance": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_distance_arg": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_oriention": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_oriention_angle": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_move_stop": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_pd_set_pd_line": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_print_number": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_print_str": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_read_ble_data": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_reset_motor": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_rgb_module_breath": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_rgb_module_breath_one": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_ble_mode": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_led_color": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_led_color_arg": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_led_ultrasonic_breath": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_led_ultrasonic_color": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_led_ultrasonic_color_arg": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_led_ultrasonic_random": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_motor_speed_all": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_motor_speed_one": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_motor_speed_two": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_set_x_y_speed": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_start_run_thread": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_start_thread": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_turn_percent": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_turn_speed": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_wait_seconds": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_when_key_click_thread": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimecanum_when_key_longclick_thread": {
+      "module": "robots/aimecanum",
+      "source": "src/index.ts"
+    },
+    "aimech_ble_is_connected": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_ble_wait_end": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_ble_write": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_buzzer_tone_set": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_buzzer_tone_set_arg": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_buzzer_tone_set_volume": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_close_buzzer": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_close_led": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_close_lowpower_warning": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_get_battery_level": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_get_ble_args": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_get_ble_cmd": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_get_ble_mac": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_get_euler_angle_element_value": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_get_servo_run_angle": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_imu_cali": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_imu_init": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_key_is_pressed": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_motor_speed_set": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_pd_set_pd_line": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_print_number": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_print_str": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_read_ble_data": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_reset_run_angle": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_rgb_module_breath": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_rgb_module_breath_one": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_ble_mode": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_led_color": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_led_color_arg": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_run_angle": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_run_distance": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_run_oriention_angle": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_run_speed": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_run_two_wheel": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_run_two_wheel_percent": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_motor_stop": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_start_run_thread": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_start_thread": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_when_key_click_thread": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_when_key_longclick_thread": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_ble_is_connected": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_ble_wait_end": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_ble_write": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_buzzer_tone_set": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_buzzer_tone_set_arg": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_buzzer_tone_set_volume": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_close_buzzer": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_close_led": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_close_lowpower_warning": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_get_battery_level": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_get_ble_args": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_get_ble_cmd": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_get_ble_mac": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_get_euler_angle_element_value": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_get_robot_servo_pos": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_imu_cali": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_imu_init": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_key_is_pressed": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_print_number": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_print_str": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_read_ble_data": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_rgb_module_breath": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_rgb_module_breath_one": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_move": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_move_offset": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_move_step": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_move_step_arg": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_reset": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_run_action": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_servo_set": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_robot_stop_run": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_set_ble_mode": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_set_led_color": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_set_led_color_arg": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_start_run_thread": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_start_thread": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_when_key_click_thread": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadruped_when_key_longclick_thread": {
+      "module": "robots/aiquadruped",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_ble_is_connected": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_ble_wait_end": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_ble_write": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_buzzer_tone_set": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_buzzer_tone_set_arg": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_buzzer_tone_set_volume": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_close_buzzer": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_close_led": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_close_lowpower_warning": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_get_battery_level": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_get_ble_args": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_get_ble_cmd": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_get_ble_mac": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_get_euler_angle_element_value": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_get_robot_servo_pos": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_imu_cali": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_imu_init": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_key_is_pressed": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_print_number": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_print_str": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_read_ble_data": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_rgb_module_breath": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_rgb_module_breath_one": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_height": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_init_foot": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_move": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_move_step": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_move_xyz": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_move_xyz_step": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_reset": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_run_action": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_run_pose": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_servo_set": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_set_foot": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_stop_action": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_robot_stop_run": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_set_all_robot_servo_load": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_set_ble_mode": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_set_led_color": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_set_led_color_arg": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_start_run_thread": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_start_thread": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_when_key_click_thread": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "aiquadrupedpro_when_key_longclick_thread": {
+      "module": "robots/aiquadrupedpro",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_disconnect": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_get_address": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_get_axis": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_get_keys": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_get_sensor": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_init": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_is_connected": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_set_led": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "communication_ps3_set_rumble": {
+      "module": "communication/communication",
+      "source": "src/index.ts"
+    },
+    "display_aiblocks_fan_iic_set_module_speed": {
+      "module": "output/fan-iic",
+      "source": "src/index.ts"
+    },
+    "display_aiblocks_oled_init": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_clear_matrix_led": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_digit_show_num": {
+      "module": "output/digit-display",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_matrix_led": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_matrixLed_brightness": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_matrixLed_pos_onoff": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_matrixLed_show_num": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aiblocksboard_matrixLed_show_str": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_clear_matrix_led": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_digit_show_num": {
+      "module": "output/digit-display",
+      "source": "src/index.ts"
+    },
+    "display_aimech_fan_iic_set_module_speed": {
+      "module": "output/fan-iic",
+      "source": "src/index.ts"
+    },
+    "display_aimech_matrix_led": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_matrixLed_brightness": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_matrixLed_pos_onoff": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_matrixLed_show_num": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_matrixLed_show_str": {
+      "module": "output/dot-matrix",
+      "source": "src/index.ts"
+    },
+    "display_aimech_oled_init": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_aimech_rgb_module_breath": {
+      "module": "output/rgb-module",
+      "source": "src/index.ts"
+    },
+    "display_aimech_rgb_module_breath_one": {
+      "module": "output/rgb-module",
+      "source": "src/index.ts"
+    },
+    "display_aimech_rgb_module_close": {
+      "module": "output/rgb-module",
+      "source": "src/index.ts"
+    },
+    "display_aimech_rgb_module_color_select": {
+      "module": "output/rgb-module",
+      "source": "src/index.ts"
+    },
+    "display_aimech_rgb_module_color_set": {
+      "module": "output/rgb-module",
+      "source": "src/index.ts"
+    },
+    "display_fan_module_speed": {
+      "module": "output/fan",
+      "source": "src/index.ts"
+    },
+    "display_led_close": {
+      "module": "output/rgb-light",
+      "source": "src/index.ts"
+    },
+    "display_led_color_select": {
+      "module": "output/rgb-light",
+      "source": "src/index.ts"
+    },
+    "display_mp3_init": {
+      "module": "output/mp3",
+      "source": "src/index.ts"
+    },
+    "display_mp3_play_control": {
+      "module": "output/mp3",
+      "source": "src/index.ts"
+    },
+    "display_mp3_play_mode": {
+      "module": "output/mp3",
+      "source": "src/index.ts"
+    },
+    "display_mp3_play_song_num": {
+      "module": "output/mp3",
+      "source": "src/index.ts"
+    },
+    "display_mp3_set_volume": {
+      "module": "output/mp3",
+      "source": "src/index.ts"
+    },
+    "display_oled_clear": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_oled_draw_ascii": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_oled_draw_hline": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_oled_draw_line": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_oled_draw_rect": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_oled_draw_vline": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_oled_point": {
+      "module": "output/oled",
+      "source": "src/index.ts"
+    },
+    "display_rgb_color_set": {
+      "module": "output/rgb-light",
+      "source": "src/index.ts"
+    },
+    "minihexa_action_run": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_action_stop": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_buzzer_tone_set": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_buzzer_tone_set_arg": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_buzzer_tone_set_volume": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_clear_buffer": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_disable_lowPower_alarm": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_get_battery_level": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_get_serial_args": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_get_serial_cmd": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_get_volume": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_imu_read_angle": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_imu_read_gyro_data": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_key_is_pressed": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_print_number": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_print_str": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_serial_has_recv_data": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_serial_recv_buff": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_serial_recv_contains": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_serial_set_baudrate": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_serial_write": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_body_angle": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_body_pose": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_body_pose_height": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_body_reset": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_go": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_go_step": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_go_stop": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_leg_lift": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_move_xyz": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_move_xyz_step": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_self_balance": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_servo": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_turn": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_set_turn_step": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_start_run_thread": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_start_thread": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_when_minihexa_key_click_thread": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "minihexa_when_minihexa_key_longclick_thread": {
+      "module": "robots/minihexa",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_check_color": {
+      "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_get_color": {
+      "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_get_color_arg": {
+      "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_wondercamInitI2c": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_close_led_ultrasonic": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_colorsensor_init": {
+      "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_get_avoid_value": {
+      "module": "input/infrared-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_get_led_ultrasonic_distance": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_get_rain_drop_value": {
+      "module": "input/rain-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_get_soil_value": {
+      "module": "input/soil-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_get_temp_and_humi": {
+      "module": "input/temperature-humidity",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_get_temp_or_humi": {
+      "module": "input/temperature-humidity",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_imu_init": {
+      "module": "input/imu-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_key_is_pressed": {
+      "module": "input/button-module",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_led_ultrasonic_init": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_linefollower_init": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_linefollower6_init": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_read_knob": {
+      "module": "input/knob",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_read_light": {
+      "module": "input/light-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_read_sound": {
+      "module": "input/sound-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_read_touch": {
+      "module": "input/touch-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_set_led_ultrasonic_breath": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_set_led_ultrasonic_color": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_set_led_ultrasonic_color_arg": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_set_led_ultrasonic_random": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_temphumi_init": {
+      "module": "input/temperature-humidity",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_wondercamInitI2c": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_aimech_wonderecho_init": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_get_euler_angle": {
+      "module": "input/imu-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_get_euler_angle_element": {
+      "module": "input/imu-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_get_euler_angle_element_value": {
+      "module": "input/imu-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_get_ultrasonic_distance": {
+      "module": "input/ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_getBytesFromBarCode": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getBytesFromCode": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getClMaxProbId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getClnMaxProb": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getClnProbOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getColorOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getCurrentFunc": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getDataOfTagIdIndex": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getFaceOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getFLMaxProbId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getFLnMaxProb": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getFLnProbOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getFuncNumber": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getFwVersion": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getLineOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getNumTagMaxProb": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getNumTagMaxProbId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getNumTagProbOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getObjOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getObjTotal": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getOrientionTagMaxProb": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getOrientionTagMaxProbId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getOrientionTagProbOfId": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getStrFromBarCode": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getStrFromQrCode": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_getUnlearnedFaceOfIndex": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyBarCodeDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyColorDetectd": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyFaceDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyLearnedFaceRec": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyLineDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyObjDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyQrCodeDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyTagDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isAnyUnlearnedFaceDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isColorOfIdDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isFaceOfIdRec": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isLineOfIdDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isObjOfIdDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_isTagOfIdDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_aihexa_set_mcp_default": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_aimecanum_set_mcp_default": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_aimech_init": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_aiquadruped_set_mcp_default": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_aiquadrupedpro_set_mcp_default": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_april_tag_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_april_tag_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_april_tag_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_barcode_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_barcode_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_barcode_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_color_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_color_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_color_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_color_near_center_name": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_dm_code_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_dm_code_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_dm_code_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_dynamic_gesture_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face_exists": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face_recognition_get_arg_by_name": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face2_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face2_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face2_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face3_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_face3_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_facial_detect": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_fall_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_fall_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_fall_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_fall_near_center_result": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_gaze_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_gaze_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_gaze_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_gaze_near_center_result": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_gesture_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_gesture_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_arm_claw_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_arm_move_to_yz_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_buzzer_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_default_mcp_name": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_facial_args": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_move_distance_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_result": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_rgb_light_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_robot_move_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_robot_runAction_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_robot_set_pose_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_get_sonar_rgb_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_hand_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_hand_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_hand_detected_posture": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_hand_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_license_plate_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_license_plate_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_line_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_mcp_action_setting": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_mcp_move_setting": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_mcp_setting": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_motor_speed_params": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_object_classify_parameter": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_object_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_object_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_object_named_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_object_parameter": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_ocr_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_ocr_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person_keypoint_detect_name": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person_keypoint_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person_point_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_person2_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_qr_code_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_qr_code_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_qr_code_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_apriltag_get_name_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_apriltag_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_barcode_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_barcode_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_dmcode_get_name_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_dmcode_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_dynamic_gesture_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_exists": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_face_pose_get_oriention": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_garbage_get_name_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_garbage_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_hand_gesture_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_hand_gesture_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_hand_gesture_get_pos_arg_by_name": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_hand_keypoint_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_line_detect_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_lpr_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_lpr_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_multi_color_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_ocr_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_ocr_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_orcode_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_orcode_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_person_keypoint_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_self_learn_get_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_self_learn_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_single_color_get_pos_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_result_traffic_get_name_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_send_mcp_result": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_line_color": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_line_color_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_mode": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_multi_color_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_run": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_single_color": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_single_color_arg": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_volumn": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_set_wifi": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_single_color_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_target_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_target_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_traffic_sign_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_traffic_sign_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_traffic_sign_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_trash_count": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_trash_detected": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_trash_near_center": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_update_detect_result": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_lenOfBarCode": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_lenOfQrCodeData": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower_one_status": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower_read_offset": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower_status": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower_status_result": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower4_init": {
+      "module": "input/line-4-rotary",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower4_one_status": {
+      "module": "input/line-4-rotary",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower4_read_offset": {
+      "module": "input/line-4-rotary",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower4_status_result": {
+      "module": "input/line-4-rotary",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower6_get_value": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower6_one_status": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower6_read_offset": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower6_set_threshold": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower6_status": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower8_get_value": {
+      "module": "input/line-8",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower8_init": {
+      "module": "input/line-8",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower8_one_status": {
+      "module": "input/line-8",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower8_status": {
+      "module": "input/line-8",
+      "source": "src/index.ts"
+    },
+    "sensor_minihexa_get_avoid_value": {
+      "module": "input/infrared-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_minihexa_led_ultrasonic_init": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_minihexa_wondercamInitI2c": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_minihexa_wonderecho_init": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_numOfColorDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_numOfDetectedFaces": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_numOfLearnedFaceRec": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_numOfLineDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_numOfTagDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_numOfTagIdDetected": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_setLed": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_setRoi": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_switchFunc": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_wondercamUpdateResult": {
+      "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_get_result_num": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_get_results": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_results": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_speech_cmd": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_speech_cmd_number": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_speech_play": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_wonderecho_speech_play_number": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_3dof_arm_init": {
+      "module": "power/xarm-series",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_3dof_arm_move": {
+      "module": "power/xarm-series",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_get_angle": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_rod_arm_init": {
+      "module": "power/xarm-linkage",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_rod_arm_move": {
+      "module": "power/xarm-linkage",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_rod_reach_detect": {
+      "module": "power/xarm-linkage",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_servo_disable": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_servo_enable": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_set_arm_id": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_set_claw_id": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_set_servo_pose_time": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    },
+    "xarm_aimech_set_servo_stop": {
+      "module": "power/xarm",
+      "source": "src/index.ts"
+    }
+  }
+}

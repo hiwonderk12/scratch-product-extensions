@@ -1,0 +1,231 @@
+{
+  "formatVersion": 1,
+  "profile": "wonderlab",
+  "modules": [
+    {
+      "moduleId": "communication/communication",
+      "metadata": "products/communication/communication/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/button-module",
+      "metadata": "products/input/button-module/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/color-sensor",
+      "metadata": "products/input/color-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/imu-sensor",
+      "metadata": "products/input/imu-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/infrared-sensor",
+      "metadata": "products/input/infrared-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/k230-vision",
+      "metadata": "products/input/k230-vision/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/knob",
+      "metadata": "products/input/knob/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/led-ultrasonic",
+      "metadata": "products/input/led-ultrasonic/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/light-sensor",
+      "metadata": "products/input/light-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/line-4",
+      "metadata": "products/input/line-4/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/line-4-rotary",
+      "metadata": "products/input/line-4-rotary/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/line-6",
+      "metadata": "products/input/line-6/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/line-8",
+      "metadata": "products/input/line-8/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/rain-sensor",
+      "metadata": "products/input/rain-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/soil-sensor",
+      "metadata": "products/input/soil-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/sound-sensor",
+      "metadata": "products/input/sound-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/temperature-humidity",
+      "metadata": "products/input/temperature-humidity/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/touch-sensor",
+      "metadata": "products/input/touch-sensor/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/ultrasonic",
+      "metadata": "products/input/ultrasonic/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/wonder-echo",
+      "metadata": "products/input/wonder-echo/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/wonder-lens",
+      "metadata": "products/input/wonder-lens/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/wonder-mind",
+      "metadata": "products/input/wonder-mind/metadata.json",
+      "sourceState": "planned"
+    },
+    {
+      "moduleId": "output/digit-display",
+      "metadata": "products/output/digit-display/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/dot-matrix",
+      "metadata": "products/output/dot-matrix/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/fan",
+      "metadata": "products/output/fan/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/fan-iic",
+      "metadata": "products/output/fan-iic/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/mp3",
+      "metadata": "products/output/mp3/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/oled",
+      "metadata": "products/output/oled/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/rgb-light",
+      "metadata": "products/output/rgb-light/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "output/rgb-module",
+      "metadata": "products/output/rgb-module/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "power/bus-servo",
+      "metadata": "products/power/bus-servo/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "power/iic-pwm",
+      "metadata": "products/power/iic-pwm/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "power/long-motor",
+      "metadata": "products/power/long-motor/metadata.json",
+      "sourceState": "planned"
+    },
+    {
+      "moduleId": "power/servo-180",
+      "metadata": "products/power/servo-180/metadata.json",
+      "sourceState": "planned"
+    },
+    {
+      "moduleId": "power/servo-360",
+      "metadata": "products/power/servo-360/metadata.json",
+      "sourceState": "planned"
+    },
+    {
+      "moduleId": "power/xarm",
+      "metadata": "products/power/xarm/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "power/xarm-linkage",
+      "metadata": "products/power/xarm-linkage/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "power/xarm-series",
+      "metadata": "products/power/xarm-series/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/aidoggy",
+      "metadata": "products/robots/aidoggy/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/aihexa",
+      "metadata": "products/robots/aihexa/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/aimecanum",
+      "metadata": "products/robots/aimecanum/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/aimech",
+      "metadata": "products/robots/aimech/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/aiquadruped",
+      "metadata": "products/robots/aiquadruped/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/aiquadrupedpro",
+      "metadata": "products/robots/aiquadrupedpro/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "robots/minihexa",
+      "metadata": "products/robots/minihexa/metadata.json",
+      "sourceState": "native-source"
+    }
+  ]
+}

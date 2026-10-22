@@ -1,0 +1,16 @@
+{
+  "name": "@hiwonder/product-extension-library",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "check": "node tools/cli/check.mjs",
+    "ext": "node tools/cli/index.mjs",
+    "test": "node --test tools/cli/authoring.test.mjs tools/cli/native-catalog.test.mjs tools/cli/package-set.test.mjs tools/ci/first-package.test.mjs"
+  },
+  "devDependencies": {
+    "jszip": "3.10.1",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "text": {
+    "zh-cn": "将 [VALUE] 翻倍",
+    "en": "Double [VALUE]",
+    "zh-tw": "將 [VALUE] 加倍",
+    "ko": "[VALUE] 두 배"
+  },
+  "arguments": {
+    "VALUE": {"type": "number", "defaultValue": 2}
+  },
+  "python": {"template": "({VALUE} * 2)"}
+}

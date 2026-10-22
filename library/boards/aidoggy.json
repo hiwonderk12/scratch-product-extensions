@@ -1,0 +1,115 @@
+{
+  "product": "robots/aidoggy",
+  "modules": {
+    "input/temperature-humidity": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aidoggy_iicport": {
+          "bindings": {
+            "sensor_aimech_temphumi_init.PORT": "1"
+          }
+        },
+        "sensor.aimech_iicport": {
+          "bindings": {}
+        }
+      }
+    },
+    "input/led-ultrasonic": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aidoggy_iicport": {
+          "bindings": {
+            "sensor_aimech_led_ultrasonic_init.PORT": "1"
+          }
+        },
+        "sensor.aimech_iicport": {
+          "bindings": {}
+        }
+      }
+    },
+    "power/bus-servo": {
+      "variant": "hiwonder",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "power/iic-pwm": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {
+        "actuator.aimech_iicport": {
+          "bindings": {
+            "actuator_aimecha_iicpwm_init.PORT": "1"
+          }
+        },
+        "actuator.iic_pwm_port": {
+          "bindings": {
+            "actuator_iicpwm_set_pos.NUM": "1",
+            "actuator_iicpwm_set_speed.NUM": "1"
+          }
+        }
+      }
+    },
+    "output/fan": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {
+        "actuator.aidoggy_iicport": {
+          "bindings": {
+            "actuator_aimech_fan_iic_set_module_speed.PORT": "3"
+          }
+        }
+      }
+    },
+    "power/xarm-series": {
+      "variant": "hiwonder-actuator",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "power/xarm-linkage": {
+      "variant": "hiwonder-actuator",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "output/dot-matrix": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aidoggy_iicport": {
+          "bindings": {
+            "display_aimech_matrixLed_brightness.PORT": "3",
+            "display_aimech_matrixLed_show_num.PORT": "3",
+            "display_aimech_matrixLed_show_str.PORT": "3",
+            "display_aimech_matrixLed_pos_onoff.PORT": "3",
+            "display_aimech_matrix_led.PORT": "3",
+            "display_aimech_clear_matrix_led.PORT": "3"
+          }
+        }
+      }
+    },
+    "communication/communication": {
+      "variant": "ps3",
+      "legacyNamespaces": [
+        "communication"
+      ],
+      "portGroups": {}
+    }
+  }
+}

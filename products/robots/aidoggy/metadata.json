@@ -1,0 +1,14 @@
+{
+  "id": "aidoggy",
+  "legacySources": [],
+  "icon": "assets/cards/aidoggy.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "0.1.4",
+  "namespace": "aidoggy",
+  "kind": "robot",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

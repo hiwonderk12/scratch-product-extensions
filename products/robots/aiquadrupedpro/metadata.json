@@ -1,0 +1,14 @@
+{
+  "id": "aiquadrupedpro",
+  "legacySources": [],
+  "icon": "assets/cards/aiquadrupedpro.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "1.0.5",
+  "namespace": "aiquadrupedpro",
+  "kind": "robot",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

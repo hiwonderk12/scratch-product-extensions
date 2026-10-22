@@ -1,0 +1,14 @@
+{
+  "name": {
+    "zh-cn": "演示模块",
+    "en": "Demo module",
+    "zh-tw": "示範模組",
+    "ko": "데모 모듈"
+  },
+  "description": {
+    "zh-cn": "用于学习类声明和 Python 规则的示例",
+    "en": "An example for learning class declarations and Python rules",
+    "zh-tw": "用於學習類別宣告與 Python 規則的範例",
+    "ko": "클래스 선언과 Python 규칙을 배우기 위한 예제"
+  }
+}

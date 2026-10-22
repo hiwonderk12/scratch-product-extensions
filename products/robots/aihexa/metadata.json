@@ -1,0 +1,14 @@
+{
+  "id": "aihexa",
+  "legacySources": [],
+  "icon": "assets/cards/aihexa.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "1.0.6",
+  "namespace": "aihexa",
+  "kind": "robot",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

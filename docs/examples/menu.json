@@ -1,0 +1,7 @@
+{
+  "acceptReporters": false,
+  "items": [
+    {"value": "0", "text": {"zh-cn": "慢速", "en": "Slow", "zh-tw": "慢速", "ko": "느림"}},
+    {"value": "1", "text": {"zh-cn": "快速", "en": "Fast", "zh-tw": "快速", "ko": "빠름"}}
+  ]
+}

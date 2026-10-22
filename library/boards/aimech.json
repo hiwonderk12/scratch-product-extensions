@@ -1,0 +1,13 @@
+{
+  "product": "robots/aimech",
+  "extends": "library/support/ai-series.json",
+  "modules": {
+    "power/xarm": {
+      "variant": "hiwonder",
+      "legacyNamespaces": [
+        "xarm"
+      ],
+      "portGroups": {}
+    }
+  }
+}

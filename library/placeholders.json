@@ -1,0 +1,16 @@
+[
+  {
+    "id": "aiblocks",
+    "name": {
+      "zh-cn": "AI Blocks"
+    },
+    "category": "function"
+  },
+  {
+    "id": "function-module",
+    "name": {
+      "zh-cn": "功能模块"
+    },
+    "category": "function"
+  }
+]

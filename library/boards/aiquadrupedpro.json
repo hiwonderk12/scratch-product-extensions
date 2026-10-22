@@ -1,0 +1,19 @@
+{
+  "product": "robots/aiquadrupedpro",
+  "extends": "library/support/ai-series.json",
+  "modules": {
+    "input/k230-vision": {
+      "variant": "hiwonder-dev-quadruped-pro",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_k230_aimech_init.PORT": "1"
+          }
+        }
+      }
+    }
+  }
+}

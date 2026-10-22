@@ -1,0 +1,195 @@
+{
+  "display.rgbport": [
+    {"label": "3", "value": "3"},
+    {"label": "8", "value": "8"}
+  ],
+  "display.mp3_port": [
+    {"label": "3", "value": "3"},
+    {"label": "4", "value": "4"},
+    {"label": "5", "value": "5"},
+    {"label": "6", "value": "6"},
+    {"label": "9", "value": "9"}
+  ],
+  "sensor.aidoggy_iicport": [
+    {"label": "A", "value": "1"},
+    {"label": "B", "value": "2"},
+    {"label": "C", "value": "3"},
+    {"label": "D", "value": "4"}
+  ],
+  "sensor.minihexa_io_single_port": [
+    {"label": "IO32-IO14", "value": "32"},
+    {"label": "IO18-IO19", "value": "18"}
+  ],
+  "sensor.aimech_iicport": [
+    {
+      "label": "A",
+      "value": "1"
+    },
+    {
+      "label": "B",
+      "value": "2"
+    },
+    {
+      "label": "C",
+      "value": "3"
+    },
+    {
+      "label": "D",
+      "value": "4"
+    },
+    {
+      "label": "E",
+      "value": "5"
+    },
+    {
+      "label": "J",
+      "value": "9"
+    },
+    {
+      "label": "K",
+      "value": "10"
+    }
+  ],
+  "actuator.aimech_iicport": [
+    {
+      "label": "A",
+      "value": "1"
+    },
+    {
+      "label": "B",
+      "value": "2"
+    },
+    {
+      "label": "C",
+      "value": "3"
+    },
+    {
+      "label": "D",
+      "value": "4"
+    },
+    {
+      "label": "E",
+      "value": "5"
+    },
+    {
+      "label": "J",
+      "value": "9"
+    },
+    {
+      "label": "K",
+      "value": "10"
+    }
+  ],
+  "actuator.iic_pwm_port": [
+    {
+      "label": "1",
+      "value": "1"
+    },
+    {
+      "label": "2",
+      "value": "2"
+    }
+  ],
+  "display.aiblocks_iicport": [
+    {
+      "label": "A",
+      "value": "1"
+    },
+    {
+      "label": "B",
+      "value": "2"
+    },
+    {
+      "label": "C",
+      "value": "3"
+    },
+    {
+      "label": "D",
+      "value": "4"
+    }
+  ],
+  "display.aimech_iicport": [
+    {
+      "label": "A",
+      "value": "1"
+    },
+    {
+      "label": "B",
+      "value": "2"
+    },
+    {
+      "label": "C",
+      "value": "3"
+    },
+    {
+      "label": "D",
+      "value": "4"
+    },
+    {
+      "label": "E",
+      "value": "5"
+    },
+    {
+      "label": "J",
+      "value": "9"
+    },
+    {
+      "label": "K",
+      "value": "10"
+    }
+  ],
+  "actuator.aidoggy_iicport": [
+    {
+      "label": "C",
+      "value": "3"
+    },
+    {
+      "label": "D",
+      "value": "4"
+    },
+    {
+      "label": "E",
+      "value": "5"
+    },
+    {
+      "label": "F",
+      "value": "6"
+    }
+  ],
+  "display.aidoggy_iicport": [
+    {
+      "label": "A",
+      "value": "1"
+    },
+    {
+      "label": "B",
+      "value": "2"
+    },
+    {
+      "label": "C",
+      "value": "3"
+    },
+    {
+      "label": "D",
+      "value": "4"
+    }
+  ],
+  "sensor.ultra_port": [
+    {
+      "label": "2",
+      "value": "2"
+    },
+    {
+      "label": "6",
+      "value": "6"
+    },
+    {
+      "label": "8",
+      "value": "8"
+    }
+  ],
+  "display.fanport": [
+    {"label": "6", "value": "6"},
+    {"label": "8", "value": "8"}
+  ]
+}

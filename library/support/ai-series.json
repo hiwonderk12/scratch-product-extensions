@@ -1,0 +1,379 @@
+{
+  "modules": {
+    "input/knob": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_read_knob.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/light-sensor": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_read_light.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/rain-sensor": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_get_rain_drop_value.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/soil-sensor": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_get_soil_value.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/sound-sensor": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_read_sound.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/infrared-sensor": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_get_avoid_value.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/touch-sensor": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_read_touch.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/button-module": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_key_is_pressed.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/color-sensor": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_colorsensor_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/temperature-humidity": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_temphumi_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/line-6": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_linefollower6_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/line-4": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_linefollower_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/line-4-rotary": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_linefollower4_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/imu-sensor": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_imu_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/led-ultrasonic": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_led_ultrasonic_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/wonder-echo": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_wonderecho_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/wonder-lens": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_aimech_wondercamInitI2c.IICPORT": "1"
+          }
+        }
+      }
+    },
+    "input/wonder-mind": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {}
+    },
+    "input/k230-vision": {
+      "variant": "hiwonder-dev-dual-drive",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aimech_iicport": {
+          "bindings": {
+            "sensor_k230_aimech_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "power/bus-servo": {
+      "variant": "hiwonder",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "power/iic-pwm": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {
+        "actuator.aimech_iicport": {
+          "bindings": {
+            "actuator_aimecha_iicpwm_init.PORT": "1"
+          }
+        },
+        "actuator.iic_pwm_port": {
+          "bindings": {
+            "actuator_iicpwm_set_pos.NUM": "1",
+            "actuator_iicpwm_set_speed.NUM": "1"
+          }
+        }
+      }
+    },
+    "output/fan": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {
+        "actuator.aimech_iicport": {
+          "bindings": {
+            "actuator_aimech_fan_iic_set_module_speed.PORT": "1"
+          }
+        }
+      }
+    },
+    "power/xarm-series": {
+      "variant": "hiwonder-actuator",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "power/xarm-linkage": {
+      "variant": "hiwonder-actuator",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "output/dot-matrix": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aiblocks_iicport": {
+          "bindings": {
+            "display_aimech_matrixLed_brightness.PORT": "1",
+            "display_aimech_matrixLed_show_num.PORT": "1",
+            "display_aimech_matrixLed_show_str.PORT": "1",
+            "display_aimech_matrixLed_pos_onoff.PORT": "1",
+            "display_aimech_matrix_led.PORT": "1",
+            "display_aimech_clear_matrix_led.PORT": "1"
+          }
+        }
+      }
+    },
+    "output/rgb-module": {
+      "variant": "wonderlab",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aimech_iicport": {
+          "bindings": {
+            "display_aimech_rgb_module_color_set.PORT": "1",
+            "display_aimech_rgb_module_color_select.PORT": "1",
+            "display_aimech_rgb_module_breath_one.PORT": "1",
+            "display_aimech_rgb_module_breath.PORT": "1",
+            "display_aimech_rgb_module_close.PORT": "1"
+          }
+        }
+      }
+    },
+    "output/digit-display": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aimech_iicport": {
+          "bindings": {
+            "display_aimech_digit_show_num.PORT": "1"
+          }
+        }
+      }
+    },
+    "output/oled": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aimech_iicport": {
+          "bindings": {
+            "display_aimech_oled_init.PORT": "1"
+          }
+        }
+      }
+    },
+    "output/fan-iic": {
+      "variant": "hiwonder-dev-port",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aimech_iicport": {
+          "bindings": {
+            "display_aimech_fan_iic_set_module_speed.PORT": "1"
+          }
+        }
+      }
+    },
+    "communication/communication": {
+      "variant": "ps3",
+      "legacyNamespaces": [
+        "communication"
+      ],
+      "portGroups": {}
+    }
+  }
+}
