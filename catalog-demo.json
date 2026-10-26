@@ -1,0 +1,31 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "candidate",
+  "packages": [
+    {
+      "moduleId": "input/light-sensor",
+      "version": "0.1.0",
+      "libraryVersion": "0.1.11",
+      "status": "candidate",
+      "asset": "light-sensor-0.1.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-demo-20261023-v1/light-sensor-0.1.0.zip"
+    },
+    {
+      "moduleId": "input/light-sensor",
+      "version": "0.1.1-demo.20261023",
+      "libraryVersion": "0.1.11",
+      "status": "candidate",
+      "asset": "light-sensor-0.1.1-demo.20261023.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-demo-20261023-v2/light-sensor-0.1.1-demo.20261023.zip"
+    },
+    {
+      "moduleId": "robots/aimech",
+      "version": "1.0.5",
+      "libraryVersion": "0.1.11",
+      "status": "candidate",
+      "asset": "aimech-1.0.5.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-demo-20261023-v1/aimech-1.0.5.zip"
+    }
+  ]
+}
