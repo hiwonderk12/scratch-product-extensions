@@ -49,6 +49,21 @@ const collectNativeModule = (root, moduleId, typescript) => {
         throw new Error(`模块目录不合法：${moduleId}`);
     }
     const directory = path.join(root, 'products', moduleId);
+    return collectNativeDirectory(root, directory, moduleId, typescript, false);
+};
+
+// 用户作者目录独立编译，不读取或复制官方库快照，不生成主控配套包。
+const collectStandaloneExtension = (directory, typescript) => {
+    directory = fs.realpathSync(directory);
+    const metadata = readJson(directory, 'metadata.json');
+    if (!/^[a-z0-9-]+$/.test(metadata.id) ||
+        !['input', 'output', 'power', 'communication'].includes(metadata.category || 'output')) {
+        throw new Error('用户拓展需要合法 id 和模块 category，不能替换主控包');
+    }
+    return collectNativeDirectory(directory, directory, `${metadata.category || 'output'}/${metadata.id}`, typescript, true);
+};
+
+const collectNativeDirectory = (root, directory, moduleId, typescript, standalone) => {
     const metadata = readJson(directory, 'metadata.json');
     if (metadata.format !== 'hiwonder-native-extension' || metadata.formatVersion !== 1 ||
         metadata.apiVersion !== 1 || metadata.mode !== 'python' || metadata.entry !== 'index.cjs') {
@@ -58,6 +73,7 @@ const collectNativeModule = (root, moduleId, typescript) => {
     const program = typescript.createProgram([entry], {
         target: typescript.ScriptTarget.ES2020,
         module: typescript.ModuleKind.CommonJS,
+        newLine: typescript.NewLineKind.LineFeed,
         strict: true,
         types: [],
         skipLibCheck: true,
@@ -100,13 +116,25 @@ const collectNativeModule = (root, moduleId, typescript) => {
         typescript.forEachChild(node, checkResources);
     };
     checkResources(authoringSource);
-    const library = readLibrarySnapshot(root);
-    if (!library.version) throw new Error('library.config.json: 固定库配置必须提供版本');
     const {source, legacySources, ...descriptor} = metadata;
-    const extension = {...descriptor, ...display, moduleId, profile: library.profile, libraryVersion: library.version, library: 'library.json'};
+    let extension;
+    if (standalone) {
+        extension = {...descriptor, ...display, moduleId,
+            profile: metadata.profile || 'wonderlab', installation: 'standalone'};
+        if (!/^[a-z0-9-]+$/.test(extension.profile) || !/^[a-z0-9]+$/i.test(extension.namespace) ||
+            typeof extension.version !== 'string' || !extension.version) throw new Error('用户拓展身份字段无效');
+        if (metadata.library || metadata.libraryVersion) throw new Error('用户拓展不应声明全库配置快照');
+        files['src/index.ts'] = fs.readFileSync(entry);
+        files['metadata.json'] = `${JSON.stringify(extension, null, 2)}\n`;
+    } else {
+        const library = readLibrarySnapshot(root);
+        if (!library.version) throw new Error('library.config.json: 固定库配置必须提供版本');
+        extension = {...descriptor, ...display, moduleId, profile: library.profile,
+            libraryVersion: library.version, library: 'library.json'};
+        files['extension.json'] = `${JSON.stringify(extension, null, 2)}\n`;
+        files['library.json'] = `${JSON.stringify(library, null, 2)}\n`;
+    }
     if (!extension.name?.['zh-cn']?.trim()) throw new Error(`${entry}: 缺少中文产品名称`);
-    files['extension.json'] = `${JSON.stringify(extension, null, 2)}\n`;
-    files['library.json'] = `${JSON.stringify(library, null, 2)}\n`;
     return {descriptor: extension, files};
 };
 
@@ -117,4 +145,4 @@ const createNativeArchive = async (collected, JSZip) => {
     return zip.generateAsync({type: 'uint8array', compression: 'DEFLATE'});
 };
 
-export {collectNativeModule, createNativeArchive, readLibrarySnapshot, readNativeAuthoring};
+export {collectNativeModule, collectStandaloneExtension, createNativeArchive, readLibrarySnapshot, readNativeAuthoring};

@@ -5,23 +5,26 @@
 ## 第一次使用或制作
 
 - **安装现成包**：[导入与使用](importing.md)，包括软件要求、配套 ZIP、选主控和离线重开。
-- **制作第一个包**：[显示文本入门教程](getting-started.md)，不需要硬件，包含依赖、创建、修改、支持配置与配套打包。
+- **手写第一个包**：[TypeScript 入门教程](getting-started.md)，从[最小单积木源码](examples/minimal-text/src/index.ts)开始，目录直接检查和单包打包，不需要生成命令或配套主控。
+- **用户包格式与更新**：[独立包格式](standalone-package.md)，本包主控适配、资源、覆盖与离线恢复；官方库版本规则不作为新手前置知识。
+- **直接查完整写法**：[详细中文注释的 index.ts](examples/handwritten-text/src/index.ts)与[示例覆盖索引](examples/handwritten-text/README.md)，包含类、字段、控件和全部 Python 生成规则。
 - **想借助 AI**：[可选辅助指南](ai-assisted.md)。不是教程的前提，也不能代替人工检查。
 
 ## 修改已有积木与深入开发
 
 1. [仓库说明](../README.md)：用途、适用软件和使用入口。
-2. [模块维护手册](development.md)：源码入口、旧标识、控件和本地检查。
-3. [主控支持关系与端口](configuration.md)：按主控配置模块、复用支持集和调整端口。
-4. [原生类接口与命令](native-api.md)：类 / 菜单 / Python 模板、标准编译、独立打包与本地导入。
-   [课程维护 CLI](cli.md)：五类骨架、积木/菜单生成、dry-run及安全边界；[维护 Skill](../.agents/skills/product-extension/SKILL.md)复用同一规则。
-5. 模块中的产品手册：固件接口、参数和生成约束，例如 [AI机甲双驱车](../products/robots/aimech/docs/README.md)。
+2. [类与上下文 API](native-api.md)：constructor、getInfo、getPython、dispose、语言／端口／资源、元数据与安全边界。
+3. [积木、菜单与控件](blocks-and-menus.md)：blockType 全部可用值、参数、菜单、分组、图标和隐藏兼容。
+4. [Python 生成规则](python-generation.md)：全部模板字段、输出示例、去重、分支、入口和事件。
+5. [主控支持关系与端口](configuration.md)、[版本与项目](versions-and-projects.md)：手写支持配置、驱动、快照与不可变版本。
+6. [模块维护手册](development.md)：已有产品修改与兼容审阅；产品中的 docs 说明真实 SDK，例如 [AI机甲双驱车](../products/robots/aimech/docs/README.md)。
+7. [检查、打包与可选生成 CLI](cli.md)、[维护 Skill](../.agents/skills/product-extension/SKILL.md)：共享交付工具，创建／生成仅为辅助。
 
 ## 版本与课程
 
 [包版本与项目恢复](versions-and-projects.md)：不可变版本、库快照配套、安装与升级分离、旧项目兼容基线、版本锁和离线备份。
 
-[原生候选目录与下载](native-catalog.md)：从既有ZIP生成轻量目录、明确启用测试渠道、下载后共用不可变安装服务，不自动升级作品或切正式源。
+[官方 Release、版本索引与原生下载](native-catalog.md)：各版本 ZIP 放入对应 Release，一个 JSON 记录历史与下载地址；从既有 ZIP 生成索引，明确启用测试渠道，不自动升级作品或切正式源。
 
 ## 产品维护示例
 
@@ -37,6 +40,7 @@
 
 ## 文档约定
 
+- 教程负责带你完成任务，API 手册负责接口合同；示例注释解释当前写法，参考索引只负责定位，不另立一套规则。
 - 公开资料说明如何开发和维护，以实际源码/工具支持为准；未实现的 API 或命令不写成现成功能。
 - 新模块和产品提供中文说明，其他语言按需要补充；翻译不能改变参数标识和菜单实际值。
 - 产品说明维护源码位置、使用方式、参数/端口、生成结果与兼容约束。

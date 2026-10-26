@@ -6,25 +6,27 @@
 
 ## 适用软件
 
-需要支持原生类积木包、配套版本选择与项目版本锁的 WonderLab 桌面软件。
+需要支持独立原生类积木包的 WonderLab 桌面软件；当前为开发预览，最低正式发行版本尚未确认。
 普通 Scratch 或未提供这些能力的旧版软件不能直接使用。
 具体要求与入口见[导入与使用](docs/importing.md)。
 
 ## 使用现成积木包
 
-从可信作者获取适配的软件版本及完整配套 ZIP，按[导入指南](docs/importing.md)安装、选择主控并添加模块。
+从可信作者获取适配的单包 ZIP，在“用户拓展 → 导入本地库”直接导入；普通用户包无需导入配套主控或管理多版本。
 当前仓库提供开发源码，尚未提供正式原生发行集合；GitHub 的源码 **Download ZIP 不是积木安装包**。
 
 ## 制作第一个积木包
 
-按[完整入门教程](docs/getting-started.md)，准备环境、创建文本示例、修改积木、接入一个主控，再生成配套 ZIP 并导入软件查看 Python。
+按[手写 TypeScript 入门教程](docs/getting-started.md)，直接维护一个作者目录和 `src/index.ts`，检查并打包为一个 ZIP。
+原生类是主要开发方式；CLI 创建／生成和 AI 都是可选辅助，不要求先学习生成器或维护规格文件。
 不需要硬件、不需要修改软件源码，也不需要先了解内部标识。
-主控和模块需要同一套配置；教程会一起打包，不是仅导入一个模块 ZIP。
+完整参考 `docs/examples/handwritten-text` 也可直接检查、打包；[独立包格式](docs/standalone-package.md)说明可选资源与包内主控适配。
 
 ## 文档与帮助
 
 - [导入与使用](docs/importing.md)：软件要求、安装、离线重开与常见问题。
-- [第一个积木包](docs/getting-started.md)：从环境准备到配套导入。
+- [手写第一个积木包](docs/getting-started.md)：完整源码、目录检查、单包打包与直接导入。
+- [类与上下文 API](docs/native-api.md)、[积木与菜单](docs/blocks-and-menus.md)、[Python 生成](docs/python-generation.md)：方法、字段、示例和支持边界。
 - [文档导航](docs/README.md)：已有积木维护、接口、端口与命令参考。
 - [可选 AI 辅助](docs/ai-assisted.md)：描述需求、准备资料与人工核对。
 

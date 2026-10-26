@@ -214,7 +214,7 @@ const planGeneration = (root, argumentsList, ts) => {
                 `${argument}: 自动生成仅支持基础类型及显式默认值，已有自定义控件请手工维护`);
             requireValue(definition.literal === undefined || typeof definition.literal === 'boolean', `${argument}: literal 必须为布尔值`);
             requireValue(definition.menu === undefined || menus.has(definition.menu), `${argument}: 菜单不存在，请先生成菜单`);
-            return `${argument}: ${quoted(definition)}`;
+            return `${argument}: ${quoted({...definition, type: definition.type === 'boolean' ? 'Boolean' : definition.type})}`;
         });
         localized(specification.text, locales, 'block.text');
         const placeholders = [...specification.text['zh-cn'].matchAll(/\[([A-Za-z][A-Za-z0-9_]*)\]/g)].map(match => match[1]);
@@ -231,7 +231,8 @@ const planGeneration = (root, argumentsList, ts) => {
         }
         const key = 'block.' + name;
         addMessage(key, specification.text);
-        edits.append(authoring.blocks, `{\n    opcode: ${quoted(name)},\n    blockType: ${quoted(flags['--type'])},\n    text: this.context.t(${quoted(key)}),\n    arguments: {${rendered.join(', ')}}\n}`);
+        const blockType = flags['--type'] === 'boolean' ? 'Boolean' : flags['--type'];
+        edits.append(authoring.blocks, `{\n    opcode: ${quoted(name)},\n    blockType: ${quoted(blockType)},\n    text: this.context.t(${quoted(key)}),\n    arguments: {${rendered.join(', ')}}\n}`);
         edits.append(authoring.python, `${quoted(name)}: ${quoted(python)}`);
         fields.push(`messages.*.${key}`, `getInfo.blocks.${name}`, `getPython.${name}`);
     }

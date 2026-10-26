@@ -2,7 +2,8 @@
 
 面向熟悉 Git、TypeScript 和 Python 的开发人员。先查 `library/modules.json` 定位模块，再从其 `metadata.json` 进入源码。`native-source` 表示已有类入口，`legacy-source` 表示仅有旧实现，`planned` 表示仅有卡片或支持意图；源码状态不代表正式发行。
 
-当前现有源码均使用原生类，不为新包创建 legacy 目录。首次制作从[文本示例](getting-started.md)开始；新建、积木/菜单生成、支持接入及配套打包见[CLI手册](cli.md)。
+当前现有源码均使用原生类，不为新包创建 legacy 目录。首次制作从[手写 TS 文本示例](getting-started.md)开始，不需要生成命令。
+类方法见[原生 API](native-api.md)，积木与菜单字段见[声明参考](blocks-and-menus.md)，模板见[Python 规则](python-generation.md)。CLI 的检查和打包共用，创建与生成仅为[可选辅助](cli.md)。
 
 ## 每个模块的文件
 

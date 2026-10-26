@@ -1,8 +1,25 @@
-# 课程维护者 CLI
+# 检查、打包与可选生成 CLI
+
+## 普通用户包：只检查和打包作者目录
+
+~~~sh
+node tools/cli/index.mjs check ./docs/examples/handwritten-text
+node tools/cli/index.mjs pack ./docs/examples/handwritten-text --output ./dist/handwritten-text.zip
+~~~
+
+目录包含 metadata.json、src/index.ts 及可选 assets/python。标准编译后输出一个可直接在“用户拓展 → 导入本地库”导入的 ZIP；没有配套主控、库快照或多版本选择。`--output` 可省略，默认输出 dist/标识-版本-standalone.zip；重复打包更新同一普通 ZIP，拒绝覆盖目录或链接。详见[独立包格式](standalone-package.md)。
+
+## 官方库维护与可选生成
+
+可以直接[手写 TypeScript 类](getting-started.md)，只用检查、索引生成和打包交付；不必调用 new、generate 或 support add。
+类与控件能力以[原生 API](native-api.md)和[积木声明](blocks-and-menus.md)为准，不能把生成器的限制当成手写能力的限制。
 
 在仓库根目录使用 Node.js 20+ 和项目已声明的 TypeScript、JSZip 依赖。先查看 `npm run ext -- --help`。命令不安装依赖、不上传、不提交或发布，也不自动更新软件本体。
 
 ## 已实现的命令
+
+官方多 Release 历史汇总：`catalog --releases ./products --input ./dist/release-assets --output ./dist/catalog-candidate.json --status candidate`。
+读取产品 `release.json`，校验现有 ZIP 后生成唯一总索引，详见[官方发行与索引](native-catalog.md#按产品维护-releasejson)。不自动上传或覆盖根目录索引。
 
 | 命令 | 作用 |
 | - | - |
@@ -20,7 +37,7 @@
 
 `new` 和 `generate` 均拒绝覆盖重名包、积木、菜单或文案 key；没有 `--force`。错误参数、分支不明、文案不完整或规划后源码被修改时，不强行落盘。生成器只更新其列出的文件，保留其他源码、注释和原换行。
 
-## 从骨架到普通积木
+## 可选：从骨架到普通积木
 
 先用[产品规格示例](examples/module.json)提供真实名称，四语不得用中文复制充当翻译。`description` 可省略，提供时也需四语。默认 namespace：输入 sensor、输出 display、动力 actuator、通信 communication；主控由 id 去连字符生成，可通过 `--namespace` 显式指定，已有兼容包不得借此改名。
 
@@ -45,14 +62,14 @@ block 规格包括 `text`、可选 `arguments`、`python`：
 
 - `text` 对应目标 index 中的语言表；当前现有包均四语，翻译参数占位符须与中文一致。新包默认四语，生成器不自动机翻。
 - 参数名使用大写，需与 `[VALUE]`、`{VALUE}` 一致；本批生成器支持 string/number/boolean，必须提供默认值。可提供 `menu` 引用**已存在**的菜单及布尔 `literal`。
-- `--type` 仅 command/reporter/boolean；`python.template` 必须是非空实现，可提供字符串数组 imports/variables/setups。复杂选择器、事件、独立资源或自定义控件继续手工在 index 声明，不能塞空模板。
+- `--type` 仅 command/reporter/boolean；小写 boolean 输入生成标准 `blockType: 'Boolean'`，参数规格的 boolean 也生成 `type: 'Boolean'`。`python.template` 必须是非空实现，可提供字符串数组 imports/variables/setups。复杂选择器、事件、独立资源或自定义控件继续手工在 index 声明，不能塞空模板。
 - 生成前检查完整类型归属，不能在共享 namespace 中添加其他模块已占用的 opcode。已有 opcode、参数名、菜单 value 不随界面语言改变。
 
 menu 规格包含 `acceptReporters` 和非空 `items`；每项 `text` 为语言表，`value` 为唯一的非空字符串。只有显示文字翻译，不能翻译实际值。生成菜单不会自动替某个积木接线，需在参数 `menu` 指定其名称。
 
 ## 主控适配、索引与版本
 
-首次制作请走[完整教程](getting-started.md)。创建与生成命令不接入主控；已有主控可用以下显式操作：
+首次制作请走[完整手写教程](getting-started.md)，其中包含不依赖 support add 的配置示例。创建与生成命令不接入主控；需要辅助修改已有主控时，可用以下显式操作：
 
 ```sh
 npm run ext -- support add aimech output/hello-text --spec docs/examples/text-support.json --dry-run
@@ -86,12 +103,15 @@ AST 插入只支持唯一默认导出类、getInfo/getPython 各自直接返回�
 
 独立 `ext test`、真实 `preview`、`build` 命令尚未实现；不要将静态页面或本地冒烟称为真实预览。新硬件、上传/连接协议和C后端依旧可能需要软件本体调整。CLI/Skill不自动修改这些边界，也不代替合并审阅、硬件和发行授权。
 
-## 自动复现公开入门教程
+## 自动验证手写示例
 
-安装本库自己的锁定依赖后，可执行 `node tools/ci/first-package.mjs --output 绝对路径的新目录`。
-它在临时副本按入门教程创建文本模块、修改默认文字、接入指定主控并检查、打出配套 ZIP，不修改当前源码、支持配置或发行目录。
-临时副本只复用本库自身的依赖，不读取软件主仓依赖；输出目录已存在、依赖或教程输入缺失均失败。
-软件宿主应继续读取真实产物检查导入、四语、Python 与离线工程恢复，不能用本命令成功代替应用验收。
+安装本库自己的锁定依赖后，可执行 `node --test tools/ci/handwritten-package.test.mjs`。
+它复制公开作者文件，在 dist/handwritten-* 的独立副本手写支持与版本，运行真实检查和配套打包，不调用创建／生成命令。
+副本通过目录父级解析本库自己的依赖，不读取软件主仓依赖，不建立 node_modules 联接、不递归清理；输出和命令日志保留供检查。
+测试还核对两包快照一致、可信示例类四语 key 与参数／Python 规则不变，以及缺译文和占位符错误确实失败。
+这不是软件宿主或完整 Python 生成器测试；应用内导入、四语交互、上传与离线重开仍单独验证。
+
+旧 tools/ci/first-package.mjs 属于可选生成路径的脚本，不是手写教程的前置步骤。涉及复用依赖联接的环境不使用该脚本做清理或恢复。
 
 ## AI 辅助维护
 

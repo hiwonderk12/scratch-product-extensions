@@ -1,4 +1,9 @@
-# 原生类与独立模块包
+# 原生类与上下文 API
+
+主路径是直接维护 TypeScript 类；从[手写第一个包](getting-started.md)开始，无须运行骨架或积木生成命令。
+字段参考分为本页的类、上下文及元数据，[积木与菜单](blocks-and-menus.md)和[Python 生成](python-generation.md)。
+
+需要边看代码边学习时，打开[详细注释的单文件参考](examples/handwritten-text/src/index.ts)及其[阅读与适配说明](examples/handwritten-text/README.md)：声明字段和全部 PythonTemplate 字段在源码旁解释，包含可选硬件端口分支；不必把所有演示积木复制到生产包。
 
 光敏、土壤及其他基础输入模块位于 `products/input/`，RGB 模块位于 `products/output/rgb-module/`，机器人位于 `products/robots/`。已迁移模块直接导出 TypeScript 类，标准编译成 CommonJS，客户端实例化后消费 `getInfo()` 与 `getPython()`，没有并行维护的旧作者目录。
 
@@ -6,9 +11,13 @@
 
 ## 检查与打包
 
-新建模块、AST定点生成积木/菜单及dry-run见[CLI手册](cli.md)。输出仍是本页的类，不生成另一套运行格式。
+**独立用户包**直接对目录执行 `check ./docs/examples/handwritten-text`、`pack ./docs/examples/handwritten-text`（命令前缀 `node tools/cli/index.mjs`），无需官方库配置。包内可通过 metadata.support 声明 products/default/ports，由同一类的 context.variant 选择生成规则，见[独立包合同](standalone-package.md)。
 
-Node.js 20 及以上。结构检查无外部依赖；编译检查和打包需要根 `package.json` 声明的 TypeScript、JSZip 开发依赖。首次开发时运行 `npm install` 准备依赖，然后执行：
+下面的模块 ID、库快照及配套版本章节只适用于**官方产品库维护**，不约束普通用户包。两类包复用下文的类、上下文和 Python 接口，不转换旧 manifest。
+
+CLI 的创建、积木/菜单生成是可选辅助，见[CLI手册](cli.md)。手写和生成使用同一套类接口、检查及打包工具，没有第二套长期维护源。
+
+Node.js 20 及以上。结构检查无外部依赖；编译检查和打包需要根 `package.json` 声明的 TypeScript、JSZip 开发依赖。首次开发按已有锁文件运行 `npm ci --ignore-scripts --no-audit --no-fund` 准备本库依赖，然后执行：
 
 ```sh
 npm run ext -- check
@@ -110,7 +119,130 @@ export default class LightSensorBlocks implements NativeExtension {
 
 一个产品主要维护一个 `src/index.ts`：集中文案配置、类、菜单和简单 Python 都在这里。不按功能或 opcode 拆文件；复杂辅助函数或运行库才可放 `python/`，没有独立实现就不创建该目录。
 
-Python 规则支持已有生成器的占位符及 imports、variables、setups 等字段，准确字段以 SDK 类型为准。两个样板保留既有 SDK 初始化和变量命名，未额外改变多实例传感器语义。依赖由用到该积木时收集，不无条件初始化全部硬件。
+Python 字段、占位符、去重和实际输出结构见[Python 生成规则](python-generation.md)，接口类型保存在 tools/sdk/index.d.ts。光敏等既有产品示例保留原 SDK 初始化和对象命名；新增多端口产品应明确隔离对象名，不能认为同名变量会自动合并成多个实例。依赖由用到该积木时收集，不无条件初始化全部硬件。
+
+## 类方法与生命周期
+
+| 方法 | 调用者、参数和返回值 | 职责与限制 |
+| - | - | - |
+| constructor(context) | 宿主以 new 默认导出类(context) 创建实例 | 保存 ExtensionContext，准备无副作用的内部状态；不打开串口、初始化设备或固定翻译 |
+| getInfo() | 宿主同步调用，返回 ExtensionInfo | 描述当前适配的积木、菜单、颜色和图标；语言刷新及合并时可重复调用，不能返回 Promise |
+| getPython() | 宿主同步调用，返回 opcode → PythonTemplate 对象 | 与 getInfo 使用同一适配分支；每个积木含字符串 template，不执行设备 Python |
+| dispose() | 可选，无参数；返回 void 或 Promise<void> | 卸载、替换或已创建实例的失败回滚时清理自己持有的资源，宿主等待清理完成 |
+
+dispose 的最小合法写法为 dispose (): void {}；没有自有资源就省略，不必添加空方法。
+如果自己注册了监听，在 dispose 中解除同一监听；不要清理其他模块的对象或工程内容。
+异步清理必须返回 Promise，不能发起后台清理后立即返回。清理异常会记录警告，不构成硬件安全停机保证。
+构造函数自身抛错时尚无完整实例，不能指望 dispose 替它回滚外部操作。
+
+Python 模式不按 opcode 调用作者的同名 TS 方法。舞台 reporter 返回空字符串，boolean 返回 false，command 不执行硬件。
+新增积木只需补声明和生成规则，不要照搬 VM 实时运行扩展的硬件执行方法。
+
+## context 方法参考
+
+context 由软件根据所选主控、包资源和当前语言提供，不需要作者自己创建。
+它不公开 VM、文件系统或设备连接 API；下列方法不能解释为相应权限授权。
+除 dispose 外，下述读取方法均为同步。
+
+### variant
+
+- 用途：只读字符串，选择主控对应的驱动规则。
+- 来源：主控支持条目的 variant；机器人包自身使用当前 profile，例如 wonderlab。
+- 示例：const devDriver = this.context.variant === 'hiwonder-dev'; 在 getInfo/getPython 中据此共同选择参数和依赖。
+- 常见错误：只分支 getInfo 的端口，不分支 getPython 的 import、构造参数和对象名。
+- 限制：它不是主控型号自动探测器；允许哪些 variant 应在产品手册列明，未知值需明确报错而非猜测引脚。
+
+### t(key)
+
+- 用途：读取同 index 导出的集中 messages。
+- 参数：稳定字符串 key；新作者写 this.context.t('block.show_text') 或 this.context.t(product.name)。
+- 返回：当前界面语言的字符串。缺少相应译文时按语言别名、基础语言和中文兜底，不自动翻译。
+- 示例：text: this.context.t('block.show_text')，在 getInfo() 内调用以支持实时切换。
+- 常见错误：中文 key 缺失会报错；不能在构造函数中缓存最终译文，也不能翻译菜单 value。
+- 限制：宿主兼容旧 LocalizedText 对象，但新作者检查要求集中字面量配置与静态 key，不接受动态拼 key。
+
+完整四语 messages/product 示例见本页作者接口；声明的语言需覆盖全部 key、保留占位符数量和名称。
+例如 en-US 先尝试精确译文再 en；ko-KR 可匹配 ko；zh-Hans/CN/SG 对应简中，zh-Hant/TW/HK 对应繁中。
+未提供译文的语言回退中文，不改变参数值、Python 或包版本。
+
+### ports(group)
+
+- 用途：读取当前主控允许的端口组菜单。
+- 参数：库配置中的完整组名字符串，例如 sensor.aimech_iicport。
+- 返回：Array<{text: string; value: string}>；显示标签按当前语言解析，value 保持原值。
+- 示例：items: this.context.ports('sensor.aimech_iicport')，放在 getInfo().menus 对应项。
+- 常见错误：主控未配置该组会报错，不能通过调用方法绕过支持表。
+- 限制：不创建端口、不验证实际接线，也不决定初始化驱动。
+
+### defaultPort(opcode, argument, namespace?)
+
+- 用途：读取当前主控、模块的默认参数绑定。
+- 参数：积木 opcode、参数名，以及可选活跃 namespace；省略第三项时用 metadata.namespace。
+- 返回：配置中的 string 端口值。
+- 示例：defaultValue: this.context.defaultPort('aimech_read_light', 'PORT')，与上面的端口菜单配对。
+- 常见错误：缺少 namespace_opcode.argument 绑定，或默认值不在端口组内，会报错。
+- 限制：不会自动选择首个端口；多前缀适配时需传入本分支前缀，不能误用主前缀。
+
+端口组及绑定的完整手写配置见[主控与端口](configuration.md)。菜单不是支持配置的替代物。
+
+### asset(filename)
+
+- 用途：取得已打包图片资源供图标等声明使用。
+- 参数：模块根相对路径，使用 /，例如 assets/icon.svg；编译检查要求路径字符串字面量。
+- 返回：资源字符串，图片在加载后为 data URI，不是设备路径或本机文件名。
+- 示例：menuIconURI: this.context.asset('assets/icon.svg')；作者把原图保存为 assets/icon.svg。
+- 常见错误：引用不存在、未收集的文件或目录外路径会报错；不应手工把原图编码进源码。
+- 限制：不能当作任意二进制读取接口；默认收集 assets/ 中实际文件。
+
+### python(filename)
+
+- 用途：读取打包的 Python 文本作为复杂模板或规则片段。
+- 参数：模块根相对路径字面量，例如 python/example.py。
+- 返回：文本内容，经 trimEnd() 去除末尾空白。
+- 示例：template: this.context.python('python/example.py')，对应文件放在模块的 python/ 目录。
+- 常见错误：文件不存在、引用越界或依赖末尾换行拼接会失败或产生错误程序。
+- 限制：读取和打包不等于向硬件部署，runtimeFiles 也不提供自动部署；简单 Python 仍直接内联。
+
+asset/python 均拒绝绝对路径、.. 等越界引用。资源路径以模块根为起点，而非 src/。
+
+## 包元数据字段
+
+metadata.json 是作者输入；extension.json 是打包结果，不需手写另一套。
+
+| 字段 | 说明 |
+| - | - |
+| id | 模块短标识，匹配所在目录名；完整 moduleId 由分类/目录确定 |
+| format / formatVersion / apiVersion | 当前固定 hiwonder-native-extension / 1 / 1，不自行增加来宣称新能力 |
+| version | 不可变内容的语义版本，重新发行有变化的内容须递增 |
+| namespace | 默认完整积木前缀，不同于模块路径 |
+| namespaces | 可选历史前缀数组，含主 namespace；下方说明互斥活跃分支 |
+| mode | 当前为 python；不能只改成 c 就获得 C 后端 |
+| kind | 机器人主控填写 robot，普通模块省略 |
+| source / entry | 通常 src/index.ts / index.cjs，标准编译后直接加载类 |
+| icon | 可选卡片图片路径，如 assets/icon.png；不向 catalog 重复维护图片 |
+| legacySources | 已迁移原生包使用空数组，仅供源码检查，不进入发行包 |
+
+名称、简介及 supportedLocales 来自 index 的 product/messages，不能在元数据和 catalog 中再维护一套翻译。
+包还携带 library.json 固定配置快照，支持关系不写进类里硬编码主控名单。
+
+## 手写、生成器与检查的不同边界
+
+| 层次 | 实际边界 |
+| - | - |
+| 手写 TypeScript | 可写同文件辅助函数、适配分支及已有控件，不受普通积木生成器的 AST 编辑范围限制 |
+| CLI 生成 | 只定点修改其理解的类/字段；遇动态返回或复杂分支应手写，不删分支来迁就生成器 |
+| 作者静态检查 | messages/product 为导出的 const 字面量；t/asset/python 使用静态引用；索引用显式 opcode:、PORT: 等普通属性声明 |
+| 编译打包 | 允许类型导入；当前只生成一个运行入口，不支持额外运行时 TS 入口、require npm 包或分文件运行依赖 |
+| 软件宿主 | 校验命名空间、主控支持、菜单和重复 opcode；模块检查不能替代软件加载、Python 生成或上传验收 |
+
+手写自由不表示静态检查能理解任意 TS：不要动态生成 opcode 或通过展开、计算属性构造导出的文案对象。
+保持一个产品一个主要 index，避免为了缩短文件增加未经支持的运行期模块系统。
+
+### 外部包信任边界
+
+当前宿主执行原生 CommonJS 类，不是纯 JSON 解析，也不是安全沙箱。
+context API 的范围不等于阻止恶意代码访问运行环境。检查和打包不会证明第三方源码可信。
+只导入可信来源、可审阅的包；不要把不可信 ZIP 当安全样本执行，设备与上传验收另行进行。
 
 ## 按适配选择旧命名空间
 

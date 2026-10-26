@@ -101,6 +101,32 @@ test('generates menu and block with focused AST insertions, keeping comments and
     assert.throws(() => planAuthoringCommand(root, ['g', 'menu', 'input/demo', 'mode', '--spec', menu], ts), /重复|已存在/);
 });
 
+test('lowercase CLI boolean emits the VM Boolean block and argument types', context => {
+    const {root, write, create} = fixture(context);
+    create();
+    const specification = write('boolean.json', {
+        text: {'zh-cn': '判断 [VALUE]', en: 'Test [VALUE]', 'zh-tw': '判斷 [VALUE]', ko: '[VALUE] 판단'},
+        arguments: {VALUE: {type: 'boolean', defaultValue: false}},
+        python: {template: '{VALUE}'}
+    });
+    for (const type of ['boolean', 'command', 'reporter']) {
+        applyAuthoringPlan(planAuthoringCommand(root,
+            ['g', 'block', 'input/demo', `test_${type}`, '--type', type, '--spec', specification], ts));
+    }
+    const record = collectNativeModule(root, 'input/demo', ts);
+    const module = {exports: {}};
+    new Function('module', 'exports', record.files['index.cjs'])(module, module.exports);
+    const instance = new module.exports.default({t: key => key});
+    const blocks = instance.getInfo().blocks;
+    for (const type of ['boolean', 'command', 'reporter']) {
+        const block = blocks.find(item => item.opcode === `test_${type}`);
+        assert.equal(block.blockType, type === 'boolean' ? 'Boolean' : type);
+        assert.equal(block.arguments.VALUE.type, 'Boolean');
+        assert.equal(block.arguments.VALUE.defaultValue, false);
+        assert.deepEqual(instance.getPython()[block.opcode], {template: '{VALUE}'});
+    }
+});
+
 test('invalid translations, placeholders, menus and unsupported targets cannot partially edit a source', context => {
     const {root, write, create} = fixture(context);
     const sourceFile = path.join(root, create());
