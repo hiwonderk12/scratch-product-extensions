@@ -1,0 +1,10 @@
+{
+  "releases": [
+    {
+      "version": "1.0.0",
+      "tag": "wonderlab-library-v0.1.11",
+      "asset": "xarm-linkage-1.0.0.zip",
+      "status": "published"
+    }
+  ]
+}

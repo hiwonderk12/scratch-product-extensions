@@ -1,0 +1,10 @@
+{
+  "releases": [
+    {
+      "version": "1.0.6",
+      "tag": "wonderlab-library-v0.1.11",
+      "asset": "aiquadruped-1.0.6.zip",
+      "status": "published"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "releases": [
+    {
+      "version": "1.0.5",
+      "tag": "wonderlab-library-v0.1.11",
+      "asset": "aimech-1.0.5.zip",
+      "status": "published"
+    }
+  ]
+}

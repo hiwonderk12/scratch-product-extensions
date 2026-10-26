@@ -160,6 +160,9 @@ node tools/cli/index.mjs catalog --releases ./products --input ./dist/release-as
 
 ## 整体候选集合
 
+首个正式库基线改由根 `catalog.json` 指向 `wonderlab-library-v0.1.11`，见[使用与限制](releases/wonderlab-library-v0.1.11.md)。
+下方测试目录继续保留，不移动原测试 tag，不将测试目录当作正常更新入口。
+
 `catalog-test-20261026.json` 是 WonderLab 整体测试候选目录，指向目标仓库
 `hiwonderk12/scratch-product-extensions` 的 `wonderlab-integration-test-20261026` Release。
 它包含现有 41 个原生产品包，不包含 4 个 planned 模块，也不增加任何主控支持组合。

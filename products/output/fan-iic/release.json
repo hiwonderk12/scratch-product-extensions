@@ -1,0 +1,10 @@
+{
+  "releases": [
+    {
+      "version": "0.1.1",
+      "tag": "wonderlab-library-v0.1.11",
+      "asset": "fan-iic-0.1.1.zip",
+      "status": "published"
+    }
+  ]
+}

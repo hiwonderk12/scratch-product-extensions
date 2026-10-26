@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {validateNativeReleaseCatalog} from './native-releases.mjs';
 
 // 检查库侧目录、支持关系和旧标识归属，仅生成源码索引，不转换积木或打包。
 const root = fileURLToPath(new URL('../../', import.meta.url));
@@ -201,7 +202,7 @@ assert(placeholders.every(item => item.name?.['zh-cn']), '占位卡片必须提�
 const catalog = readJson(resolveFile(root, 'catalog.json'));
 assert(catalog.profile === library.profile && catalog.formatVersion === 2, 'catalog.json: 渠道或格式错误');
 assert(!Object.hasOwn(catalog, 'sha256') && !Object.hasOwn(catalog, 'productIcons'), 'catalog.json: 不维护摘要或图片表');
-assert(catalog.status === 'development' && catalog.packages.length === 0, '当前仅完成源码整理，不能声明新格式发行包');
+validateNativeReleaseCatalog(catalog, {profile: library.profile, productsDirectory: path.join(root, 'products')});
 
 const indexes = {
     'library/modules.json': {

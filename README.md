@@ -13,7 +13,9 @@
 ## 使用现成积木包
 
 从可信作者获取适配的单包 ZIP，在“用户拓展 → 导入本地库”直接导入；普通用户包无需导入配套主控或管理多版本。
-当前仓库提供开发源码，尚未提供正式原生发行集合；GitHub 的源码 **Download ZIP 不是积木安装包**。
+官方包的正式目录为本分支根 `catalog.json`，首个原生集合为 `wonderlab-library-v0.1.11`。
+目录中的资源须在对应 GitHub Release 上传后才能下载；GitHub 的源码 **Download ZIP 不是积木安装包**。
+使用范围、配套软件和限制见[首个正式库基线](docs/releases/wonderlab-library-v0.1.11.md)。
 
 ## 制作第一个积木包
 

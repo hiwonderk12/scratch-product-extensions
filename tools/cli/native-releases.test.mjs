@@ -6,7 +6,7 @@ import test from 'node:test';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import JSZip from 'jszip';
-import {writeNativeReleaseCatalog} from './native-releases.mjs';
+import {validateNativeReleaseCatalog, writeNativeReleaseCatalog} from './native-releases.mjs';
 
 const fixture = async context => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'native-releases-'));
@@ -42,6 +42,32 @@ const fixture = async context => {
     return {root, releases, writeReleases, options: {productsDirectory: path.join(root, 'products'),
         inputDirectory, outputFile: path.join(root, 'catalog.json'), profile: 'wonderlab', status: 'candidate'}};
 };
+
+test('source checks accept a published catalog only when every entry matches release history', async context => {
+    const {options, releases, writeReleases} = await fixture(context);
+    writeReleases(releases.map(release => ({...release, status: 'published'})));
+    options.status = 'published';
+    const catalog = await writeNativeReleaseCatalog(options, JSZip);
+    assert.equal(validateNativeReleaseCatalog(catalog, options), catalog);
+    const changed = structuredClone(catalog);
+    changed.packages[0].downloadUrl = changed.packages[0].downloadUrl.replace('hiwonderk12', 'other-owner');
+    assert.throws(() => validateNativeReleaseCatalog(changed, options), /发行历史/);
+    writeReleases(releases);
+    assert.throws(() => validateNativeReleaseCatalog(catalog, options), /发行历史/);
+});
+
+test('source checks preserve empty development catalogs but reject missing history and duplicate identities', async context => {
+    const {options} = await fixture(context);
+    const catalog = await writeNativeReleaseCatalog(options, JSZip);
+    assert.equal(validateNativeReleaseCatalog(catalog, options), catalog);
+    const empty = {formatVersion: 2, profile: 'wonderlab', status: 'development', packages: []};
+    assert.equal(validateNativeReleaseCatalog(empty, options), empty);
+    assert.throws(() => validateNativeReleaseCatalog({...empty, packages: catalog.packages}, options), /development/);
+    assert.throws(() => validateNativeReleaseCatalog({...catalog,
+        packages: [...catalog.packages, catalog.packages[0]]}, options), /重复/);
+    fs.unlinkSync(path.join(options.productsDirectory, 'input/light-sensor/release.json'));
+    assert.throws(() => validateNativeReleaseCatalog(catalog, options), /release.json/);
+});
 
 test('release histories validate real archives and use only the target GitHub repository', async context => {
     const {options} = await fixture(context);

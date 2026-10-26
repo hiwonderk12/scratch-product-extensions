@@ -1,0 +1,10 @@
+{
+  "releases": [
+    {
+      "version": "0.1.4",
+      "tag": "wonderlab-library-v0.1.11",
+      "asset": "aidoggy-0.1.4.zip",
+      "status": "published"
+    }
+  ]
+}

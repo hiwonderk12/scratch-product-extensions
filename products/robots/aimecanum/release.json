@@ -1,0 +1,10 @@
+{
+  "releases": [
+    {
+      "version": "0.2.11",
+      "tag": "wonderlab-library-v0.1.11",
+      "asset": "aimecanum-0.2.11.zip",
+      "status": "published"
+    }
+  ]
+}

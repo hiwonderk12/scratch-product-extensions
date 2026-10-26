@@ -6,6 +6,7 @@ import {createNativeCandidateCatalog} from './native-catalog.mjs';
 const RELEASE_BASE_URL = 'https://github.com/hiwonderk12/scratch-product-extensions/releases/download/';
 const categories = ['robots', 'input', 'output', 'power', 'communication'];
 const safeName = /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/;
+const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 
 const plainPath = (root, relative = '') => {
     let current = path.resolve(root);
@@ -15,6 +16,37 @@ const plainPath = (root, relative = '') => {
         if (fs.lstatSync(current).isSymbolicLink()) throw new Error('发行输入不允许目录联接或符号链接：' + current);
     }
     return current;
+};
+
+// 源码检查不依赖本地 dist；通过产品发行历史校验正式目录身份、状态和固定下载来源。
+const validateNativeReleaseCatalog = (catalog, {profile, productsDirectory}) => {
+    if (catalog?.formatVersion !== 2 || catalog.profile !== profile || !Array.isArray(catalog.packages)) {
+        throw new Error('catalog.json: 渠道或格式错误');
+    }
+    if (catalog.status === 'development' && catalog.packages.length === 0) return catalog;
+    if (!['candidate', 'published'].includes(catalog.status) || !catalog.packages.length) {
+        throw new Error('catalog.json: development仅允许空目录；发行目录必须有有效状态和条目');
+    }
+    const identities = new Set();
+    for (const item of catalog.packages) {
+        if (!item || !/^(robots|input|output|power|communication)\/[a-z0-9][a-z0-9-]*$/.test(item.moduleId) ||
+            !versionPattern.test(item.version) || !versionPattern.test(item.libraryVersion)) {
+            throw new Error('catalog.json: 产品或版本无效');
+        }
+        const identity = `${item.moduleId}@${item.version}`;
+        if (identities.has(identity)) throw new Error('catalog.json: 重复发行版本：' + identity);
+        identities.add(identity);
+        const history = JSON.parse(fs.readFileSync(plainPath(productsDirectory, `${item.moduleId}/release.json`), 'utf8'));
+        const releases = history.releases?.filter(release => release.version === item.version);
+        const release = releases?.length === 1 ? releases[0] : null;
+        if (!release || !['candidate', 'published'].includes(release.status) ||
+            !safeName.test(release.tag) || !safeName.test(release.asset) || !release.asset.endsWith('.zip') ||
+            release.status !== item.status || (catalog.status === 'published' && item.status !== 'published') ||
+            release.asset !== item.asset || item.downloadUrl !== `${RELEASE_BASE_URL}${release.tag}/${release.asset}`) {
+            throw new Error('catalog.json: 条目与产品发行历史不一致：' + identity);
+        }
+    }
+    return catalog;
 };
 
 // candidate 可验证完整历史；published 只汇总已明确标记发布的记录，不自动提升候选状态。
@@ -73,4 +105,4 @@ const writeNativeReleaseCatalog = async ({productsDirectory, inputDirectory, out
     return catalog;
 };
 
-export {RELEASE_BASE_URL, writeNativeReleaseCatalog};
+export {RELEASE_BASE_URL, validateNativeReleaseCatalog, writeNativeReleaseCatalog};
