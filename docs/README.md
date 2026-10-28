@@ -26,6 +26,8 @@
 
 [官方 Release、版本索引与原生下载](native-catalog.md)：各版本 ZIP 放入对应 Release，一个 JSON 记录历史与下载地址；从既有 ZIP 生成索引，明确启用测试渠道，不自动升级作品或切正式源。
 
+[初始 0.0.1 测试基线上传与切版](releases/wonderlab-initial-v0.0.1-test.md)：独立候选目录、两组 Release 资产及人工验证步骤，保留旧正式入口。
+
 ## 产品维护示例
 
 主控差异示例：[红外避障](../products/input/infrared-sensor/docs/README.md)、[WonderEcho](../products/input/wonder-echo/docs/README.md)、[LED 超声波](../products/input/led-ultrasonic/docs/README.md)。分别检查原始 IO、Port 包装与板载无参构造；菜单、默认值、import、对象名和读取方法须与所选 variant 一致，不能只更换端口文字。

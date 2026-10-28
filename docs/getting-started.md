@@ -45,7 +45,7 @@ metadata.json 声明包身份、入口与可选适配。例如：
   "format": "hiwonder-native-extension",
   "formatVersion": 1,
   "apiVersion": 1,
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "mytext",
   "mode": "python",
   "source": "src/index.ts",

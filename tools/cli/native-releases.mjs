@@ -2,107 +2,152 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createNativeCandidateCatalog} from './native-catalog.mjs';
 
-// 产品保存发行历史；总目录只从实际 ZIP 汇总身份，不执行产品类或上传资源。
+// 产品 catalog 是唯一历史源；根索引派生登记，完整归档校验与纯索引生成分别报告。
 const RELEASE_BASE_URL = 'https://github.com/hiwonderk12/scratch-product-extensions/releases/download/';
 const categories = ['robots', 'input', 'output', 'power', 'communication'];
 const safeName = /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/;
 const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 
 const plainPath = (root, relative = '') => {
-    let current = path.resolve(root);
-    if (fs.lstatSync(current).isSymbolicLink()) throw new Error('发行输入不允许目录联接或符号链接：' + current);
-    for (const part of relative.split('/').filter(Boolean)) {
+    const absolute = path.resolve(root, relative);
+    const drive = path.parse(absolute).root;
+    let current = drive;
+    for (const part of absolute.slice(drive.length).split(path.sep).filter(Boolean)) {
         current = path.join(current, part);
         if (fs.lstatSync(current).isSymbolicLink()) throw new Error('发行输入不允许目录联接或符号链接：' + current);
     }
     return current;
 };
 
-// 源码检查不依赖本地 dist；通过产品发行历史校验正式目录身份、状态和固定下载来源。
-const validateNativeReleaseCatalog = (catalog, {profile, productsDirectory}) => {
-    if (catalog?.formatVersion !== 2 || catalog.profile !== profile || !Array.isArray(catalog.packages)) {
-        throw new Error('catalog.json: 渠道或格式错误');
-    }
-    if (catalog.status === 'development' && catalog.packages.length === 0) return catalog;
-    if (!['candidate', 'published'].includes(catalog.status) || !catalog.packages.length) {
-        throw new Error('catalog.json: development仅允许空目录；发行目录必须有有效状态和条目');
-    }
-    const identities = new Set();
-    for (const item of catalog.packages) {
-        if (!item || !/^(robots|input|output|power|communication)\/[a-z0-9][a-z0-9-]*$/.test(item.moduleId) ||
-            !versionPattern.test(item.version) || !versionPattern.test(item.libraryVersion)) {
-            throw new Error('catalog.json: 产品或版本无效');
-        }
-        const identity = `${item.moduleId}@${item.version}`;
-        if (identities.has(identity)) throw new Error('catalog.json: 重复发行版本：' + identity);
-        identities.add(identity);
-        const history = JSON.parse(fs.readFileSync(plainPath(productsDirectory, `${item.moduleId}/release.json`), 'utf8'));
-        const releases = history.releases?.filter(release => release.version === item.version);
-        const release = releases?.length === 1 ? releases[0] : null;
-        if (!release || !['candidate', 'published'].includes(release.status) ||
-            !safeName.test(release.tag) || !safeName.test(release.asset) || !release.asset.endsWith('.zip') ||
-            release.status !== item.status || (catalog.status === 'published' && item.status !== 'published') ||
-            release.asset !== item.asset || item.downloadUrl !== `${RELEASE_BASE_URL}${release.tag}/${release.asset}`) {
-            throw new Error('catalog.json: 条目与产品发行历史不一致：' + identity);
-        }
-    }
-    return catalog;
-};
+const identity = item => `${item.moduleId}@${item.version}`;
+const packageFields = item => ({moduleId: item.moduleId, version: item.version, libraryVersion: item.libraryVersion,
+    status: item.status, asset: item.asset, downloadUrl: item.downloadUrl});
+const sortedPackages = packages => packages.map(packageFields).sort((left, right) => identity(left).localeCompare(identity(right)));
+const jsonText = value => JSON.stringify(value, null, 2) + '\n';
 
-// candidate 可验证完整历史；published 只汇总已明确标记发布的记录，不自动提升候选状态。
-const writeNativeReleaseCatalog = async ({productsDirectory, inputDirectory, outputFile, profile,
-    status = 'candidate'}, JSZip) => {
-    if (!['candidate', 'published'].includes(status)) throw new Error('发行目录status必须为candidate或published');
+// 仅读取产品历史，不依赖旧源码或归档 ZIP，并拒绝第二份发行维护源。
+const readNativeProductCatalogs = ({profile, productsDirectory}) => {
     plainPath(productsDirectory);
-    plainPath(inputDirectory);
-    const archives = [];
-    const histories = new Map();
+    const histories = [];
+    const locations = new Set();
+    let size = 0;
     for (const category of categories) {
         if (!fs.existsSync(path.join(productsDirectory, category))) continue;
         const directory = plainPath(productsDirectory, category);
         for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
             if (entry.isSymbolicLink()) throw new Error('发行产品目录不允许链接');
             if (!entry.isDirectory()) continue;
-            const relative = `${category}/${entry.name}`;
-            const releasePath = path.join(directory, entry.name, 'release.json');
-            if (!fs.existsSync(releasePath)) continue;
-            plainPath(productsDirectory, `${relative}/release.json`);
-            const metadataPath = plainPath(productsDirectory, `${relative}/metadata.json`);
-            const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-            if (metadata.id !== entry.name) throw new Error('产品metadata.id与目录不一致：' + relative);
-            const history = JSON.parse(fs.readFileSync(releasePath, 'utf8'));
-            if (!Array.isArray(history.releases)) throw new Error('release.json必须包含releases数组：' + relative);
-            for (const release of history.releases) {
-                if (!release || !['candidate', 'published'].includes(release.status) ||
-                    typeof release.version !== 'string' || typeof release.tag !== 'string' ||
-                    !safeName.test(release.tag) || typeof release.asset !== 'string' ||
-                    !safeName.test(release.asset) || !release.asset.endsWith('.zip')) {
-                    throw new Error('发行记录版本、状态、tag或asset无效：' + relative);
-                }
-                const identity = `${relative}@${release.version}`;
-                if (histories.has(identity)) throw new Error('重复发行版本：' + identity);
-                histories.set(identity, release);
-                if (status === 'published' && release.status !== 'published') continue;
-                const relativePath = `${release.tag}/${release.asset}`;
-                const data = fs.readFileSync(plainPath(inputDirectory, relativePath));
-                const zip = await JSZip.loadAsync(data);
-                const descriptorFile = zip.file('extension.json');
-                if (!descriptorFile) throw new Error('发行ZIP缺少extension.json：' + identity);
-                const descriptor = JSON.parse(await descriptorFile.async('string'));
-                if (descriptor.moduleId !== relative || descriptor.version !== release.version) {
-                    throw new Error('发行记录与实际ZIP身份不一致：' + identity);
-                }
-                archives.push({relativePath, data});
+            const moduleId = `${category}/${entry.name}`;
+            if (fs.existsSync(path.join(directory, entry.name, 'release.json'))) {
+                throw new Error(`产品只维护catalog.json，不能保留重复release.json：${moduleId}`);
             }
+            const filename = path.join(directory, entry.name, 'catalog.json');
+            if (!fs.existsSync(filename)) continue;
+            plainPath(productsDirectory, `${moduleId}/catalog.json`);
+            size += fs.statSync(filename).size;
+            if (size > 1024 * 1024 || histories.length >= 256) throw new Error('产品历史目录总大小或数量超限');
+            const metadata = JSON.parse(fs.readFileSync(plainPath(productsDirectory, `${moduleId}/metadata.json`), 'utf8'));
+            const history = JSON.parse(fs.readFileSync(filename, 'utf8'));
+            if (!/^(robots|input|output|power|communication)\/[a-z0-9][a-z0-9-]*$/.test(moduleId) ||
+                metadata.id !== entry.name || history.formatVersion !== 2 || history.profile !== profile ||
+                history.moduleId !== moduleId || !['candidate', 'published'].includes(history.status) ||
+                !Array.isArray(history.packages) || !history.packages.length) {
+                throw new Error(`产品catalog.json身份、状态或格式无效：${moduleId}`);
+            }
+            const versions = new Set();
+            for (const item of history.packages) {
+                if (!item || item.moduleId !== moduleId || typeof item.version !== 'string' ||
+                    typeof item.libraryVersion !== 'string' || !versionPattern.test(item.version) ||
+                    !versionPattern.test(item.libraryVersion) || typeof item.tag !== 'string' || !safeName.test(item.tag) ||
+                    typeof item.asset !== 'string' || !safeName.test(item.asset) || !item.asset.endsWith('.zip') ||
+                    !['candidate', 'published'].includes(item.status) ||
+                    (history.status === 'published' && item.status !== 'published') ||
+                    item.downloadUrl !== `${RELEASE_BASE_URL}${item.tag}/${item.asset}` ||
+                    (item.notes !== undefined && typeof item.notes !== 'string')) {
+                    throw new Error(`产品发行历史无效：${moduleId}`);
+                }
+                if (versions.has(item.version)) throw new Error(`重复发行版本：${identity(item)}`);
+                if (locations.has(item.downloadUrl)) throw new Error(`重复发行资源地址：${item.downloadUrl}`);
+                versions.add(item.version);
+                locations.add(item.downloadUrl);
+            }
+            histories.push(history);
         }
     }
-    // 复用目录工具的完整快照冲突、版本、重复身份、资源及 profile 校验。
-    const catalog = await createNativeCandidateCatalog(archives, {profile, baseUrl: RELEASE_BASE_URL}, JSZip);
-    catalog.status = status;
-    catalog.packages = catalog.packages.map(item => ({...item,
-        status: histories.get(`${item.moduleId}@${item.version}`).status}));
-    fs.writeFileSync(outputFile, JSON.stringify(catalog, null, 2) + '\n', {flag: 'wx'});
+    return histories.sort((left, right) => left.moduleId.localeCompare(right.moduleId));
+};
+
+// published 只登记正式产品历史；候选提案须独立验证，不能悄悄替换已激活产品目录。
+const createNativeRootCatalog = ({profile, productsDirectory, status = 'candidate', layout = 'products'}) => {
+    if (!['candidate', 'published'].includes(status) || !['products', 'flat'].includes(layout)) {
+        throw new Error('发行目录status或layout无效');
+    }
+    const histories = readNativeProductCatalogs({profile, productsDirectory})
+        .filter(history => status === 'candidate' || history.status === 'published');
+    if (!histories.length) throw new Error('发行目录至少需要一个对应状态的产品历史');
+    const catalog = layout === 'flat' ? {formatVersion: 2, profile, status,
+        packages: sortedPackages(histories.flatMap(history => history.packages))} : {formatVersion: 3, profile, status,
+        products: histories.map(history => ({moduleId: history.moduleId, catalog: `products/${history.moduleId}/catalog.json`}))};
+    const size = Buffer.byteLength(jsonText(catalog)) + (layout === 'products' ? histories.reduce((total, history) =>
+        total + fs.statSync(plainPath(productsDirectory, `${history.moduleId}/catalog.json`)).size, 0) : 0);
+    if (size > 1024 * 1024) throw new Error('发行目录树总大小超限');
     return catalog;
 };
 
-export {RELEASE_BASE_URL, validateNativeReleaseCatalog, writeNativeReleaseCatalog};
+// 不依赖 dist 或旧源码；兼容根 v2 和新根 v3，并检查遗漏而非只核对已有条目。
+const validateNativeReleaseCatalog = (catalog, {profile, productsDirectory}) => {
+    if (!catalog || ![2, 3].includes(catalog.formatVersion) || catalog.profile !== profile ||
+        (catalog.formatVersion === 2 ? !Array.isArray(catalog.packages) || Object.hasOwn(catalog, 'products') :
+            !Array.isArray(catalog.products) || Object.hasOwn(catalog, 'packages'))) throw new Error('catalog.json: 渠道或格式错误');
+    const entries = catalog.formatVersion === 2 ? catalog.packages : catalog.products;
+    if (catalog.status === 'development') {
+        if (entries.length || readNativeProductCatalogs({profile, productsDirectory}).some(history => history.status === 'published')) {
+            throw new Error('catalog.json: development必须为空且不能遗漏已发布历史');
+        }
+        return catalog;
+    }
+    const expected = createNativeRootCatalog({profile, productsDirectory, status: catalog.status,
+        layout: catalog.formatVersion === 2 ? 'flat' : 'products'});
+    const identities = new Set();
+    for (const item of entries) {
+        if (!item || typeof item.moduleId !== 'string') throw new Error('catalog.json: 发行条目身份无效');
+        const key = catalog.formatVersion === 2 ? identity(item) : item.moduleId;
+        if (identities.has(key)) throw new Error(`catalog.json: 重复发行身份：${key}`);
+        identities.add(key);
+    }
+    const actual = catalog.formatVersion === 2 ? sortedPackages(entries) : entries.map(item =>
+        ({moduleId: item.moduleId, catalog: item.catalog})).sort((left, right) => left.moduleId.localeCompare(right.moduleId));
+    if (JSON.stringify(actual) !== JSON.stringify(expected.packages || expected.products)) {
+        throw new Error('catalog.json: 条目与产品发行历史不一致或存在遗漏');
+    }
+    return catalog;
+};
+
+// 只创建新提案文件，已有正式索引与通过联接指向的目录均不能覆盖。
+const writeNewCatalogFile = (outputFile, catalog) => {
+    plainPath(path.dirname(path.resolve(outputFile)));
+    fs.writeFileSync(outputFile, jsonText(catalog), {flag: 'wx'});
+    return catalog;
+};
+
+// 保留完整归档验收入口：每份历史 ZIP 都要存在并与唯一产品目录一致。
+const writeNativeReleaseCatalog = async ({productsDirectory, inputDirectory, outputFile, profile,
+    status = 'candidate'}, JSZip) => {
+    const expected = createNativeRootCatalog({productsDirectory, profile, status, layout: 'flat'});
+    const histories = readNativeProductCatalogs({productsDirectory, profile}).flatMap(history => history.packages);
+    plainPath(inputDirectory);
+    const archives = [];
+    for (const item of expected.packages) {
+        const release = histories.find(candidate => identity(candidate) === identity(item));
+        const relativePath = `${release.tag}/${release.asset}`;
+        archives.push({relativePath, data: fs.readFileSync(plainPath(inputDirectory, relativePath))});
+    }
+    const catalog = await createNativeCandidateCatalog(archives, {profile, baseUrl: RELEASE_BASE_URL}, JSZip);
+    const actual = sortedPackages(catalog.packages.map(item => ({...item,
+        status: expected.packages.find(candidate => identity(candidate) === identity(item))?.status})));
+    if (JSON.stringify(actual) !== JSON.stringify(expected.packages)) throw new Error('发行记录与实际ZIP身份或库版本不一致');
+    return writeNewCatalogFile(outputFile, expected);
+};
+
+export {RELEASE_BASE_URL, plainPath, readNativeProductCatalogs, createNativeRootCatalog,
+    validateNativeReleaseCatalog, writeNewCatalogFile, writeNativeReleaseCatalog};

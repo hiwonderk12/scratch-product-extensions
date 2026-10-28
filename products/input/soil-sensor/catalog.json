@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "input/soil-sensor",
+  "packages": [
+    {
+      "moduleId": "input/soil-sensor",
+      "version": "0.1.0",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "soil-sensor-0.1.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/soil-sensor-0.1.0.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

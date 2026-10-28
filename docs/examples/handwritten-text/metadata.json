@@ -3,7 +3,7 @@
   "format": "hiwonder-native-extension",
   "formatVersion": 1,
   "apiVersion": 1,
-  "version": "0.1.0",
+  "version": "0.0.1",
   "namespace": "textdemo",
   "icon": "assets/text-demo.svg",
   "mode": "python",

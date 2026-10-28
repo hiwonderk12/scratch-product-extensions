@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "output/fan-iic",
+  "packages": [
+    {
+      "moduleId": "output/fan-iic",
+      "version": "0.1.1",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "fan-iic-0.1.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/fan-iic-0.1.1.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

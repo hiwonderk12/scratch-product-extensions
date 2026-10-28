@@ -200,7 +200,7 @@ for (const [productId, reference] of Object.entries(library.products)) {
 const placeholders = readJson(resolveFile(root, library.placeholders));
 assert(placeholders.every(item => item.name?.['zh-cn']), '占位卡片必须提供中文名称');
 const catalog = readJson(resolveFile(root, 'catalog.json'));
-assert(catalog.profile === library.profile && catalog.formatVersion === 2, 'catalog.json: 渠道或格式错误');
+assert(catalog.profile === library.profile && [2, 3].includes(catalog.formatVersion), 'catalog.json: 渠道或格式错误');
 assert(!Object.hasOwn(catalog, 'sha256') && !Object.hasOwn(catalog, 'productIcons'), 'catalog.json: 不维护摘要或图片表');
 validateNativeReleaseCatalog(catalog, {profile: library.profile, productsDirectory: path.join(root, 'products')});
 

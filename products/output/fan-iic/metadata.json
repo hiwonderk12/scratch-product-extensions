@@ -2,7 +2,7 @@
   "id": "fan-iic",
   "format": "hiwonder-native-extension",
   "formatVersion": 1,
-  "version": "0.1.1",
+  "version": "0.0.1",
   "apiVersion": 1,
   "namespace": "display",
   "mode": "python",

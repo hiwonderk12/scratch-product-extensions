@@ -9,6 +9,7 @@ import JSZip from 'jszip';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const readJson = filename => JSON.parse(fs.readFileSync(filename, 'utf8'));
+const exampleVersion = readJson(path.join(root, 'docs/examples/handwritten-text/metadata.json')).version;
 
 // 独立作者副本不复制依赖、不建立联接、不递归清理；仅向公开库自己的依赖目录解析。
 const assertNoLinks = filename => {
@@ -57,8 +58,8 @@ test('handwritten tutorial: check and package companions without authoring gener
     updateJson('library/boards/aimech.json', board => {
         board.modules['output/hello-text'] = {variant: 'text-demo', legacyNamespaces: ['textdemo'], portGroups: {}};
     });
-    updateJson('library.config.json', library => { library.version = '0.1.12-demo.1'; });
-    updateJson('products/robots/aimech/metadata.json', metadata => { metadata.version = '1.0.6-demo.1'; });
+    updateJson('library.config.json', library => { library.version = '0.0.2-demo.1'; });
+    updateJson('products/robots/aimech/metadata.json', metadata => { metadata.version = '0.0.2-demo.1'; });
     const steps = [];
     const run = (args, expectedStatus = 0) => {
         const env = {...process.env};
@@ -82,10 +83,10 @@ test('handwritten tutorial: check and package companions without authoring gener
         run(args);
         const output = path.join(directory, 'dist/hello-text-demo');
         const manifest = readJson(path.join(output, 'package-set.json'));
-        assert.equal(manifest.libraryVersion, '0.1.12-demo.1');
+        assert.equal(manifest.libraryVersion, '0.0.2-demo.1');
         assert.deepEqual(manifest.packages, [
-            {moduleId: 'robots/aimech', version: '1.0.6-demo.1', file: 'aimech-1.0.6-demo.1.zip'},
-            {moduleId: 'output/hello-text', version: '0.1.0', file: 'hello-text-0.1.0.zip'}
+            {moduleId: 'robots/aimech', version: '0.0.2-demo.1', file: 'aimech-0.0.2-demo.1.zip'},
+            {moduleId: 'output/hello-text', version: exampleVersion, file: `hello-text-${exampleVersion}.zip`}
         ]);
         const snapshots = [];
         for (const item of manifest.packages) {
@@ -104,7 +105,7 @@ test('handwritten tutorial: check and package companions without authoring gener
             variant: 'text-demo', legacyNamespaces: ['textdemo'], portGroups: {}
         });
     });
-    const zip = await JSZip.loadAsync(fs.readFileSync(path.join(directory, 'dist/hello-text-demo/hello-text-0.1.0.zip')));
+    const zip = await JSZip.loadAsync(fs.readFileSync(path.join(directory, `dist/hello-text-demo/hello-text-${exampleVersion}.zip`)));
     const descriptor = JSON.parse(await zip.file('extension.json').async('string'));
     const source = await zip.file('index.cjs').async('string');
     const loaded = {exports: {}};

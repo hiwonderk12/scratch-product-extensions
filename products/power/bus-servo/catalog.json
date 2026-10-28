@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "power/bus-servo",
+  "packages": [
+    {
+      "moduleId": "power/bus-servo",
+      "version": "1.0.0",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "bus-servo-1.0.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/bus-servo-1.0.0.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

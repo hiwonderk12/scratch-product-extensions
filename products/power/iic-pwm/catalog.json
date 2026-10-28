@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "power/iic-pwm",
+  "packages": [
+    {
+      "moduleId": "power/iic-pwm",
+      "version": "1.0.0",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "iic-pwm-1.0.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/iic-pwm-1.0.0.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "input/wonder-lens",
+  "packages": [
+    {
+      "moduleId": "input/wonder-lens",
+      "version": "1.0.0",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "wonder-lens-1.0.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/wonder-lens-1.0.0.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

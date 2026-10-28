@@ -6,7 +6,7 @@
   "formatVersion": 1,
   "apiVersion": 1,
   "mode": "python",
-  "version": "0.1.4",
+  "version": "0.0.1",
   "namespace": "minihexa",
   "kind": "robot",
   "source": "src/index.ts",

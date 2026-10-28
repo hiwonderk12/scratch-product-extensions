@@ -36,8 +36,12 @@ const fixture = async context => {
         fs.writeFileSync(path.join(inputDirectory, tag, asset), await zip.generateAsync({type: 'nodebuffer'}));
         releases.push({version, tag, asset, status: 'candidate', notes: '演示，尚未上传'});
     }
-    const releaseFile = path.join(product, 'release.json');
-    const writeReleases = entries => fs.writeFileSync(releaseFile, JSON.stringify({releases: entries}));
+    const releaseFile = path.join(product, 'catalog.json');
+    const writeReleases = entries => fs.writeFileSync(releaseFile, JSON.stringify({formatVersion: 2,
+        profile: 'wonderlab', moduleId: 'input/light-sensor',
+        status: entries.some(item => item.status === 'candidate') ? 'candidate' : 'published',
+        packages: entries.map(item => ({...item, moduleId: 'input/light-sensor', libraryVersion: '0.1.11',
+            downloadUrl: `https://github.com/hiwonderk12/scratch-product-extensions/releases/download/${item.tag}/${item.asset}`}))}));
     writeReleases(releases);
     return {root, releases, writeReleases, options: {productsDirectory: path.join(root, 'products'),
         inputDirectory, outputFile: path.join(root, 'catalog.json'), profile: 'wonderlab', status: 'candidate'}};
@@ -53,7 +57,7 @@ test('source checks accept a published catalog only when every entry matches rel
     changed.packages[0].downloadUrl = changed.packages[0].downloadUrl.replace('hiwonderk12', 'other-owner');
     assert.throws(() => validateNativeReleaseCatalog(changed, options), /发行历史/);
     writeReleases(releases);
-    assert.throws(() => validateNativeReleaseCatalog(catalog, options), /发行历史/);
+    assert.throws(() => validateNativeReleaseCatalog(catalog, options), /至少需要/);
 });
 
 test('source checks preserve empty development catalogs but reject missing history and duplicate identities', async context => {
@@ -65,8 +69,8 @@ test('source checks preserve empty development catalogs but reject missing histo
     assert.throws(() => validateNativeReleaseCatalog({...empty, packages: catalog.packages}, options), /development/);
     assert.throws(() => validateNativeReleaseCatalog({...catalog,
         packages: [...catalog.packages, catalog.packages[0]]}, options), /重复/);
-    fs.unlinkSync(path.join(options.productsDirectory, 'input/light-sensor/release.json'));
-    assert.throws(() => validateNativeReleaseCatalog(catalog, options), /release.json/);
+    fs.unlinkSync(path.join(options.productsDirectory, 'input/light-sensor/catalog.json'));
+    assert.throws(() => validateNativeReleaseCatalog(catalog, options), /至少需要/);
 });
 
 test('release histories validate real archives and use only the target GitHub repository', async context => {
@@ -78,6 +82,20 @@ test('release histories validate real archives and use only the target GitHub re
     assert.equal(catalog.packages[0].downloadUrl,
         'https://github.com/hiwonderk12/scratch-product-extensions/releases/download/demo-0.1.0/light-0.1.0.zip');
     await assert.rejects(writeNativeReleaseCatalog(options, JSZip), /EEXIST/);
+});
+
+test('history validation needs neither old author sources nor a local archive directory', async context => {
+    const {root, options} = await fixture(context);
+    const catalog = await writeNativeReleaseCatalog(options, JSZip);
+    const metadata = path.join(options.productsDirectory, 'input/light-sensor/metadata.json');
+    assert.equal(JSON.parse(fs.readFileSync(metadata, 'utf8')).version, '9.0.0');
+    assert.deepEqual(catalog.packages.map(item => item.version), ['0.1.0', '0.1.1']);
+    fs.renameSync(options.inputDirectory, path.join(root, 'archives-not-in-checkout'));
+    assert.equal(validateNativeReleaseCatalog(catalog, options), catalog);
+    await assert.rejects(writeNativeReleaseCatalog({...options, outputFile: path.join(root, 'new-index.json')}, JSZip),
+        /ENOENT/);
+    assert.equal(fs.existsSync(path.join(root, 'new-index.json')), false);
+    assert.equal(JSON.parse(fs.readFileSync(metadata, 'utf8')).version, '9.0.0');
 });
 
 test('missing archives, wrong identities, duplicate versions and unsafe tags fail before writing', async context => {
@@ -95,6 +113,8 @@ test('published output requires explicitly published history and never promotes 
     const {options, releases, writeReleases} = await fixture(context);
     await assert.rejects(writeNativeReleaseCatalog({...options, status: 'published'}, JSZip), /至少/);
     writeReleases([{...releases[0], status: 'published'}, releases[1]]);
+    await assert.rejects(writeNativeReleaseCatalog({...options, status: 'published'}, JSZip), /至少/);
+    writeReleases([{...releases[0], status: 'published'}]);
     const catalog = await writeNativeReleaseCatalog({...options, status: 'published'}, JSZip);
     assert.equal(catalog.packages.length, 1);
     assert.equal(catalog.status, 'published');
@@ -107,5 +127,6 @@ test('CLI builds a new release index without changing the source history', async
     execFileSync(process.execPath, [cli, 'catalog', '--releases', options.productsDirectory,
         '--input', options.inputDirectory, '--output', options.outputFile, '--status', 'candidate']);
     assert.equal(JSON.parse(fs.readFileSync(options.outputFile)).packages.length, 2);
-    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(root, 'products/input/light-sensor/release.json'))).releases, releases);
+    const history = JSON.parse(fs.readFileSync(path.join(root, 'products/input/light-sensor/catalog.json')));
+    assert.deepEqual(history.packages.map(({version, tag, asset, status, notes}) => ({version, tag, asset, status, notes})), releases);
 });

@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "robots/aimecanum",
+  "packages": [
+    {
+      "moduleId": "robots/aimecanum",
+      "version": "0.2.11",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "aimecanum-0.2.11.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aimecanum-0.2.11.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

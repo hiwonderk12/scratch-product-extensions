@@ -18,6 +18,9 @@ if (!command || ['--help', '-h', 'help'].includes(command)) {
         '  pack-set 主控 大类/模块... --output 库内新目录 [--dry-run]\n' +
         '  catalog --input ZIP目录 --base-url HTTPS资源目录 --output 新目录JSON\n' +
         '  catalog --releases products目录 --input Release资源目录 --output 新目录JSON [--status candidate|published]\n' +
+        '  catalog --products products目录 --output 新根JSON [--status candidate|published] [--layout products|flat]\n' +
+        '  catalog --split 已校验平铺索引JSON --output-dir 新预览目录（不修改正式索引）\n' +
+        '  release add --archive 新ZIP --tag TAG --output 新产品提案JSON [--baseline-archive 已审阅参考ZIP] [--status candidate|published]\n' +
         '新增命令的规格与限制见 docs/cli.md；test/preview/build 尚未提供独立命令。');
 } else if (['support', 'pack-set'].includes(command)) {
     const {planSupportCommand, planPackageSet} = await import('./package-set.mjs');
@@ -81,13 +84,36 @@ if (!command || ['--help', '-h', 'help'].includes(command)) {
         fs.writeFileSync(filename, data, {flag: 'wx'});
         console.log(filename);
     } else console.log(`原生类编译检查通过：${moduleId}`);
+} else if (command === 'release' && moduleId === 'add') {
+    const flags = new Map();
+    for (let index = 0; index < extra.length; index += 2) {
+        const flag = extra[index];
+        const value = extra[index + 1];
+        if (!['--archive', '--tag', '--output', '--baseline-archive', '--status'].includes(flag) || !value || flags.has(flag)) {
+            throw new Error('用法：release add --archive ZIP --tag TAG --output 新产品提案JSON [--baseline-archive 已审阅参考ZIP]');
+        }
+        flags.set(flag, value);
+    }
+    if (!flags.has('--archive') || !flags.has('--tag') || !flags.has('--output')) {
+        throw new Error('release add需要--archive、--tag和--output');
+    }
+    const {default: JSZip} = await import('jszip');
+    const {writeNativeReleaseAddition} = await import('./release-add.mjs');
+    const library = JSON.parse(fs.readFileSync(path.join(root, 'library.config.json'), 'utf8'));
+    const proposal = await writeNativeReleaseAddition({productsDirectory: path.join(root, 'products'),
+        archiveFile: path.resolve(flags.get('--archive')), tag: flags.get('--tag'),
+        baselineArchiveFile: flags.has('--baseline-archive') ? path.resolve(flags.get('--baseline-archive')) : undefined,
+        outputFile: path.resolve(flags.get('--output')), profile: library.profile, status: flags.get('--status') || 'candidate'}, JSZip);
+    console.log(`${proposal.status}产品历史追加提案已生成：${proposal.moduleId}；原历史未改、未上传或发布。`);
+    console.log('参考ZIP来源由维护者审阅；候选提案不得直接覆盖正式产品目录，先上传资产再审阅正式状态。');
 } else if (command === 'catalog') {
     const argumentsList = [moduleId, ...extra];
     const flags = new Map();
     for (let index = 0; index < argumentsList.length; index += 2) {
         const flag = argumentsList[index];
         const value = argumentsList[index + 1];
-        if (!['--input', '--base-url', '--output', '--releases', '--status'].includes(flag) || !value || flags.has(flag)) {
+        if (!['--input', '--base-url', '--output', '--releases', '--status', '--split', '--output-dir', '--products', '--layout'].includes(flag) ||
+            !value || flags.has(flag)) {
             throw new Error('用法：catalog --input ZIP目录 --base-url HTTPS资源目录 --output 新目录JSON');
         }
         flags.set(flag, value);
@@ -95,7 +121,28 @@ if (!command || ['--help', '-h', 'help'].includes(command)) {
     const {default: JSZip} = await import('jszip');
     const library = JSON.parse(fs.readFileSync(path.join(root, 'library.config.json'), 'utf8'));
     let catalog;
-    if (flags.has('--releases')) {
+    if (flags.has('--products')) {
+        if (!flags.has('--output') || [...flags.keys()].some(flag => !['--products', '--output', '--status', '--layout'].includes(flag))) {
+            throw new Error('catalog --products仅接受--output、--status和--layout');
+        }
+        const {createNativeRootCatalog, writeNewCatalogFile} = await import('./native-releases.mjs');
+        catalog = createNativeRootCatalog({productsDirectory: path.resolve(flags.get('--products')),
+            profile: library.profile, status: flags.get('--status') || 'candidate', layout: flags.get('--layout') || 'products'});
+        writeNewCatalogFile(path.resolve(flags.get('--output')), catalog);
+        console.log('仅校验产品历史并派生根索引，未复验历史ZIP；未修改正式索引。');
+    } else if (flags.has('--layout')) {
+        throw new Error('--layout仅用于catalog --products');
+    } else if (flags.has('--split')) {
+        if (flags.size !== 2 || !flags.has('--output-dir')) {
+            throw new Error('catalog --split仅接受--output-dir，不混用ZIP生成或状态修改');
+        }
+        const {writeNativeProductCatalogs} = await import('./product-catalogs.mjs');
+        catalog = writeNativeProductCatalogs({catalogFile: path.resolve(flags.get('--split')),
+            productsDirectory: path.join(root, 'products'), outputDirectory: path.resolve(flags.get('--output-dir')),
+            profile: library.profile});
+    } else if (flags.has('--output-dir')) {
+        throw new Error('--output-dir仅用于catalog --split');
+    } else if (flags.has('--releases')) {
         if (!flags.has('--input') || !flags.has('--output') || flags.has('--base-url')) {
             throw new Error('catalog --releases需要--input、--output；不接受--base-url');
         }
@@ -111,5 +158,7 @@ if (!command || ['--help', '-h', 'help'].includes(command)) {
         catalog = await writeNativeCandidateCatalog({inputDirectory: path.resolve(flags.get('--input')),
             outputFile: path.resolve(flags.get('--output')), baseUrl: flags.get('--base-url'), profile: library.profile}, JSZip);
     }
-    console.log(`${catalog.status}目录已生成：${catalog.packages.length}个版本；未上传或发布`);
+    console.log(catalog.formatVersion === 3 ?
+        `分层目录预览已生成：${catalog.products.length}个产品；未校验历史ZIP内容、未修改正式索引、未上传或发布` :
+        `${catalog.status}目录已生成：${catalog.packages.length}个版本；未上传或发布`);
 } else throw new Error('未知命令，请使用 node tools/cli/index.mjs --help 查看实际可用命令');

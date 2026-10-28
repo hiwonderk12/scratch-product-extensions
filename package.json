@@ -7,7 +7,7 @@
   "scripts": {
     "check": "node tools/cli/check.mjs",
     "ext": "node tools/cli/index.mjs",
-    "test": "node --test tools/cli/authoring.test.mjs tools/cli/native-catalog.test.mjs tools/cli/native-releases.test.mjs tools/cli/package-set.test.mjs tools/cli/standalone-package.test.mjs tools/ci/first-package.test.mjs tools/ci/handwritten-package.test.mjs tools/ci/minimal-package.test.mjs"
+    "test": "node --test tools/cli/authoring.test.mjs tools/cli/native-catalog.test.mjs tools/cli/native-releases.test.mjs tools/cli/product-catalogs.test.mjs tools/cli/product-history.test.mjs tools/cli/package-set.test.mjs tools/cli/standalone-package.test.mjs tools/ci/first-package.test.mjs tools/ci/handwritten-package.test.mjs tools/ci/minimal-package.test.mjs"
   },
   "devDependencies": {
     "jszip": "3.10.1",

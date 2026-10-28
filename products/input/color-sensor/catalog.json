@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "input/color-sensor",
+  "packages": [
+    {
+      "moduleId": "input/color-sensor",
+      "version": "0.1.0",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "color-sensor-0.1.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/color-sensor-0.1.0.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

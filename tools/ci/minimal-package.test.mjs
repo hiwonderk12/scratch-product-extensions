@@ -118,7 +118,7 @@ test('minimal handwritten package checks and builds companions using only public
         {moduleId: 'robots/aimech', version: versionRow('products/robots/aimech/metadata.json').after,
             file: `aimech-${versionRow('products/robots/aimech/metadata.json').after}.zip`},
         {moduleId: 'output/hello-text', version: versionRow('products/output/hello-text/metadata.json').after,
-            file: 'hello-text-0.1.0.zip'}
+            file: `hello-text-${versionRow('products/output/hello-text/metadata.json').after}.zip`}
     ]);
     assert.deepEqual(fs.readdirSync(output).sort(), [...manifest.packages.map(item => item.file), 'package-set.json'].sort());
     const snapshots = [];

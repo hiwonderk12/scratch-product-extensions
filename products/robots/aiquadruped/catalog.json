@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "robots/aiquadruped",
+  "packages": [
+    {
+      "moduleId": "robots/aiquadruped",
+      "version": "1.0.6",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "aiquadruped-1.0.6.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aiquadruped-1.0.6.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}

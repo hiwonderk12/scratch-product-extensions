@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "published",
+  "moduleId": "power/xarm-linkage",
+  "packages": [
+    {
+      "moduleId": "power/xarm-linkage",
+      "version": "1.0.0",
+      "libraryVersion": "0.1.11",
+      "status": "published",
+      "asset": "xarm-linkage-1.0.0.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/xarm-linkage-1.0.0.zip",
+      "tag": "wonderlab-library-v0.1.11"
+    }
+  ]
+}
