@@ -25,7 +25,7 @@ Git tag 应指向审阅并提交后的公开库源码；软件侧使用包含对
 
 ## 上传测试目录 JSON
 
-将交付目录 `github-files/` 下的文件按原相对路径上传至仓库 **wonderlab 分支**：
+测试 JSON 已从交付目录 `github-files/` 按原相对路径纳入仓库，包含下列完整目录。将对应提交推送至 **wonderlab 分支**即可，无需再逐个通过网页上传 JSON：
 
 ```text
 catalog-tests/wonderlab-initial-0.0.1-20261028/
@@ -34,7 +34,7 @@ catalog-tests/wonderlab-initial-0.0.1-20261028/
 └─ products/<分类>/<产品>/catalog.json
 ```
 
-必须上传全部 41 份产品历史子目录；只上传根 JSON 或只创建 Release 都不足以让软件发现并下载包。旧根 `catalog.json` 和旧 `products/` 历史不动。
+提交包含全部 41 份产品历史子目录及两个根 JSON。只推送 JSON 不会上传 ZIP，仍须按上一节将 ZIP 上传到对应 Release；反之，只创建 Release 也不足以让软件发现目录。旧根 `catalog.json` 和旧 `products/` 历史不动。
 
 纯基线入口（平铺 v2，仅含 41 个 `0.0.1`）：
 

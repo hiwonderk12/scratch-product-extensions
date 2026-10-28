@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "candidate",
+  "moduleId": "input/line-4-rotary",
+  "packages": [
+    {
+      "moduleId": "input/line-4-rotary",
+      "version": "0.0.1",
+      "libraryVersion": "0.0.1",
+      "status": "candidate",
+      "asset": "line-4-rotary-0.0.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-initial-v0.0.1-20261028/line-4-rotary-0.0.1.zip",
+      "tag": "wonderlab-initial-v0.0.1-20261028"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "candidate",
+  "moduleId": "output/fan",
+  "packages": [
+    {
+      "moduleId": "output/fan",
+      "version": "0.0.1",
+      "libraryVersion": "0.0.1",
+      "status": "candidate",
+      "asset": "fan-0.0.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-initial-v0.0.1-20261028/fan-0.0.1.zip",
+      "tag": "wonderlab-initial-v0.0.1-20261028"
+    }
+  ]
+}

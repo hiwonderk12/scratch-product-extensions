@@ -1,0 +1,17 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "candidate",
+  "moduleId": "input/knob",
+  "packages": [
+    {
+      "moduleId": "input/knob",
+      "version": "0.0.1",
+      "libraryVersion": "0.0.1",
+      "status": "candidate",
+      "asset": "knob-0.0.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-initial-v0.0.1-20261028/knob-0.0.1.zip",
+      "tag": "wonderlab-initial-v0.0.1-20261028"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "formatVersion": 2,
+  "profile": "wonderlab",
+  "status": "candidate",
+  "moduleId": "input/light-sensor",
+  "packages": [
+    {
+      "moduleId": "input/light-sensor",
+      "version": "0.0.1",
+      "libraryVersion": "0.0.1",
+      "status": "candidate",
+      "asset": "light-sensor-0.0.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-initial-v0.0.1-20261028/light-sensor-0.0.1.zip",
+      "tag": "wonderlab-initial-v0.0.1-20261028"
+    },
+    {
+      "moduleId": "input/light-sensor",
+      "version": "0.0.2-test.20261028",
+      "libraryVersion": "0.0.1",
+      "status": "candidate",
+      "asset": "light-sensor-0.0.2-test.20261028.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-switch-v0.0.2-test.20261028/light-sensor-0.0.2-test.20261028.zip",
+      "tag": "wonderlab-switch-v0.0.2-test.20261028"
+    }
+  ]
+}
