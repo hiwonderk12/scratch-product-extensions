@@ -47,12 +47,22 @@ const archive = async (directory, version, {libraryVersion = '0.1.11', conflict 
     return filename;
 };
 
-test('real products have a single catalog source and reproduce the unchanged compatibility root', () => {
+test('real products expose the initial published baseline through one hierarchical catalog source', () => {
     const options = {profile: 'wonderlab', productsDirectory: path.join(repository, 'products')};
     const histories = readNativeProductCatalogs(options);
     assert.equal(histories.length, 41);
     const root = JSON.parse(fs.readFileSync(path.join(repository, 'catalog.json')));
-    assert.deepEqual(createNativeRootCatalog({...options, status: 'published', layout: 'flat'}), root);
+    assert.deepEqual(createNativeRootCatalog({...options, status: 'published'}), root);
+    assert.equal(root.formatVersion, 3);
+    for (const history of histories) {
+        assert.equal(history.packages.length, 1);
+        assert.equal(history.packages[0].version, '0.0.1');
+        assert.equal(history.packages[0].libraryVersion, '0.0.1');
+        assert.equal(history.packages[0].tag, 'wonderlab-library-v0.0.1');
+    }
+    const flat = createNativeRootCatalog({...options, status: 'published', layout: 'flat'});
+    assert.equal(flat.packages.length, 41);
+    assert.equal(validateNativeReleaseCatalog(flat, options), flat);
     assert.equal(validateNativeReleaseCatalog(root, options), root);
     const index = createNativeRootCatalog({...options, status: 'published'});
     assert.equal(index.formatVersion, 3);

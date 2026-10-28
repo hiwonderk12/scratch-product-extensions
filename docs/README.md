@@ -26,7 +26,7 @@
 
 [官方 Release、版本索引与原生下载](native-catalog.md)：各版本 ZIP 放入对应 Release，一个 JSON 记录历史与下载地址；从既有 ZIP 生成索引，明确启用测试渠道，不自动升级作品或切正式源。
 
-[初始 0.0.1 测试基线上传与切版](releases/wonderlab-initial-v0.0.1-test.md)：独立候选目录、两组 Release 资产及人工验证步骤，保留旧正式入口。
+[初始 0.0.1 正式库基线](releases/wonderlab-library-v0.0.1.md)：分层目录、Release 单包资产、上传顺序及升级边界。
 
 ## 产品维护示例
 

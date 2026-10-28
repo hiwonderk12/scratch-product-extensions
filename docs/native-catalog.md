@@ -4,7 +4,7 @@
 
 ## 职责分离
 
-初始版本联调参见[0.0.1 测试基线上传与切版](releases/wonderlab-initial-v0.0.1-test.md)。它使用独立测试目录，不覆盖旧正式根或产品发行历史。
+初始正式集合参见[0.0.1 正式库基线](releases/wonderlab-library-v0.0.1.md)。根 v3 登记产品，各产品 v2 目录保存历史；本次清理实验记录，以 `0.0.1` 作为正式起点，不改变用户已安装资源或旧工程锁。
 
 - 源码索引library/modules.json描述源码目录；catalog.json描述可下载的包版本，两者不互相替代。
 - 平铺发行目录／产品历史使用 formatVersion 2；新的分层总目录使用 formatVersion 3，只引用各产品历史，不复制积木或图片。
@@ -43,12 +43,12 @@
   "packages": [
     {
       "moduleId": "input/light-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
+      "version": "0.0.1",
+      "libraryVersion": "0.0.1",
       "status": "published",
-      "tag": "wonderlab-library-v0.1.11",
-      "asset": "light-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/light-sensor-0.1.0.zip"
+      "tag": "wonderlab-library-v0.0.1",
+      "asset": "light-sensor-0.0.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.0.1/light-sensor-0.0.1.zip"
     }
   ]
 }
@@ -60,21 +60,22 @@
 
 缓存保存校验后的平铺身份集合，来源仍归属于用户选择的根 URL；不缓存类、ZIP 或图片。选版、版本锁、离线恢复与用户独立包规则不变。
 
-### 当前可用的迁移预览
+### 可选的平铺兼容导出与迁移预览
 
 ~~~sh
-node tools/cli/index.mjs catalog --split catalog.json --output-dir dist/catalog-products-preview
+node tools/cli/index.mjs catalog --products ./products --layout flat --status published --output dist/catalog-flat-preview.json
+node tools/cli/index.mjs catalog --split dist/catalog-flat-preview.json --output-dir dist/catalog-products-preview
 ~~~
 
 输出父目录必须已存在，输出目录必须不存在，路径不得含目录联接。命令对照产品 catalog 验证平铺基线，再在新目录生成根索引和每产品历史；保留版本、库版本、状态、原下载地址、tag 和维护说明。不读取旧 ZIP、不从当前源码重造历史，也不允许混用 `--status` 或其他生成参数。它不覆盖仓库根目录或产品目录，不上传／发布；写入失败的预览不能拿去发布。
 
-**切换边界**：产品 catalog 已是唯一历史维护源，不再保留 `release.json`。仓库正式根目前仍是平铺 formatVersion 2 的兼容派生产物，未自动切换线上入口。工具已支持从产品历史生成根索引、校验新 ZIP 并输出追加提案；提案不会直接改作者源或正式索引。
+**维护边界**：产品 catalog 是唯一历史维护源，不再保留 `release.json`。正式根已采用 formatVersion 3。上述导出仅用于兼容与迁移检查，不是正常维护的前置步骤。工具支持从产品历史生成根索引、校验新 ZIP 并输出追加提案；提案不会直接改作者源或正式索引。
 
-旧客户端不认识 formatVersion 3。先用独立测试根文件联调，再明确软件兼容版本和升级路径，之后才能激活正式根；单独复制一份旧索引并不能让硬编码旧入口的客户端自动兼容。正式切换及上传仍须人工确认，本命令不执行。
+旧客户端不认识 formatVersion 3，须升级到支持分层目录的配套软件；单独导出一份旧索引并不能让硬编码旧入口的客户端自动兼容。当前最低公开软件版本尚未确认，不能宣称旧安装版可直接使用。本命令不执行远端切换或上传。
 
 ## 兼容平铺发行：Release 保存 ZIP，一个 JSON 记录版本
 
-现有平铺格式继续兼容，以下示例描述当前正式根的派生产物；产品历史已分目录维护，但正式根尚未激活 v3。各版本 ZIP 上传到 GitHub 对应 Release，一个根索引汇总仍需提供的版本：
+现有平铺格式继续兼容，以下只是 v2 兼容导出的示例，不是当前正式根。各版本 ZIP 上传到 GitHub 对应 Release，兼容索引可汇总仍需提供的版本：
 
 ~~~json
 {
@@ -112,7 +113,7 @@ node tools/cli/index.mjs catalog --split catalog.json --output-dir dist/catalog-
 | - | - | - |
 | `products/<分类>/<产品>/metadata.json`、`src/index.ts`、资源 | 最新作者版本 | 是 |
 | 产品 `catalog.json` | 唯一历史维护源：包版本、库版本、Release tag、资产名、地址、状态及可选 notes | 是 |
-| 根 `catalog.json` | 从产品历史派生；当前正式 v2 保持旧客户端兼容，v3 根先独立联调 | 是 |
+| 根 `catalog.json` | 从产品历史派生的 v3 产品引用，不重复维护历史 | 是 |
 | `dist/release-assets/<tag>/<asset>.zip` | 本机打包及上传暂存文件；`.gitignore` 已忽略整个 `dist/` | 否 |
 | GitHub 对应 Release 的单包资产 | 不可变的历史可安装 ZIP，保留包内原库配置快照 | 不作为 Git 源文件；人工上传 |
 
@@ -134,7 +135,7 @@ node tools/cli/index.mjs catalog --split catalog.json --output-dir dist/catalog-
 4. 首轮使用 candidate，显式勾选“允许候选包”。GitHub Release 是否为预发行与本协议的 candidate 是两个独立设置，不能互相代替。
 5. 上传 ZIP 后再上传索引。GitHub Raw 能直接返回 JSON、资源匿名可下载后，再交给软件检查。不要填写 GitHub blob 页面、登录页、草稿资源或临时签名跳转地址。
 
-首次联调可把这个 JSON 以 catalog-demo.json 上传到 wonderlab 分支，在软件中手动选择其 Raw 地址，不覆盖正式 catalog.json。验收完成后再决定正式索引与 published 状态，本工具不替用户发布。
+新版本候选可先使用独立目录，通过“目录设置”显式切换来源；通过验收后再更新正式产品历史及根索引。本仓库不保留已退役的实验目录。本工具不替用户发布。
 
 用户独立包仍按[一个目录、一个 ZIP](standalone-package.md)导入与覆盖，不要求登记官方索引或维护 Release 历史。
 
@@ -178,10 +179,10 @@ base-url为HTTPS资源目录，ZIP相对于input的路径会原样逐段编码�
 
 ## 在编辑器验证
 
-1. WonderLab 的“检查版本”读取 wonderlab 分支根 catalog.json；新版宿主支持平铺 version 2 和分层 version 3，当前正式文件仍是 version 2，不再请求旧仓库。默认仅允许 published；空 development 目录会提示暂无可安装版本，不表示已是最新版。
-2. 在主控扩展或模块扩展页点击“原生测试目录”进行测试。该高级入口不会自动请求预填地址。
-3. 输入可访问的 HTTPS 目录地址（如同分支 catalog-demo.json）。候选目录需勾选“允许候选包”。
-4. 点击“读取目录”，结果原位归入对应主控／模块页，每个产品一张卡片，不跳到用户拓展。点击版本数字查看全部已知版本；未安装项需要下载，主控适配在读到包后校验。没有本地元数据的新产品可能只显示 moduleId。
+1. 在主控／模块页点击“检查版本”，读取 wonderlab 分支正式 v3 根及所有产品 v2 历史，不跳到用户拓展，只反馈检查成功或失败。成功仅表示完整目录校验成功，不表示 ZIP 已下载、已适配或“已是最新版”。
+2. 普通使用无需改源。“目录设置”是高级入口，不会自动请求预填地址。
+3. 需验证候选时，显式填写可访问 HTTPS 地址并勾选“允许候选包”，点击“读取目录”。
+4. 每个产品一张卡片。点击版本数字查看可滚动版本列表，选择一项后才展示详情与操作。未安装项需要下载，主控适配在读到包后校验。没有本地元数据的新产品可能只显示 moduleId。
 5. 对需要的版本点击“下载”，只安装、不执行类、不自动加入当前作品，也不替换活动旧版。
 6. 在版本下拉中显式选择“使用”；首次启用和已有版本切换都需确认，配置变化须有明确配套集合。当前工程版本与推荐下载版本分开显示，不猜 latest 替换锁定版本。
 7. 保存作品，安装其他版本后重开，仍恢复版本锁指定的已安装版本。离线恢复不需要再次请求目录。
@@ -192,9 +193,9 @@ base-url为HTTPS资源目录，ZIP相对于input的路径会原样逐段编码�
 
 校验成功的轻量目录按 profile、规范化 HTTPS 来源和候选许可隔离保存，并记录上次校验时间；不缓存类源码、图片或 ZIP 内容。重开先读取默认正式源缓存，不自动联网，也不自动恢复测试来源或候选授权。显式选择相同来源和许可后，可查看该来源以前的缓存；这不表示已联网或可下载。
 
-缓存会标记“尚未联网刷新”。只有内置或已下载的准确版本可离线使用；远端历史项仍需下载，锁定 V2 缺包时不退回内置 V1。坏目录、旧请求、坏缓存和写入容量不足不删除已安装资源或覆盖上一份有效索引；保存目录失败时本次有效结果仍可在当前窗口查看。远端新目录不再列出的版本，只要本地仍安装或内置，仍保留在版本选择中。
+缓存不冒充当前联网检查结果；只有显式检查成功才反馈成功。只有内置或已下载的准确版本可离线使用；远端历史项仍需下载，锁定 V2 缺包时不退回内置 V1。坏目录、旧请求、坏缓存和写入容量不足不删除已安装资源或覆盖上一份有效索引；保存目录失败时本次有效结果仍可在当前窗口查看。远端新目录不再列出的版本，只要本地仍安装或内置，仍保留在版本选择中。新工程优先展示远端推荐或内置兼容基线，不因遗留调试资源版本号较高而默认选用它。
 
-“断开测试目录”不删除历史缓存或安装资源，返回默认正式源，不沿用候选授权。404、超时、大小超限或身份不符不能显示安装成功，也不能说“已是最新版”。实际退出重开、视觉与离线点击仍需对应软件版本的人工验收，不用索引测试代替。
+“恢复官方目录”不删除历史缓存或安装资源，返回默认正式源，不沿用候选授权。404、超时、大小超限或身份不符不能显示安装成功，也不能说“已是最新版”。实际退出重开、视觉与离线点击仍需对应软件版本的人工验收，不用索引测试代替。
 
 目录上限1MiB，单ZIP下载上限10MiB，单次请求默认15秒；支持流式响应时会在读取期间限制累计下载大小，桌面 GitHub 通道至多跟随五次受信任重定向。目录身份、profile、version和libraryVersion必须与下载包一致；同版本不同内容拒绝覆盖。文本文件仅 CRLF/LF 行尾不同视为相同内容，不因此要求递增产品版本；改动代码、字段、空白或资源仍需新版本。比较不会改写原包，导出保留原有元数据文本。
 
@@ -250,20 +251,8 @@ node tools/cli/index.mjs catalog --releases ./products --input ./dist/release-as
 
 三种操作不要混淆：纯根生成只验证登记；增量追加验证新 ZIP 及必要参考；全量归档验证所有纳入的本地 ZIP。它们都不证明 GitHub 当前可访问，不执行上传或覆盖正式入口。不能为通过检查删除旧历史，也不能用最新源码重打旧版本。
 
-## 整体候选集合
+## 初始正式集合
 
-首个正式库基线改由根 `catalog.json` 指向 `wonderlab-library-v0.1.11`，见[使用与限制](releases/wonderlab-library-v0.1.11.md)。
-下方测试目录继续保留，不移动原测试 tag，不将测试目录当作正常更新入口。
+根 `catalog.json` 与产品历史使用 `wonderlab-library-v0.0.1`，41 个现有产品均为 `0.0.1`。上传、配套软件与旧工程边界见[初始正式库基线](releases/wonderlab-library-v0.0.1.md)。旧实验目录和发行说明已退役，远端实验资产由维护者决定删除；删除前保留仍需恢复的准确版本 ZIP。
 
-`catalog-test-20261026.json` 是 WonderLab 整体测试候选目录，指向目标仓库
-`hiwonderk12/scratch-product-extensions` 的 `wonderlab-integration-test-20261026` Release。
-它包含现有 41 个原生产品包，不包含 4 个 planned 模块，也不增加任何主控支持组合。
-主控、模块保留各自版本，包内库配置均为 `0.1.11`；集合 tag 不是模块版本。
-
-维护者创建该 tag 对应的测试 Release 后，需要上传候选目录所列的全部单包 ZIP。
-源码 tag、目录 JSON 或 GitHub 自动生成的源码 ZIP，都不能替代这些资源。
-此目录本身不证明资源已经上传或完成整库人工验收。
-
-联调时，在主控／模块页的“原生测试目录”填写目标分支上的该 JSON Raw 地址，勾选允许候选包。
-保持根 `catalog.json` 的正式渠道独立；只有经审阅后才人工更新它。
-下载、显式加载、原版本工程恢复分别验证，安装新版不应静默升级当前工程。
+正常维护继续追加产品历史，不清空已发行版本。下载、显式加载和原版本工程恢复分别验证，安装新版不静默升级当前工程。

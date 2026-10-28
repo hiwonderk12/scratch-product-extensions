@@ -4,7 +4,7 @@
 
 ## 点阵屏及未开放输出模块
 
-当前作者配置 `0.0.1` 是隔离测试基线；旧正式目录及其 `0.1.11` 快照和产品历史保留，不代表原地降级或覆盖旧身份。测试与切换方法见[初始基线指南](releases/wonderlab-initial-v0.0.1-test.md)。
+当前作者配置与正式初始产品均为 `0.0.1`，根目录采用分层产品引用，产品历史仅登记初始正式身份。软件内置同版；旧工程仍按自己的版本锁恢复，不原地降级。上传及兼容边界见[初始基线指南](releases/wonderlab-library-v0.0.1.md)。
 
 点阵屏常规 AI 使用 `hiwonder-dev-port`，菜单仍是 `display.aiblocks_iicport`，1–4 默认 1；AiDoggy 使用 `hiwonder-dev-port-aidoggy`，`display.aidoggy_iicport`，A–D（1–4）默认 3。IIC 模板使用 `hiwonder-iic`，只保留接口，不据此添加真实主控。详见[点阵屏](../products/output/dot-matrix/docs/README.md)。
 

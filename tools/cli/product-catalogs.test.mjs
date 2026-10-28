@@ -6,6 +6,7 @@ import test from 'node:test';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {writeNativeProductCatalogs} from './product-catalogs.mjs';
+import {createNativeRootCatalog} from './native-releases.mjs';
 
 const repository = fileURLToPath(new URL('../../', import.meta.url));
 const fixture = context => {
@@ -19,10 +20,17 @@ const fixture = context => {
     return directory;
 };
 
+const writeFlatFixture = directory => {
+    const filename = path.join(directory, 'flat.json');
+    fs.writeFileSync(filename, JSON.stringify(createNativeRootCatalog({profile: 'wonderlab',
+        productsDirectory: path.join(repository, 'products'), status: 'published', layout: 'flat'})));
+    return filename;
+};
+
 test('split preview preserves every real published identity and URL without needing dist or historical ZIPs', context => {
     const directory = fixture(context);
     const outputDirectory = path.join(directory, 'preview');
-    const source = path.join(repository, 'catalog.json');
+    const source = writeFlatFixture(directory);
     const original = fs.readFileSync(source, 'utf8');
     const input = JSON.parse(original);
     const result = writeNativeProductCatalogs({catalogFile: source, productsDirectory: path.join(repository, 'products'),
@@ -70,7 +78,7 @@ test('multiple historical releases stay in one product catalog, with current sou
 
 test('invalid baseline fails before creating outputs rather than silently rewriting history', context => {
     const directory = fixture(context);
-    const input = JSON.parse(fs.readFileSync(path.join(repository, 'catalog.json'), 'utf8'));
+    const input = JSON.parse(fs.readFileSync(writeFlatFixture(directory), 'utf8'));
     input.packages[0].downloadUrl = 'https://other.invalid/changed.zip';
     const catalogFile = path.join(directory, 'bad.json');
     fs.writeFileSync(catalogFile, JSON.stringify(input));
@@ -84,7 +92,7 @@ test('CLI exposes split as a preview-only operation and rejects mixed generation
     const directory = fixture(context);
     const outputDirectory = path.join(directory, 'preview');
     const cli = path.join(repository, 'tools/cli/index.mjs');
-    const source = path.join(repository, 'catalog.json');
+    const source = writeFlatFixture(directory);
     const output = execFileSync(process.execPath, [cli, 'catalog', '--split', source, '--output-dir', outputDirectory],
         {cwd: repository, encoding: 'utf8'});
     assert.match(output, /分层目录预览/);

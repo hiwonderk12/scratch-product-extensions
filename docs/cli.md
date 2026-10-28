@@ -22,7 +22,7 @@ node tools/cli/index.mjs pack ./docs/examples/handwritten-text --output ./dist/h
 对照唯一产品 catalog 历史源校验平铺输入，再生成根与全部子目录；保留 tag 和 notes，不需要旧 ZIP、不改正式文件或发行身份。输出父目录须存在，输出目录不得已存在。不能与 `--status` 或 ZIP 生成参数混用，详见[分层目录与切换边界](native-catalog.md#分层目录总目录管理产品产品目录管理历史)。
 
 纯根索引生成：`catalog --products ./products --output ./dist/catalog-products-proposal.json --status published [--layout products|flat]`。
-默认 layout 为 products（v3 根），flat 为 v2 兼容根；默认 status 为 candidate。仅校验产品历史登记，不复验历史 ZIP。不能混用其他生成模式，输出只允许新文件；正式根仍为 v2，生成不等于激活。
+默认 layout 为 products（v3 根），flat 为 v2 兼容根；默认 status 为 candidate。当前正式根已采用 v3，仅校验产品历史登记，不复验历史 ZIP。不能混用其他生成模式，输出只允许新文件；生成不等于上传或发布。
 
 追加新发行：`release add --archive 新ZIP --tag TAG --output 新产品提案JSON [--baseline-archive 已审阅参考ZIP] [--status candidate|published]`。
 检查新 ZIP 并原样保留已登记旧历史，默认输出候选提案，不直接改产品源或根。复用已登记库版本时必须给一份身份与资产名匹配的已审阅参考 ZIP，并比较完整快照；全新库版本可省略。不允许同版覆盖、现有输出覆盖或目录联接。参考来源仍由维护者确认；候选提案不能覆盖已激活正式产品历史。

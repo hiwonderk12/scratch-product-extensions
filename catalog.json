@@ -1,335 +1,171 @@
 {
-  "formatVersion": 2,
+  "formatVersion": 3,
   "profile": "wonderlab",
   "status": "published",
-  "packages": [
+  "products": [
     {
       "moduleId": "communication/communication",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "communication-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/communication-1.0.0.zip"
+      "catalog": "products/communication/communication/catalog.json"
     },
     {
       "moduleId": "input/button-module",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "button-module-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/button-module-0.1.0.zip"
+      "catalog": "products/input/button-module/catalog.json"
     },
     {
       "moduleId": "input/color-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "color-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/color-sensor-0.1.0.zip"
+      "catalog": "products/input/color-sensor/catalog.json"
     },
     {
       "moduleId": "input/imu-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "imu-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/imu-sensor-0.1.0.zip"
+      "catalog": "products/input/imu-sensor/catalog.json"
     },
     {
       "moduleId": "input/infrared-sensor",
-      "version": "0.1.1",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "infrared-sensor-0.1.1.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/infrared-sensor-0.1.1.zip"
+      "catalog": "products/input/infrared-sensor/catalog.json"
     },
     {
       "moduleId": "input/k230-vision",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "k230-vision-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/k230-vision-1.0.0.zip"
+      "catalog": "products/input/k230-vision/catalog.json"
     },
     {
       "moduleId": "input/knob",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "knob-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/knob-0.1.0.zip"
+      "catalog": "products/input/knob/catalog.json"
     },
     {
       "moduleId": "input/led-ultrasonic",
-      "version": "0.1.1",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "led-ultrasonic-0.1.1.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/led-ultrasonic-0.1.1.zip"
+      "catalog": "products/input/led-ultrasonic/catalog.json"
     },
     {
       "moduleId": "input/light-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "light-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/light-sensor-0.1.0.zip"
-    },
-    {
-      "moduleId": "input/line-4-rotary",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "line-4-rotary-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/line-4-rotary-0.1.0.zip"
+      "catalog": "products/input/light-sensor/catalog.json"
     },
     {
       "moduleId": "input/line-4",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "line-4-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/line-4-0.1.0.zip"
+      "catalog": "products/input/line-4/catalog.json"
+    },
+    {
+      "moduleId": "input/line-4-rotary",
+      "catalog": "products/input/line-4-rotary/catalog.json"
     },
     {
       "moduleId": "input/line-6",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "line-6-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/line-6-0.1.0.zip"
+      "catalog": "products/input/line-6/catalog.json"
     },
     {
       "moduleId": "input/line-8",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "line-8-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/line-8-0.1.0.zip"
+      "catalog": "products/input/line-8/catalog.json"
     },
     {
       "moduleId": "input/rain-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "rain-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/rain-sensor-0.1.0.zip"
+      "catalog": "products/input/rain-sensor/catalog.json"
     },
     {
       "moduleId": "input/soil-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "soil-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/soil-sensor-0.1.0.zip"
+      "catalog": "products/input/soil-sensor/catalog.json"
     },
     {
       "moduleId": "input/sound-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "sound-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/sound-sensor-0.1.0.zip"
+      "catalog": "products/input/sound-sensor/catalog.json"
     },
     {
       "moduleId": "input/temperature-humidity",
-      "version": "0.1.1",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "temperature-humidity-0.1.1.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/temperature-humidity-0.1.1.zip"
+      "catalog": "products/input/temperature-humidity/catalog.json"
     },
     {
       "moduleId": "input/touch-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "touch-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/touch-sensor-0.1.0.zip"
+      "catalog": "products/input/touch-sensor/catalog.json"
     },
     {
       "moduleId": "input/ultrasonic",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "ultrasonic-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/ultrasonic-0.1.0.zip"
+      "catalog": "products/input/ultrasonic/catalog.json"
     },
     {
       "moduleId": "input/wonder-echo",
-      "version": "1.0.1",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "wonder-echo-1.0.1.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/wonder-echo-1.0.1.zip"
+      "catalog": "products/input/wonder-echo/catalog.json"
     },
     {
       "moduleId": "input/wonder-lens",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "wonder-lens-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/wonder-lens-1.0.0.zip"
+      "catalog": "products/input/wonder-lens/catalog.json"
     },
     {
       "moduleId": "output/digit-display",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "digit-display-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/digit-display-0.1.0.zip"
+      "catalog": "products/output/digit-display/catalog.json"
     },
     {
       "moduleId": "output/dot-matrix",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "dot-matrix-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/dot-matrix-0.1.0.zip"
-    },
-    {
-      "moduleId": "output/fan-iic",
-      "version": "0.1.1",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "fan-iic-0.1.1.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/fan-iic-0.1.1.zip"
+      "catalog": "products/output/dot-matrix/catalog.json"
     },
     {
       "moduleId": "output/fan",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "fan-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/fan-1.0.0.zip"
+      "catalog": "products/output/fan/catalog.json"
+    },
+    {
+      "moduleId": "output/fan-iic",
+      "catalog": "products/output/fan-iic/catalog.json"
     },
     {
       "moduleId": "output/mp3",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "mp3-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/mp3-0.1.0.zip"
+      "catalog": "products/output/mp3/catalog.json"
     },
     {
       "moduleId": "output/oled",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "oled-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/oled-0.1.0.zip"
+      "catalog": "products/output/oled/catalog.json"
     },
     {
       "moduleId": "output/rgb-light",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "rgb-light-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/rgb-light-0.1.0.zip"
+      "catalog": "products/output/rgb-light/catalog.json"
     },
     {
       "moduleId": "output/rgb-module",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "rgb-module-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/rgb-module-0.1.0.zip"
+      "catalog": "products/output/rgb-module/catalog.json"
     },
     {
       "moduleId": "power/bus-servo",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "bus-servo-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/bus-servo-1.0.0.zip"
+      "catalog": "products/power/bus-servo/catalog.json"
     },
     {
       "moduleId": "power/iic-pwm",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "iic-pwm-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/iic-pwm-1.0.0.zip"
-    },
-    {
-      "moduleId": "power/xarm-linkage",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "xarm-linkage-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/xarm-linkage-1.0.0.zip"
-    },
-    {
-      "moduleId": "power/xarm-series",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "xarm-series-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/xarm-series-1.0.0.zip"
+      "catalog": "products/power/iic-pwm/catalog.json"
     },
     {
       "moduleId": "power/xarm",
-      "version": "1.0.0",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "xarm-1.0.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/xarm-1.0.0.zip"
+      "catalog": "products/power/xarm/catalog.json"
+    },
+    {
+      "moduleId": "power/xarm-linkage",
+      "catalog": "products/power/xarm-linkage/catalog.json"
+    },
+    {
+      "moduleId": "power/xarm-series",
+      "catalog": "products/power/xarm-series/catalog.json"
     },
     {
       "moduleId": "robots/aidoggy",
-      "version": "0.1.4",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "aidoggy-0.1.4.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aidoggy-0.1.4.zip"
+      "catalog": "products/robots/aidoggy/catalog.json"
     },
     {
       "moduleId": "robots/aihexa",
-      "version": "1.0.6",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "aihexa-1.0.6.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aihexa-1.0.6.zip"
+      "catalog": "products/robots/aihexa/catalog.json"
     },
     {
       "moduleId": "robots/aimecanum",
-      "version": "0.2.11",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "aimecanum-0.2.11.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aimecanum-0.2.11.zip"
+      "catalog": "products/robots/aimecanum/catalog.json"
     },
     {
       "moduleId": "robots/aimech",
-      "version": "1.0.5",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "aimech-1.0.5.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aimech-1.0.5.zip"
+      "catalog": "products/robots/aimech/catalog.json"
     },
     {
       "moduleId": "robots/aiquadruped",
-      "version": "1.0.6",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "aiquadruped-1.0.6.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aiquadruped-1.0.6.zip"
+      "catalog": "products/robots/aiquadruped/catalog.json"
     },
     {
       "moduleId": "robots/aiquadrupedpro",
-      "version": "1.0.5",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "aiquadrupedpro-1.0.5.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/aiquadrupedpro-1.0.5.zip"
+      "catalog": "products/robots/aiquadrupedpro/catalog.json"
     },
     {
       "moduleId": "robots/minihexa",
-      "version": "0.1.4",
-      "libraryVersion": "0.1.11",
-      "status": "published",
-      "asset": "minihexa-0.1.4.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/minihexa-0.1.4.zip"
+      "catalog": "products/robots/minihexa/catalog.json"
     }
   ]
 }

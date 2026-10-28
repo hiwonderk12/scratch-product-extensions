@@ -6,12 +6,12 @@
   "packages": [
     {
       "moduleId": "input/light-sensor",
-      "version": "0.1.0",
-      "libraryVersion": "0.1.11",
+      "version": "0.0.1",
+      "libraryVersion": "0.0.1",
       "status": "published",
-      "asset": "light-sensor-0.1.0.zip",
-      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.1.11/light-sensor-0.1.0.zip",
-      "tag": "wonderlab-library-v0.1.11"
+      "asset": "light-sensor-0.0.1.zip",
+      "downloadUrl": "https://github.com/hiwonderk12/scratch-product-extensions/releases/download/wonderlab-library-v0.0.1/light-sensor-0.0.1.zip",
+      "tag": "wonderlab-library-v0.0.1"
     }
   ]
 }
