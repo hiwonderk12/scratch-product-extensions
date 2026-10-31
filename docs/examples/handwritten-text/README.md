@@ -2,6 +2,7 @@
 
 主要阅读 [src/index.ts](src/index.ts)。它是原生类的写法索引，不是要求新产品复制所有演示积木。
 从 show_text 开始，再按实际功能保留所需示例；不要为了接口覆盖给生产产品增加无用积木。
+需要全部滑块、层级导航、分支初始化和三种主控适配时，使用独立的[完整 API 示例包](../api-showcase/README.md)；本目录保留较小的综合参考。
 本目录就是完整作者包，可直接 `check ./docs/examples/handwritten-text`、`pack ./docs/examples/handwritten-text`（前缀 `node tools/cli/index.mjs`）。生成一个 ZIP 后直接导入，无需复制到 products 或制作配套主控，见[入门教程](../../getting-started.md)。
 
 ## 复制范围
@@ -36,7 +37,7 @@ hello-text/
 | forcedVariables.name / code | reset_history：强制替换同名初始化，不是每次运行前重建对象 |
 | templateSelector.argument / cases / matchInputCode | choose_text 匹配原始枚举；repeat_text 匹配生成代码 |
 | section / launcher | setup_demo 顶层；start_thread 主函数与启动调用 |
-| entryTemplate / entryFooter | on_demo：函数定义后注册，自动编号同步到 {MAIN} |
+| entryTemplate / entryFooter | on_demo：显式 main 入口，函数定义后注册，同名回调的自动编号同步到注册语句 |
 | context.asset / context.python / runtimeFiles | show_resource、类／积木图标；运行文件声明不代表设备部署 |
 | context.variant / ports / defaultPort | 可选 hiwonder-dev-port 分支，同步改变端口、依赖和对象初始化 |
 | 已有控件族 | show_controls、show_sliders、show_rgb、show_bitmap、line_masks、show_json |

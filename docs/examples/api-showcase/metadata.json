@@ -1,0 +1,45 @@
+{
+  "id": "api-showcase",
+  "category": "output",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "version": "0.0.1",
+  "namespace": "apishowcase",
+  "profile": "wonderlab",
+  "icon": "assets/api-showcase.svg",
+  "mode": "python",
+  "source": "src/index.ts",
+  "entry": "index.cjs",
+  "legacySources": [],
+  "support": {
+    "default": {
+      "variant": "software",
+      "portGroups": {
+        "apishowcase.virtual": {"bindings": {"apishowcase_read_port.PORT": "1"}}
+      }
+    },
+    "products": {
+      "aimech": {
+        "variant": "hiwonder-dev-port",
+        "portGroups": {
+          "apishowcase.iic": {"bindings": {"apishowcase_read_port.PORT": "1"}}
+        }
+      },
+      "minihexa": {
+        "variant": "hiwonder-dev-raw-io",
+        "portGroups": {
+          "apishowcase.raw": {"bindings": {"apishowcase_read_port.PORT": "32"}}
+        }
+      }
+    },
+    "ports": {
+      "apishowcase.virtual": [
+        {"label": {"zh-cn": "模拟端口一", "en": "Simulated port one", "zh-tw": "模擬連接埠一", "ko": "가상 포트 하나"}, "value": "1"},
+        {"label": {"zh-cn": "模拟端口二", "en": "Simulated port two", "zh-tw": "模擬連接埠二", "ko": "가상 포트 둘"}, "value": "2"}
+      ],
+      "apishowcase.iic": [{"label": "A", "value": "1"}, {"label": "B", "value": "2"}],
+      "apishowcase.raw": [{"label": "IO32-IO14", "value": "32"}, {"label": "IO18-IO19", "value": "18"}]
+    }
+  }
+}

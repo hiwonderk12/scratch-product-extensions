@@ -22,7 +22,7 @@
 按[手写 TypeScript 入门教程](docs/getting-started.md)，直接维护一个作者目录和 `src/index.ts`，检查并打包为一个 ZIP。
 原生类是主要开发方式；CLI 创建／生成和 AI 都是可选辅助，不要求先学习生成器或维护规格文件。
 不需要硬件、不需要修改软件源码，也不需要先了解内部标识。
-完整参考 `docs/examples/handwritten-text` 也可直接检查、打包；[独立包格式](docs/standalone-package.md)说明可选资源与包内主控适配。
+查全部 SDK 字段和控件写法，使用[完整 API 示例包](docs/examples/api-showcase/README.md)，含逐字段中文注释、四语与三种主控适配，可直接检查、单包打包；较小的 `docs/examples/handwritten-text` 参考仍保留。[独立包格式](docs/standalone-package.md)说明可选资源与包内主控适配。
 
 ## 文档与帮助
 

@@ -189,7 +189,8 @@ test('handwritten tutorial: check and package companions without authoring gener
             launcher: 'Hiwonder.startMain({MAIN})', section: 'main'});
         assert.equal(python.setup_demo.section, 'setup');
         assert.equal(python.on_demo.entryTemplate, 'def on_demo():');
-        assert.ok(python.on_demo.entryFooter.includes('{MAIN}'));
+        assert.equal(python.on_demo.section, 'main');
+        assert.equal(python.on_demo.entryFooter, 'textdemo_callbacks.append(on_demo)');
         assert.equal(python.repeat_text.templateSelector.matchInputCode, true);
         assert.equal(python.choose_text.templateSelector.matchInputCode, false);
         assert.equal(python.reset_history.forcedVariables[0].name, 'textdemo_history');

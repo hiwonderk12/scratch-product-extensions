@@ -4,6 +4,8 @@
 每个可用 opcode 都要有规则，隐藏旧积木也不能省略；分组标题不是 opcode。
 同一个类共享积木、四语和主控适配，当前只支持 Python，不提供 C 生成或编译能力。
 
+[完整 API 示例包](examples/api-showcase/README.md#getpython-全字段与输出)提供所有字段、分支初始化和格式化后缀的真实写法与输出；代码旁逐项中文注释，不需要查看生成器实现。
+
 ## 所有模板字段
 
 | 字段 | 类型 | 用途与限制 |
@@ -17,7 +19,7 @@
 | section | string | 入口约定 main / setup；setup 帽子下内容生成顶层语句，main 收集主函数 |
 | launcher | string | 主函数启动语句，{MAIN} 为实际函数名，如 Hiwonder.startMain({MAIN}) |
 | entryTemplate | string | 事件函数头；使用实际 SDK 签名，不含函数体积木 |
-| entryFooter | string | 事件注册语句，{MAIN} 由最终函数名替换，在函数定义之后输出 |
+| entryFooter | string | 函数定义之后的注册语句；显式函数头须引用同名回调，若头部用 {MAIN}，注册也一致使用 {MAIN} |
 | runtimeFiles | string[] | 当前原生链路仅保留字段，不会据此自动部署运行库、复制到设备或追加 import |
 
 依赖按实际使用的积木收集。不要在构造函数中初始化所有设备，也不要无条件给全包添加全部 import。
@@ -93,10 +95,13 @@ demo_values.clear()
 variables 中没有赋值时以整段文本为键；不要把依赖执行顺序的业务流程塞进变量区。
 setups 按完整字符串去重，不按设备或函数名去重。
 
-输出主要顺序为 imports → variables → 辅助函数 → setups → 入口函数 → 回调注册 / 启动。
+输出主要顺序为 imports → variables → 辅助函数 → setups → 入口函数 → 全部回调注册 → 主入口启动。
+当前开发版在所有事件注册完成后才执行 launcher，不依赖帽子在画布上的排列顺序；旧软件需更新生成器才能获得该行为。
 这里描述生成规则，不保证设备 SDK 的线程、时序或幂等性；真实硬件仍须测试。
 
 ## 菜单分支与主控分支
+
+`acceptReporters: true` 的菜单在编辑器中使用扩展菜单 shadow 保存选项，字段名是菜单键；不要把测试用的父积木字段当成唯一真实输入。当前开发版按声明的菜单键读取 shadow，数字参数按数值生成，接入 reporter 时仍递归生成表达式。字符串参数保留字符串转义；`literal: true` 才直接使用作者约定的固定代码值。
 
 同一个驱动内的枚举分支可用：
 
@@ -153,9 +158,10 @@ section: 'setup' 帽子下的内容在顶层执行，不套主函数。
 ~~~ts
 on_demo: {
     template: '',
+    section: 'main',
     variables: ['callbacks = []'],
     entryTemplate: 'def on_demo():',
-    entryFooter: 'callbacks.append({MAIN})'
+    entryFooter: 'callbacks.append(on_demo)'
 }
 ~~~
 
@@ -172,7 +178,7 @@ callbacks.append(on_demo)
 ~~~
 
 此示例不主动触发回调；真实事件须依据实际 SDK 添加注册与启动规则。
-同名事件函数会自动编号，entryFooter 的 {MAIN} 同步变化；不要把函数名固定写死在注册语句中。
+自定义帽子必须声明 section: 'main' 才参与入口收集。显式函数头和注册处引用同一个回调名，重复帽子自动编号，注册语句同步变化；不要在函数头写 on_demo，却在注册处混用默认主入口占位符 {MAIN}。若需要占位符形式，可同时使用 entryTemplate: 'def {MAIN}():' 与 entryFooter: 'callbacks.append({MAIN})'。
 指定 entryTemplate 后，不再自动套主入口 launcher。entryTemplate 和 entryFooter 支持参数替换，但作者负责合法签名。
 
 ## Python 文件与交付边界

@@ -550,9 +550,10 @@ export default class TextDemoBlocks implements NativeExtension {
             },
             on_demo: {
                 template: '',
+                section: 'main', // 自定义事件同样需要显式入口声明，否则不收集帽子下的语句。
                 variables: ['textdemo_callbacks = []'],
                 entryTemplate: 'def on_demo():', // 自定义事件函数头；函数体来自帽子下的积木。
-                entryFooter: 'textdemo_callbacks.append({MAIN})' // 定义后注册；自动重名编号同步到 {MAIN}。
+                entryFooter: 'textdemo_callbacks.append(on_demo)' // 与显式函数名一致，宿主同步重名编号。
                 // 这里只把回调放入列表，不触发事件；真实硬件订阅必须依据实际 SDK。
                 // 有 entryTemplate 时不再自动套主入口 launcher，不能臆造硬件装饰器。
             },

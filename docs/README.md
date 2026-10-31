@@ -7,7 +7,7 @@
 - **安装现成包**：[导入与使用](importing.md)，包括软件要求、配套 ZIP、选主控和离线重开。
 - **手写第一个包**：[TypeScript 入门教程](getting-started.md)，从[最小单积木源码](examples/minimal-text/src/index.ts)开始，目录直接检查和单包打包，不需要生成命令或配套主控。
 - **用户包格式与更新**：[独立包格式](standalone-package.md)，本包主控适配、资源、覆盖与离线恢复；官方库版本规则不作为新手前置知识。
-- **直接查完整写法**：[详细中文注释的 index.ts](examples/handwritten-text/src/index.ts)与[示例覆盖索引](examples/handwritten-text/README.md)，包含类、字段、控件和全部 Python 生成规则。
+- **直接查完整写法**：[完整 API 示例包](examples/api-showcase/README.md)与[详细中文注释的 index.ts](examples/api-showcase/src/index.ts)，包含全部 SDK 字段、二十种滑块、层级导航、三种主控适配和 Python 生成规则；[较小综合参考](examples/handwritten-text/README.md)仍保留。
 - **想借助 AI**：[可选辅助指南](ai-assisted.md)。不是教程的前提，也不能代替人工检查。
 
 ## 修改已有积木与深入开发

@@ -3,7 +3,7 @@
 主路径是直接维护 TypeScript 类；从[手写第一个包](getting-started.md)开始，无须运行骨架或积木生成命令。
 字段参考分为本页的类、上下文及元数据，[积木与菜单](blocks-and-menus.md)和[Python 生成](python-generation.md)。
 
-需要边看代码边学习时，打开[详细注释的单文件参考](examples/handwritten-text/src/index.ts)及其[阅读与适配说明](examples/handwritten-text/README.md)：声明字段和全部 PythonTemplate 字段在源码旁解释，包含可选硬件端口分支；不必把所有演示积木复制到生产包。
+需要边看代码边学习时，打开[完整 API 单文件](examples/api-showcase/src/index.ts)及其[字段覆盖索引](examples/api-showcase/README.md)：逐字段中文注释，实际展示层级导航、全部滑块、分支初始化及三种主控适配；不必把所有演示积木复制到生产包。[较小综合参考](examples/handwritten-text/README.md)继续保留。
 
 光敏、土壤及其他基础输入模块位于 `products/input/`，RGB 模块位于 `products/output/rgb-module/`，机器人位于 `products/robots/`。已迁移模块直接导出 TypeScript 类，标准编译成 CommonJS，客户端实例化后消费 `getInfo()` 与 `getPython()`，没有并行维护的旧作者目录。
 

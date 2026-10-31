@@ -3,6 +3,8 @@
 本页说明当前原生类可声明的界面能力。先完成[手写教程](getting-started.md)，再按需扩展同一个 src/index.ts。
 这些声明用于编辑器与 Python 生成，不是设备执行方法。新增控件类型仍需软件本体支持。
 
+可直接检查、打包的[完整 API 示例](examples/api-showcase/README.md)展示全部公开 blockType、二十种滑块、菜单及层级导航，字段含义注释在同一个 index 中；尚未打通生成的控件仅作边界说明。
+
 ## getInfo() 字段
 
 每次调用同步返回 ExtensionInfo，显示文案此时通过 context.t() 读取，不在构造函数中固定翻译。
