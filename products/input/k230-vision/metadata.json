@@ -1,12 +1,12 @@
 {
   "id": "k230-vision",
   "legacySources": [],
-  "icon": "assets/cards/sensor.png",
+  "icon": "assets/k230_menu.png",
   "format": "hiwonder-native-extension",
   "formatVersion": 1,
   "apiVersion": 1,
   "mode": "python",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "namespace": "sensor",
   "source": "src/index.ts",
   "entry": "index.cjs"

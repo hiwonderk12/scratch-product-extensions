@@ -72,7 +72,8 @@ const productsDirectory = path.join(root, 'products');
 
 for (const category of fs.readdirSync(productsDirectory).sort()) {
     assert(categories.has(category), `products/${category}: 未声明的大类`);
-    for (const id of fs.readdirSync(path.join(productsDirectory, category)).sort()) {
+    for (const id of fs.readdirSync(path.join(productsDirectory, category), {withFileTypes: true})
+        .filter(entry => entry.isDirectory()).map(entry => entry.name).sort()) {
         const moduleId = `${category}/${id}`;
         const directory = path.join(productsDirectory, moduleId);
         const metadata = readJson(resolveFile(directory, 'metadata.json'));
@@ -172,7 +173,7 @@ for (const category of fs.readdirSync(productsDirectory).sort()) {
 for (const [productId, reference] of Object.entries(library.products)) {
     const filename = resolveFile(root, reference);
     const board = readSupport(reference);
-    assert(board.product === `robots/${productId}` && modules.has(board.product), `${filename}: 主控引用错误`);
+    assert([`robots/${productId}`, `controllers/${productId}`].includes(board.product) && modules.has(board.product), `${filename}: 主控引用错误`);
     for (const [moduleId, setting] of Object.entries(board.modules)) {
         const module = modules.get(moduleId);
         assert(module, `${filename}: 模块不存在 ${moduleId}`);

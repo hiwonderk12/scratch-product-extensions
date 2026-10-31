@@ -886,7 +886,7 @@ export default class WonderLensBlocks implements NativeExtension {
                 {
                     subCategory: this.context.t(product.name),
                     toolboxCategoryId: "sensor__wonder-lens",
-                    toolboxIconURI: this.context.asset('assets/cam.svg')
+                    toolboxIconURI: this.context.asset('assets/cam_menu.svg')
                 },
                 initialization,
                 {

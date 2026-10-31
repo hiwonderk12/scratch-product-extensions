@@ -45,7 +45,7 @@ const readLibrarySnapshot = root => {
 
 // 标准 TypeScript 编译直接输出 CommonJS 类入口；运行依赖由原生宿主上下文提供。
 const collectNativeModule = (root, moduleId, typescript) => {
-    if (!/^(robots|input|output|power|communication)\/[a-z0-9-]+$/.test(moduleId)) {
+    if (!/^(robots|controllers|input|output|power|communication)\/[a-z0-9-]+$/.test(moduleId)) {
         throw new Error(`模块目录不合法：${moduleId}`);
     }
     const directory = path.join(root, 'products', moduleId);

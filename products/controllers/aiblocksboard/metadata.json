@@ -1,0 +1,14 @@
+{
+  "id": "aiblocksboard",
+  "legacySources": [],
+  "icon": "assets/cards/aiblocksboard.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "0.0.2",
+  "namespace": "aiblocksboard",
+  "kind": "controller",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

@@ -8,6 +8,11 @@
       "sourceState": "native-source"
     },
     {
+      "moduleId": "controllers/aiblocksboard",
+      "metadata": "products/controllers/aiblocksboard/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
       "moduleId": "input/button-module",
       "metadata": "products/input/button-module/metadata.json",
       "sourceState": "native-source"
@@ -110,7 +115,7 @@
     {
       "moduleId": "input/wonder-mind",
       "metadata": "products/input/wonder-mind/metadata.json",
-      "sourceState": "planned"
+      "sourceState": "native-source"
     },
     {
       "moduleId": "output/digit-display",
@@ -165,17 +170,17 @@
     {
       "moduleId": "power/long-motor",
       "metadata": "products/power/long-motor/metadata.json",
-      "sourceState": "planned"
+      "sourceState": "native-source"
     },
     {
       "moduleId": "power/servo-180",
       "metadata": "products/power/servo-180/metadata.json",
-      "sourceState": "planned"
+      "sourceState": "native-source"
     },
     {
       "moduleId": "power/servo-360",
       "metadata": "products/power/servo-360/metadata.json",
-      "sourceState": "planned"
+      "sourceState": "native-source"
     },
     {
       "moduleId": "power/xarm",

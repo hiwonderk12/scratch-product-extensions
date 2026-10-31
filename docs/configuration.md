@@ -4,11 +4,13 @@
 
 ## 点阵屏及未开放输出模块
 
-当前作者配置与正式初始产品均为 `0.0.1`，根目录采用分层产品引用，产品历史仅登记初始正式身份。软件内置同版；旧工程仍按自己的版本锁恢复，不原地降级。上传及兼容边界见[初始基线指南](releases/wonderlab-library-v0.0.1.md)。
+当前作者库配置为 `0.0.3`，包含七款机器人和独立的 [AIBlocksBoard 主板](../products/controllers/aiblocksboard/docs/README.md)，开发内置采用相同快照。根目录仍记录此前正式初始 `0.0.1` 的发行历史，不因源码变动自动发布。旧工程按自己的版本锁恢复；上传及兼容边界见[初始基线指南](releases/wonderlab-library-v0.0.1.md)。
+
+主板直控动力支持改变完整库快照，因此原有原生包均递增修订：普通包当前 `0.0.3`，K230／WonderLens 当前 `0.0.4`，AIBlocksBoard 当前 `0.0.2`，三动力初版 `0.0.1`；共同使用配置 `0.0.3`。既有 Release、产品历史和已安装旧身份保持不变。AIBlocksBoard 只开放板载与三项直控动力，不继承机器人系列支持。
 
 点阵屏常规 AI 使用 `hiwonder-dev-port`，菜单仍是 `display.aiblocks_iicport`，1–4 默认 1；AiDoggy 使用 `hiwonder-dev-port-aidoggy`，`display.aidoggy_iicport`，A–D（1–4）默认 3。IIC 模板使用 `hiwonder-iic`，只保留接口，不据此添加真实主控。详见[点阵屏](../products/output/dot-matrix/docs/README.md)。
 
-`display.rgbport` 与 `display.mp3_port` 仅定义可复用端口表；RGB 灯带和 MP3 的实际支持项仍为空。端口表、隔离验证和源码原生化都不是开放主控授权。当前源码库配置为 0.0.1，以 `library.config.json` 为准。修改配置后，共存包需采用相同完整快照并各自递增包版本重新打包，不能覆盖旧身份或混用冲突缓存。
+`display.rgbport` 与 `display.mp3_port` 仅定义可复用端口表；RGB 灯带和 MP3 的实际支持项仍为空。端口表、隔离验证和源码原生化都不是开放主控授权。当前源码库配置为 0.0.3，以 `library.config.json` 为准。修改配置后，共存包需采用相同完整快照并各自递增包版本重新打包，不能覆盖旧身份或混用冲突缓存。
 
 `library.config.json` 是本分支库配置入口：声明 profile、配置版本、中文保底语言、大类、各主控文件、端口资源和功能占位卡片。原生打包器展开继承，将支持关系和端口写入包内 `library.json`；配套客户端直接读取该快照。旧包路径仍使用原实现，未接入新的远端配置渠道。
 
@@ -107,7 +109,7 @@ sensor.ultra_port 定义普通超声波的 2/6/8，默认 2。普通超声波实
 }
 ```
 
-接口和旧类型清单分别见[数码管](../products/output/digit-display/docs/README.md)与[IIC 风扇](../products/output/fan-iic/docs/README.md)。这两个模块的适配选择自配置 `0.1.1` 引入，当前 `library.config.json` 为 `0.0.1`，包含 OLED 与点阵屏的显式适配。使用新配置时，递增并打包需要共同启用的主控与模块配套版本，在软件中显式切换整套；同一工程的活动包不能混用不同完整快照。保留旧课程需要的安装版本，不将卸载旧版本作为升级前置，详见[版本与项目](versions-and-projects.md)。
+接口和旧类型清单分别见[数码管](../products/output/digit-display/docs/README.md)与[IIC 风扇](../products/output/fan-iic/docs/README.md)。这两个模块的适配选择自历史配置 `0.1.1` 引入，当前 `library.config.json` 为 `0.0.3`，包含 OLED 与点阵屏的显式适配。使用新配置时，递增并打包需要共同启用的主控与模块配套版本，在软件中显式切换整套；同一工程的活动包不能混用不同完整快照。保留旧课程需要的安装版本，不将卸载旧版本作为升级前置，详见[版本与项目](versions-and-projects.md)。
 
 ### OLED 的初始化与共用绘图
 
@@ -160,13 +162,13 @@ input/wonder-lens 在五种 AI 主控中选择 hiwonder-dev-port，在 minihexa 
 
 历史 hiwonder-iic 使用 Hiwonder_IIC.IIC() 及 WonderCam(iic,IICPORT)，不能只修改 DEV 端口值来复用。当前真实库没有此分支的公开支持项和 sensor.aiblocks_iicport 端口表，保留源码不等于开放主控。新增支持时须同时配置真实主控、variant、对应端口表和默认绑定，并验证全部初始化/恢复行为。详见 [WonderLens 手册](../products/input/wonder-lens/docs/README.md)。
 
-配置 0.0.1 的共同加载包必须重新收集一致的 library.json 快照；旧快照不会自动被仓库文件替换。此版本号不是正式发行状态。
+当前配置 0.0.3 的共同加载包必须重新收集一致的 library.json 快照；旧快照不会自动被仓库文件替换。此版本号不是正式发行状态。
 
 ## K230 的同驱动不同能力适配
 
 input/k230-vision 的五个公开主控均使用 DEV_K230，但可见积木、默认 MCP 工具和参数菜单不同。共享支持集使用 hiwonder-dev-dual-drive；aimecanum、aiquadruped、aiquadrupedpro、aihexa 在各自 board 中分别覆盖为 hiwonder-dev-mecanum、hiwonder-dev-quadruped、hiwonder-dev-quadruped-pro、hiwonder-dev-hexa。模块同名条目整体覆盖，必须同时保留 legacyNamespaces 和 portGroups。
 
-初始化端口仍由 sensor.aimech_iicport 及 sensor_k230_aimech_init.PORT 配置，不增加主控开放范围。getInfo 与 getPython 同步选择可见规则，不在软件本体硬编码产品名称。修改后共同加载包使用一致的 0.0.1 配置快照；详见 [K230 维护手册](../products/input/k230-vision/docs/README.md)。
+初始化端口仍由 sensor.aimech_iicport 及 sensor_k230_aimech_init.PORT 配置，不增加主控开放范围。getInfo 与 getPython 同步选择可见规则，不在软件本体硬编码产品名称。修改后共同加载包使用一致的 0.0.3 配置快照；详见 [K230 维护手册](../products/input/k230-vision/docs/README.md)。
 
 ## 同一 SDK 下的板载、封装端口与原始 IO
 
@@ -181,7 +183,7 @@ variant 不仅区分 import。即使都导入 Hiwonder_DEV，也必须按硬件�
 
 旧通用 opcode 与菜单保留为兼容声明，不自动重映射已有作品的字段值。portGroups 可以包含仅供旧菜单 shadow 读取的空 bindings；它不开放新模块或新增物理端口。隐藏兼容块仍保留完整 Python 规则；名称和参数不可随显示语言修改。
 
-普通 IIC 点阵不等于 IO 点阵，显示模块的端口表也不能替代传感器端口表。细节见各模块维护说明。配置0.0.1更新后，共同加载包须重新打包为一致快照；不要覆盖已发行的同版本包，配置快照变化也应纳入下一包版本的身份审阅。
+普通 IIC 点阵不等于 IO 点阵，显示模块的端口表也不能替代传感器端口表。细节见各模块维护说明。修改配置后，共同加载包须重新打包为一致快照；不要覆盖已发行的同版本包，配置快照变化也应纳入下一包版本的身份审阅。
 
 ## 更新索引
 

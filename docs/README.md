@@ -12,6 +12,8 @@
 
 ## 修改已有积木与深入开发
 
+独立主板维护：[AIBlocksBoard](../products/controllers/aiblocksboard/docs/README.md)，说明控制器分类、板载积木、IIC SDK 入口、数字按键与蓝牙；外接模块按实际支持单独开放，不与机器人套件混用。
+
 1. [仓库说明](../README.md)：用途、适用软件和使用入口。
 2. [类与上下文 API](native-api.md)：constructor、getInfo、getPython、dispose、语言／端口／资源、元数据与安全边界。
 3. [积木、菜单与控件](blocks-and-menus.md)：blockType 全部可用值、参数、菜单、分组、图标和隐藏兼容。
@@ -33,6 +35,8 @@
 主控差异示例：[红外避障](../products/input/infrared-sensor/docs/README.md)、[WonderEcho](../products/input/wonder-echo/docs/README.md)、[LED 超声波](../products/input/led-ultrasonic/docs/README.md)。分别检查原始 IO、Port 包装与板载无参构造；菜单、默认值、import、对象名和读取方法须与所选 variant 一致，不能只更换端口文字。
 
 动力与风扇：[总线舵机](../products/power/bus-servo/docs/README.md)、[IIC 转 PWM](../products/power/iic-pwm/docs/README.md)、[风扇](../products/output/fan/docs/README.md)。重点保留专用滑块、显式初始化、AiDoggy 独立端口与按适配选择旧前缀；普通端口风扇未开放真实支持。
+
+主板直控动力模块：[主控适配边界](../products/power/README.md)。长电机、180°和 360°直接舵机的旧版支持仅为 AIBlocksBoard，不属于当前七主控的可用模块，三项已提供 class 和四语，使用 `hiwonder-direct`，不能以 IIC 转 PWM 或总线舵机实现替代。
 
 巡线系列：[四路](../products/input/line-4/docs/README.md)、[旋钮四路](../products/input/line-4-rotary/docs/README.md)、[六路](../products/input/line-6/docs/README.md)、[八路](../products/input/line-8/docs/README.md)。重点是独立 SDK 对象、位掩码与连续通道编号的区别、亮灭模板选择及 LINE shadow；八路仅保留实现，不代表公开支持已开放。
 

@@ -1,7 +1,34 @@
+// K230 作者入口：功能分组只改变侧栏，旧 opcode、主控分支及 Python 规则保持独立。
 import type {ExtensionBlock, ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 export const messages = {
     "zh-cn": {
+        "group.online": "在线大模型",
+        "group.face": "人脸识别",
+        "group.face-pose": "人脸姿态",
+        "group.expression": "表情识别",
+        "group.gaze": "注视方向",
+        "group.person": "人体检测",
+        "group.person-points": "人体关键点",
+        "group.hand": "手掌关键点",
+        "group.gesture": "手势识别",
+        "group.fall": "跌倒检测",
+        "group.target": "目标追踪",
+        "group.dynamic-gesture": "动态手势",
+        "group.self-learn": "自学习",
+        "group.single-color": "单颜色检测",
+        "group.multi-color": "多颜色检测",
+        "group.line": "线检测",
+        "group.ocr": "文字识别",
+        "group.license-plate": "车牌识别",
+        "group.object-classify": "物体分类",
+        "group.object": "物体检测",
+        "group.trash": "垃圾分类",
+        "group.traffic": "交通检测",
+        "group.apriltag": "AprilTag识别",
+        "group.dm-code": "DM码识别",
+        "group.qr-code": "二维码识别",
+        "group.barcode": "条形码识别",
         "product.name": "K230视觉模块",
         "block.k230_aimech_init": "初始化K230视觉模块接口 [PORT]",
         "block.k230_set_mode": "设置K230运行模式 [MODE]",
@@ -502,6 +529,32 @@ export const messages = {
         "menu.robot_set_pose_params.run_time": "变化时间(ms)"
     },
     "en": {
+        "group.online": "Online large model",
+        "group.face": "face recognition",
+        "group.face-pose": "face pose",
+        "group.expression": "Expression recognition",
+        "group.gaze": "gaze direction",
+        "group.person": "Human detection",
+        "group.person-points": "key points of human body",
+        "group.hand": "Palm key points",
+        "group.gesture": "Gesture recognition",
+        "group.fall": "Fall detection",
+        "group.target": "target tracking",
+        "group.dynamic-gesture": "dynamic gestures",
+        "group.self-learn": "self-study",
+        "group.single-color": "Single color detection",
+        "group.multi-color": "Multi-color detection",
+        "group.line": "Line detection",
+        "group.ocr": "text recognition",
+        "group.license-plate": "license plate recognition",
+        "group.object-classify": "Object classification",
+        "group.object": "Object detection",
+        "group.trash": "Garbage classification",
+        "group.traffic": "traffic detection",
+        "group.apriltag": "AprilTag recognition",
+        "group.dm-code": "DM code identification",
+        "group.qr-code": "QR code recognition",
+        "group.barcode": "Barcode recognition",
         "product.name": "K230 vision module",
         "block.k230_aimech_init": "Initialize K230 vision module at port [PORT]",
         "block.k230_set_mode": "Set K230 mode to [MODE]",
@@ -1002,6 +1055,32 @@ export const messages = {
         "menu.robot_set_pose_params.run_time": "Transition time (ms)"
     },
     "zh-tw": {
+        "group.online": "線上大模型",
+        "group.face": "人臉辨識",
+        "group.face-pose": "人臉姿態",
+        "group.expression": "表情識別",
+        "group.gaze": "注視方向",
+        "group.person": "人體偵測",
+        "group.person-points": "人體關鍵點",
+        "group.hand": "手掌關鍵點",
+        "group.gesture": "手勢識別",
+        "group.fall": "跌倒偵測",
+        "group.target": "目標追蹤",
+        "group.dynamic-gesture": "動態手勢",
+        "group.self-learn": "自學習",
+        "group.single-color": "單顏色偵測",
+        "group.multi-color": "多顏色檢測",
+        "group.line": "線檢測",
+        "group.ocr": "文字識別",
+        "group.license-plate": "車牌識別",
+        "group.object-classify": "物件分類",
+        "group.object": "物體偵測",
+        "group.trash": "垃圾分類",
+        "group.traffic": "交通偵測",
+        "group.apriltag": "AprilTag識別",
+        "group.dm-code": "DM碼識別",
+        "group.qr-code": "QR 圖碼識別",
+        "group.barcode": "條碼識別",
         "product.name": "K230視覺模組",
         "block.k230_aimech_init": "初始化K230視覺模組介面 [PORT]",
         "block.k230_set_mode": "設定K230執行模式 [MODE]",
@@ -1502,6 +1581,32 @@ export const messages = {
         "menu.robot_set_pose_params.run_time": "變化時間(ms)"
     },
     "ko": {
+        "group.online": "온라인 대형 모델",
+        "group.face": "얼굴 인식",
+        "group.face-pose": "얼굴 포즈",
+        "group.expression": "표정 인식",
+        "group.gaze": "시선 방향",
+        "group.person": "인간 탐지",
+        "group.person-points": "인체의 핵심 포인트",
+        "group.hand": "손바닥 핵심 포인트",
+        "group.gesture": "제스처 인식",
+        "group.fall": "넘어짐 감지",
+        "group.target": "표적 추적",
+        "group.dynamic-gesture": "역동적인 제스처",
+        "group.self-learn": "자율 학습",
+        "group.single-color": "단일 색상 감지",
+        "group.multi-color": "다색 감지",
+        "group.line": "라인 감지",
+        "group.ocr": "텍스트 인식",
+        "group.license-plate": "번호판 인식",
+        "group.object-classify": "객체 분류",
+        "group.object": "객체 감지",
+        "group.trash": "쓰레기 분류",
+        "group.traffic": "교통 감지",
+        "group.apriltag": "4월태그 인식",
+        "group.dm-code": "DM 코드 식별",
+        "group.qr-code": "QR 코드 인식",
+        "group.barcode": "바코드 인식",
         "product.name": "K230 비전 모듈",
         "block.k230_aimech_init": "K230 비전 모듈 포트 [PORT] 초기화",
         "block.k230_set_mode": "K230 실행 모드 [MODE] 설정",
@@ -3700,7 +3805,11 @@ export default class K230VisionBlocks implements NativeExtension {
             }
         };
         const blocks: ExtensionInfo['blocks'] = [
-            {subCategory: this.context.t(product.name)},
+            {
+                subCategory: this.context.t(product.name),
+                toolboxCategoryId: 'sensor__k230-vision',
+                toolboxIconURI: this.context.asset('assets/k230_menu.png')
+            },
                 {
                     opcode: "k230_aimech_init",
                     blockType: "command",
@@ -3779,6 +3888,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     arguments: {
 
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.online'),
+                    toolboxCategoryId: 'sensor__k230-vision__online',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.online')
                 },
                 {
                     opcode: "k230_mcp_action_setting",
@@ -4134,6 +4249,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.face'),
+                    toolboxCategoryId: 'sensor__k230-vision__face',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.face')
+                },
+                {
                     opcode: "k230_face_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4186,6 +4307,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.face-pose'),
+                    toolboxCategoryId: 'sensor__k230-vision__face-pose',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.face-pose')
+                },
+                {
                     opcode: "k230_face2_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4234,6 +4361,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.expression'),
+                    toolboxCategoryId: 'sensor__k230-vision__expression',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.expression')
                 },
                 {
                     opcode: "k230_face3_detected",
@@ -4286,6 +4419,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.gaze'),
+                    toolboxCategoryId: 'sensor__k230-vision__gaze',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.gaze')
+                },
+                {
                     opcode: "k230_gaze_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4336,6 +4475,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.person'),
+                    toolboxCategoryId: 'sensor__k230-vision__person',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.person')
+                },
+                {
                     opcode: "k230_person_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4369,6 +4514,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.person-points'),
+                    toolboxCategoryId: 'sensor__k230-vision__person-points',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.person-points')
                 },
                 {
                     opcode: "k230_person_point_detected",
@@ -4438,6 +4589,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.hand'),
+                    toolboxCategoryId: 'sensor__k230-vision__hand',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.hand')
+                },
+                {
                     opcode: "k230_hand_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4503,6 +4660,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.gesture'),
+                    toolboxCategoryId: 'sensor__k230-vision__gesture',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.gesture')
                 },
                 {
                     opcode: "k230_gesture_detected",
@@ -4576,6 +4739,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.fall'),
+                    toolboxCategoryId: 'sensor__k230-vision__fall',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.fall')
+                },
+                {
                     opcode: "k230_fall_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4621,6 +4790,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.target'),
+                    toolboxCategoryId: 'sensor__k230-vision__target',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.target')
+                },
+                {
                     opcode: "k230_target_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4646,6 +4821,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.dynamic-gesture'),
+                    toolboxCategoryId: 'sensor__k230-vision__dynamic-gesture',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.dynamic-gesture')
+                },
+                {
                     opcode: "k230_dynamic_gesture_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4667,6 +4848,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             defaultValue: " "
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.self-learn'),
+                    toolboxCategoryId: 'sensor__k230-vision__self-learn',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.self-learn')
                 },
                 {
                     opcode: "k230_result_self_learn_get_arg",
@@ -4699,6 +4886,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.single-color'),
+                    toolboxCategoryId: 'sensor__k230-vision__single-color',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.single-color')
                 },
                 {
                     opcode: "k230_set_single_color",
@@ -4750,6 +4943,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.multi-color'),
+                    toolboxCategoryId: 'sensor__k230-vision__multi-color',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.multi-color')
                 },
                 {
                     opcode: "k230_set_multi_color_arg",
@@ -4831,6 +5030,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.line'),
+                    toolboxCategoryId: 'sensor__k230-vision__line',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.line')
+                },
+                {
                     opcode: "k230_set_line_color",
                     blockType: "command",
                     text: this.context.t("block.k230_set_line_color"),
@@ -4882,6 +5087,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.ocr'),
+                    toolboxCategoryId: 'sensor__k230-vision__ocr',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.ocr')
+                },
+                {
                     opcode: "k230_ocr_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -4925,6 +5136,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.license-plate'),
+                    toolboxCategoryId: 'sensor__k230-vision__license-plate',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.license-plate')
                 },
                 {
                     opcode: "k230_license_plate_detected",
@@ -4972,6 +5189,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.object-classify'),
+                    toolboxCategoryId: 'sensor__k230-vision__object-classify',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.object-classify')
+                },
+                {
                     opcode: "k230_object_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -5007,6 +5230,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.object'),
+                    toolboxCategoryId: 'sensor__k230-vision__object',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.object')
+                },
+                {
                     opcode: "k230_object_named_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -5035,6 +5264,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.trash'),
+                    toolboxCategoryId: 'sensor__k230-vision__trash',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.trash')
                 },
                 {
                     opcode: "k230_trash_detected",
@@ -5102,6 +5337,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.traffic'),
+                    toolboxCategoryId: 'sensor__k230-vision__traffic',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.traffic')
+                },
+                {
                     opcode: "k230_traffic_sign_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -5150,6 +5391,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.apriltag'),
+                    toolboxCategoryId: 'sensor__k230-vision__apriltag',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.apriltag')
                 },
                 {
                     opcode: "k230_april_tag_detected",
@@ -5215,6 +5462,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.dm-code'),
+                    toolboxCategoryId: 'sensor__k230-vision__dm-code',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.dm-code')
+                },
+                {
                     opcode: "k230_dm_code_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -5273,6 +5526,12 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.qr-code'),
+                    toolboxCategoryId: 'sensor__k230-vision__qr-code',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.qr-code')
+                },
+                {
                     opcode: "k230_qr_code_detected",
                     blockType: "Boolean",
                     disableMonitor: true,
@@ -5329,6 +5588,12 @@ export default class K230VisionBlocks implements NativeExtension {
                             literal: true
                         }
                     }
+                },
+                {
+                    subCategory: this.context.t(product.name) + ' · ' + this.context.t('group.barcode'),
+                    toolboxCategoryId: 'sensor__k230-vision__barcode',
+                    toolboxParentId: 'sensor__k230-vision',
+                    toolboxSubcategoryLabel: this.context.t('group.barcode')
                 },
                 {
                     opcode: "k230_barcode_detected",

@@ -46,6 +46,62 @@
       "module": "power/bus-servo",
       "source": "src/index.ts"
     },
+    "actuator_long_motor_init_car": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_read_pose_absolute": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_read_pose_relative": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_read_speed": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_0_degrees_relative": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_car_move": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_car_rotate_bias": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_car_run": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_car_stop": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_control": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_run": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_speed": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motor_set_speed_zero": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
+    "actuator_long_motorset_car_rotate": {
+      "module": "power/long-motor",
+      "source": "src/index.ts"
+    },
     "actuator_set_bus_servo": {
       "module": "power/bus-servo",
       "source": "src/index.ts"
@@ -54,8 +110,108 @@
       "module": "power/bus-servo",
       "source": "src/index.ts"
     },
+    "actuator_set_servo_angle_time": {
+      "module": "power/servo-180",
+      "source": "src/index.ts"
+    },
+    "actuator_set_servo_run": {
+      "module": "power/servo-180",
+      "source": "src/index.ts"
+    },
+    "actuator_set_servo_stop": {
+      "module": "power/servo-180",
+      "source": "src/index.ts"
+    },
+    "actuator_set_servo360_angle_time": {
+      "module": "power/servo-360",
+      "source": "src/index.ts"
+    },
+    "actuator_set_servo360_run": {
+      "module": "power/servo-360",
+      "source": "src/index.ts"
+    },
+    "actuator_set_servo360_stop": {
+      "module": "power/servo-360",
+      "source": "src/index.ts"
+    },
     "actuator_unload_bus_servo": {
       "module": "power/bus-servo",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_ble_is_connected": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_ble_wait_end": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_ble_write": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_buzzer_tone_set": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_buzzer_tone_set_arg": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_buzzer_tone_set_volume": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_close_buzzer": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_get_battery_level": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_get_ble_args": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_get_ble_cmd": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_get_ble_mac": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_key_is_pressed": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_print_number": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_print_str": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_read_ble_data": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_set_ble_mode": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_start_run_thread": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_start_thread": {
+      "module": "controllers/aiblocksboard",
+      "source": "src/index.ts"
+    },
+    "aiblocksboard_when_key_click_thread": {
+      "module": "controllers/aiblocksboard",
       "source": "src/index.ts"
     },
     "aidoggy_buzzer_tone_set": {
@@ -1366,6 +1522,10 @@
       "module": "robots/minihexa",
       "source": "src/index.ts"
     },
+    "sensor_abort_llm": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
     "sensor_aiblocks_check_color": {
       "module": "input/color-sensor",
       "source": "src/index.ts"
@@ -1476,6 +1636,46 @@
     },
     "sensor_aimech_wonderecho_init": {
       "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_aimech_init": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_args": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_cmds": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_control": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_mcps": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_send_action": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_send_msg": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_send_status": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_get_aitv_message": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_get_aitv_status": {
+      "module": "input/wonder-mind",
       "source": "src/index.ts"
     },
     "sensor_get_euler_angle": {
@@ -1596,6 +1796,14 @@
     },
     "sensor_getUnlearnedFaceOfIndex": {
       "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_init_mcp_setting": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_init_speech_setting": {
+      "module": "input/wonder-mind",
       "source": "src/index.ts"
     },
     "sensor_isAnyBarCodeDetected": {
@@ -2238,6 +2446,10 @@
       "module": "input/line-8",
       "source": "src/index.ts"
     },
+    "sensor_mcp_setting": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
     "sensor_minihexa_get_avoid_value": {
       "module": "input/infrared-sensor",
       "source": "src/index.ts"
@@ -2278,6 +2490,22 @@
       "module": "input/wonder-lens",
       "source": "src/index.ts"
     },
+    "sensor_select_voice_model": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_set_speech_person": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_set_speech_person_ali": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
+    "sensor_set_speech_person_arg": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
     "sensor_setLed": {
       "module": "input/wonder-lens",
       "source": "src/index.ts"
@@ -2286,8 +2514,16 @@
       "module": "input/wonder-lens",
       "source": "src/index.ts"
     },
+    "sensor_speech_text": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
     "sensor_switchFunc": {
       "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_vision_text": {
+      "module": "input/wonder-mind",
       "source": "src/index.ts"
     },
     "sensor_wondercamUpdateResult": {

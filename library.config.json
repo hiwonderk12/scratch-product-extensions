@@ -1,10 +1,16 @@
 {
   "formatVersion": 1,
   "profile": "wonderlab",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "status": "development",
   "defaultLocale": "zh-cn",
   "categories": [
+    {
+      "id": "controllers",
+      "name": {
+        "zh-cn": "控制器"
+      }
+    },
     {
       "id": "robots",
       "name": {
@@ -37,6 +43,7 @@
     }
   ],
   "products": {
+    "aiblocksboard": "library/boards/aiblocksboard.json",
     "aimech": "library/boards/aimech.json",
     "aimecanum": "library/boards/aimecanum.json",
     "aiquadruped": "library/boards/aiquadruped.json",

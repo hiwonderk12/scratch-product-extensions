@@ -5,7 +5,7 @@ import {readNativeAuthoring} from './authoring-config.mjs';
 import {createModuleFiles} from './authoring-templates.mjs';
 
 // 作者生成器只规划和定点修改本库源码；不更新支持关系、版本、发行目录或软件核心。
-const categories = ['robots', 'input', 'output', 'power', 'communication'];
+const categories = ['robots', 'controllers', 'input', 'output', 'power', 'communication'];
 const requireValue = (condition, message) => { if (!condition) throw new Error(message); };
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const quoted = value => JSON.stringify(value);
@@ -252,7 +252,7 @@ const planAuthoringCommand = (directory, argumentsList, ts) => {
     requireValue(library.profile !== 'wonderlab' || !id.startsWith('wondercode-'), 'WonderLab 分支不创建 WonderCode 产品，请切换对应产品分支');
     const flags = parseFlags(argumentsRest, kind === 'module' ? ['--category', '--namespace', '--spec', '--dry-run'] : ['--namespace', '--spec', '--dry-run']);
     const category = kind === 'product' ? 'robots' : flags['--category'];
-    requireValue(categories.includes(category) && (kind === 'product' || category !== 'robots'), 'module 需要非 robots 的 --category；机器人使用 new product');
+    requireValue(categories.includes(category) && (kind === 'product' || !['robots', 'controllers'].includes(category)), 'module 需要 input/output/power/communication 的 --category；机器人使用 new product，独立主板按控制器手册维护');
     requireValue(library.categories.some(item => item.id === category), `库配置尚未声明分类 ${category}`);
     const moduleId = `${category}/${id}`;
     const namespace = flags['--namespace'] || ({input: 'sensor', output: 'display', power: 'actuator', communication: 'communication'}[category] || id.replaceAll('-', ''));

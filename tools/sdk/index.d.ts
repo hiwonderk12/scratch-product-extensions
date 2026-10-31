@@ -56,7 +56,8 @@ export interface ExtensionInfo {
 
 export interface PythonTemplate {
     template: string;
-    templateSelector?: {argument: string; cases: Record<string, string>; matchInputCode?: boolean};
+    templateSelector?: {argument: string; cases: Record<string, string>; matchInputCode?: boolean;
+        variableCases?: Record<string, string[]>};
     runtimeFiles?: string[];
     imports?: string[];
     variables?: string[];

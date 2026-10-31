@@ -47,7 +47,7 @@ const planSupportCommand = (directory, args) => {
     const reference = boardReference(library, boardId);
     const board = readJson(root, reference);
     const snapshot = readLibrarySnapshot(root);
-    requireValue(board.product === `robots/${boardId}`, `主控产品引用不一致：${boardId}`);
+    requireValue([`robots/${boardId}`, `controllers/${boardId}`].includes(board.product), `主控产品引用不一致：${boardId}`);
     requireValue(!Object.hasOwn(snapshot.products[boardId].modules, moduleId), `主控已支持 ${moduleId}，请手工审阅已有适配，不重复添加`);
     const metadataPath = `products/${board.product}/metadata.json`;
     const product = readJson(root, metadataPath);

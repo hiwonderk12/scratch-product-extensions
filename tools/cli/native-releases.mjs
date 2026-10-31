@@ -4,7 +4,7 @@ import {createNativeCandidateCatalog} from './native-catalog.mjs';
 
 // 产品 catalog 是唯一历史源；根索引派生登记，完整归档校验与纯索引生成分别报告。
 const RELEASE_BASE_URL = 'https://github.com/hiwonderk12/scratch-product-extensions/releases/download/';
-const categories = ['robots', 'input', 'output', 'power', 'communication'];
+const categories = ['robots', 'controllers', 'input', 'output', 'power', 'communication'];
 const safeName = /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/;
 const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 
@@ -48,7 +48,7 @@ const readNativeProductCatalogs = ({profile, productsDirectory}) => {
             if (size > 1024 * 1024 || histories.length >= 256) throw new Error('产品历史目录总大小或数量超限');
             const metadata = JSON.parse(fs.readFileSync(plainPath(productsDirectory, `${moduleId}/metadata.json`), 'utf8'));
             const history = JSON.parse(fs.readFileSync(filename, 'utf8'));
-            if (!/^(robots|input|output|power|communication)\/[a-z0-9][a-z0-9-]*$/.test(moduleId) ||
+            if (!/^(robots|controllers|input|output|power|communication)\/[a-z0-9][a-z0-9-]*$/.test(moduleId) ||
                 metadata.id !== entry.name || history.formatVersion !== 2 || history.profile !== profile ||
                 history.moduleId !== moduleId || !['candidate', 'published'].includes(history.status) ||
                 !Array.isArray(history.packages) || !history.packages.length) {

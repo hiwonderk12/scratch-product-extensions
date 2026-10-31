@@ -1,0 +1,8 @@
+{
+  "product": "controllers/aiblocksboard",
+  "modules": {
+    "power/long-motor": {"variant": "hiwonder-direct", "legacyNamespaces": ["actuator"], "portGroups": {}},
+    "power/servo-180": {"variant": "hiwonder-direct", "legacyNamespaces": ["actuator"], "portGroups": {}},
+    "power/servo-360": {"variant": "hiwonder-direct", "legacyNamespaces": ["actuator"], "portGroups": {}}
+  }
+}

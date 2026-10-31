@@ -142,12 +142,12 @@ metadata.json 维护身份与入口，不重复填写翻译表。
 
 | 文件 | 原版本 | 示例版本 |
 | - | - | - |
-| library.config.json | 0.0.1 | 0.0.2-demo.1 |
-| products/robots/aimech/metadata.json | 0.0.1 | 0.0.2-demo.1 |
+| library.config.json | 0.0.3 | 0.0.4-demo.1 |
+| products/robots/aimech/metadata.json | 0.0.3 | 0.0.4-demo.1 |
 | products/output/hello-text/metadata.json | 新包 | 0.0.1 |
 
 在前两个文件中找到 `"version": "原版本"`，仅把值改成表中示例版本；新模块的 0.0.1 已在复制的 metadata 内，无须再改。
-**成功标志**：配置为 0.0.2-demo.1，主控为 0.0.2-demo.1，模块仍为 0.0.1；修改范围明确，没有降级或覆盖原主控版本。
+**成功标志**：配置为 0.0.4-demo.1，主控为 0.0.4-demo.1，模块仍为 0.0.1；修改范围明确，没有降级或覆盖原主控版本。
 
 选版规则：对本次演示的正式三段基线 x.y.z，使用 x.y.(z+1)-demo.1。已有预发行版、原版本与表不符或准备再次改已打包内容时，不猜新号、不照抄降级，按[版本与项目](versions-and-projects.md)选更高版本或取得本教程配套修订。
 教程专项会核对表中原版本和真实基线，过期会失败，而不是静默继续。
@@ -186,11 +186,11 @@ npm run ext -- pack-set aimech output/hello-text --output dist/hello-text-demo
 
 结果包括：
 
-- aimech-0.0.2-demo.1.zip：配套主控。
+- aimech-0.0.4-demo.1.zip：配套主控。
 - hello-text-0.0.1.zip：手写文本模块。
 - package-set.json：版本、文件与配套关系说明，不是导入包。
 
-**成功标志**：dry-run 输出“DRY-RUN：未写入文件”，真实打包输出“配套操作完成”；dist/hello-text-demo 中有上述三个文件，清单库配置版本为 0.0.2-demo.1。
+**成功标志**：dry-run 输出“DRY-RUN：未写入文件”，真实打包输出“配套操作完成”；dist/hello-text-demo 中有上述三个文件，清单库配置版本为 0.0.4-demo.1。
 打包失败时按 [CLI](cli.md)检查完整报错。提示目录已存在时换新的输出目录；提示缺支持或版本冲突时回到前两节修正，不单独交付模块或强行覆盖。
 
 单包交付可用 npm run ext -- pack output/hello-text，但它不会生成主控配套。

@@ -1,8 +1,13 @@
 {
   "id": "wonder-mind",
-  "name": {
-    "zh-cn": "WonderMind"
-  },
   "legacySources": [],
-  "icon": "assets/cards/sensor.png"
+  "icon": "assets/cards/sensor.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "0.0.3",
+  "namespace": "sensor",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
 }

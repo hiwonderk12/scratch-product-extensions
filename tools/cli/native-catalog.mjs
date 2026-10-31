@@ -29,7 +29,7 @@ const createNativeCandidateCatalog = async (archives, {profile, baseUrl}, JSZip)
         const descriptor = JSON.parse(await zip.file('extension.json').async('string'));
         if (descriptor.format !== 'hiwonder-native-extension' || descriptor.formatVersion !== 1 ||
             descriptor.apiVersion !== 1 || descriptor.mode !== 'python' || descriptor.profile !== profile ||
-            !/^(robots|input|output|power|communication)\/[a-z0-9-]+$/.test(descriptor.moduleId) ||
+            !/^(robots|controllers|input|output|power|communication)\/[a-z0-9-]+$/.test(descriptor.moduleId) ||
             descriptor.id !== descriptor.moduleId.split('/')[1] || typeof descriptor.namespace !== 'string' ||
             !/^[a-z0-9]+$/i.test(descriptor.namespace) || !descriptor.name?.['zh-cn']?.trim()) {
             throw new Error('候选ZIP原生身份或profile无效');

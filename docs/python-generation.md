@@ -13,7 +13,7 @@
 | variables | string[] | 参数替换后收集顶层初始化，按赋值左侧名称去重；同名普通初始化保留第一个 |
 | forcedVariables | {name, code}[] | 用明确的 name 替换同名普通初始化；code 支持参数替换，慎用于设备共享对象 |
 | setups | string[] | 顶层初始化语句，参数替换后按完整代码去重 |
-| templateSelector | {argument, cases, matchInputCode?} | 根据参数选择另一段 template，未命中回到默认；不切换 imports 等其他字段 |
+| templateSelector | {argument, cases, matchInputCode?, variableCases?} | 根据参数选择 template；可按相同分支追加变量初始化，未命中不追加；不切换 imports、入口等其他字段 |
 | section | string | 入口约定 main / setup；setup 帽子下内容生成顶层语句，main 收集主函数 |
 | launcher | string | 主函数启动语句，{MAIN} 为实际函数名，如 Hiwonder.startMain({MAIN}) |
 | entryTemplate | string | 事件函数头；使用实际 SDK 签名，不含函数体积木 |
@@ -53,6 +53,8 @@ TEXT 为 Hello 时，指令预期为 print("Hello")；VALUE 为 3 时，后两�
 | {TEXT.compactJson} | 删除空白后生成 JSON 字符串，适用既有紧凑数据接口，不适合普通用户文本 |
 | {TEXT.jsonValue} | 对静态字符串值做 JSON 编码；不是任意动态表达式序列化 |
 | {TEXT.identifier} | 将静态字符串转换为合法 Python 标识符，不适合运行时动态表达式 |
+| {NAME.memberName} | 取工具路径最后一段并移除双引号，兼容 MCP 工具变量名；不修复非法标识符，不适合普通文本 |
+| {PARAMS.compactHead} / {PARAMS.compactTail} | 删除 ASCII 空格后取首字符／剩余内容，供既有 MCP 参数列表插入使用；不解析或校验 Python，不用于任意用户文本 |
 
 只支持现有格式名；未知格式不是表达式计算引擎。
 资源、设备调用的完整使用例见[产品导航](README.md#产品维护示例)。
@@ -110,7 +112,8 @@ choose_text: {
 
 MODE 的原始菜单实际值为 2 时预期 print("second")；不是按翻译后的菜单 text 匹配。
 matchInputCode: true 改为匹配已生成的参数代码，必须考虑数字和引号的精确形式。
-分支仅选择 template；需要不同 import、变量初始化或入口签名时，在 getPython() 内按 context.variant 返回整套规则。
+分支可同时声明 `variableCases: {'1': ['first_tool = {...}'], '2': ['second_tool = {...}']}`，键必须来自 cases，值为字符串数组；只按当前选项追加初始化，再按变量名去重，不预先加入所有工具。公共 variables 仍会先收集。未声明 variableCases 的既有规则不变。
+需要不同 import 或入口签名时，在 getPython() 内按 context.variant 返回整套规则。上述 MCP 格式器保留既有文本拼接语义，不验证作者提供的参数表或自动修正非法 Python；开发者仍需检查最终输出。
 主控支持表、端口与默认值必须同步，详见[主控差异初始化](configuration.md#同一模块按主控选择初始化接口)。
 
 ## 入口与事件
