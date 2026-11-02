@@ -6,6 +6,7 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import test from 'node:test';
 import JSZip from 'jszip';
+import {createTemporaryDirectory} from '../test/temp-directory.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const readJson = filename => JSON.parse(fs.readFileSync(filename, 'utf8'));
@@ -25,7 +26,7 @@ const nextDemo = version => {
     return `${parts[0]}.${parts[1]}.${parts[2] + 1}-demo.1`;
 };
 
-// 副本只写入公开库忽略目录，不联接共享依赖、不清理；链接来源直接拒绝。
+// 副本只写入公开库忽略目录，不联接共享依赖；链接来源直接拒绝。
 const assertNoLinks = filename => {
     let current = path.resolve(filename);
     while (true) {
@@ -68,8 +69,8 @@ test('minimal tutorial versions and before/after support examples match the real
 test('minimal handwritten package checks and builds companions using only public-library dependencies', async context => {
     assertNoLinks(path.join(root, 'dist'));
     fs.mkdirSync(path.join(root, 'dist'), {recursive: true});
-    const directory = fs.mkdtempSync(path.join(root, 'dist', 'minimal-text-'));
-    context.diagnostic(`保留最小教程副本及日志：${directory}`);
+    const directory = createTemporaryDirectory(context, path.join(root, 'dist'), 'minimal-text-');
+    context.diagnostic(`最小教程临时副本（结束后清理）：${directory}`);
     for (const relative of ['tools', 'products', 'library', 'library.config.json', 'catalog.json']) {
         copySource(path.join(root, relative), path.join(directory, relative));
     }

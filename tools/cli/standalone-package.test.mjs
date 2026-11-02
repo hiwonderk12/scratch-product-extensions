@@ -8,6 +8,7 @@ import {spawnSync} from 'node:child_process';
 import ts from 'typescript';
 import JSZip from 'jszip';
 import * as packaging from './native-package.mjs';
+import {createTemporaryDirectory} from '../test/temp-directory.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 
@@ -48,8 +49,9 @@ test('作者目录直接编译单包，不读取全库支持配置或生成配�
     }
 });
 
-test('目录 CLI 可重复打包同一个 ZIP，不要求维护发行版本或配套配置', async () => {
-    const directory = fs.mkdtempSync(path.join(root, 'dist', 'standalone-cli-'));
+test('目录 CLI 可重复打包同一个 ZIP，不要求维护发行版本或配套配置', async context => {
+    fs.mkdirSync(path.join(root, 'dist'), {recursive: true});
+    const directory = createTemporaryDirectory(context, path.join(root, 'dist'), 'standalone-cli-');
     const filename = path.join(directory, 'hello.zip');
     const run = command => {
         const result = spawnSync(process.execPath, ['tools/cli/index.mjs', command,

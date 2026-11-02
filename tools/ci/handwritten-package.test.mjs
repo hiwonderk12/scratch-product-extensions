@@ -6,12 +6,13 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import test from 'node:test';
 import JSZip from 'jszip';
+import {createTemporaryDirectory} from '../test/temp-directory.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const readJson = filename => JSON.parse(fs.readFileSync(filename, 'utf8'));
 const exampleVersion = readJson(path.join(root, 'docs/examples/handwritten-text/metadata.json')).version;
 
-// 独立作者副本不复制依赖、不建立联接、不递归清理；仅向公开库自己的依赖目录解析。
+// 独立作者副本不复制依赖、不建立联接；仅向公开库自己的依赖目录解析。
 const assertNoLinks = filename => {
     let current = path.resolve(filename);
     while (true) {
@@ -33,8 +34,8 @@ const copySource = (source, destination) => {
 test('handwritten tutorial: check and package companions without authoring generators or GUI', async context => {
     assertNoLinks(path.join(root, 'dist'));
     fs.mkdirSync(path.join(root, 'dist'), {recursive: true});
-    const directory = fs.mkdtempSync(path.join(root, 'dist', 'handwritten-'));
-    context.diagnostic(`保留独立手写副本及日志：${directory}`);
+    const directory = createTemporaryDirectory(context, path.join(root, 'dist'), 'handwritten-');
+    context.diagnostic(`独立手写临时副本（结束后清理）：${directory}`);
     for (const relative of ['tools', 'products', 'library', 'library.config.json', 'catalog.json']) {
         copySource(path.join(root, relative), path.join(directory, relative));
     }
