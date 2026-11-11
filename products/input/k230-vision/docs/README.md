@@ -1,5 +1,7 @@
 # K230 视觉模块维护手册
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 面向熟悉 TypeScript、Python 和 Git 的维护人员。主要修改 `src/index.ts`：类的 `getInfo()` 声明积木、菜单和控件，集中 `messages` 维护中文、英文、繁体中文和韩文，`getPython()` 就近维护生成规则。不要恢复旧注解格式、聚合传感器文件或逐 opcode 的 Python 文件。
 
 ## 文件职责

@@ -1,0 +1,10 @@
+{
+    "product.name": "IMU传感器",
+    "menu.euler_element.0": "Z轴转角",
+    "menu.euler_element.1": "X轴转角",
+    "menu.euler_element.2": "Y轴转角",
+    "block.aimech_imu_init": "初始化IMU传感器IIC接口 [PORT]",
+    "block.get_euler_angle_element_value": "获取欧拉角 [VALUE]",
+    "block.get_euler_angle": "获取欧拉角",
+    "block.get_euler_angle_element": "[VALUE]"
+}

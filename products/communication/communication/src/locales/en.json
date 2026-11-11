@@ -1,0 +1,21 @@
+{
+    "product.name": "Communication module",
+    "group.ps3": "PS3 controller",
+    "block.ps3_init": "Initialize controller with MAC address [STR]",
+    "block.ps3_get_address": "Get MAC address",
+    "block.ps3_disconnect": "Disconnect",
+    "block.ps3_is_connected": "Connected?",
+    "block.ps3_set_led": "Set LED 1 [VALUE1] LED 2 [VALUE2] LED 3 [VALUE3] LED 4 [VALUE4]",
+    "block.ps3_set_rumble": "Set controller rumble intensity [VALUE1] and duration (maximum 5000 ms) [VALUE2] ms",
+    "block.ps3_get_keys": "[PS3_KEYS] pressed?",
+    "block.ps3_get_axis": "Get [HANDLE_AXIS] value",
+    "block.ps3_get_sensor": "Get IMU [ACCEL] value",
+    "menu.x-angle": "X-axis angle",
+    "menu.y-angle": "Y-axis angle",
+    "menu.on": "On",
+    "menu.off": "Off",
+    "menu.right-horizontal": "Right stick horizontal",
+    "menu.right-vertical": "Right stick vertical",
+    "menu.left-horizontal": "Left stick horizontal",
+    "menu.left-vertical": "Left stick vertical"
+}

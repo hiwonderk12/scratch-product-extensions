@@ -1,0 +1,14 @@
+{
+    "product.name": "MP3 模組",
+    "block.mp3_init": "初始化 MP3 模組介面 [IICPORT]",
+    "block.mp3_play_song_num": "MP3 模組播放第 [VALUE] 首歌曲",
+    "block.mp3_play_control": "MP3 模組 [PLAYSTATUS]",
+    "block.mp3_play_mode": "設定 MP3 播放模式 [PLAYMODE]",
+    "block.mp3_set_volume": "設定 MP3 音量 [VALUE]",
+    "menu.play.play": "播放",
+    "menu.play.pause": "暫停",
+    "menu.play.prev": "上一首",
+    "menu.play.next": "下一首",
+    "menu.mode.on": "單曲循環",
+    "menu.mode.off": "取消單曲循環"
+}

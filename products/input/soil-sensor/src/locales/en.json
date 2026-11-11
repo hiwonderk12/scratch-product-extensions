@@ -1,0 +1,4 @@
+{
+    "product.name": "Soil moisture sensor",
+    "block.aimech_get_soil_value": "Port [PORT] soil moisture analog value (0~100)"
+}

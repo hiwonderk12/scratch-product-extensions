@@ -1,5 +1,7 @@
 # 颜色识别模块维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 `src/index.ts` 是唯一主要作者入口，集中维护原生类、四语 messages、菜单和 Python。`metadata.json` 声明包身份，图标在 `assets/color.svg`。namespace 为 sensor，四个 opcode 与参数名按旧教案保留。
 
 ## 驱动与初始化

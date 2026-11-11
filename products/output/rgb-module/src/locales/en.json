@@ -1,0 +1,15 @@
+{
+    "product.name": "RGB module",
+    "block.aimech_rgb_module_color_set": "Set RGB module on port [PORT] red [RED] green [GREEN] blue [BLUE]",
+    "block.aimech_rgb_module_color_select": "Set RGB module on port [PORT] color [COLOR]",
+    "block.aimech_rgb_module_breath_one": "Set RGB module on port [PORT] breathing color [COLOR] cycle (0.5~20) [CYCLE] seconds",
+    "block.aimech_rgb_module_breath": "Set RGB module on port [PORT] rainbow mode",
+    "block.aimech_rgb_module_close": "Turn off RGB module on port [PORT]",
+    "menu.light_colors.0": "Red",
+    "menu.light_colors.1": "Green",
+    "menu.light_colors.2": "Blue",
+    "menu.light_colors.3": "Yellow",
+    "menu.light_colors.4": "Purple",
+    "menu.light_colors.5": "Cyan",
+    "menu.light_colors.6": "White"
+}

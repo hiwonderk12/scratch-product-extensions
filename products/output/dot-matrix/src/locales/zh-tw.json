@@ -1,0 +1,13 @@
+{
+    "product.name": "點陣屏",
+    "block.brightness": "設定點陣屏介面 [PORT] 亮度 [BRIGHT] (1-8)",
+    "block.number": "點陣屏介面 [PORT] 顯示數字 [DATA]",
+    "block.text": "點陣屏介面 [PORT] 位置 x [XPOS] y [YPOS] 顯示字串 [STR] [SCROLL]",
+    "block.pixel": "點陣屏介面 [PORT] 位置 x [XPOS] y [YPOS] [LEDSTATUS]",
+    "block.bitmap": "點陣屏介面 [PORT] 繪製 [MATRIX]",
+    "block.clear": "點陣屏介面 [PORT] 清空顯示",
+    "menu.pixel.on": "點亮",
+    "menu.pixel.off": "熄滅",
+    "menu.scroll.no": "不捲動",
+    "menu.scroll.yes": "捲動"
+}

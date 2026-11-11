@@ -1,0 +1,6 @@
+{
+    "product.name": "Fan",
+    "block.aimech_fan_iic_set_module_speed": "Set fan port [PORT] speed [SPEED]",
+    "block.fan_module_speed": "Set fan port [PORT] speed [SPEED]",
+    "group.fan": "Fan module"
+}

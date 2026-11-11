@@ -1,0 +1,8 @@
+{
+    "product.name": "Temperature and humidity sensor",
+    "menu.temphumi.0": "Temperature",
+    "menu.temphumi.1": "Humidity",
+    "block.aimech_temphumi_init": "Initialize temperature and humidity sensor port [PORT]",
+    "block.aimech_get_temp_and_humi": "Temperature and humidity values",
+    "block.aimech_get_temp_or_humi": "[TEMPHUMI] value"
+}

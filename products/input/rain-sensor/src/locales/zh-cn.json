@@ -1,0 +1,4 @@
+{
+    "product.name": "雨滴传感器",
+    "block.aimech_get_rain_drop_value": "接口 [PORT] 雨滴模拟值(0~100)"
+}

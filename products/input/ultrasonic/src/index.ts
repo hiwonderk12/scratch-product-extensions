@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 本模块在同一入口维护积木、菜单、集中四语和 Python 生成规则。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "超声波传感器",
-        "block.get_ultrasonic_distance": "端口 [ULTRA_PORT] 超声波传感器检测到障碍物的距离(cm)"
-    },
-    en: {
-        "product.name": "Ultrasonic sensor",
-        "block.get_ultrasonic_distance": "Port [ULTRA_PORT] ultrasonic obstacle distance (cm)"
-    },
-    "zh-tw": {
-        "product.name": "超音波感測器",
-        "block.get_ultrasonic_distance": "介面 [ULTRA_PORT] 超音波感測器偵測到障礙物的距離 (cm)"
-    },
-    ko: {
-        "product.name": "초음파 센서",
-        "block.get_ultrasonic_distance": "포트 [ULTRA_PORT] 초음파 센서 장애물 거리(cm)"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

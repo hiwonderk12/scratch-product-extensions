@@ -1,0 +1,7 @@
+{
+    "product.name": "Rotary 4-channel line follower sensor",
+    "block.linefollower4_init": "Initialize rotary 4-channel line follower IIC port [PORT]",
+    "block.linefollower4_one_status": "4-channel line follower channel [NUM] detects [LINE]",
+    "block.linefollower4_status_result": "4-channel line follower channels detect [VALUE]",
+    "block.linefollower4_read_offset": "Get 4-channel line follower offset"
+}

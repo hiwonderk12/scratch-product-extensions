@@ -1,0 +1,16 @@
+{
+    "product.name": "OLED-12864",
+    "block.aimech_oled_init": "Initialize OLED port [PORT]",
+    "block.aiblocks_oled_init": "Initialize OLED port [PORT]",
+    "block.oled_draw_ascii": "OLED show text [STR] at X [XPOS] Y [YPOS]",
+    "block.oled_point": "OLED pixel at X [XPOS] Y [YPOS] [STATUS]",
+    "block.oled_clear": "OLED clear display",
+    "block.oled_draw_hline": "OLED draw horizontal line from X [XPOS] Y [YPOS] length [LENGTH]",
+    "block.oled_draw_vline": "OLED draw vertical line from X [XPOS] Y [YPOS] length [LENGTH]",
+    "block.oled_draw_line": "OLED draw line from X [XPOS] Y [YPOS] to X [XPOS1] Y [YPOS1]",
+    "block.oled_draw_rect": "OLED draw [SHAPE] rectangle top left X [XPOS] Y [YPOS] bottom right X [XPOS1] Y [YPOS1]",
+    "menu.oledstatus.on": "on",
+    "menu.oledstatus.off": "off",
+    "menu.shapetype.outline": "outlined",
+    "menu.shapetype.filled": "filled"
+}

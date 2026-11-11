@@ -1,5 +1,7 @@
 # 旋钮四路巡线传感器维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要维护 `src/index.ts`：原生类、集中中英繁韩 messages、菜单和内联 getPython。包身份和原图标分别在 `metadata.json`、`assets/linefollow.svg`，namespace 为 sensor。
 
 ## 独立设备与显式初始化

@@ -1,0 +1,6 @@
+{
+    "product.name": "风扇",
+    "block.aimech_fan_iic_set_module_speed": "设置风扇接口 [PORT] 转速 [SPEED]",
+    "block.fan_module_speed": "设置风扇接口 [PORT] 转速 [SPEED]",
+    "group.fan": "风扇模块"
+}

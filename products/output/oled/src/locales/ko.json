@@ -1,0 +1,16 @@
+{
+    "product.name": "OLED-12864",
+    "block.aimech_oled_init": "OLED 포트 [PORT] 초기화하기",
+    "block.aiblocks_oled_init": "OLED 포트 [PORT] 초기화하기",
+    "block.oled_draw_ascii": "OLED X [XPOS] Y [YPOS] 에 텍스트 [STR] 표시하기",
+    "block.oled_point": "OLED X [XPOS] Y [YPOS] 의 픽셀을 [STATUS] 하기",
+    "block.oled_clear": "OLED 화면 지우기",
+    "block.oled_draw_hline": "OLED X [XPOS] Y [YPOS] 에서 길이 [LENGTH] 의 가로선 그리기",
+    "block.oled_draw_vline": "OLED X [XPOS] Y [YPOS] 에서 길이 [LENGTH] 의 세로선 그리기",
+    "block.oled_draw_line": "OLED X [XPOS] Y [YPOS] 에서 X [XPOS1] Y [YPOS1] 까지 선 그리기",
+    "block.oled_draw_rect": "OLED 왼쪽 위 X [XPOS] Y [YPOS] 오른쪽 아래 X [XPOS1] Y [YPOS1] 에 [SHAPE] 사각형 그리기",
+    "menu.oledstatus.on": "켜기",
+    "menu.oledstatus.off": "끄기",
+    "menu.shapetype.outline": "윤곽선",
+    "menu.shapetype.filled": "채운"
+}

@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
 
 // 产品积木、菜单、集中 i18n 文案及 Python 规则在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "光线传感器",
-        "block.aimech_read_light": "接口 [PORT] 光敏模拟值(0~100)"
-    },
-    "en": {
-        "product.name": "Light sensor",
-        "block.aimech_read_light": "Port [PORT] light analog value (0~100)"
-    },
-    "zh-tw": {
-        "product.name": "光線感測器",
-        "block.aimech_read_light": "介面 [PORT] 光敏類比值（0~100）"
-    },
-    "ko": {
-        "product.name": "조도 센서",
-        "block.aimech_read_light": "포트 [PORT] 조도 아날로그 값(0~100)"
-    }
+    "zh-cn": locale0,
+    "en": locale1,
+    "zh-tw": locale2,
+    "ko": locale3
 } as const;
 
 export const product = {

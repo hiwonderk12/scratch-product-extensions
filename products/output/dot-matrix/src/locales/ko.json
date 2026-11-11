@@ -1,0 +1,13 @@
+{
+    "product.name": "LED 매트릭스",
+    "block.brightness": "LED 매트릭스 포트 [PORT] 밝기를 [BRIGHT] (1-8) 로 설정하기",
+    "block.number": "LED 매트릭스 포트 [PORT] 에 숫자 [DATA] 표시하기",
+    "block.text": "LED 매트릭스 포트 [PORT] x [XPOS] y [YPOS] 에 텍스트 [STR] 표시하기 [SCROLL]",
+    "block.pixel": "LED 매트릭스 포트 [PORT] x [XPOS] y [YPOS] 픽셀 [LEDSTATUS]",
+    "block.bitmap": "LED 매트릭스 포트 [PORT] 에 [MATRIX] 그리기",
+    "block.clear": "LED 매트릭스 포트 [PORT] 화면 지우기",
+    "menu.pixel.on": "켜기",
+    "menu.pixel.off": "끄기",
+    "menu.scroll.no": "스크롤 안 함",
+    "menu.scroll.yes": "스크롤"
+}

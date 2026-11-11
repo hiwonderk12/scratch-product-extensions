@@ -1,6 +1,8 @@
 # AI 机甲机械臂
 
-主要维护 src/index.ts：原生类、集中四语 messages 与内联 getPython。菜单显示文案也在本文件；菜单值 _armId / _clawId 是 Python 标识符，不能翻译或加引号。通用接口见[原生 API](../../../../docs/native-api.md)。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+主要维护 src/index.ts：原生类、messages 四语绑定 与内联 getPython。菜单显示文案在相邻 src/locales/ 管理；菜单值 _armId / _clawId 是 Python 标识符，不能翻译或加引号。通用接口见[原生 API](../../../../docs/native-api.md)。
 
 ## 主控与初始化
 

@@ -1,5 +1,7 @@
 # WonderEcho 语音模块
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 单 src/index.ts 维护 class / getInfo、集中中英繁韩 messages、全部菜单及内联 getPython。assets/asr.svg 为实际积木图标；不创建空 Python 目录。见[原生 API](../../../../docs/native-api.md)及[库配置](../../../../docs/configuration.md)。
 
 ## 主控、端口与显式初始化
@@ -29,7 +31,7 @@ ASR_CMDMAND 是设备 SDK 的既定常量名，不能按英语拼写改成 ASR_C
 
 mechdog_word 保留 69 个识别词、mechdog_speech_cmd_word 保留 23 个命令播报词、mechdog_speech_play_word 保留 18 个播报词，连同 7 个端口共 117 个菜单项。旧菜单名称、顺序、重复文字、编号与十六进制大小写均保持；同样显示“收到”的不同编号不能合并，“原地踏步”的两个编号也不能删掉一个。
 
-语音文字按稳定 menu.* key 在同文件 messages 维护。相同文案可以复用译文，但每个菜单项仍保留各自 value；显示语言切换不会改变协议编号、固件词库或设备实际发声语言。0x1A、0x7C 等值作为 Python 数字表达式生成，不翻译、不加引号，也不强制改成十进制。
+语音文字按稳定 menu.* key 在相邻语言 JSON 维护。相同文案可以复用译文，但每个菜单项仍保留各自 value；显示语言切换不会改变协议编号、固件词库或设备实际发声语言。0x1A、0x7C 等值作为 Python 数字表达式生成，不翻译、不加引号，也不强制改成十进制。
 
 ## 维护验证
 

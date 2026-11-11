@@ -1,0 +1,8 @@
+{
+    "product.name": "溫濕度感測器",
+    "menu.temphumi.0": "溫度",
+    "menu.temphumi.1": "濕度",
+    "block.aimech_temphumi_init": "初始化溫濕度感測器介面 [PORT]",
+    "block.aimech_get_temp_and_humi": "溫濕度值",
+    "block.aimech_get_temp_or_humi": "[TEMPHUMI] 值"
+}

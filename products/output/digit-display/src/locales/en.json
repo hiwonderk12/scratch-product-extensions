@@ -1,0 +1,5 @@
+{
+    "product.name": "Digit display",
+    "block.aimech_digit_show_num": "Digit display port [PORT] show number [NUM]",
+    "block.aiblocksboard_digit_show_num": "Digit display port [PORT] show number [NUM]"
+}

@@ -1,0 +1,8 @@
+{
+    "product.name": "四路巡线传感器",
+    "block.aimech_linefollower_init": "初始化四路巡线传感器IIC接口 [PORT]",
+    "block.linefollower_one_status": "四路巡线传感器通道 [NUM] 识别到 [LINE]",
+    "block.linefollower_status": "四路巡线传感器识别到 [LINE]",
+    "block.linefollower_status_result": "四路巡线传感器通道识别到 [VALUE]",
+    "block.linefollower_read_offset": "获取四路巡线传感器偏差值"
+}

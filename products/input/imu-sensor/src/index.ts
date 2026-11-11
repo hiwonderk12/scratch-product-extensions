@@ -1,47 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 本模块在同一入口维护积木、菜单、集中四语和 Python 生成规则。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "IMU传感器",
-        "menu.euler_element.0": "Z轴转角",
-        "menu.euler_element.1": "X轴转角",
-        "menu.euler_element.2": "Y轴转角",
-        "block.aimech_imu_init": "初始化IMU传感器IIC接口 [PORT]",
-        "block.get_euler_angle_element_value": "获取欧拉角 [VALUE]",
-        "block.get_euler_angle": "获取欧拉角",
-        "block.get_euler_angle_element": "[VALUE]"
-    },
-    en: {
-        "product.name": "IMU sensor",
-        "menu.euler_element.0": "Z-axis rotation",
-        "menu.euler_element.1": "X-axis rotation",
-        "menu.euler_element.2": "Y-axis rotation",
-        "block.aimech_imu_init": "Initialize IMU sensor IIC port [PORT]",
-        "block.get_euler_angle_element_value": "Get Euler angle [VALUE]",
-        "block.get_euler_angle": "Get Euler angles",
-        "block.get_euler_angle_element": "[VALUE]"
-    },
-    "zh-tw": {
-        "product.name": "IMU感測器",
-        "menu.euler_element.0": "Z 軸轉角",
-        "menu.euler_element.1": "X 軸轉角",
-        "menu.euler_element.2": "Y 軸轉角",
-        "block.aimech_imu_init": "初始化 IMU 感測器 IIC 介面 [PORT]",
-        "block.get_euler_angle_element_value": "取得歐拉角 [VALUE]",
-        "block.get_euler_angle": "取得歐拉角",
-        "block.get_euler_angle_element": "[VALUE]"
-    },
-    ko: {
-        "product.name": "IMU 센서",
-        "menu.euler_element.0": "Z축 회전각",
-        "menu.euler_element.1": "X축 회전각",
-        "menu.euler_element.2": "Y축 회전각",
-        "block.aimech_imu_init": "IMU 센서 IIC 포트 [PORT] 초기화",
-        "block.get_euler_angle_element_value": "오일러 각 [VALUE] 읽기",
-        "block.get_euler_angle": "오일러 각 읽기",
-        "block.get_euler_angle_element": "[VALUE]"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

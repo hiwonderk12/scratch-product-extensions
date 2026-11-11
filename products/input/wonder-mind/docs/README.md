@@ -1,6 +1,6 @@
 # WonderMind
 
-主入口为 `src/index.ts`：一个产品类维护 `getInfo()`、集中四语和 `getPython()`，不按 opcode 拆文件。
+主入口为 `src/index.ts`：一个产品类维护 `getInfo()` 和 `getPython()`，不按 opcode 拆文件；四语分别维护在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json`，打包时静态合入唯一入口。
 
 ## 主控与初始化
 
@@ -16,6 +16,7 @@ AiBlock_LLM = MCP_Tools(0x56,1)
 ## 维护边界
 
 - 保留 20 个旧 opcode、菜单实际值、默认参数、语音／视觉输入和读取表达式。
+- `0.0.4` 补全简中、繁中与韩文通用功能标签；端口字母、服务商音色专名与英文表保留。译文变更不改 Python、课程参数或历史包；切换新版需遵循软件版本选择合同，不覆盖旧锁。
 - `aitv_mcps` 使用 `templateSelector.variableCases`，只初始化当前选中的 MCP 工具；`init_mcp_setting` 收集全部六个默认工具，随后逐个发送并等待。
 - `mcp_setting` 保留工具路径末段命名和参数列表插入。`memberName` 不校验标识符，`compactHead`／`compactTail` 不校验列表；必须为工具名称和参数提供合法内容并检查 Python。
 - 大文本按原始代码字段处理。类不会部署 `mcp_tools`、获取网络服务凭据或初始化真实硬件；SDK、课程输入和设备运行仍需独立验收。

@@ -1,26 +1,15 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    'zh-cn': {
-        'product.name': 'IIC 风扇',
-        'block.aiblocks_fan_iic_set_module_speed': '设置 IIC 风扇接口 [PORT] 转速 [SPEED]',
-        'block.aimech_fan_iic_set_module_speed': '设置风扇接口 [PORT] 转速 [SPEED]'
-    },
-    en: {
-        'product.name': 'IIC fan',
-        'block.aiblocks_fan_iic_set_module_speed': 'Set IIC fan port [PORT] speed [SPEED]',
-        'block.aimech_fan_iic_set_module_speed': 'Set fan port [PORT] speed [SPEED]'
-    },
-    'zh-tw': {
-        'product.name': 'IIC 風扇',
-        'block.aiblocks_fan_iic_set_module_speed': '設定 IIC 風扇介面 [PORT] 轉速 [SPEED]',
-        'block.aimech_fan_iic_set_module_speed': '設定風扇介面 [PORT] 轉速 [SPEED]'
-    },
-    ko: {
-        'product.name': 'IIC 팬',
-        'block.aiblocks_fan_iic_set_module_speed': 'IIC 팬 포트 [PORT] 속도를 [SPEED] 로 설정하기',
-        'block.aimech_fan_iic_set_module_speed': '팬 포트 [PORT] 속도를 [SPEED] 로 설정하기'
-    }
+    'zh-cn': locale0,
+    en: locale1,
+    'zh-tw': locale2,
+    ko: locale3
 } as const;
 
 export const product = {

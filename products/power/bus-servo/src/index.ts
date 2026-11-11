@@ -1,39 +1,16 @@
 // 总线舵机作者入口：积木、集中四语与 Python 在同一文件维护。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "总线舵机",
-        "block.set_bus_servo": "设置总线舵机编号 [SERVO] 位置 (0~1000) [POS] 运行时间 (ms) [TIME]",
-        "block.set_bus_servo_motor_speed": "设置总线舵机编号 [SERVO] 电机模式, 转速 [SPEED]",
-        "block.load_bus_servo": "设置总线舵机编号 [SERVO] 上电",
-        "block.unload_bus_servo": "设置总线舵机编号 [SERVO] 掉电",
-        "block.get_bus_servo_pos": "获取总线舵机编号 [SERVO] 位置"
-    },
-    en: {
-        "product.name": "Bus servo",
-        "block.set_bus_servo": "Set bus servo [SERVO] position (0~1000) [POS] duration (ms) [TIME]",
-        "block.set_bus_servo_motor_speed": "Set bus servo [SERVO] motor mode speed [SPEED]",
-        "block.load_bus_servo": "Power on bus servo [SERVO]",
-        "block.unload_bus_servo": "Power off bus servo [SERVO]",
-        "block.get_bus_servo_pos": "Bus servo [SERVO] position"
-    },
-    "zh-tw": {
-        "product.name": "匯流排舵機",
-        "block.set_bus_servo": "設定匯流排舵機編號 [SERVO] 位置 (0~1000) [POS] 運行時間 (ms) [TIME]",
-        "block.set_bus_servo_motor_speed": "設定匯流排舵機編號 [SERVO] 馬達模式，轉速 [SPEED]",
-        "block.load_bus_servo": "設定匯流排舵機編號 [SERVO] 上電",
-        "block.unload_bus_servo": "設定匯流排舵機編號 [SERVO] 斷電",
-        "block.get_bus_servo_pos": "取得匯流排舵機編號 [SERVO] 位置"
-    },
-    ko: {
-        "product.name": "버스 서보",
-        "block.set_bus_servo": "버스 서보 [SERVO] 위치 (0~1000) [POS] 동작 시간 (ms) [TIME] 설정하기",
-        "block.set_bus_servo_motor_speed": "버스 서보 [SERVO] 모터 모드 속도 [SPEED] 설정하기",
-        "block.load_bus_servo": "버스 서보 [SERVO] 전원 켜기",
-        "block.unload_bus_servo": "버스 서보 [SERVO] 전원 끄기",
-        "block.get_bus_servo_pos": "버스 서보 [SERVO] 위치"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

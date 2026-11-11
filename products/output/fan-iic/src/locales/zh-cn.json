@@ -1,0 +1,5 @@
+{
+    "product.name": "IIC 风扇",
+    "block.aiblocks_fan_iic_set_module_speed": "设置 IIC 风扇接口 [PORT] 转速 [SPEED]",
+    "block.aimech_fan_iic_set_module_speed": "设置风扇接口 [PORT] 转速 [SPEED]"
+}

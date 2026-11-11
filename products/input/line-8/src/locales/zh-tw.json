@@ -1,0 +1,7 @@
+{
+    "product.name": "八路灰階循線感測器",
+    "block.linefollower8_init": "初始化八路灰階循線感測器 IIC 介面 [PORT]",
+    "block.linefollower8_one_status": "八路灰階循線感測器通道 [NUM] 偵測到 [LINE]",
+    "block.linefollower8_status": "八路灰階循線感測器通道偵測到 [LINE]",
+    "block.linefollower8_get_value": "八路灰階循線感測器通道 [NUM] 灰階值"
+}

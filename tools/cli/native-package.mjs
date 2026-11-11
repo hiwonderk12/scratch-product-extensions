@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {readNativeAuthoring} from './authoring-config.mjs';
+import {prepareNativeLocales} from './authoring-locales.mjs';
 
 // 作者资源只能从库根目录或模块目录收集，避免打入库外文件。
 const sourceFile = (directory, relative) => {
@@ -70,7 +71,11 @@ const collectNativeDirectory = (root, directory, moduleId, typescript, standalon
         throw new Error(`${moduleId}: 尚未提供受支持的原生类入口`);
     }
     const entry = sourceFile(directory, metadata.source);
-    const program = typescript.createProgram([entry], {
+    // JSON 文案先静态展开再做标准类型检查，宿主不需要运行期文件加载。
+    const originalSource = typescript.createSourceFile(entry, fs.readFileSync(entry, 'utf8'), typescript.ScriptTarget.ES2020, true);
+    const {source: preparedSource, catalogs} = prepareNativeLocales(originalSource, typescript,
+        relative => fs.readFileSync(sourceFile(directory, path.relative(directory, path.resolve(path.dirname(entry), relative))), 'utf8'));
+    const options = {
         target: typescript.ScriptTarget.ES2020,
         module: typescript.ModuleKind.CommonJS,
         newLine: typescript.NewLineKind.LineFeed,
@@ -78,7 +83,11 @@ const collectNativeDirectory = (root, directory, moduleId, typescript, standalon
         types: [],
         skipLibCheck: true,
         noEmitOnError: true
-    });
+    };
+    const host = typescript.createCompilerHost(options);
+    const getSourceFile = host.getSourceFile.bind(host);
+    host.getSourceFile = (filename, ...argumentsRest) => path.resolve(filename) === entry ? preparedSource : getSourceFile(filename, ...argumentsRest);
+    const program = typescript.createProgram([entry], options, host);
     const files = {};
     const authoringSource = program.getSourceFile(entry);
     const display = readNativeAuthoring(authoringSource, typescript);
@@ -125,6 +134,10 @@ const collectNativeDirectory = (root, directory, moduleId, typescript, standalon
             typeof extension.version !== 'string' || !extension.version) throw new Error('用户拓展身份字段无效');
         if (metadata.library || metadata.libraryVersion) throw new Error('用户拓展不应声明全库配置快照');
         files['src/index.ts'] = fs.readFileSync(entry);
+        for (const catalog of catalogs.values()) {
+            const relative = path.relative(directory, path.resolve(path.dirname(entry), catalog.reference)).split(path.sep).join('/');
+            files[relative] = catalog.before;
+        }
         files['metadata.json'] = `${JSON.stringify(extension, null, 2)}\n`;
     } else {
         const library = readLibrarySnapshot(root);

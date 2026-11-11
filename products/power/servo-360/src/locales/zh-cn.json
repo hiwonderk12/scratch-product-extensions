@@ -1,0 +1,10 @@
+{
+    "product.name": "360°舵机",
+    "block.set_servo360_angle_time": "设置舵机 [SERVO] 以 [SPEED] %速度转至 [ANGLE] 度 [DELAY]",
+    "block.set_servo360_run": "设置舵机 [SERVO] 以 [SPEED] %速度 [ORIENTION] 转动 [ANGLE] 度 [DELAY]",
+    "block.set_servo360_stop": "停止舵机 [SERVO]",
+    "menu.oriention.0": "顺时针",
+    "menu.oriention.1": "逆时针",
+    "menu.delay.0": "自动等待",
+    "menu.delay.1": "不等待"
+}

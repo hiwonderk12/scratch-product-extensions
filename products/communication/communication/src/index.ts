@@ -1,91 +1,16 @@
 // 通信作者入口：维护 PS3 手柄声明、集中四语与原始协议常量。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "通信模块",
-        "group.ps3": "PS3手柄",
-        "block.ps3_init": "初始化手柄，MAC地址 [STR]",
-        "block.ps3_get_address": "获取mac地址",
-        "block.ps3_disconnect": "断开连接",
-        "block.ps3_is_connected": "是否连接成功？",
-        "block.ps3_set_led": "设置LED灯1 [VALUE1] 灯2 [VALUE2] 灯3 [VALUE3] 灯4 [VALUE4]",
-        "block.ps3_set_rumble": "设置手柄震动强度 [VALUE1] 和震动时间(最大值5000ms) [VALUE2] ms",
-        "block.ps3_get_keys": "[PS3_KEYS] 被按下",
-        "block.ps3_get_axis": "获取 [HANDLE_AXIS] 值",
-        "block.ps3_get_sensor": "获取imu [ACCEL] 值",
-        "menu.x-angle": "X轴角度",
-        "menu.y-angle": "Y轴角度",
-        "menu.on": "开",
-        "menu.off": "关",
-        "menu.right-horizontal": "右舵水平",
-        "menu.right-vertical": "右舵垂直",
-        "menu.left-horizontal": "左舵水平",
-        "menu.left-vertical": "左舵垂直"
-    },
-    en: {
-        "product.name": "Communication module",
-        "group.ps3": "PS3 controller",
-        "block.ps3_init": "Initialize controller with MAC address [STR]",
-        "block.ps3_get_address": "Get MAC address",
-        "block.ps3_disconnect": "Disconnect",
-        "block.ps3_is_connected": "Connected?",
-        "block.ps3_set_led": "Set LED 1 [VALUE1] LED 2 [VALUE2] LED 3 [VALUE3] LED 4 [VALUE4]",
-        "block.ps3_set_rumble": "Set controller rumble intensity [VALUE1] and duration (maximum 5000 ms) [VALUE2] ms",
-        "block.ps3_get_keys": "[PS3_KEYS] pressed?",
-        "block.ps3_get_axis": "Get [HANDLE_AXIS] value",
-        "block.ps3_get_sensor": "Get IMU [ACCEL] value",
-        "menu.x-angle": "X-axis angle",
-        "menu.y-angle": "Y-axis angle",
-        "menu.on": "On",
-        "menu.off": "Off",
-        "menu.right-horizontal": "Right stick horizontal",
-        "menu.right-vertical": "Right stick vertical",
-        "menu.left-horizontal": "Left stick horizontal",
-        "menu.left-vertical": "Left stick vertical"
-    },
-    "zh-tw": {
-        "product.name": "通訊模組",
-        "group.ps3": "PS3控制器",
-        "block.ps3_init": "初始化控制器，MAC位址 [STR]",
-        "block.ps3_get_address": "取得MAC位址",
-        "block.ps3_disconnect": "中斷連線",
-        "block.ps3_is_connected": "是否連線成功？",
-        "block.ps3_set_led": "設定LED燈1 [VALUE1] 燈2 [VALUE2] 燈3 [VALUE3] 燈4 [VALUE4]",
-        "block.ps3_set_rumble": "設定控制器震動強度 [VALUE1] 和震動時間(最大值5000ms) [VALUE2] ms",
-        "block.ps3_get_keys": "[PS3_KEYS] 被按下",
-        "block.ps3_get_axis": "取得 [HANDLE_AXIS] 值",
-        "block.ps3_get_sensor": "取得IMU [ACCEL] 值",
-        "menu.x-angle": "X軸角度",
-        "menu.y-angle": "Y軸角度",
-        "menu.on": "開",
-        "menu.off": "關",
-        "menu.right-horizontal": "右搖桿水平",
-        "menu.right-vertical": "右搖桿垂直",
-        "menu.left-horizontal": "左搖桿水平",
-        "menu.left-vertical": "左搖桿垂直"
-    },
-    ko: {
-        "product.name": "통신 모듈",
-        "group.ps3": "PS3 컨트롤러",
-        "block.ps3_init": "MAC 주소 [STR] 로 컨트롤러 초기화하기",
-        "block.ps3_get_address": "MAC 주소 읽기",
-        "block.ps3_disconnect": "연결 해제하기",
-        "block.ps3_is_connected": "연결되었는가?",
-        "block.ps3_set_led": "LED 1 [VALUE1] LED 2 [VALUE2] LED 3 [VALUE3] LED 4 [VALUE4] 설정하기",
-        "block.ps3_set_rumble": "컨트롤러 진동 강도 [VALUE1] 및 진동 시간(최대 5000 ms) [VALUE2] ms 설정하기",
-        "block.ps3_get_keys": "[PS3_KEYS] 버튼을 눌렀는가?",
-        "block.ps3_get_axis": "[HANDLE_AXIS] 값 읽기",
-        "block.ps3_get_sensor": "IMU [ACCEL] 값 읽기",
-        "menu.x-angle": "X축 각도",
-        "menu.y-angle": "Y축 각도",
-        "menu.on": "켜기",
-        "menu.off": "끄기",
-        "menu.right-horizontal": "오른쪽 스틱 수평",
-        "menu.right-vertical": "오른쪽 스틱 수직",
-        "menu.left-horizontal": "왼쪽 스틱 수평",
-        "menu.left-vertical": "왼쪽 스틱 수직"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

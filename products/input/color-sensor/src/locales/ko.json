@@ -1,0 +1,13 @@
+{
+    "product.name": "색상 인식 모듈",
+    "menu.aiblocks_colors.0": "빨강",
+    "menu.aiblocks_colors.1": "초록",
+    "menu.aiblocks_colors.2": "파랑",
+    "menu.aiblocks_colors2.0": "빨강",
+    "menu.aiblocks_colors2.1": "초록",
+    "menu.aiblocks_colors2.2": "파랑",
+    "block.aimech_colorsensor_init": "색상 센서 IIC 포트 [PORT] 초기화",
+    "block.aiblocks_check_color": "[COLOR] 색상 감지",
+    "block.aiblocks_get_color": "색상 값 읽기",
+    "block.aiblocks_get_color_arg": "색상 값 [NUM] 의 [COLOR] 채널"
+}

@@ -1,0 +1,14 @@
+{
+    "product.name": "MP3 模块",
+    "block.mp3_init": "初始化 MP3 模块接口 [IICPORT]",
+    "block.mp3_play_song_num": "MP3 模块播放第 [VALUE] 首歌曲",
+    "block.mp3_play_control": "MP3 模块 [PLAYSTATUS]",
+    "block.mp3_play_mode": "设置 MP3 播放模式 [PLAYMODE]",
+    "block.mp3_set_volume": "设置 MP3 音量 [VALUE]",
+    "menu.play.play": "播放",
+    "menu.play.pause": "暂停",
+    "menu.play.prev": "上一曲",
+    "menu.play.next": "下一曲",
+    "menu.mode.on": "单曲循环",
+    "menu.mode.off": "取消单曲循环"
+}

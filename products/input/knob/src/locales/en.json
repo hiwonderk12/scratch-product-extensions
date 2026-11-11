@@ -1,0 +1,4 @@
+{
+    "product.name": "Knob",
+    "block.aimech_read_knob": "Port [PORT] knob analog value (0~100)"
+}

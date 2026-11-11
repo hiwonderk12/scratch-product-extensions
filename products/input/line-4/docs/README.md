@@ -1,5 +1,7 @@
 # 四路巡线传感器维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 `src/index.ts` 集中维护 class/getInfo、四语 messages、菜单和 Python；元数据在 `metadata.json`，图标在 `assets/linefollow.svg`。namespace 为 sensor，五个旧 opcode 与参数名保持不变。
 
 ## 初始化与驱动

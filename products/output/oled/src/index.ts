@@ -1,70 +1,15 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    'zh-cn': {
-        'product.name': 'OLED-12864',
-        'block.aimech_oled_init': '初始化 OLED 接口 [PORT]',
-        'block.aiblocks_oled_init': '初始化 OLED 接口 [PORT]',
-        'block.oled_draw_ascii': 'OLED 显示字符 [STR] 坐标 X [XPOS] Y [YPOS]',
-        'block.oled_point': 'OLED 在坐标 X [XPOS] Y [YPOS] [STATUS]',
-        'block.oled_clear': 'OLED 清空显示',
-        'block.oled_draw_hline': 'OLED 画水平线 起点 X [XPOS] Y [YPOS] 长度 [LENGTH]',
-        'block.oled_draw_vline': 'OLED 画垂直线 起点 X [XPOS] Y [YPOS] 长度 [LENGTH]',
-        'block.oled_draw_line': 'OLED 画直线 起点 X [XPOS] Y [YPOS] 终点 X [XPOS1] Y [YPOS1]',
-        'block.oled_draw_rect': 'OLED 画 [SHAPE] 矩形 左上 X [XPOS] Y [YPOS] 右下 X [XPOS1] Y [YPOS1]',
-        'menu.oledstatus.on': '点亮',
-        'menu.oledstatus.off': '关闭',
-        'menu.shapetype.outline': '空心',
-        'menu.shapetype.filled': '实心'
-    },
-    en: {
-        'product.name': 'OLED-12864',
-        'block.aimech_oled_init': 'Initialize OLED port [PORT]',
-        'block.aiblocks_oled_init': 'Initialize OLED port [PORT]',
-        'block.oled_draw_ascii': 'OLED show text [STR] at X [XPOS] Y [YPOS]',
-        'block.oled_point': 'OLED pixel at X [XPOS] Y [YPOS] [STATUS]',
-        'block.oled_clear': 'OLED clear display',
-        'block.oled_draw_hline': 'OLED draw horizontal line from X [XPOS] Y [YPOS] length [LENGTH]',
-        'block.oled_draw_vline': 'OLED draw vertical line from X [XPOS] Y [YPOS] length [LENGTH]',
-        'block.oled_draw_line': 'OLED draw line from X [XPOS] Y [YPOS] to X [XPOS1] Y [YPOS1]',
-        'block.oled_draw_rect': 'OLED draw [SHAPE] rectangle top left X [XPOS] Y [YPOS] bottom right X [XPOS1] Y [YPOS1]',
-        'menu.oledstatus.on': 'on',
-        'menu.oledstatus.off': 'off',
-        'menu.shapetype.outline': 'outlined',
-        'menu.shapetype.filled': 'filled'
-    },
-    'zh-tw': {
-        'product.name': 'OLED-12864',
-        'block.aimech_oled_init': '初始化 OLED 介面 [PORT]',
-        'block.aiblocks_oled_init': '初始化 OLED 介面 [PORT]',
-        'block.oled_draw_ascii': 'OLED 顯示字元 [STR] 座標 X [XPOS] Y [YPOS]',
-        'block.oled_point': 'OLED 在座標 X [XPOS] Y [YPOS] [STATUS]',
-        'block.oled_clear': 'OLED 清空顯示',
-        'block.oled_draw_hline': 'OLED 畫水平線 起點 X [XPOS] Y [YPOS] 長度 [LENGTH]',
-        'block.oled_draw_vline': 'OLED 畫垂直線 起點 X [XPOS] Y [YPOS] 長度 [LENGTH]',
-        'block.oled_draw_line': 'OLED 畫直線 起點 X [XPOS] Y [YPOS] 終點 X [XPOS1] Y [YPOS1]',
-        'block.oled_draw_rect': 'OLED 畫 [SHAPE] 矩形 左上 X [XPOS] Y [YPOS] 右下 X [XPOS1] Y [YPOS1]',
-        'menu.oledstatus.on': '點亮',
-        'menu.oledstatus.off': '關閉',
-        'menu.shapetype.outline': '空心',
-        'menu.shapetype.filled': '實心'
-    },
-    ko: {
-        'product.name': 'OLED-12864',
-        'block.aimech_oled_init': 'OLED 포트 [PORT] 초기화하기',
-        'block.aiblocks_oled_init': 'OLED 포트 [PORT] 초기화하기',
-        'block.oled_draw_ascii': 'OLED X [XPOS] Y [YPOS] 에 텍스트 [STR] 표시하기',
-        'block.oled_point': 'OLED X [XPOS] Y [YPOS] 의 픽셀을 [STATUS] 하기',
-        'block.oled_clear': 'OLED 화면 지우기',
-        'block.oled_draw_hline': 'OLED X [XPOS] Y [YPOS] 에서 길이 [LENGTH] 의 가로선 그리기',
-        'block.oled_draw_vline': 'OLED X [XPOS] Y [YPOS] 에서 길이 [LENGTH] 의 세로선 그리기',
-        'block.oled_draw_line': 'OLED X [XPOS] Y [YPOS] 에서 X [XPOS1] Y [YPOS1] 까지 선 그리기',
-        'block.oled_draw_rect': 'OLED 왼쪽 위 X [XPOS] Y [YPOS] 오른쪽 아래 X [XPOS1] Y [YPOS1] 에 [SHAPE] 사각형 그리기',
-        'menu.oledstatus.on': '켜기',
-        'menu.oledstatus.off': '끄기',
-        'menu.shapetype.outline': '윤곽선',
-        'menu.shapetype.filled': '채운'
-    }
+    'zh-cn': locale0,
+    en: locale1,
+    'zh-tw': locale2,
+    ko: locale3
 } as const;
 
 export const product = {

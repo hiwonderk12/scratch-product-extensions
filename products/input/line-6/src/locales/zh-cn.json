@@ -1,0 +1,9 @@
+{
+    "product.name": "六路巡线传感器",
+    "block.aimech_linefollower6_init": "初始化六路巡线传感器IIC接口 [PORT]",
+    "block.linefollower6_one_status": "六路巡线传感器通道 [NUM] 检测到 [LINE]",
+    "block.linefollower6_status": "六路巡线传感器通道检测到 [LINE]",
+    "block.linefollower6_set_threshold": "设置六路巡线传感器阈值比例(范围1~9)为 [VALUE]",
+    "block.linefollower6_get_value": "六路巡线传感器通道 [NUM] 灰度值(0~100)",
+    "block.linefollower6_read_offset": "获取六路巡线传感器偏差值"
+}

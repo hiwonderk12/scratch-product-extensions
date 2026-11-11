@@ -1,34 +1,15 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "RGB 灯带",
-        "block.rgb_color_set": "设置 RGB 灯带接口 [PORT] 灯 [NUMS] 红 [RED] 绿 [GREEN] 蓝 [BLUE]",
-        "block.led_color_select": "设置 RGB 灯带接口 [PORT] 灯 [NUMS] 颜色 [COLOR]",
-        "block.led_close": "关闭 RGB 灯带接口 [PORT] 灯 [NUMS]",
-        "menu.nums.all": "全部"
-    },
-    "en": {
-        "product.name": "RGB strip",
-        "block.rgb_color_set": "Set RGB strip port [PORT] LED [NUMS] red [RED] green [GREEN] blue [BLUE]",
-        "block.led_color_select": "Set RGB strip port [PORT] LED [NUMS] color [COLOR]",
-        "block.led_close": "Turn off RGB strip port [PORT] LED [NUMS]",
-        "menu.nums.all": "all"
-    },
-    "zh-tw": {
-        "product.name": "RGB 燈帶",
-        "block.rgb_color_set": "設定 RGB 燈帶介面 [PORT] 燈 [NUMS] 紅 [RED] 綠 [GREEN] 藍 [BLUE]",
-        "block.led_color_select": "設定 RGB 燈帶介面 [PORT] 燈 [NUMS] 顏色 [COLOR]",
-        "block.led_close": "關閉 RGB 燈帶介面 [PORT] 燈 [NUMS]",
-        "menu.nums.all": "全部"
-    },
-    "ko": {
-        "product.name": "RGB LED 스트립",
-        "block.rgb_color_set": "RGB 스트립 포트 [PORT] LED [NUMS] 빨강 [RED] 초록 [GREEN] 파랑 [BLUE] 설정하기",
-        "block.led_color_select": "RGB 스트립 포트 [PORT] LED [NUMS] 색상을 [COLOR] 로 설정하기",
-        "block.led_close": "RGB 스트립 포트 [PORT] LED [NUMS] 끄기",
-        "menu.nums.all": "전체"
-    }
+    "zh-cn": locale0,
+    "en": locale1,
+    "zh-tw": locale2,
+    "ko": locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

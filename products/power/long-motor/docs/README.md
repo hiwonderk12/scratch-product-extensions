@@ -1,6 +1,8 @@
 # 长电机维护
 
-[src/index.ts](../src/index.ts) 以一个 class 维护 14 个旧积木、集中四语和内联 Python。当前初版 `0.0.1`，使用库配置 `0.0.3`；源码与开发内置不代表已经发布 Release。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+[src/index.ts](../src/index.ts) 以一个 class 维护 14 个旧积木、四语绑定和内联 Python。当前初版 `0.0.1`，使用库配置 `0.0.3`；源码与开发内置不代表已经发布 Release。
 
 ## 使用与适配
 

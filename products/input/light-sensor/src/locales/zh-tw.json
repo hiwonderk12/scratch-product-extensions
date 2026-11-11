@@ -1,0 +1,4 @@
+{
+    "product.name": "光線感測器",
+    "block.aimech_read_light": "介面 [PORT] 光敏類比值（0~100）"
+}

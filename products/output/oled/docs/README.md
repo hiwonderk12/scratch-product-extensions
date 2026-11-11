@@ -1,5 +1,7 @@
 # OLED-12864 维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要维护 `src/index.ts`：集中 messages、`getInfo()` 的积木/参数/菜单和 `getPython()` 的初始化与绘图模板。`metadata.json` 维护包身份、版本、入口和资源路径；图标在 `assets/oled.svg`。无需独立 `python/` 或旧注解目录；可选目录无文件时删除。
 
 ## 适配与旧类型

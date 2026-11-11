@@ -1,0 +1,9 @@
+{
+    "product.name": "AI机甲连杆机械臂",
+    "group.arm": "连杆机械臂",
+    "block.aimech_rod_arm_init": "初始化连杆机械臂",
+    "block.aimech_rod_reach_detect": "检测坐标Y [VALUE1] 毫米,Z [VALUE2] 毫米是否可以到达",
+    "block.aimech_rod_arm_move": "控制机械臂运动到 Y轴(前后方向) [VALUE1] 毫米, Z轴(上下方向) [VALUE2] 毫米, 运动时长 [VALUE3] 毫秒, [VALUE4] 等待",
+    "menu.delay_select.0": "不延时",
+    "menu.delay_select.1": "延时"
+}

@@ -1,0 +1,4 @@
+{
+    "product.name": "声音传感器",
+    "block.aimech_read_sound": "接口 [PORT] 音量模拟值(0~100)"
+}

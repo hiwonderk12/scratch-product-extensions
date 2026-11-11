@@ -1,39 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 本模块在同一入口维护积木、菜单、集中四语和 Python 生成规则。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "温湿度传感器",
-        "menu.temphumi.0": "温度",
-        "menu.temphumi.1": "湿度",
-        "block.aimech_temphumi_init": "初始化温湿度传感器接口 [PORT]",
-        "block.aimech_get_temp_and_humi": "温湿度值",
-        "block.aimech_get_temp_or_humi": "[TEMPHUMI] 值"
-    },
-    en: {
-        "product.name": "Temperature and humidity sensor",
-        "menu.temphumi.0": "Temperature",
-        "menu.temphumi.1": "Humidity",
-        "block.aimech_temphumi_init": "Initialize temperature and humidity sensor port [PORT]",
-        "block.aimech_get_temp_and_humi": "Temperature and humidity values",
-        "block.aimech_get_temp_or_humi": "[TEMPHUMI] value"
-    },
-    "zh-tw": {
-        "product.name": "溫濕度感測器",
-        "menu.temphumi.0": "溫度",
-        "menu.temphumi.1": "濕度",
-        "block.aimech_temphumi_init": "初始化溫濕度感測器介面 [PORT]",
-        "block.aimech_get_temp_and_humi": "溫濕度值",
-        "block.aimech_get_temp_or_humi": "[TEMPHUMI] 值"
-    },
-    ko: {
-        "product.name": "온습도 센서",
-        "menu.temphumi.0": "온도",
-        "menu.temphumi.1": "습도",
-        "block.aimech_temphumi_init": "온습도 센서 포트 [PORT] 초기화",
-        "block.aimech_get_temp_and_humi": "온습도 값",
-        "block.aimech_get_temp_or_humi": "[TEMPHUMI] 값"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

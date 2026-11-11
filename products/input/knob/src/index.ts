@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
 
 // 模块积木、菜单、集中四语文案和 Python 规则只在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "旋钮",
-        "block.aimech_read_knob": "接口 [PORT] 旋钮模拟值(0~100)"
-    },
-    en: {
-        "product.name": "Knob",
-        "block.aimech_read_knob": "Port [PORT] knob analog value (0~100)"
-    },
-    "zh-tw": {
-        "product.name": "旋鈕",
-        "block.aimech_read_knob": "介面 [PORT] 旋鈕類比值（0~100）"
-    },
-    ko: {
-        "product.name": "회전 노브",
-        "block.aimech_read_knob": "포트 [PORT] 노브 아날로그 값(0~100)"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

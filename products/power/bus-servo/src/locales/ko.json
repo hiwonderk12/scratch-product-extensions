@@ -1,0 +1,8 @@
+{
+    "product.name": "버스 서보",
+    "block.set_bus_servo": "버스 서보 [SERVO] 위치 (0~1000) [POS] 동작 시간 (ms) [TIME] 설정하기",
+    "block.set_bus_servo_motor_speed": "버스 서보 [SERVO] 모터 모드 속도 [SPEED] 설정하기",
+    "block.load_bus_servo": "버스 서보 [SERVO] 전원 켜기",
+    "block.unload_bus_servo": "버스 서보 [SERVO] 전원 끄기",
+    "block.get_bus_servo_pos": "버스 서보 [SERVO] 위치"
+}

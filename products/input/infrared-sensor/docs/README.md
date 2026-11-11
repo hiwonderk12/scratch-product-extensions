@@ -1,6 +1,8 @@
 # 红外检测传感器维护说明
 
-主要维护 src/index.ts 中的类、集中四语 messages 与内联 getPython。不要根据主控名称在软件本体硬编码驱动；库配置通过 variant 选择完整接口。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+主要维护 src/index.ts 中的类、messages 四语绑定 与内联 getPython。不要根据主控名称在软件本体硬编码驱动；库配置通过 variant 选择完整接口。
 
 | variant | 主控 | 初始化及读取 | 活动端口 |
 | - | - | - | - |

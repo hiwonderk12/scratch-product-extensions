@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
 
 // 模块积木、菜单、集中四语文案和 Python 规则只在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "按键模块",
-        "block.aimech_key_is_pressed": "接口 [PORT] 按键被按下"
-    },
-    en: {
-        "product.name": "Button module",
-        "block.aimech_key_is_pressed": "Port [PORT] button pressed"
-    },
-    "zh-tw": {
-        "product.name": "按鍵模組",
-        "block.aimech_key_is_pressed": "介面 [PORT] 按鍵被按下"
-    },
-    ko: {
-        "product.name": "버튼 모듈",
-        "block.aimech_key_is_pressed": "포트 [PORT] 버튼이 눌렸는가"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

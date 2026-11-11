@@ -1,0 +1,10 @@
+{
+    "product.name": "IMU感測器",
+    "menu.euler_element.0": "Z 軸轉角",
+    "menu.euler_element.1": "X 軸轉角",
+    "menu.euler_element.2": "Y 軸轉角",
+    "block.aimech_imu_init": "初始化 IMU 感測器 IIC 介面 [PORT]",
+    "block.get_euler_angle_element_value": "取得歐拉角 [VALUE]",
+    "block.get_euler_angle": "取得歐拉角",
+    "block.get_euler_angle_element": "[VALUE]"
+}

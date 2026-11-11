@@ -1,0 +1,13 @@
+{
+    "product.name": "Color recognition module",
+    "menu.aiblocks_colors.0": "Red",
+    "menu.aiblocks_colors.1": "Green",
+    "menu.aiblocks_colors.2": "Blue",
+    "menu.aiblocks_colors2.0": "Red",
+    "menu.aiblocks_colors2.1": "Green",
+    "menu.aiblocks_colors2.2": "Blue",
+    "block.aimech_colorsensor_init": "Initialize color sensor IIC port [PORT]",
+    "block.aiblocks_check_color": "Color [COLOR] detected",
+    "block.aiblocks_get_color": "Get color values",
+    "block.aiblocks_get_color_arg": "[COLOR] channel of color values [NUM]"
+}

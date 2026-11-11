@@ -1,5 +1,7 @@
 # 风扇
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 一个硬件包、一个主要 src/index.ts；messages 集中维护四语，getInfo/getPython 按适配选择完整声明和 Python。图片位于 assets/fan.svg。通用接口见[原生 API](../../../../docs/native-api.md)。
 
 ## 按主控选择接口

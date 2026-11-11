@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {readNativeAuthoring} from './authoring-config.mjs';
+import {prepareNativeLocales} from './authoring-locales.mjs';
 import {createModuleFiles} from './authoring-templates.mjs';
 
 // 作者生成器只规划和定点修改本库源码；不更新支持关系、版本、发行目录或软件核心。
@@ -69,14 +70,14 @@ const properties = (node, ts, label) => {
     }
     return result;
 };
-const parseSource = (filename, text, ts) => {
+const parseSource = (filename, text, ts, readCatalog) => {
     const source = ts.createSourceFile(filename, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
     if (source.parseDiagnostics.length) {
         const diagnostic = source.parseDiagnostics[0];
         const position = source.getLineAndCharacterOfPosition(diagnostic.start || 0);
         throw new Error(`${filename}:${position.line + 1}:${position.character + 1}: ${ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n')}`);
     }
-    readNativeAuthoring(source, ts);
+    readNativeAuthoring(prepareNativeLocales(source, ts, readCatalog).source, ts);
     return source;
 };
 
@@ -108,7 +109,7 @@ const insertions = (source, ts) => {
     }};
 };
 
-const findAuthoring = (source, ts) => {
+const findAuthoring = (source, ts, catalogs) => {
     const classes = source.statements.filter(statement => ts.isClassDeclaration(statement) &&
         statement.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.DefaultKeyword));
     requireValue(classes.length === 1, '需要唯一的默认导出产品类');
@@ -124,7 +125,9 @@ const findAuthoring = (source, ts) => {
     const declarations = source.statements.filter(ts.isVariableStatement).flatMap(statement => [...statement.declarationList.declarations]);
     const messages = unwrap(declarations.find(declaration => declaration.name.getText(source) === 'messages')?.initializer, ts);
     const translations = properties(messages, ts, 'messages');
-    for (const [locale, catalog] of translations) properties(catalog, ts, locale);
+    for (const [locale, catalog] of translations) {
+        if (!catalogs.has(locale)) properties(catalog, ts, locale);
+    }
     const info = directReturn('getInfo');
     const python = directReturn('getPython');
     const infoProperties = properties(info, ts, 'getInfo');
@@ -168,16 +171,21 @@ const planGeneration = (root, argumentsList, ts) => {
     const entry = safeFile(safeFile(root, `products/${moduleId}`), metadata.source);
     const file = path.relative(root, entry).split(path.sep).join('/');
     const before = fs.readFileSync(safeFile(root, file), 'utf8');
-    const source = parseSource(file, before, ts);
-    const authoring = findAuthoring(source, ts);
+    const catalogFile = relative => safeFile(root, path.relative(root, path.resolve(path.dirname(entry), relative)));
+    const readCatalog = relative => fs.readFileSync(catalogFile(relative), 'utf8');
+    const source = parseSource(file, before, ts, readCatalog);
+    const {catalogs} = prepareNativeLocales(source, ts, readCatalog);
+    const authoring = findAuthoring(source, ts, catalogs);
     const edits = insertions(source, ts);
     const locales = [...authoring.translations.keys()];
     const fields = [];
     const addMessage = (key, text) => {
         localized(text, locales, key);
         for (const [locale, catalog] of authoring.translations) {
-            requireValue(!properties(catalog, ts, locale).has(key), `${locale}: 文案 key 已存在 ${key}`);
-            edits.append(catalog, `${quoted(key)}: ${quoted(text[locale])}`);
+            const external = catalogs.get(locale);
+            requireValue(external ? !Object.hasOwn(external.value, key) : !properties(catalog, ts, locale).has(key), `${locale}: 文案 key 已存在 ${key}`);
+            if (external) external.value[key] = text[locale];
+            else edits.append(catalog, `${quoted(key)}: ${quoted(text[locale])}`);
         }
     };
     const menuNode = authoring.infoProperties.get('menus');
@@ -237,8 +245,12 @@ const planGeneration = (root, argumentsList, ts) => {
         fields.push(`messages.*.${key}`, `getInfo.blocks.${name}`, `getPython.${name}`);
     }
     const after = edits.result();
-    parseSource(file, after, ts);
-    return {root, dryRun: flags['--dry-run'] === true, fields, changes: [{file, before, after}]};
+    const changes = [...catalogs.values()].map(catalog => ({
+        file: path.relative(root, catalogFile(catalog.reference)).split(path.sep).join('/'),
+        before: catalog.before, after: JSON.stringify(catalog.value, null, 4) + '\n'
+    }));
+    parseSource(file, after, ts, relative => changes.find(change => safeFile(root, change.file) === catalogFile(relative))?.after ?? readCatalog(relative));
+    return {root, dryRun: flags['--dry-run'] === true, fields, changes: [{file, before, after}, ...changes]};
 };
 
 // 先生成完整计划并校验，不在规划或 dry-run 阶段写任何文件。
@@ -265,7 +277,8 @@ const planAuthoringCommand = (directory, argumentsList, ts) => {
     if (spec.description !== undefined) localized(spec.description, locales, 'product.description');
     assertOpcodeAvailable(root, namespace, id.replaceAll('-', '_') + '_print_text', ts);
     const files = createModuleFiles({moduleId, namespace, ...spec});
-    parseSource(`products/${moduleId}/src/index.ts`, files['src/index.ts'], ts);
+    parseSource(`products/${moduleId}/src/index.ts`, files['src/index.ts'], ts,
+        relative => files[path.posix.join('src', relative)]);
     return {root, dryRun: flags['--dry-run'] === true, fields: ['messages/product/getInfo/getPython', 'metadata', 'test/smoke', 'docs'],
         changes: Object.entries(files).map(([file, after]) => ({file: `products/${moduleId}/${file}`, before: null, after}))};
 };

@@ -1,6 +1,8 @@
 # 温湿度传感器维护说明
 
-一个 `src/index.ts` 维护原生类、集中四语、菜单和内联 Python，包入口在 `metadata.json`，图标在 `assets/temphumi.svg`。namespace 保持 sensor，旧 opcode、参数和菜单实际值不得重命名。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+一个 `src/index.ts` 维护原生类、四语绑定、菜单和内联 Python，包入口在 `metadata.json`，图标在 `assets/temphumi.svg`。namespace 保持 sensor，旧 opcode、参数和菜单实际值不得重命名。
 
 ## 初始化与读取
 

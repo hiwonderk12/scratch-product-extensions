@@ -1,5 +1,7 @@
 # 总线舵机
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要维护 src/index.ts：getInfo 声明积木、菜单和控件，messages 集中维护简中/英文/繁中/韩文，getPython 就近声明 Python。图片位于 assets/servo.svg。通用规范见[原生 API](../../../../docs/native-api.md)。
 
 ## SDK 与支持

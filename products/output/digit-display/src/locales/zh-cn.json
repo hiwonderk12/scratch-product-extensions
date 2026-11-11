@@ -1,0 +1,5 @@
+{
+    "product.name": "数码管",
+    "block.aimech_digit_show_num": "数码管接口 [PORT] 显示数字 [NUM]",
+    "block.aiblocksboard_digit_show_num": "数码管接口 [PORT] 显示数字 [NUM]"
+}

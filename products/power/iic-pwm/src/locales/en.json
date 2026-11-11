@@ -1,0 +1,6 @@
+{
+    "product.name": "IIC to PWM module",
+    "block.aimecha_iicpwm_init": "Initialize IIC to PWM module port [PORT]",
+    "block.iicpwm_set_pos": "Set 180° servo [NUM] angle [ANGLE] ° duration (ms) [TIME]",
+    "block.iicpwm_set_speed": "Set motor [NUM] speed [SPEED]"
+}

@@ -1,31 +1,16 @@
 // IIC 转 PWM 作者入口：端口、控件与生成规则由单类声明。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "IIC转PWM控制模块",
-        "block.aimecha_iicpwm_init": "初始化IIC转PWM模块IIC接口 [PORT]",
-        "block.iicpwm_set_pos": "设置180°舵机编号 [NUM] 转至 [ANGLE] ° 运行时间(ms) [TIME]",
-        "block.iicpwm_set_speed": "设置电机编号 [NUM] 速度 [SPEED]"
-    },
-    en: {
-        "product.name": "IIC to PWM module",
-        "block.aimecha_iicpwm_init": "Initialize IIC to PWM module port [PORT]",
-        "block.iicpwm_set_pos": "Set 180° servo [NUM] angle [ANGLE] ° duration (ms) [TIME]",
-        "block.iicpwm_set_speed": "Set motor [NUM] speed [SPEED]"
-    },
-    "zh-tw": {
-        "product.name": "IIC轉PWM控制模組",
-        "block.aimecha_iicpwm_init": "初始化IIC轉PWM模組IIC介面 [PORT]",
-        "block.iicpwm_set_pos": "設定180°舵機編號 [NUM] 轉至 [ANGLE] ° 運行時間(ms) [TIME]",
-        "block.iicpwm_set_speed": "設定馬達編號 [NUM] 速度 [SPEED]"
-    },
-    ko: {
-        "product.name": "IIC-PWM 제어 모듈",
-        "block.aimecha_iicpwm_init": "IIC-PWM 모듈 IIC 포트 [PORT] 초기화하기",
-        "block.iicpwm_set_pos": "180° 서보 [NUM] 각도 [ANGLE] ° 동작 시간(ms) [TIME] 설정하기",
-        "block.iicpwm_set_speed": "모터 [NUM] 속도 [SPEED] 설정하기"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

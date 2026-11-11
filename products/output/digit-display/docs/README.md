@@ -1,6 +1,8 @@
 # 数码管维护说明
 
-主要维护 `src/index.ts`：集中四语 messages、`getInfo()` 的菜单/参数和 `getPython()` 的初始化/显示模板。`metadata.json` 只维护包身份、版本、入口与资源路径；卡片名称从 index 的 `product.name` 生成。图标位于 `assets/digit.svg`。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+主要维护 `src/index.ts`：messages 四语绑定、`getInfo()` 的菜单/参数和 `getPython()` 的初始化/显示模板。`metadata.json` 只维护包身份、版本、入口与资源路径；卡片名称从 index 的 `product.name` 生成。图标位于 `assets/digit.svg`。
 
 ## 主控适配与兼容
 

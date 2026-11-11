@@ -1,0 +1,4 @@
+{
+    "product.name": "土壤感測器",
+    "block.aimech_get_soil_value": "介面 [PORT] 土壤濕度類比值（0~100）"
+}

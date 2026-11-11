@@ -1,0 +1,15 @@
+{
+    "product.name": "LED超声波传感器",
+    "block.minihexa_led_ultrasonic_init": "初始化发光超声波传感器板载IIC接口",
+    "menu.nums.0": "全部",
+    "menu.rgb.0": "红",
+    "menu.rgb.1": "绿",
+    "menu.rgb.2": "蓝",
+    "block.aimech_led_ultrasonic_init": "初始化LED超声波传感器接口 [PORT]",
+    "block.aimech_get_led_ultrasonic_distance": "LED超声波传感器检测到障碍物距离(cm)",
+    "block.aimech_set_led_ultrasonic_color": "LED超声波传感器灯 [NUMS] 颜色 [COLOR]",
+    "block.aimech_set_led_ultrasonic_color_arg": "LED超声波传感器灯 [NUMS] 红 [RED] 绿 [GREEN] 蓝 [BLUE]",
+    "block.aimech_close_led_ultrasonic": "关闭LED超声波传感器灯 [NUMS]",
+    "block.aimech_set_led_ultrasonic_breath": "LED超声波传感器灯 [NUM] [RGB] 呼吸周期 [TIME] 秒",
+    "block.aimech_set_led_ultrasonic_random": "LED超声波传感器进入随机变色模式"
+}

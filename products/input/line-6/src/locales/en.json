@@ -1,0 +1,9 @@
+{
+    "product.name": "6-channel line follower sensor",
+    "block.aimech_linefollower6_init": "Initialize 6-channel line follower IIC port [PORT]",
+    "block.linefollower6_one_status": "6-channel line follower channel [NUM] detects [LINE]",
+    "block.linefollower6_status": "6-channel line follower channels detect [LINE]",
+    "block.linefollower6_set_threshold": "Set 6-channel line follower threshold ratio (1~9) to [VALUE]",
+    "block.linefollower6_get_value": "6-channel line follower channel [NUM] grayscale (0~100)",
+    "block.linefollower6_read_offset": "Get 6-channel line follower offset"
+}

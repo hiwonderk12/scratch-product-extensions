@@ -1,26 +1,15 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    'zh-cn': {
-        'product.name': '数码管',
-        'block.aimech_digit_show_num': '数码管接口 [PORT] 显示数字 [NUM]',
-        'block.aiblocksboard_digit_show_num': '数码管接口 [PORT] 显示数字 [NUM]'
-    },
-    en: {
-        'product.name': 'Digit display',
-        'block.aimech_digit_show_num': 'Digit display port [PORT] show number [NUM]',
-        'block.aiblocksboard_digit_show_num': 'Digit display port [PORT] show number [NUM]'
-    },
-    'zh-tw': {
-        'product.name': '數碼管',
-        'block.aimech_digit_show_num': '數碼管介面 [PORT] 顯示數字 [NUM]',
-        'block.aiblocksboard_digit_show_num': '數碼管介面 [PORT] 顯示數字 [NUM]'
-    },
-    ko: {
-        'product.name': '숫자 표시 모듈',
-        'block.aimech_digit_show_num': '숫자 표시 모듈 포트 [PORT] 에 숫자 [NUM] 표시하기',
-        'block.aiblocksboard_digit_show_num': '숫자 표시 모듈 포트 [PORT] 에 숫자 [NUM] 표시하기'
-    }
+    'zh-cn': locale0,
+    en: locale1,
+    'zh-tw': locale2,
+    ko: locale3
 } as const;
 
 export const product = {

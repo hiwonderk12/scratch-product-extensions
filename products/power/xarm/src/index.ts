@@ -1,59 +1,16 @@
 // 机械臂作者入口：集中维护积木、四语文案与按需 Python 依赖。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "AI机甲机械臂",
-        "group.arm": "机械臂",
-        "block.aimech_set_arm_id": "将机械臂舵机ID设置为 [SERVO]",
-        "block.aimech_set_claw_id": "将机械爪舵机ID设置为 [SERVO]",
-        "block.aimech_servo_enable": "将 [ARM] 舵机上电",
-        "block.aimech_servo_disable": "将 [ARM] 舵机掉电",
-        "block.aimech_set_servo_pose_time": "设置 [ARM] 舵机位置(0~1000) [POS] 运行时间 [TIME] ms",
-        "block.aimech_get_angle": "获取 [ARM] 舵机位置",
-        "block.aimech_set_servo_stop": "停止舵机 [ARM] 运行",
-        "menu.arm.0": "机械臂",
-        "menu.arm.1": "机械爪"
-    },
-    en: {
-        "product.name": "AI Mech Robot Arm",
-        "group.arm": "Robot arm",
-        "block.aimech_set_arm_id": "Set robot arm servo ID to [SERVO]",
-        "block.aimech_set_claw_id": "Set gripper servo ID to [SERVO]",
-        "block.aimech_servo_enable": "Power on [ARM] servo",
-        "block.aimech_servo_disable": "Power off [ARM] servo",
-        "block.aimech_set_servo_pose_time": "Set [ARM] servo position (0~1000) [POS] duration [TIME] ms",
-        "block.aimech_get_angle": "Get [ARM] servo position",
-        "block.aimech_set_servo_stop": "Stop servo [ARM]",
-        "menu.arm.0": "Robot arm",
-        "menu.arm.1": "Gripper"
-    },
-    "zh-tw": {
-        "product.name": "AI機甲機械臂",
-        "group.arm": "機械臂",
-        "block.aimech_set_arm_id": "將機械臂舵機ID設定為 [SERVO]",
-        "block.aimech_set_claw_id": "將機械爪舵機ID設定為 [SERVO]",
-        "block.aimech_servo_enable": "將 [ARM] 舵機上電",
-        "block.aimech_servo_disable": "將 [ARM] 舵機斷電",
-        "block.aimech_set_servo_pose_time": "設定 [ARM] 舵機位置(0~1000) [POS] 運行時間 [TIME] ms",
-        "block.aimech_get_angle": "取得 [ARM] 舵機位置",
-        "block.aimech_set_servo_stop": "停止舵機 [ARM] 運行",
-        "menu.arm.0": "機械臂",
-        "menu.arm.1": "機械爪"
-    },
-    ko: {
-        "product.name": "AI 메카 로봇 팔",
-        "group.arm": "로봇 팔",
-        "block.aimech_set_arm_id": "로봇 팔 서보 ID를 [SERVO] 로 설정하기",
-        "block.aimech_set_claw_id": "그리퍼 서보 ID를 [SERVO] 로 설정하기",
-        "block.aimech_servo_enable": "[ARM] 서보 전원 켜기",
-        "block.aimech_servo_disable": "[ARM] 서보 전원 끄기",
-        "block.aimech_set_servo_pose_time": "[ARM] 서보 위치(0~1000)를 [POS] 로, 동작 시간을 [TIME] ms로 설정하기",
-        "block.aimech_get_angle": "[ARM] 서보 위치 읽기",
-        "block.aimech_set_servo_stop": "서보 [ARM] 정지하기",
-        "menu.arm.0": "로봇 팔",
-        "menu.arm.1": "그리퍼"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

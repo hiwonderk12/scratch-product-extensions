@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
 
 // 模块积木、菜单、集中四语文案和 Python 规则只在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "声音传感器",
-        "block.aimech_read_sound": "接口 [PORT] 音量模拟值(0~100)"
-    },
-    en: {
-        "product.name": "Sound sensor",
-        "block.aimech_read_sound": "Port [PORT] sound analog value (0~100)"
-    },
-    "zh-tw": {
-        "product.name": "聲音感測器",
-        "block.aimech_read_sound": "介面 [PORT] 音量類比值（0~100）"
-    },
-    ko: {
-        "product.name": "소리 센서",
-        "block.aimech_read_sound": "포트 [PORT] 소리 아날로그 값(0~100)"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

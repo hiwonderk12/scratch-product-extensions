@@ -1,0 +1,4 @@
+{
+    "product.name": "雨滴感測器",
+    "block.aimech_get_rain_drop_value": "介面 [PORT] 雨滴類比值（0~100）"
+}

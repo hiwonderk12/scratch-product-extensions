@@ -106,6 +106,7 @@ test('optional generation recognizes controller ownership without allowing new m
     for (const relative of ['metadata.json', 'src/index.ts']) {
         fs.copyFileSync(path.join(repository, 'products', moduleId, relative), path.join(directory, 'products', moduleId, relative));
     }
+    fs.cpSync(path.join(repository, 'products', moduleId, 'src/locales'), path.join(sourceDirectory, 'locales'), {recursive: true});
     fs.writeFileSync(path.join(directory, 'library.config.json'), JSON.stringify({profile: 'wonderlab'}));
     const specification = path.join(directory, 'spec.json');
     fs.writeFileSync(specification, JSON.stringify({text: {'zh-cn': '演示', en: 'Demo', 'zh-tw': '示範', ko: '데모'},

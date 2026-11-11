@@ -1,0 +1,10 @@
+{
+    "product.name": "180° servo",
+    "block.set_servo_angle_time": "Set servo [SERVO] to [ANGLE] degrees at [SPEED] % speed [DELAY]",
+    "block.set_servo_run": "Rotate servo [SERVO] [ORIENTION] by [ANGLE] degrees at [SPEED] % speed [DELAY]",
+    "block.set_servo_stop": "Stop servo [SERVO]",
+    "menu.oriention.0": "clockwise",
+    "menu.oriention.1": "Counterclockwise",
+    "menu.delay.0": "automatic delay",
+    "menu.delay.1": "no delay"
+}

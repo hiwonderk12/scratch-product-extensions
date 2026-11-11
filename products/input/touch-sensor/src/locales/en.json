@@ -1,0 +1,4 @@
+{
+    "product.name": "Touch sensor",
+    "block.aimech_read_touch": "Port [PORT] touch sensor touched?"
+}

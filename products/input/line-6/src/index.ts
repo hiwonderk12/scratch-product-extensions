@@ -1,43 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 单入口维护巡线积木、集中四语、菜单和 Python；通道编号与位掩码保持不同语义。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "六路巡线传感器",
-        "block.aimech_linefollower6_init": "初始化六路巡线传感器IIC接口 [PORT]",
-        "block.linefollower6_one_status": "六路巡线传感器通道 [NUM] 检测到 [LINE]",
-        "block.linefollower6_status": "六路巡线传感器通道检测到 [LINE]",
-        "block.linefollower6_set_threshold": "设置六路巡线传感器阈值比例(范围1~9)为 [VALUE]",
-        "block.linefollower6_get_value": "六路巡线传感器通道 [NUM] 灰度值(0~100)",
-        "block.linefollower6_read_offset": "获取六路巡线传感器偏差值"
-    },
-    en: {
-        "product.name": "6-channel line follower sensor",
-        "block.aimech_linefollower6_init": "Initialize 6-channel line follower IIC port [PORT]",
-        "block.linefollower6_one_status": "6-channel line follower channel [NUM] detects [LINE]",
-        "block.linefollower6_status": "6-channel line follower channels detect [LINE]",
-        "block.linefollower6_set_threshold": "Set 6-channel line follower threshold ratio (1~9) to [VALUE]",
-        "block.linefollower6_get_value": "6-channel line follower channel [NUM] grayscale (0~100)",
-        "block.linefollower6_read_offset": "Get 6-channel line follower offset"
-    },
-    "zh-tw": {
-        "product.name": "六路循線感測器",
-        "block.aimech_linefollower6_init": "初始化六路循線感測器 IIC 介面 [PORT]",
-        "block.linefollower6_one_status": "六路循線感測器通道 [NUM] 偵測到 [LINE]",
-        "block.linefollower6_status": "六路循線感測器通道偵測到 [LINE]",
-        "block.linefollower6_set_threshold": "設定六路循線感測器閾值比例（範圍 1~9）為 [VALUE]",
-        "block.linefollower6_get_value": "六路循線感測器通道 [NUM] 灰階值（0~100）",
-        "block.linefollower6_read_offset": "取得六路循線感測器偏差值"
-    },
-    ko: {
-        "product.name": "6채널 라인 추적 센서",
-        "block.aimech_linefollower6_init": "6채널 라인 추적 센서 IIC 포트 [PORT] 초기화",
-        "block.linefollower6_one_status": "6채널 라인 추적 센서 채널 [NUM] 에서 [LINE] 감지",
-        "block.linefollower6_status": "6채널 라인 추적 센서 채널 상태 [LINE] 감지",
-        "block.linefollower6_set_threshold": "6채널 라인 추적 센서 임계값 비율(1~9)을 [VALUE] 로 설정",
-        "block.linefollower6_get_value": "6채널 라인 추적 센서 채널 [NUM] 그레이스케일 값(0~100)",
-        "block.linefollower6_read_offset": "6채널 라인 추적 센서 편차 읽기"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

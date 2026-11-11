@@ -1,6 +1,8 @@
 # 360°直接舵机维护
 
-[src/index.ts](../src/index.ts) 以一个 class、集中四语和内联 Python 提供三个旧积木。当前初版 `0.0.1`，使用库配置 `0.0.3`；源码与开发内置不等于已经发布 Release。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+[src/index.ts](../src/index.ts) 以一个 class、四语绑定和内联 Python 提供三个旧积木。当前初版 `0.0.1`，使用库配置 `0.0.3`；源码与开发内置不等于已经发布 Release。
 
 先在“主控扩展 → 控制器”选择 AIBlocksBoard，再从“模块扩展”加载“360°舵机”。仅对 `aiblocksboard` 开放 `hiwonder-direct`，不是 360°电机、总线舵机或 IIC 转 PWM，不能为七款机器人直接启用。
 

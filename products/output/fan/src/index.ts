@@ -1,31 +1,16 @@
 // 风扇作者入口：主控适配决定 SDK 与活跃旧前缀，两个接口互斥。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "风扇",
-        "block.aimech_fan_iic_set_module_speed": "设置风扇接口 [PORT] 转速 [SPEED]",
-        "block.fan_module_speed": "设置风扇接口 [PORT] 转速 [SPEED]",
-        "group.fan": "风扇模块"
-    },
-    en: {
-        "product.name": "Fan",
-        "block.aimech_fan_iic_set_module_speed": "Set fan port [PORT] speed [SPEED]",
-        "block.fan_module_speed": "Set fan port [PORT] speed [SPEED]",
-        "group.fan": "Fan module"
-    },
-    "zh-tw": {
-        "product.name": "風扇",
-        "block.aimech_fan_iic_set_module_speed": "設定風扇介面 [PORT] 轉速 [SPEED]",
-        "block.fan_module_speed": "設定風扇介面 [PORT] 轉速 [SPEED]",
-        "group.fan": "風扇模組"
-    },
-    ko: {
-        "product.name": "팬",
-        "block.aimech_fan_iic_set_module_speed": "팬 포트 [PORT] 속도 [SPEED] 설정하기",
-        "block.fan_module_speed": "팬 포트 [PORT] 속도 [SPEED] 설정하기",
-        "group.fan": "팬 모듈"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

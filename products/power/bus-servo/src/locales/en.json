@@ -1,0 +1,8 @@
+{
+    "product.name": "Bus servo",
+    "block.set_bus_servo": "Set bus servo [SERVO] position (0~1000) [POS] duration (ms) [TIME]",
+    "block.set_bus_servo_motor_speed": "Set bus servo [SERVO] motor mode speed [SPEED]",
+    "block.load_bus_servo": "Power on bus servo [SERVO]",
+    "block.unload_bus_servo": "Power off bus servo [SERVO]",
+    "block.get_bus_servo_pos": "Bus servo [SERVO] position"
+}

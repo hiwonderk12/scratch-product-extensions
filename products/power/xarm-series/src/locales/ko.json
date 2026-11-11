@@ -1,0 +1,8 @@
+{
+    "product.name": "AI 메카 직렬 로봇 팔",
+    "group.arm": "AI 메카 직렬 로봇 팔",
+    "block.aimech_3dof_arm_init": "[ARM] 초기화하기: 위팔 길이 [VALUE1] 아래팔 길이 [VALUE2] 아래팔 오프셋 [VALUE3] 말단 길이 [VALUE4]",
+    "block.aimech_3dof_arm_move": "로봇 팔을 Y축(앞뒤) [VALUE1] mm, Z축(위아래) [VALUE2] mm로 이동하기, 말단 피치 각도(위로 양수, 아래로 음수) [VALUE3] 도, 동작 시간 [VALUE4] ms",
+    "menu.arm_3dof.0": "짧은 로봇 팔",
+    "menu.arm_3dof.1": "긴 로봇 팔"
+}

@@ -1,0 +1,4 @@
+{
+    "product.name": "聲音感測器",
+    "block.aimech_read_sound": "介面 [PORT] 音量類比值（0~100）"
+}

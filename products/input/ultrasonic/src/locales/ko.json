@@ -1,0 +1,4 @@
+{
+    "product.name": "초음파 센서",
+    "block.get_ultrasonic_distance": "포트 [ULTRA_PORT] 초음파 센서 장애물 거리(cm)"
+}

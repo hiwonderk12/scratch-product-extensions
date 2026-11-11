@@ -1,5 +1,7 @@
 # MP3 模块维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要维护 `src/index.ts`：原生类、集中 zh-cn/en/zh-tw/ko 文案、菜单与内联 Python。发行入口在 `metadata.json`，原 SVG 在 `assets/mp3.svg`。
 
 ## 支持边界

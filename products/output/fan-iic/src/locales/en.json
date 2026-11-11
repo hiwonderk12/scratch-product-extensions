@@ -1,0 +1,5 @@
+{
+    "product.name": "IIC fan",
+    "block.aiblocks_fan_iic_set_module_speed": "Set IIC fan port [PORT] speed [SPEED]",
+    "block.aimech_fan_iic_set_module_speed": "Set fan port [PORT] speed [SPEED]"
+}

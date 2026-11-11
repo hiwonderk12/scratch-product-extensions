@@ -1,5 +1,7 @@
 # RGB 灯带维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 入口 `src/index.ts` 集中维护 class/getInfo、四语 messages、菜单和 getPython。元数据在 `metadata.json`，图标为 `assets/strip.svg`。不要与另一个 `output/rgb` 模块合包或互换 opcode。
 
 ## 支持边界
@@ -15,4 +17,4 @@
 
 初始化对象保留 `myrgb_{PORT} = Hiwonder.Neopixel(Hiwonder.Port({PORT}),15)`，按实际端口去重。旧模板未声明 import Hiwonder，此处保留其依赖语义；不能把源码兼容测试当作独立 Python 程序已可真机执行。若需调整 SDK 导入，应独立核对固件和完整教案，不混在结构迁移中。
 
-四语在同文件 messages 维护。修改后按[开发手册](../../../../docs/development.md)与[原生 API](../../../../docs/native-api.md)验证单灯/全部、两个端口、颜色分量、关闭分支及旧作品/语言切换；未开放模块只能用隔离配置验收，不为测试修改公开支持项。
+四语在相邻 src/locales/ 对应语言JSON维护。修改后按[开发手册](../../../../docs/development.md)与[原生 API](../../../../docs/native-api.md)验证单灯/全部、两个端口、颜色分量、关闭分支及旧作品/语言切换；未开放模块只能用隔离配置验收，不为测试修改公开支持项。

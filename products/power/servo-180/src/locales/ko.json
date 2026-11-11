@@ -1,0 +1,10 @@
+{
+    "product.name": "180° 서보",
+    "block.set_servo_angle_time": "서보 [SERVO] 를 [SPEED] % 속도로 [ANGLE] 도로 이동 [DELAY]",
+    "block.set_servo_run": "서보 [SERVO] 를 [SPEED] % 속도로 [ORIENTION] 으로 [ANGLE] 도 회전 [DELAY]",
+    "block.set_servo_stop": "서보 [SERVO] 정지",
+    "menu.oriention.0": "시계 방향",
+    "menu.oriention.1": "반시계 방향",
+    "menu.delay.0": "완료까지 대기",
+    "menu.delay.1": "대기 안 함"
+}

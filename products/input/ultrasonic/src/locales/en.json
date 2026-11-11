@@ -1,0 +1,4 @@
+{
+    "product.name": "Ultrasonic sensor",
+    "block.get_ultrasonic_distance": "Port [ULTRA_PORT] ultrasonic obstacle distance (cm)"
+}

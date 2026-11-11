@@ -1,0 +1,4 @@
+{
+    "product.name": "超音波感測器",
+    "block.get_ultrasonic_distance": "介面 [ULTRA_PORT] 超音波感測器偵測到障礙物的距離 (cm)"
+}

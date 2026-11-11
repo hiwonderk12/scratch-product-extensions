@@ -1,0 +1,7 @@
+{
+    "product.name": "RGB LED 스트립",
+    "block.rgb_color_set": "RGB 스트립 포트 [PORT] LED [NUMS] 빨강 [RED] 초록 [GREEN] 파랑 [BLUE] 설정하기",
+    "block.led_color_select": "RGB 스트립 포트 [PORT] LED [NUMS] 색상을 [COLOR] 로 설정하기",
+    "block.led_close": "RGB 스트립 포트 [PORT] LED [NUMS] 끄기",
+    "menu.nums.all": "전체"
+}

@@ -1,43 +1,16 @@
 // 机械臂作者入口：集中维护积木、四语文案与按需 Python 依赖。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "AI机甲连杆机械臂",
-        "group.arm": "连杆机械臂",
-        "block.aimech_rod_arm_init": "初始化连杆机械臂",
-        "block.aimech_rod_reach_detect": "检测坐标Y [VALUE1] 毫米,Z [VALUE2] 毫米是否可以到达",
-        "block.aimech_rod_arm_move": "控制机械臂运动到 Y轴(前后方向) [VALUE1] 毫米, Z轴(上下方向) [VALUE2] 毫米, 运动时长 [VALUE3] 毫秒, [VALUE4] 等待",
-        "menu.delay_select.0": "不延时",
-        "menu.delay_select.1": "延时"
-    },
-    en: {
-        "product.name": "AI Mech Linkage Arm",
-        "group.arm": "Linkage arm",
-        "block.aimech_rod_arm_init": "Initialize linkage arm",
-        "block.aimech_rod_reach_detect": "Check if Y [VALUE1] mm, Z [VALUE2] mm is reachable",
-        "block.aimech_rod_arm_move": "Move arm to Y (forward/backward) [VALUE1] mm, Z (up/down) [VALUE2] mm, duration [VALUE3] ms [VALUE4]",
-        "menu.delay_select.0": "Do not wait",
-        "menu.delay_select.1": "Wait"
-    },
-    "zh-tw": {
-        "product.name": "AI機甲連桿機械臂",
-        "group.arm": "連桿機械臂",
-        "block.aimech_rod_arm_init": "初始化連桿機械臂",
-        "block.aimech_rod_reach_detect": "偵測座標Y [VALUE1] 毫米,Z [VALUE2] 毫米是否可以到達",
-        "block.aimech_rod_arm_move": "控制機械臂運動到 Y軸(前後方向) [VALUE1] 毫米, Z軸(上下方向) [VALUE2] 毫米, 運動時長 [VALUE3] 毫秒, [VALUE4] 等待",
-        "menu.delay_select.0": "不延時",
-        "menu.delay_select.1": "延時"
-    },
-    ko: {
-        "product.name": "AI 메카 링크 로봇 팔",
-        "group.arm": "링크 로봇 팔",
-        "block.aimech_rod_arm_init": "링크 로봇 팔 초기화하기",
-        "block.aimech_rod_reach_detect": "Y [VALUE1] mm, Z [VALUE2] mm 좌표에 도달할 수 있는지 확인하기",
-        "block.aimech_rod_arm_move": "로봇 팔을 Y축(앞뒤) [VALUE1] mm, Z축(위아래) [VALUE2] mm로 이동하기, 동작 시간 [VALUE3] ms [VALUE4]",
-        "menu.delay_select.0": "기다리지 않기",
-        "menu.delay_select.1": "기다리기"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

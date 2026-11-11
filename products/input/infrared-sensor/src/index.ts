@@ -1,23 +1,16 @@
 import type {ExtensionBlock, ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 模块积木、菜单、集中四语文案和 Python 规则只在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "红外检测传感器",
-        "block.aimech_get_avoid_value": "接口 [PORT] 红外检测传感器检测到障碍物?"
-    },
-    en: {
-        "product.name": "Infrared obstacle sensor",
-        "block.aimech_get_avoid_value": "Port [PORT] infrared sensor detects an obstacle?"
-    },
-    "zh-tw": {
-        "product.name": "紅外線偵測感測器",
-        "block.aimech_get_avoid_value": "介面 [PORT] 紅外線偵測感測器偵測到障礙物？"
-    },
-    ko: {
-        "product.name": "적외선 장애물 감지 센서",
-        "block.aimech_get_avoid_value": "포트 [PORT] 적외선 센서가 장애물을 감지했는가?"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

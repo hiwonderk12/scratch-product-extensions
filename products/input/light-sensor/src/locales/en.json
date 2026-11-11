@@ -1,0 +1,4 @@
+{
+    "product.name": "Light sensor",
+    "block.aimech_read_light": "Port [PORT] light analog value (0~100)"
+}

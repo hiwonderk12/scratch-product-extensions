@@ -1,0 +1,4 @@
+{
+    "product.name": "토양 수분 센서",
+    "block.aimech_get_soil_value": "포트 [PORT] 토양 수분 아날로그 값(0~100)"
+}

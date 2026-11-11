@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
 
 // 产品积木、菜单、集中 i18n 文案及 Python 规则在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "土壤传感器",
-        "block.aimech_get_soil_value": "接口 [PORT] 土壤湿度模拟值(0~100)"
-    },
-    "en": {
-        "product.name": "Soil moisture sensor",
-        "block.aimech_get_soil_value": "Port [PORT] soil moisture analog value (0~100)"
-    },
-    "zh-tw": {
-        "product.name": "土壤感測器",
-        "block.aimech_get_soil_value": "介面 [PORT] 土壤濕度類比值（0~100）"
-    },
-    "ko": {
-        "product.name": "토양 수분 센서",
-        "block.aimech_get_soil_value": "포트 [PORT] 토양 수분 아날로그 값(0~100)"
-    }
+    "zh-cn": locale0,
+    "en": locale1,
+    "zh-tw": locale2,
+    "ko": locale3
 } as const;
 
 export const product = {

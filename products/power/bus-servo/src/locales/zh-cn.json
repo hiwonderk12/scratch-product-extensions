@@ -1,0 +1,8 @@
+{
+    "product.name": "总线舵机",
+    "block.set_bus_servo": "设置总线舵机编号 [SERVO] 位置 (0~1000) [POS] 运行时间 (ms) [TIME]",
+    "block.set_bus_servo_motor_speed": "设置总线舵机编号 [SERVO] 电机模式, 转速 [SPEED]",
+    "block.load_bus_servo": "设置总线舵机编号 [SERVO] 上电",
+    "block.unload_bus_servo": "设置总线舵机编号 [SERVO] 掉电",
+    "block.get_bus_servo_pos": "获取总线舵机编号 [SERVO] 位置"
+}

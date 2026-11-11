@@ -1,5 +1,7 @@
 # WonderLens 维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 本包主要维护 [src/index.ts](../src/index.ts)：原生类声明积木、菜单、集中多语言和内联 Python。资源放在 assets，发行信息放在 [metadata.json](../metadata.json)。不另建按 opcode 拆分的文件或空 python 目录。
 
 ## 主控与接口

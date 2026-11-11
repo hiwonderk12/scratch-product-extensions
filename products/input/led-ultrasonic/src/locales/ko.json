@@ -1,0 +1,15 @@
+{
+    "product.name": "LED 초음파 센서",
+    "block.minihexa_led_ultrasonic_init": "LED 초음파 센서 내장 IIC 인터페이스 초기화",
+    "menu.nums.0": "전체",
+    "menu.rgb.0": "빨강",
+    "menu.rgb.1": "초록",
+    "menu.rgb.2": "파랑",
+    "block.aimech_led_ultrasonic_init": "LED 초음파 센서 포트 [PORT] 초기화",
+    "block.aimech_get_led_ultrasonic_distance": "LED 초음파 센서 장애물 거리(cm)",
+    "block.aimech_set_led_ultrasonic_color": "LED 초음파 센서 조명 [NUMS] 색상 [COLOR]",
+    "block.aimech_set_led_ultrasonic_color_arg": "LED 초음파 센서 조명 [NUMS] 빨강 [RED] 초록 [GREEN] 파랑 [BLUE]",
+    "block.aimech_close_led_ultrasonic": "LED 초음파 센서 조명 [NUMS] 끄기",
+    "block.aimech_set_led_ultrasonic_breath": "LED 초음파 센서 조명 [NUM] [RGB] 숨쉬기 주기 [TIME] 초",
+    "block.aimech_set_led_ultrasonic_random": "LED 초음파 센서 무작위 색상 모드 시작"
+}

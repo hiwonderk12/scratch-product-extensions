@@ -1,6 +1,8 @@
 # 点阵屏维护说明
 
-入口为同目录上级的 `src/index.ts`，在一个文件维护原生类、集中四语 messages、菜单和 Python；包身份与资源路径在 `metadata.json`，图标在 `assets/dot.svg`。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+入口为同目录上级的 `src/index.ts`，在一个文件维护原生类、messages 四语绑定、菜单和 Python；包身份与资源路径在 `metadata.json`，图标在 `assets/dot.svg`。
 
 ## 主控与驱动
 

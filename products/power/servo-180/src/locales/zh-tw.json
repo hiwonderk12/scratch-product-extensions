@@ -1,0 +1,10 @@
+{
+    "product.name": "180°舵機",
+    "block.set_servo_angle_time": "設定舵機 [SERVO] 以 [SPEED] %速度轉至 [ANGLE] 度 [DELAY]",
+    "block.set_servo_run": "設定舵機 [SERVO] 以 [SPEED] %速度 [ORIENTION] 轉動 [ANGLE] 度 [DELAY]",
+    "block.set_servo_stop": "停止舵機 [SERVO]",
+    "menu.oriention.0": "順時針",
+    "menu.oriention.1": "逆時針",
+    "menu.delay.0": "自動等待",
+    "menu.delay.1": "不等待"
+}

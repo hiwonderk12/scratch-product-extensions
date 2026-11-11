@@ -1,0 +1,8 @@
+{
+    "product.name": "AI Mech Serial Arm",
+    "group.arm": "AI Mech Serial Arm",
+    "block.aimech_3dof_arm_init": "Initialize [ARM] with upper arm length [VALUE1] forearm length [VALUE2] forearm offset [VALUE3] end length [VALUE4]",
+    "block.aimech_3dof_arm_move": "Move arm to Y (forward/backward) [VALUE1] mm, Z (up/down) [VALUE2] mm, end pitch (positive up, negative down) [VALUE3] degrees, duration [VALUE4] ms",
+    "menu.arm_3dof.0": "Short arm",
+    "menu.arm_3dof.1": "Long arm"
+}

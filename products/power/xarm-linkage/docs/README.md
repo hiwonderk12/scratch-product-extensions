@@ -1,5 +1,7 @@
 # AI 机甲连杆机械臂
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 单 src/index.ts 维护 class / getInfo、集中中英繁韩 messages、菜单和内联 getPython；无需额外 Python 文件或空资源目录。见[原生 API](../../../../docs/native-api.md)与[库配置](../../../../docs/configuration.md)。
 
 ## 适配与兼容前缀

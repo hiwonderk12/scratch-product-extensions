@@ -1,39 +1,16 @@
 // 机械臂作者入口：集中维护积木、四语文案与按需 Python 依赖。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "AI机甲串联机械臂",
-        "group.arm": "AI机甲串联机械臂",
-        "block.aimech_3dof_arm_init": "初始化 [ARM] 参数 大臂长度 [VALUE1] 小臂长度 [VALUE2] 小臂偏移 [VALUE3] 末端长度 [VALUE4]",
-        "block.aimech_3dof_arm_move": "控制机械臂运动到 Y轴(前后方向) [VALUE1] 毫米, Z轴(上下方向) [VALUE2] 毫米, 末端的姿态角度(抬头是正, 低头是负) [VALUE3] 度, 运动时长 [VALUE4] 毫秒",
-        "menu.arm_3dof.0": "短机械臂",
-        "menu.arm_3dof.1": "长机械臂"
-    },
-    en: {
-        "product.name": "AI Mech Serial Arm",
-        "group.arm": "AI Mech Serial Arm",
-        "block.aimech_3dof_arm_init": "Initialize [ARM] with upper arm length [VALUE1] forearm length [VALUE2] forearm offset [VALUE3] end length [VALUE4]",
-        "block.aimech_3dof_arm_move": "Move arm to Y (forward/backward) [VALUE1] mm, Z (up/down) [VALUE2] mm, end pitch (positive up, negative down) [VALUE3] degrees, duration [VALUE4] ms",
-        "menu.arm_3dof.0": "Short arm",
-        "menu.arm_3dof.1": "Long arm"
-    },
-    "zh-tw": {
-        "product.name": "AI機甲串聯機械臂",
-        "group.arm": "AI機甲串聯機械臂",
-        "block.aimech_3dof_arm_init": "初始化 [ARM] 參數 大臂長度 [VALUE1] 小臂長度 [VALUE2] 小臂偏移 [VALUE3] 末端長度 [VALUE4]",
-        "block.aimech_3dof_arm_move": "控制機械臂運動到 Y軸(前後方向) [VALUE1] 毫米, Z軸(上下方向) [VALUE2] 毫米, 末端的姿態角度(抬頭為正, 低頭為負) [VALUE3] 度, 運動時長 [VALUE4] 毫秒",
-        "menu.arm_3dof.0": "短機械臂",
-        "menu.arm_3dof.1": "長機械臂"
-    },
-    ko: {
-        "product.name": "AI 메카 직렬 로봇 팔",
-        "group.arm": "AI 메카 직렬 로봇 팔",
-        "block.aimech_3dof_arm_init": "[ARM] 초기화하기: 위팔 길이 [VALUE1] 아래팔 길이 [VALUE2] 아래팔 오프셋 [VALUE3] 말단 길이 [VALUE4]",
-        "block.aimech_3dof_arm_move": "로봇 팔을 Y축(앞뒤) [VALUE1] mm, Z축(위아래) [VALUE2] mm로 이동하기, 말단 피치 각도(위로 양수, 아래로 음수) [VALUE3] 도, 동작 시간 [VALUE4] ms",
-        "menu.arm_3dof.0": "짧은 로봇 팔",
-        "menu.arm_3dof.1": "긴 로봇 팔"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

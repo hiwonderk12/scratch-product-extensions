@@ -1,0 +1,4 @@
+{
+    "product.name": "Sound sensor",
+    "block.aimech_read_sound": "Port [PORT] sound analog value (0~100)"
+}

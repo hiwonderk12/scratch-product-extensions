@@ -1,0 +1,7 @@
+{
+    "product.name": "八路灰度巡线传感器",
+    "block.linefollower8_init": "初始化八路灰度巡线传感器IIC接口 [PORT]",
+    "block.linefollower8_one_status": "八路灰度巡线传感器通道 [NUM] 检测到 [LINE]",
+    "block.linefollower8_status": "八路灰度巡线传感器通道检测到 [LINE]",
+    "block.linefollower8_get_value": "八路灰度巡线传感器通道 [NUM] 灰度值"
+}

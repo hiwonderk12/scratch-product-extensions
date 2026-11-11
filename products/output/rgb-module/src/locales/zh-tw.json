@@ -1,0 +1,15 @@
+{
+    "product.name": "RGB模組",
+    "block.aimech_rgb_module_color_set": "設定RGB模組介面 [PORT] 紅色值 [RED] 綠色值 [GREEN] 藍色值 [BLUE]",
+    "block.aimech_rgb_module_color_select": "設定RGB模組介面 [PORT] 顏色 [COLOR]",
+    "block.aimech_rgb_module_breath_one": "設定RGB模組介面 [PORT] 呼吸燈模式，顏色 [COLOR] 變化週期（0.5~20）[CYCLE] 秒",
+    "block.aimech_rgb_module_breath": "設定RGB模組介面 [PORT] 炫彩模式",
+    "block.aimech_rgb_module_close": "關閉RGB模組介面 [PORT] 燈",
+    "menu.light_colors.0": "紅",
+    "menu.light_colors.1": "綠",
+    "menu.light_colors.2": "藍",
+    "menu.light_colors.3": "黃",
+    "menu.light_colors.4": "紫",
+    "menu.light_colors.5": "青",
+    "menu.light_colors.6": "白"
+}

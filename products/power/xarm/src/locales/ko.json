@@ -1,0 +1,13 @@
+{
+    "product.name": "AI 메카 로봇 팔",
+    "group.arm": "로봇 팔",
+    "block.aimech_set_arm_id": "로봇 팔 서보 ID를 [SERVO] 로 설정하기",
+    "block.aimech_set_claw_id": "그리퍼 서보 ID를 [SERVO] 로 설정하기",
+    "block.aimech_servo_enable": "[ARM] 서보 전원 켜기",
+    "block.aimech_servo_disable": "[ARM] 서보 전원 끄기",
+    "block.aimech_set_servo_pose_time": "[ARM] 서보 위치(0~1000)를 [POS] 로, 동작 시간을 [TIME] ms로 설정하기",
+    "block.aimech_get_angle": "[ARM] 서보 위치 읽기",
+    "block.aimech_set_servo_stop": "서보 [ARM] 정지하기",
+    "menu.arm.0": "로봇 팔",
+    "menu.arm.1": "그리퍼"
+}

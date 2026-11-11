@@ -1,0 +1,6 @@
+{
+    "product.name": "팬",
+    "block.aimech_fan_iic_set_module_speed": "팬 포트 [PORT] 속도 [SPEED] 설정하기",
+    "block.fan_module_speed": "팬 포트 [PORT] 속도 [SPEED] 설정하기",
+    "group.fan": "팬 모듈"
+}

@@ -1,6 +1,8 @@
 # AIBlocksBoard 主板维护
 
-AIBlocksBoard（AI积木控制器，`aiblocksboard`）属于独立控制器，不属于七款机器人套件。产品源为 [src/index.ts](../src/index.ts)，采用一个 class、集中四语和内联 Python 规则；`aiblocks` 功能标识不能替代此主控。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+AIBlocksBoard（AI积木控制器，`aiblocksboard`）属于独立控制器，不属于七款机器人套件。产品源为 [src/index.ts](../src/index.ts)，采用一个 class、四语绑定和内联 Python 规则；`aiblocks` 功能标识不能替代此主控。
 
 ## 软件中使用
 

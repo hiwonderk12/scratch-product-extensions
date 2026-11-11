@@ -1,0 +1,21 @@
+{
+    "product.name": "通訊模組",
+    "group.ps3": "PS3控制器",
+    "block.ps3_init": "初始化控制器，MAC位址 [STR]",
+    "block.ps3_get_address": "取得MAC位址",
+    "block.ps3_disconnect": "中斷連線",
+    "block.ps3_is_connected": "是否連線成功？",
+    "block.ps3_set_led": "設定LED燈1 [VALUE1] 燈2 [VALUE2] 燈3 [VALUE3] 燈4 [VALUE4]",
+    "block.ps3_set_rumble": "設定控制器震動強度 [VALUE1] 和震動時間(最大值5000ms) [VALUE2] ms",
+    "block.ps3_get_keys": "[PS3_KEYS] 被按下",
+    "block.ps3_get_axis": "取得 [HANDLE_AXIS] 值",
+    "block.ps3_get_sensor": "取得IMU [ACCEL] 值",
+    "menu.x-angle": "X軸角度",
+    "menu.y-angle": "Y軸角度",
+    "menu.on": "開",
+    "menu.off": "關",
+    "menu.right-horizontal": "右搖桿水平",
+    "menu.right-vertical": "右搖桿垂直",
+    "menu.left-horizontal": "左搖桿水平",
+    "menu.left-vertical": "左搖桿垂直"
+}

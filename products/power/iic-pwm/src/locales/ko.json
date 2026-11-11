@@ -1,0 +1,6 @@
+{
+    "product.name": "IIC-PWM 제어 모듈",
+    "block.aimecha_iicpwm_init": "IIC-PWM 모듈 IIC 포트 [PORT] 초기화하기",
+    "block.iicpwm_set_pos": "180° 서보 [NUM] 각도 [ANGLE] ° 동작 시간(ms) [TIME] 설정하기",
+    "block.iicpwm_set_speed": "모터 [NUM] 속도 [SPEED] 설정하기"
+}

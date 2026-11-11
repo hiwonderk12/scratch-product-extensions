@@ -1,0 +1,10 @@
+{
+    "product.name": "IMU sensor",
+    "menu.euler_element.0": "Z-axis rotation",
+    "menu.euler_element.1": "X-axis rotation",
+    "menu.euler_element.2": "Y-axis rotation",
+    "block.aimech_imu_init": "Initialize IMU sensor IIC port [PORT]",
+    "block.get_euler_angle_element_value": "Get Euler angle [VALUE]",
+    "block.get_euler_angle": "Get Euler angles",
+    "block.get_euler_angle_element": "[VALUE]"
+}

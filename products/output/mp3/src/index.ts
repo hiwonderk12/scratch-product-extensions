@@ -1,62 +1,15 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "MP3 模块",
-        "block.mp3_init": "初始化 MP3 模块接口 [IICPORT]",
-        "block.mp3_play_song_num": "MP3 模块播放第 [VALUE] 首歌曲",
-        "block.mp3_play_control": "MP3 模块 [PLAYSTATUS]",
-        "block.mp3_play_mode": "设置 MP3 播放模式 [PLAYMODE]",
-        "block.mp3_set_volume": "设置 MP3 音量 [VALUE]",
-        "menu.play.play": "播放",
-        "menu.play.pause": "暂停",
-        "menu.play.prev": "上一曲",
-        "menu.play.next": "下一曲",
-        "menu.mode.on": "单曲循环",
-        "menu.mode.off": "取消单曲循环"
-    },
-    "en": {
-        "product.name": "MP3 module",
-        "block.mp3_init": "Initialize MP3 module port [IICPORT]",
-        "block.mp3_play_song_num": "MP3 module play track [VALUE]",
-        "block.mp3_play_control": "MP3 module [PLAYSTATUS]",
-        "block.mp3_play_mode": "Set MP3 playback mode [PLAYMODE]",
-        "block.mp3_set_volume": "Set MP3 volume [VALUE]",
-        "menu.play.play": "play",
-        "menu.play.pause": "pause",
-        "menu.play.prev": "previous track",
-        "menu.play.next": "next track",
-        "menu.mode.on": "repeat one",
-        "menu.mode.off": "disable repeat one"
-    },
-    "zh-tw": {
-        "product.name": "MP3 模組",
-        "block.mp3_init": "初始化 MP3 模組介面 [IICPORT]",
-        "block.mp3_play_song_num": "MP3 模組播放第 [VALUE] 首歌曲",
-        "block.mp3_play_control": "MP3 模組 [PLAYSTATUS]",
-        "block.mp3_play_mode": "設定 MP3 播放模式 [PLAYMODE]",
-        "block.mp3_set_volume": "設定 MP3 音量 [VALUE]",
-        "menu.play.play": "播放",
-        "menu.play.pause": "暫停",
-        "menu.play.prev": "上一首",
-        "menu.play.next": "下一首",
-        "menu.mode.on": "單曲循環",
-        "menu.mode.off": "取消單曲循環"
-    },
-    "ko": {
-        "product.name": "MP3 모듈",
-        "block.mp3_init": "MP3 모듈 포트 [IICPORT] 초기화하기",
-        "block.mp3_play_song_num": "MP3 모듈 트랙 [VALUE] 재생하기",
-        "block.mp3_play_control": "MP3 모듈 [PLAYSTATUS]",
-        "block.mp3_play_mode": "MP3 재생 모드를 [PLAYMODE] 로 설정하기",
-        "block.mp3_set_volume": "MP3 음량을 [VALUE] 로 설정하기",
-        "menu.play.play": "재생",
-        "menu.play.pause": "일시 정지",
-        "menu.play.prev": "이전 트랙",
-        "menu.play.next": "다음 트랙",
-        "menu.mode.on": "한 곡 반복",
-        "menu.mode.off": "한 곡 반복 해제"
-    }
+    "zh-cn": locale0,
+    "en": locale1,
+    "zh-tw": locale2,
+    "ko": locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

@@ -1,0 +1,7 @@
+{
+    "product.name": "RGB 燈帶",
+    "block.rgb_color_set": "設定 RGB 燈帶介面 [PORT] 燈 [NUMS] 紅 [RED] 綠 [GREEN] 藍 [BLUE]",
+    "block.led_color_select": "設定 RGB 燈帶介面 [PORT] 燈 [NUMS] 顏色 [COLOR]",
+    "block.led_close": "關閉 RGB 燈帶介面 [PORT] 燈 [NUMS]",
+    "menu.nums.all": "全部"
+}

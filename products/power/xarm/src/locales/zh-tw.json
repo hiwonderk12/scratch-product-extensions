@@ -1,0 +1,13 @@
+{
+    "product.name": "AI機甲機械臂",
+    "group.arm": "機械臂",
+    "block.aimech_set_arm_id": "將機械臂舵機ID設定為 [SERVO]",
+    "block.aimech_set_claw_id": "將機械爪舵機ID設定為 [SERVO]",
+    "block.aimech_servo_enable": "將 [ARM] 舵機上電",
+    "block.aimech_servo_disable": "將 [ARM] 舵機斷電",
+    "block.aimech_set_servo_pose_time": "設定 [ARM] 舵機位置(0~1000) [POS] 運行時間 [TIME] ms",
+    "block.aimech_get_angle": "取得 [ARM] 舵機位置",
+    "block.aimech_set_servo_stop": "停止舵機 [ARM] 運行",
+    "menu.arm.0": "機械臂",
+    "menu.arm.1": "機械爪"
+}

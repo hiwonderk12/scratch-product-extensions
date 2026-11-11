@@ -1,0 +1,5 @@
+{
+    "product.name": "IIC 팬",
+    "block.aiblocks_fan_iic_set_module_speed": "IIC 팬 포트 [PORT] 속도를 [SPEED] 로 설정하기",
+    "block.aimech_fan_iic_set_module_speed": "팬 포트 [PORT] 속도를 [SPEED] 로 설정하기"
+}

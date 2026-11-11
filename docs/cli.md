@@ -34,8 +34,8 @@ node tools/cli/index.mjs pack ./docs/examples/handwritten-text --output ./dist/h
 | - | - |
 | `new product <id> --spec 文件` | 创建 `products/robots/<id>` 主控包骨架，不注册主控支持配置 |
 | `new module <id> --category <分类> --spec 文件` | 创建 input/output/power/communication 中的独立模块包 |
-| `generate block <分类/id> <opcode> --type <类型> --spec 文件` | 同一 index 内定点增加文案、声明、参数和内联 Python |
-| `generate menu <分类/id> <名称> --spec 文件` | 同一 index 内定点增加四语显示文字和固定菜单值 |
+| `generate block <分类/id> <opcode> --type <类型> --spec 文件` | 在 index 定点增加声明、参数和内联 Python，同步编辑对应语言文件或旧内联文案 |
+| `generate menu <分类/id> <名称> --spec 文件` | 定点增加菜单值，四语显示文字写入对应语言文件或旧内联表 |
 | `g` | `generate` 短别名 |
 | 上述命令的 `--dry-run` | 只列出拟改文件/字段，不写源码、索引、支持或临时文件 |
 | `check [分类/id]` | 不带模块检查结构/支持关系/索引；指定模块则标准 TS 编译并检查集中 i18n/资源 |
@@ -61,7 +61,7 @@ npm run ext -- check input/lesson-demo
 node --test products/input/lesson-demo/test/smoke.mjs
 ```
 
-每个新包只有 `metadata.json`、`src/index.ts`、`test/smoke.mjs` 和 `docs/README.md`。骨架内提供文本输出的通用示例，不伪造硬件读数；没有空 python/assets 目录，不为每个 opcode 拆文件。主控骨架示例：`npm run ext -- new product lesson-board --spec docs/examples/module.json --dry-run`。
+每个新包包含 `metadata.json`、`src/index.ts`、四份 `src/locales/{zh-cn,en,zh-tw,ko}.json`、`test/smoke.mjs` 和 `docs/README.md`，共8个文件。骨架内提供文本输出的通用示例，不伪造硬件读数；没有空 python/assets 目录，不为每个 opcode 拆文件。主控骨架示例：`npm run ext -- new product lesson-board --spec docs/examples/module.json --dry-run`。
 
 ### 规格文件不是第二套作者源
 
@@ -69,7 +69,7 @@ node --test products/input/lesson-demo/test/smoke.mjs
 
 block 规格包括 `text`、可选 `arguments`、`python`：
 
-- `text` 对应目标 index 中的语言表；当前现有包均四语，翻译参数占位符须与中文一致。新包默认四语，生成器不自动机翻。
+- `text` 写入目标产品对应的语言JSON，旧内联表仍可编辑；当前现有包均四语，翻译参数占位符须与中文一致。新包默认四语，生成器不自动机翻。
 - 参数名使用大写，需与 `[VALUE]`、`{VALUE}` 一致；本批生成器支持 string/number/boolean，必须提供默认值。可提供 `menu` 引用**已存在**的菜单及布尔 `literal`。
 - `--type` 仅 command/reporter/boolean；小写 boolean 输入生成标准 `blockType: 'Boolean'`，参数规格的 boolean 也生成 `type: 'Boolean'`。`python.template` 必须是非空实现，可提供字符串数组 imports/variables/setups。复杂选择器、事件、独立资源或自定义控件继续手工在 index 声明，不能塞空模板。
 - 生成前检查完整类型归属，不能在共享 namespace 中添加其他模块已占用的 opcode。已有 opcode、参数名、菜单 value 不随界面语言改变。
@@ -107,6 +107,8 @@ npm run ext -- pack-set aimech output/hello-text --output dist/hello-text-demo
 ## 自动生成的边界
 
 AST 插入只支持唯一默认导出类、getInfo/getPython 各自直接返回对象、blocks 直接数组及普通 messages 对象。含 variant 分支、多命名空间、动态数组/展开的复杂包会拒绝自动生成并提示手工维护，而不是猜某一分支或重排整份文件。未知字段/非Python目标也会拒绝；C 等目标尚未实现。
+
+`messages` 支持内联语言表，也支持[相邻 JSON 语言目录](native-api.md#集中-i18n-配置)。目录形式的普通类生成积木／菜单时，同时规划入口与各语言文件的修改；dry-run 不落盘，文件在计划后变化则拒绝写入，中途写入失败回滚已修改文件。现有产品及新建骨架统一使用语言目录，旧内联格式保留兼容；迁入目录后不在入口保留第二份译文。WonderMind 含适配检查，仍须手工维护业务类。
 
 `test/smoke.mjs` 只编译并执行**可信本地作者类**的通用示例，不执行 Python 或硬件。Node vm 不是安全沙箱，不对不可信源码使用此冒烟。CLI检查/作者冒烟不能代替应用内原生加载、控件、四语、完整Python、上传门禁或SB3恢复测试；这些必须在配套软件中验证。`npm test` 运行CLI自身回归，不测试所有产品硬件。
 

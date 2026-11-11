@@ -1,0 +1,7 @@
+{
+    "product.name": "旋鈕四路循線感測器",
+    "block.linefollower4_init": "初始化旋鈕四路循線感測器 IIC 介面 [PORT]",
+    "block.linefollower4_one_status": "四路循線感測器通道 [NUM] 辨識到 [LINE]",
+    "block.linefollower4_status_result": "四路循線感測器通道辨識到 [VALUE]",
+    "block.linefollower4_read_offset": "取得四路循線感測器偏差值"
+}

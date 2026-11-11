@@ -1,0 +1,21 @@
+{
+    "product.name": "通信模块",
+    "group.ps3": "PS3手柄",
+    "block.ps3_init": "初始化手柄，MAC地址 [STR]",
+    "block.ps3_get_address": "获取mac地址",
+    "block.ps3_disconnect": "断开连接",
+    "block.ps3_is_connected": "是否连接成功？",
+    "block.ps3_set_led": "设置LED灯1 [VALUE1] 灯2 [VALUE2] 灯3 [VALUE3] 灯4 [VALUE4]",
+    "block.ps3_set_rumble": "设置手柄震动强度 [VALUE1] 和震动时间(最大值5000ms) [VALUE2] ms",
+    "block.ps3_get_keys": "[PS3_KEYS] 被按下",
+    "block.ps3_get_axis": "获取 [HANDLE_AXIS] 值",
+    "block.ps3_get_sensor": "获取imu [ACCEL] 值",
+    "menu.x-angle": "X轴角度",
+    "menu.y-angle": "Y轴角度",
+    "menu.on": "开",
+    "menu.off": "关",
+    "menu.right-horizontal": "右舵水平",
+    "menu.right-vertical": "右舵垂直",
+    "menu.left-horizontal": "左舵水平",
+    "menu.left-vertical": "左舵垂直"
+}

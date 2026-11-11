@@ -262,6 +262,17 @@ defaultPort(opcode, argument, namespace?) 的第三参数可指定当前分支�
 
 `product.name` 和可选 `product.description` 保存文案 key，`supportedLocales` 声明已覆盖的语言。卡片与工具箱默认使用同一个名称 key。编译工具静态读取字面量配置，生成 `extension.json` 的多语言 name/description/supportedLocales；作者不在 `metadata.json` 重复维护名称、简介或译文，也不向 catalog 添加文字表。未声明的可选语言允许保留部分译文。
 
+现有46个产品及新建CLI骨架的译文统一放入入口旁的 `src/locales/<语言代码>.json`，每个文件是稳定 key 到非空字符串的普通 JSON 对象。旧内联表仍可读取和编辑。入口使用默认导入，并在 `messages` 中显式绑定同名语言：
+
+```ts
+import zhCN from './locales/zh-cn.json';
+import english from './locales/en.json';
+export const messages = {'zh-cn': zhCN, en: english} as const;
+export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en']} as const;
+```
+
+`check`／`pack` 静态校验后将 JSON 文案合入唯一的 `index.cjs`，不增加宿主运行依赖或 `require`。只支持 `./locales/<语言代码>.json` 默认导入；导入标识只用于 `messages` 的对应属性，不用于其他业务代码，不支持展开或简写属性。文件需位于产品目录内，拒绝越界、重复 key、缺译文和占位符不一致。旧内联表继续支持；独立作者 ZIP 同时保留入口和引用的 JSON 源文件。WonderMind 提供完整四语目录示例。
+
 `check <模块>` 在标准编译前检查以下内容，并报告源码路径、文案 key 和语言：
 
 - `messages['zh-cn']` 定义全部 key，文案非空，调用 key 必须存在。
@@ -269,11 +280,11 @@ defaultPort(opcode, argument, namespace?) 的第三参数可指定当前分支�
 - `supportedLocales` 包含 `zh-cn`；声明的每种语言覆盖全部 key，不能用中文回退冒充完整支持。
 - 所有译文的 `[PORT]` 等占位符名称和次数与中文一致，可调整顺序。
 - 语言代码采用小写连字符，如 `zh-cn`、`zh-tw`、`en`、`ko`；拒绝重复属性或非规范写法。
-- 导出配置使用 const 字面量，不使用展开、动态计算或导入运行时代码；`t()` 参数是字符串 key 或 `product.name/description`。
+- 导出配置使用 const 字面量或上述静态 JSON 语言引用，不使用展开、动态计算或导入运行时代码；`t()` 参数是字符串 key 或 `product.name/description`。
 
 运行时容忍语言请求的大小写和下划线，按精确代码、简繁别名、基础语言、中文兜底选择。`zh-Hant`/`zh-HK`/`zh-MO` 使用已有 `zh-tw`，`zh-Hans`/`zh-SG` 使用 `zh-cn`；显式脚本优先于地区，精确地区译文优先于别名。不自动生成或转换译文。
 
-文案在每次 `getInfo()` 时解析。语言切换走客户端现有 VM 刷新链路，不重新加载包；参数、菜单实际值、旧作品和 Python 不随语言变化。新增普通积木主要在本文件添加中文 key、getInfo 声明和 getPython 规则，并按需补译文。
+文案在每次 `getInfo()` 时解析。语言切换走客户端现有 VM 刷新链路，不重新加载包；参数、菜单实际值、旧作品和 Python 不随语言变化。新增普通积木在入口添加 getInfo 声明和 getPython 规则，在对应语言 JSON 中添加稳定 key 和四语译文。
 
 兼容已保存作品时可以声明 `hideFromPalette: true` 的旧积木：它只从工具箱隐藏，仍须保留 opcode、参数、菜单 shadow 和 getPython 规则。主控专用入口可以与隐藏旧别名共用生成规则；不要通过删旧类型或猜测重映射引脚完成适配。共享菜单的 text/value/顺序和 acceptReporters 必须一致，对象属性的书写顺序不应影响共存。
 
@@ -283,7 +294,7 @@ defaultPort(opcode, argument, namespace?) 的第三参数可指定当前分支�
 
 ExtensionInfo.blocks 支持 ExtensionBlock 与 ExtensionSubcategory 两种声明。普通产品使用仅含 subCategory 的内联标题；独立层级导航只用于有对应交互设计的产品，不自动把所有标题变成侧栏分类。
 
-WonderLens 使用下面的根/子分类声明，文字取自同文件集中 messages：
+WonderLens 使用下面的根/子分类声明，文字通过 messages 引用相邻语言 JSON：
 
 ```ts
 const categories = [

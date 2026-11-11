@@ -1,0 +1,8 @@
+{
+    "product.name": "AI机甲串联机械臂",
+    "group.arm": "AI机甲串联机械臂",
+    "block.aimech_3dof_arm_init": "初始化 [ARM] 参数 大臂长度 [VALUE1] 小臂长度 [VALUE2] 小臂偏移 [VALUE3] 末端长度 [VALUE4]",
+    "block.aimech_3dof_arm_move": "控制机械臂运动到 Y轴(前后方向) [VALUE1] 毫米, Z轴(上下方向) [VALUE2] 毫米, 末端的姿态角度(抬头是正, 低头是负) [VALUE3] 度, 运动时长 [VALUE4] 毫秒",
+    "menu.arm_3dof.0": "短机械臂",
+    "menu.arm_3dof.1": "长机械臂"
+}

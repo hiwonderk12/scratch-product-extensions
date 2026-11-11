@@ -1,5 +1,7 @@
 # 外接 IMU 传感器维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要维护 `src/index.ts` 的 class/getInfo、集中中英繁韩 messages、菜单及 getPython。元数据和图标分别在 `metadata.json`、`assets/acceleration.svg`。namespace 保持 sensor，不改已有四个 opcode。
 
 ## 驱动与对象隔离

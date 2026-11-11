@@ -1,0 +1,4 @@
+{
+    "product.name": "조도 센서",
+    "block.aimech_read_light": "포트 [PORT] 조도 아날로그 값(0~100)"
+}

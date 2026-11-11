@@ -1,5 +1,7 @@
 # 普通超声波传感器维护说明
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要作者入口 `src/index.ts` 集中维护原生类、四语 messages、端口菜单和 Python。包身份在 `metadata.json`，图标在 `assets/ultra.svg`。不要与 LED 超声波模块合包；两者有不同驱动与初始化合同。
 
 ## 支持边界与旧接口

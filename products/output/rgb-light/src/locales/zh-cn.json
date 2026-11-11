@@ -1,0 +1,7 @@
+{
+    "product.name": "RGB 灯带",
+    "block.rgb_color_set": "设置 RGB 灯带接口 [PORT] 灯 [NUMS] 红 [RED] 绿 [GREEN] 蓝 [BLUE]",
+    "block.led_color_select": "设置 RGB 灯带接口 [PORT] 灯 [NUMS] 颜色 [COLOR]",
+    "block.led_close": "关闭 RGB 灯带接口 [PORT] 灯 [NUMS]",
+    "menu.nums.all": "全部"
+}

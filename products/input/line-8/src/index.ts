@@ -1,35 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 单入口维护巡线积木、集中四语、菜单和 Python；通道编号与位掩码保持不同语义。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "八路灰度巡线传感器",
-        "block.linefollower8_init": "初始化八路灰度巡线传感器IIC接口 [PORT]",
-        "block.linefollower8_one_status": "八路灰度巡线传感器通道 [NUM] 检测到 [LINE]",
-        "block.linefollower8_status": "八路灰度巡线传感器通道检测到 [LINE]",
-        "block.linefollower8_get_value": "八路灰度巡线传感器通道 [NUM] 灰度值"
-    },
-    en: {
-        "product.name": "8-channel grayscale line follower sensor",
-        "block.linefollower8_init": "Initialize 8-channel grayscale line follower IIC port [PORT]",
-        "block.linefollower8_one_status": "8-channel grayscale line follower channel [NUM] detects [LINE]",
-        "block.linefollower8_status": "8-channel grayscale line follower channels detect [LINE]",
-        "block.linefollower8_get_value": "8-channel grayscale line follower channel [NUM] grayscale"
-    },
-    "zh-tw": {
-        "product.name": "八路灰階循線感測器",
-        "block.linefollower8_init": "初始化八路灰階循線感測器 IIC 介面 [PORT]",
-        "block.linefollower8_one_status": "八路灰階循線感測器通道 [NUM] 偵測到 [LINE]",
-        "block.linefollower8_status": "八路灰階循線感測器通道偵測到 [LINE]",
-        "block.linefollower8_get_value": "八路灰階循線感測器通道 [NUM] 灰階值"
-    },
-    ko: {
-        "product.name": "8채널 그레이스케일 라인 추적 센서",
-        "block.linefollower8_init": "8채널 그레이스케일 라인 추적 센서 IIC 포트 [PORT] 초기화",
-        "block.linefollower8_one_status": "8채널 그레이스케일 라인 추적 센서 채널 [NUM] 에서 [LINE] 감지",
-        "block.linefollower8_status": "8채널 그레이스케일 라인 추적 센서 채널 상태 [LINE] 감지",
-        "block.linefollower8_get_value": "8채널 그레이스케일 라인 추적 센서 채널 [NUM] 그레이스케일 값"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

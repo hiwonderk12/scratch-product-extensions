@@ -9,11 +9,15 @@ const createModuleFiles = ({moduleId, namespace, name, description}) => {
         ...(description ? {'product.description': description[locale]} : {}),
         ['block.' + opcode]: texts[index]
     }]));
+    const localeNames = ['locale0', 'en', 'locale2', 'ko'];
     const product = {name: 'product.name', ...(description ? {description: 'product.description'} : {}), supportedLocales: locales};
     const source = `import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
+${locales.map((locale, index) => `import ${localeNames[index]} from './locales/${locale}.json';`).join('\n')}
 
-// 产品声明、四语和 Python 规则在本文件维护；示例只输出文本，不连接硬件。
-export const messages = ${JSON.stringify(messages, null, 4)} as const;
+// 产品声明和 Python 规则在本文件维护，译文放在相邻 locales；示例只输出文本。
+export const messages = {
+${locales.map((locale, index) => `    ${JSON.stringify(locale)}: ${localeNames[index]}`).join(',\n')}
+} as const;
 
 export const product = ${JSON.stringify(product, null, 4)} as const;
 
@@ -68,7 +72,7 @@ test('产品类与 Python 示例可加载', () => {
 `;
     const guide = [
         '# ' + name['zh-cn'], '',
-        '主要维护 `src/index.ts` 中的产品类、集中四语、菜单和内联 Python。',
+        '在 `src/index.ts` 维护产品类、菜单和内联 Python，在相邻 `src/locales/*.json` 维护四语。',
         '当前仅有输出文本的通用示例，不代表该产品固件或传感器接口已实现。', '',
         '- 编译检查：`npm run ext -- check ' + moduleId + '`。',
         '- 作者冒烟：`node --test products/' + moduleId + '/test/smoke.mjs`，只执行可信本地源码，不是安全沙箱或应用内预览。',
@@ -82,6 +86,7 @@ test('产品类与 Python 示例可加载', () => {
         'metadata.json': JSON.stringify({id, format: 'hiwonder-native-extension', formatVersion: 1,
             version: '0.1.0', apiVersion: 1, namespace, mode: 'python', source: 'src/index.ts', entry: 'index.cjs', legacySources: []}, null, 2) + '\n',
         'src/index.ts': source,
+        ...Object.fromEntries(locales.map(locale => [`src/locales/${locale}.json`, JSON.stringify(messages[locale], null, 4) + '\n'])),
         'test/smoke.mjs': smoke,
         'docs/README.md': guide
     };

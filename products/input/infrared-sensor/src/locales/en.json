@@ -1,0 +1,4 @@
+{
+    "product.name": "Infrared obstacle sensor",
+    "block.aimech_get_avoid_value": "Port [PORT] infrared sensor detects an obstacle?"
+}

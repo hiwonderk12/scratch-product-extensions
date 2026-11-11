@@ -1,0 +1,4 @@
+{
+    "product.name": "Rain sensor",
+    "block.aimech_get_rain_drop_value": "Port [PORT] rain analog value (0~100)"
+}

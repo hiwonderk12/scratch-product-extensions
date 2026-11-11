@@ -1,0 +1,13 @@
+{
+    "product.name": "颜色识别模块",
+    "menu.aiblocks_colors.0": "红",
+    "menu.aiblocks_colors.1": "绿",
+    "menu.aiblocks_colors.2": "蓝",
+    "menu.aiblocks_colors2.0": "红",
+    "menu.aiblocks_colors2.1": "绿",
+    "menu.aiblocks_colors2.2": "蓝",
+    "block.aimech_colorsensor_init": "初始化颜色传感器IIC接口 [PORT]",
+    "block.aiblocks_check_color": "检测到 [COLOR]",
+    "block.aiblocks_get_color": "获取颜色值",
+    "block.aiblocks_get_color_arg": "颜色值 [NUM] 的 [COLOR] 色值"
+}

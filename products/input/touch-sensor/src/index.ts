@@ -1,23 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
 
 // 模块积木、菜单、集中四语文案和 Python 规则只在本文件维护。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "触摸传感器",
-        "block.aimech_read_touch": "接口 [PORT] 触摸传感器被触碰?"
-    },
-    en: {
-        "product.name": "Touch sensor",
-        "block.aimech_read_touch": "Port [PORT] touch sensor touched?"
-    },
-    "zh-tw": {
-        "product.name": "觸摸感測器",
-        "block.aimech_read_touch": "介面 [PORT] 觸摸感測器被觸碰？"
-    },
-    ko: {
-        "product.name": "터치 센서",
-        "block.aimech_read_touch": "포트 [PORT] 터치 센서가 감지되었는가?"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

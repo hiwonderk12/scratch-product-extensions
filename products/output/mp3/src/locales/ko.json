@@ -1,0 +1,14 @@
+{
+    "product.name": "MP3 모듈",
+    "block.mp3_init": "MP3 모듈 포트 [IICPORT] 초기화하기",
+    "block.mp3_play_song_num": "MP3 모듈 트랙 [VALUE] 재생하기",
+    "block.mp3_play_control": "MP3 모듈 [PLAYSTATUS]",
+    "block.mp3_play_mode": "MP3 재생 모드를 [PLAYMODE] 로 설정하기",
+    "block.mp3_set_volume": "MP3 음량을 [VALUE] 로 설정하기",
+    "menu.play.play": "재생",
+    "menu.play.pause": "일시 정지",
+    "menu.play.prev": "이전 트랙",
+    "menu.play.next": "다음 트랙",
+    "menu.mode.on": "한 곡 반복",
+    "menu.mode.off": "한 곡 반복 해제"
+}

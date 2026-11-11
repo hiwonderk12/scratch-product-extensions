@@ -1,59 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 本模块在同一入口维护积木、菜单、集中四语和 Python 生成规则。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "颜色识别模块",
-        "menu.aiblocks_colors.0": "红",
-        "menu.aiblocks_colors.1": "绿",
-        "menu.aiblocks_colors.2": "蓝",
-        "menu.aiblocks_colors2.0": "红",
-        "menu.aiblocks_colors2.1": "绿",
-        "menu.aiblocks_colors2.2": "蓝",
-        "block.aimech_colorsensor_init": "初始化颜色传感器IIC接口 [PORT]",
-        "block.aiblocks_check_color": "检测到 [COLOR]",
-        "block.aiblocks_get_color": "获取颜色值",
-        "block.aiblocks_get_color_arg": "颜色值 [NUM] 的 [COLOR] 色值"
-    },
-    en: {
-        "product.name": "Color recognition module",
-        "menu.aiblocks_colors.0": "Red",
-        "menu.aiblocks_colors.1": "Green",
-        "menu.aiblocks_colors.2": "Blue",
-        "menu.aiblocks_colors2.0": "Red",
-        "menu.aiblocks_colors2.1": "Green",
-        "menu.aiblocks_colors2.2": "Blue",
-        "block.aimech_colorsensor_init": "Initialize color sensor IIC port [PORT]",
-        "block.aiblocks_check_color": "Color [COLOR] detected",
-        "block.aiblocks_get_color": "Get color values",
-        "block.aiblocks_get_color_arg": "[COLOR] channel of color values [NUM]"
-    },
-    "zh-tw": {
-        "product.name": "顏色辨識模組",
-        "menu.aiblocks_colors.0": "紅",
-        "menu.aiblocks_colors.1": "綠",
-        "menu.aiblocks_colors.2": "藍",
-        "menu.aiblocks_colors2.0": "紅",
-        "menu.aiblocks_colors2.1": "綠",
-        "menu.aiblocks_colors2.2": "藍",
-        "block.aimech_colorsensor_init": "初始化顏色感測器 IIC 介面 [PORT]",
-        "block.aiblocks_check_color": "偵測到 [COLOR]",
-        "block.aiblocks_get_color": "取得顏色值",
-        "block.aiblocks_get_color_arg": "顏色值 [NUM] 的 [COLOR] 色值"
-    },
-    ko: {
-        "product.name": "색상 인식 모듈",
-        "menu.aiblocks_colors.0": "빨강",
-        "menu.aiblocks_colors.1": "초록",
-        "menu.aiblocks_colors.2": "파랑",
-        "menu.aiblocks_colors2.0": "빨강",
-        "menu.aiblocks_colors2.1": "초록",
-        "menu.aiblocks_colors2.2": "파랑",
-        "block.aimech_colorsensor_init": "색상 센서 IIC 포트 [PORT] 초기화",
-        "block.aiblocks_check_color": "[COLOR] 색상 감지",
-        "block.aiblocks_get_color": "색상 값 읽기",
-        "block.aiblocks_get_color_arg": "색상 값 [NUM] 의 [COLOR] 채널"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

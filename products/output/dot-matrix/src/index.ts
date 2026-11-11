@@ -1,58 +1,15 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "点阵屏",
-        "block.brightness": "设置点阵屏接口 [PORT] 亮度 [BRIGHT] (1-8)",
-        "block.number": "点阵屏接口 [PORT] 显示数字 [DATA]",
-        "block.text": "点阵屏接口 [PORT] 位置 x [XPOS] y [YPOS] 显示字符串 [STR] [SCROLL]",
-        "block.pixel": "点阵屏接口 [PORT] 位置 x [XPOS] y [YPOS] [LEDSTATUS]",
-        "block.bitmap": "点阵屏接口 [PORT] 绘制 [MATRIX]",
-        "block.clear": "点阵屏接口 [PORT] 清空显示",
-        "menu.pixel.on": "点亮",
-        "menu.pixel.off": "熄灭",
-        "menu.scroll.no": "不滚动",
-        "menu.scroll.yes": "滚动"
-    },
-    "en": {
-        "product.name": "LED matrix",
-        "block.brightness": "Set LED matrix port [PORT] brightness [BRIGHT] (1-8)",
-        "block.number": "LED matrix port [PORT] show number [DATA]",
-        "block.text": "LED matrix port [PORT] at x [XPOS] y [YPOS] show text [STR] [SCROLL]",
-        "block.pixel": "LED matrix port [PORT] pixel x [XPOS] y [YPOS] [LEDSTATUS]",
-        "block.bitmap": "LED matrix port [PORT] draw [MATRIX]",
-        "block.clear": "LED matrix port [PORT] clear display",
-        "menu.pixel.on": "on",
-        "menu.pixel.off": "off",
-        "menu.scroll.no": "no scrolling",
-        "menu.scroll.yes": "scroll"
-    },
-    "zh-tw": {
-        "product.name": "點陣屏",
-        "block.brightness": "設定點陣屏介面 [PORT] 亮度 [BRIGHT] (1-8)",
-        "block.number": "點陣屏介面 [PORT] 顯示數字 [DATA]",
-        "block.text": "點陣屏介面 [PORT] 位置 x [XPOS] y [YPOS] 顯示字串 [STR] [SCROLL]",
-        "block.pixel": "點陣屏介面 [PORT] 位置 x [XPOS] y [YPOS] [LEDSTATUS]",
-        "block.bitmap": "點陣屏介面 [PORT] 繪製 [MATRIX]",
-        "block.clear": "點陣屏介面 [PORT] 清空顯示",
-        "menu.pixel.on": "點亮",
-        "menu.pixel.off": "熄滅",
-        "menu.scroll.no": "不捲動",
-        "menu.scroll.yes": "捲動"
-    },
-    "ko": {
-        "product.name": "LED 매트릭스",
-        "block.brightness": "LED 매트릭스 포트 [PORT] 밝기를 [BRIGHT] (1-8) 로 설정하기",
-        "block.number": "LED 매트릭스 포트 [PORT] 에 숫자 [DATA] 표시하기",
-        "block.text": "LED 매트릭스 포트 [PORT] x [XPOS] y [YPOS] 에 텍스트 [STR] 표시하기 [SCROLL]",
-        "block.pixel": "LED 매트릭스 포트 [PORT] x [XPOS] y [YPOS] 픽셀 [LEDSTATUS]",
-        "block.bitmap": "LED 매트릭스 포트 [PORT] 에 [MATRIX] 그리기",
-        "block.clear": "LED 매트릭스 포트 [PORT] 화면 지우기",
-        "menu.pixel.on": "켜기",
-        "menu.pixel.off": "끄기",
-        "menu.scroll.no": "스크롤 안 함",
-        "menu.scroll.yes": "스크롤"
-    }
+    "zh-cn": locale0,
+    "en": locale1,
+    "zh-tw": locale2,
+    "ko": locale3
 } as const;
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;

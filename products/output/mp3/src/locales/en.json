@@ -1,0 +1,14 @@
+{
+    "product.name": "MP3 module",
+    "block.mp3_init": "Initialize MP3 module port [IICPORT]",
+    "block.mp3_play_song_num": "MP3 module play track [VALUE]",
+    "block.mp3_play_control": "MP3 module [PLAYSTATUS]",
+    "block.mp3_play_mode": "Set MP3 playback mode [PLAYMODE]",
+    "block.mp3_set_volume": "Set MP3 volume [VALUE]",
+    "menu.play.play": "play",
+    "menu.play.pause": "pause",
+    "menu.play.prev": "previous track",
+    "menu.play.next": "next track",
+    "menu.mode.on": "repeat one",
+    "menu.mode.off": "disable repeat one"
+}

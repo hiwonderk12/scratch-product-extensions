@@ -1,0 +1,10 @@
+{
+    "product.name": "IMU 센서",
+    "menu.euler_element.0": "Z축 회전각",
+    "menu.euler_element.1": "X축 회전각",
+    "menu.euler_element.2": "Y축 회전각",
+    "block.aimech_imu_init": "IMU 센서 IIC 포트 [PORT] 초기화",
+    "block.get_euler_angle_element_value": "오일러 각 [VALUE] 읽기",
+    "block.get_euler_angle": "오일러 각 읽기",
+    "block.get_euler_angle_element": "[VALUE]"
+}

@@ -1,0 +1,15 @@
+{
+    "product.name": "RGB 모듈",
+    "block.aimech_rgb_module_color_set": "포트 [PORT] RGB 모듈 빨강 [RED] 초록 [GREEN] 파랑 [BLUE] 설정",
+    "block.aimech_rgb_module_color_select": "포트 [PORT] RGB 모듈 색상 [COLOR] 설정",
+    "block.aimech_rgb_module_breath_one": "포트 [PORT] RGB 모듈 숨쉬기 모드 색상 [COLOR] 주기(0.5~20) [CYCLE] 초 설정",
+    "block.aimech_rgb_module_breath": "포트 [PORT] RGB 모듈 무지개 모드 설정",
+    "block.aimech_rgb_module_close": "포트 [PORT] RGB 모듈 끄기",
+    "menu.light_colors.0": "빨강",
+    "menu.light_colors.1": "초록",
+    "menu.light_colors.2": "파랑",
+    "menu.light_colors.3": "노랑",
+    "menu.light_colors.4": "보라",
+    "menu.light_colors.5": "청록",
+    "menu.light_colors.6": "하양"
+}

@@ -1,0 +1,7 @@
+{
+    "product.name": "RGB strip",
+    "block.rgb_color_set": "Set RGB strip port [PORT] LED [NUMS] red [RED] green [GREEN] blue [BLUE]",
+    "block.led_color_select": "Set RGB strip port [PORT] LED [NUMS] color [COLOR]",
+    "block.led_close": "Turn off RGB strip port [PORT] LED [NUMS]",
+    "menu.nums.all": "all"
+}

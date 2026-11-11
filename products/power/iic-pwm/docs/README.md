@@ -1,6 +1,8 @@
 # IIC 转 PWM 控制模块
 
-主要维护 src/index.ts：原生类、集中四语 messages 和内联 getPython。模块不需要图片或独立 Python 目录，无实际资源时不要创建空目录。通用规范见[原生 API](../../../../docs/native-api.md)。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+主要维护 src/index.ts：原生类、messages 四语绑定 和内联 getPython。模块不需要图片或独立 Python 目录，无实际资源时不要创建空目录。通用规范见[原生 API](../../../../docs/native-api.md)。
 
 ## 初始化与端口
 

@@ -5,9 +5,11 @@ import test from 'node:test';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import ts from 'typescript';
+import vm from 'node:vm';
 import JSZip from 'jszip';
 import {applyAuthoringPlan, planAuthoringCommand} from './authoring.mjs';
-import {collectNativeModule, createNativeArchive} from './native-package.mjs';
+import {collectNativeModule, collectStandaloneExtension, createNativeArchive} from './native-package.mjs';
+import {prepareNativeLocales} from './authoring-locales.mjs';
 
 const repository = fileURLToPath(new URL('../../', import.meta.url));
 const names = {'zh-cn': '演示模块', en: 'Demo module', 'zh-tw': '示範模組', ko: '데모 모듈'};
@@ -25,7 +27,7 @@ const fixture = context => {
         fs.writeFileSync(filename, JSON.stringify(value, null, 2) + '\n');
         return filename;
     };
-    for (const relative of ['tools/sdk/index.d.ts', 'tools/cli/native-package.mjs', 'tools/cli/authoring-config.mjs']) {
+    for (const relative of ['tools/sdk/index.d.ts', 'tools/cli/native-package.mjs', 'tools/cli/authoring-config.mjs', 'tools/cli/authoring-locales.mjs']) {
         fs.mkdirSync(path.dirname(path.join(root, relative)), {recursive: true});
         fs.copyFileSync(path.join(repository, relative), path.join(root, relative));
     }
@@ -43,12 +45,140 @@ const fixture = context => {
     return {root, write, specification, create};
 };
 
+// 新建夹具使用真实骨架的相邻语言目录，验证编译与多文件编辑合同。
+const localizedFixture = context => {
+    const fixtureValue = fixture(context);
+    const file = fixtureValue.create();
+    const filename = path.join(fixtureValue.root, file);
+    return {...fixtureValue, filename};
+};
+
+test('every registered product uses four adjacent language catalogs', () => {
+    const inventory = JSON.parse(fs.readFileSync(path.join(repository, 'library/modules.json'), 'utf8')).modules;
+    for (const {moduleId} of inventory) {
+        const directory = path.join(repository, 'products', moduleId);
+        const metadata = JSON.parse(fs.readFileSync(path.join(directory, 'metadata.json'), 'utf8'));
+        const filename = path.join(directory, metadata.source);
+        const source = ts.createSourceFile(filename, fs.readFileSync(filename, 'utf8'), ts.ScriptTarget.Latest, true);
+        const {catalogs} = prepareNativeLocales(source, ts,
+            relative => fs.readFileSync(path.resolve(path.dirname(filename), relative), 'utf8'));
+        assert.deepEqual([...catalogs.keys()].sort(), ['en', 'ko', 'zh-cn', 'zh-tw'], moduleId);
+    }
+});
+
+test('inline author catalogs remain editable and self-contained', context => {
+    const {root, filename, write} = localizedFixture(context);
+    const before = fs.readFileSync(filename, 'utf8');
+    const source = ts.createSourceFile(filename, before, ts.ScriptTarget.Latest, true);
+    const prepared = prepareNativeLocales(source, ts,
+        relative => fs.readFileSync(path.resolve(path.dirname(filename), relative), 'utf8'));
+    fs.writeFileSync(filename, prepared.source.text);
+    const spec = write('block.json', blockSpec);
+    const plan = planAuthoringCommand(root, ['g', 'block', 'input/demo', 'double_value', '--type', 'reporter', '--spec', spec], ts);
+    assert.equal(plan.changes.length, 1);
+    applyAuthoringPlan(plan);
+    assert.match(collectNativeModule(root, 'input/demo', ts).files['index.cjs'], /Double \[VALUE\]/);
+});
+
+test('language directories compile to one self-contained entry and CLI edits the four catalogs', async context => {
+    const {root, filename, write} = localizedFixture(context);
+    const specification = write('block.json', blockSpec);
+    const plan = planAuthoringCommand(root, ['g', 'block', 'input/demo', 'double_value', '--type', 'reporter', '--spec', specification], ts);
+    assert.equal(plan.changes.length, 5);
+    applyAuthoringPlan(plan);
+    assert.match(fs.readFileSync(filename, 'utf8'), /import locale0 from '\.\/locales\/zh-cn.json'/);
+    const record = collectNativeModule(root, 'input/demo', ts);
+    const module = {exports: {}};
+    vm.runInNewContext(record.files['index.cjs'], {module, exports: module.exports});
+    for (const locale of Object.keys(names)) {
+        assert.equal(module.exports.messages[locale]['block.double_value'], blockSpec.text[locale]);
+        assert.equal(JSON.parse(fs.readFileSync(path.join(path.dirname(filename), 'locales', locale + '.json'), 'utf8'))['block.double_value'], blockSpec.text[locale]);
+    }
+    assert.doesNotMatch(record.files['index.cjs'], /require\(/);
+    const standalone = collectStandaloneExtension(path.join(root, 'products/input/demo'), ts);
+    const zip = await JSZip.loadAsync(await createNativeArchive(standalone, JSZip));
+    for (const locale of Object.keys(names)) {
+        assert.equal(await zip.file(`src/locales/${locale}.json`).async('string'),
+            fs.readFileSync(path.join(path.dirname(filename), 'locales', locale + '.json'), 'utf8'));
+    }
+    assert.equal(await zip.file('src/index.ts').async('string'), fs.readFileSync(filename, 'utf8'));
+});
+
+test('directory catalogs retain missing translation and placeholder validation', context => {
+    const {root, filename} = localizedFixture(context);
+    const english = path.join(path.dirname(filename), 'locales/en.json');
+    const catalog = JSON.parse(fs.readFileSync(english, 'utf8'));
+    catalog['block.demo_print_text'] = 'Print [WRONG]';
+    fs.writeFileSync(english, JSON.stringify(catalog));
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /占位符不一致/);
+    delete catalog['block.demo_print_text'];
+    fs.writeFileSync(english, JSON.stringify(catalog));
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /缺译文/);
+});
+
+test('catalog imports reject traversal and use outside messages', context => {
+    const {root, filename} = localizedFixture(context);
+    const source = fs.readFileSync(filename, 'utf8');
+    fs.writeFileSync(filename, source.replace('./locales/zh-cn.json', '../locales/zh-cn.json'));
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /语言.*路径/);
+    fs.writeFileSync(filename, source + '\nconst outside = locale0;\n');
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /只.*messages/);
+});
+
+test('directory catalog edits preserve dry-run and stale-plan protections', context => {
+    const {root, filename, write} = localizedFixture(context);
+    const spec = write('block.json', blockSpec);
+    const command = ['g', 'block', 'input/demo', 'double_value', '--type', 'reporter', '--spec', spec];
+    const dryRun = planAuthoringCommand(root, [...command, '--dry-run'], ts);
+    applyAuthoringPlan(dryRun);
+    for (const change of dryRun.changes) assert.equal(fs.readFileSync(path.join(root, change.file), 'utf8'), change.before);
+    const plan = planAuthoringCommand(root, command, ts);
+    const english = path.join(path.dirname(filename), 'locales/en.json');
+    fs.appendFileSync(english, '\n');
+    assert.throws(() => applyAuthoringPlan(plan), /计划后发生变化/);
+    assert.equal(fs.readFileSync(filename, 'utf8'), plan.changes[0].before);
+});
+
+test('directory menu generation rolls back all files after a partial write failure', context => {
+    const {root, write} = localizedFixture(context);
+    const spec = write('menu.json', {acceptReporters: false, items: [{value: '0', text: names}]});
+    const plan = planAuthoringCommand(root, ['g', 'menu', 'input/demo', 'mode', '--spec', spec], ts);
+    const rename = fs.renameSync;
+    context.mock.method(fs, 'renameSync', (from, to) => {
+        if (to.endsWith('en.json')) throw new Error('模拟译文提交失败');
+        return rename(from, to);
+    });
+    assert.throws(() => applyAuthoringPlan(plan), /模拟译文提交失败/);
+    for (const change of plan.changes) assert.equal(fs.readFileSync(path.join(root, change.file), 'utf8'), change.before);
+    assert.equal(fs.readdirSync(path.join(root, 'products/input/demo/src/locales')).some(name => name.endsWith('.tmp')), false);
+});
+
+test('directory catalogs reject duplicate keys, mismatched locale and redirected directories', context => {
+    const {root, filename, write} = localizedFixture(context);
+    const english = path.join(path.dirname(filename), 'locales/en.json');
+    const before = fs.readFileSync(english, 'utf8');
+    fs.writeFileSync(english, before.replace('{', '{"product.name": "duplicate",'));
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /属性重复/);
+    fs.writeFileSync(english, before);
+    const source = fs.readFileSync(filename, 'utf8');
+    fs.writeFileSync(filename, source.replace('"en": en', '"xx": en'));
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /文件名一致/);
+    fs.writeFileSync(filename, source);
+    const directory = path.join(path.dirname(filename), 'locales');
+    const destination = path.join(root, 'outside-locales');
+    fs.renameSync(directory, destination);
+    fs.symlinkSync(destination, directory, process.platform === 'win32' ? 'junction' : 'dir');
+    assert.throws(() => collectNativeModule(root, 'input/demo', ts), /超出目录/);
+    const spec = write('block.json', blockSpec);
+    assert.throws(() => planAuthoringCommand(root, ['g', 'block', 'input/demo', 'double_value', '--type', 'reporter', '--spec', spec], ts), /符号链接|联接/);
+});
+
 test('dry-run lists files and fields without creating directories or changing support configuration', context => {
     const {root, specification} = fixture(context);
     const before = fs.readFileSync(path.join(root, 'library.config.json'), 'utf8');
     const plan = planAuthoringCommand(root, ['new', 'module', 'demo', '--category', 'input', '--spec', specification, '--dry-run'], ts);
     assert.equal(plan.dryRun, true);
-    assert.equal(plan.changes.length, 4);
+    assert.equal(plan.changes.length, 8);
     assert.ok(plan.fields.includes('messages/product/getInfo/getPython'));
     applyAuthoringPlan(plan);
     assert.equal(fs.existsSync(path.join(root, 'products')), false);
@@ -86,7 +216,7 @@ test('generates menu and block with focused AST insertions, keeping comments and
     applyAuthoringPlan(planAuthoringCommand(root, ['g', 'menu', 'input/demo', 'mode', '--spec', menu], ts));
     const spec = write('block.json', blockSpec);
     const plan = planAuthoringCommand(root, ['generate', 'block', 'input/demo', 'double_value', '--type', 'reporter', '--spec', spec], ts);
-    assert.equal(plan.changes.length, 1);
+    assert.equal(plan.changes.length, 5);
     assert.deepEqual(plan.fields, ['messages.*.block.double_value', 'getInfo.blocks.double_value', 'getPython.double_value']);
     applyAuthoringPlan(plan);
     const source = fs.readFileSync(sourceFile, 'utf8');

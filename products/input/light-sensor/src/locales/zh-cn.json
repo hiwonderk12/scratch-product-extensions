@@ -1,0 +1,4 @@
+{
+    "product.name": "光线传感器",
+    "block.aimech_read_light": "接口 [PORT] 光敏模拟值(0~100)"
+}

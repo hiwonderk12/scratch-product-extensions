@@ -1,0 +1,13 @@
+{
+    "product.name": "AI Mech Robot Arm",
+    "group.arm": "Robot arm",
+    "block.aimech_set_arm_id": "Set robot arm servo ID to [SERVO]",
+    "block.aimech_set_claw_id": "Set gripper servo ID to [SERVO]",
+    "block.aimech_servo_enable": "Power on [ARM] servo",
+    "block.aimech_servo_disable": "Power off [ARM] servo",
+    "block.aimech_set_servo_pose_time": "Set [ARM] servo position (0~1000) [POS] duration [TIME] ms",
+    "block.aimech_get_angle": "Get [ARM] servo position",
+    "block.aimech_set_servo_stop": "Stop servo [ARM]",
+    "menu.arm.0": "Robot arm",
+    "menu.arm.1": "Gripper"
+}

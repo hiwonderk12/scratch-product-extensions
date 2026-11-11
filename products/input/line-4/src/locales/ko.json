@@ -1,0 +1,8 @@
+{
+    "product.name": "4채널 라인 추적 센서",
+    "block.aimech_linefollower_init": "4채널 라인 추적 센서 IIC 포트 [PORT] 초기화",
+    "block.linefollower_one_status": "4채널 라인 추적 센서 채널 [NUM] 에서 [LINE] 감지",
+    "block.linefollower_status": "4채널 라인 추적 센서 [LINE] 감지",
+    "block.linefollower_status_result": "4채널 라인 추적 센서 채널 상태 [VALUE] 감지",
+    "block.linefollower_read_offset": "4채널 라인 추적 센서 편차 읽기"
+}

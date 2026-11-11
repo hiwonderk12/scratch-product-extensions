@@ -1,0 +1,5 @@
+{
+    "product.name": "숫자 표시 모듈",
+    "block.aimech_digit_show_num": "숫자 표시 모듈 포트 [PORT] 에 숫자 [NUM] 표시하기",
+    "block.aiblocksboard_digit_show_num": "숫자 표시 모듈 포트 [PORT] 에 숫자 [NUM] 표시하기"
+}

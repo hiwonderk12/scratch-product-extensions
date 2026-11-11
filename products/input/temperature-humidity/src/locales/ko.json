@@ -1,0 +1,8 @@
+{
+    "product.name": "온습도 센서",
+    "menu.temphumi.0": "온도",
+    "menu.temphumi.1": "습도",
+    "block.aimech_temphumi_init": "온습도 센서 포트 [PORT] 초기화",
+    "block.aimech_get_temp_and_humi": "온습도 값",
+    "block.aimech_get_temp_or_humi": "[TEMPHUMI] 값"
+}

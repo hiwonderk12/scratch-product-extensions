@@ -1,0 +1,6 @@
+{
+    "product.name": "IIC转PWM控制模块",
+    "block.aimecha_iicpwm_init": "初始化IIC转PWM模块IIC接口 [PORT]",
+    "block.iicpwm_set_pos": "设置180°舵机编号 [NUM] 转至 [ANGLE] ° 运行时间(ms) [TIME]",
+    "block.iicpwm_set_speed": "设置电机编号 [NUM] 速度 [SPEED]"
+}

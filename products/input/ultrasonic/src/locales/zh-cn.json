@@ -1,0 +1,4 @@
+{
+    "product.name": "超声波传感器",
+    "block.get_ultrasonic_distance": "端口 [ULTRA_PORT] 超声波传感器检测到障碍物的距离(cm)"
+}

@@ -1,0 +1,13 @@
+{
+    "product.name": "顏色辨識模組",
+    "menu.aiblocks_colors.0": "紅",
+    "menu.aiblocks_colors.1": "綠",
+    "menu.aiblocks_colors.2": "藍",
+    "menu.aiblocks_colors2.0": "紅",
+    "menu.aiblocks_colors2.1": "綠",
+    "menu.aiblocks_colors2.2": "藍",
+    "block.aimech_colorsensor_init": "初始化顏色感測器 IIC 介面 [PORT]",
+    "block.aiblocks_check_color": "偵測到 [COLOR]",
+    "block.aiblocks_get_color": "取得顏色值",
+    "block.aiblocks_get_color_arg": "顏色值 [NUM] 的 [COLOR] 色值"
+}

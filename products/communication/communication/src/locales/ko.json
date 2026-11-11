@@ -1,0 +1,21 @@
+{
+    "product.name": "통신 모듈",
+    "group.ps3": "PS3 컨트롤러",
+    "block.ps3_init": "MAC 주소 [STR] 로 컨트롤러 초기화하기",
+    "block.ps3_get_address": "MAC 주소 읽기",
+    "block.ps3_disconnect": "연결 해제하기",
+    "block.ps3_is_connected": "연결되었는가?",
+    "block.ps3_set_led": "LED 1 [VALUE1] LED 2 [VALUE2] LED 3 [VALUE3] LED 4 [VALUE4] 설정하기",
+    "block.ps3_set_rumble": "컨트롤러 진동 강도 [VALUE1] 및 진동 시간(최대 5000 ms) [VALUE2] ms 설정하기",
+    "block.ps3_get_keys": "[PS3_KEYS] 버튼을 눌렀는가?",
+    "block.ps3_get_axis": "[HANDLE_AXIS] 값 읽기",
+    "block.ps3_get_sensor": "IMU [ACCEL] 값 읽기",
+    "menu.x-angle": "X축 각도",
+    "menu.y-angle": "Y축 각도",
+    "menu.on": "켜기",
+    "menu.off": "끄기",
+    "menu.right-horizontal": "오른쪽 스틱 수평",
+    "menu.right-vertical": "오른쪽 스틱 수직",
+    "menu.left-horizontal": "왼쪽 스틱 수평",
+    "menu.left-vertical": "왼쪽 스틱 수직"
+}

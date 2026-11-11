@@ -1,0 +1,7 @@
+{
+    "product.name": "旋钮四路巡线传感器",
+    "block.linefollower4_init": "初始化旋钮四路巡线传感器IIC接口 [PORT]",
+    "block.linefollower4_one_status": "四路巡线传感器通道 [NUM] 识别到 [LINE]",
+    "block.linefollower4_status_result": "四路巡线传感器通道识别到 [VALUE]",
+    "block.linefollower4_read_offset": "获取四路巡线传感器偏差值"
+}

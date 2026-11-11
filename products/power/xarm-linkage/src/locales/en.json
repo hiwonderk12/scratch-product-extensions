@@ -1,0 +1,9 @@
+{
+    "product.name": "AI Mech Linkage Arm",
+    "group.arm": "Linkage arm",
+    "block.aimech_rod_arm_init": "Initialize linkage arm",
+    "block.aimech_rod_reach_detect": "Check if Y [VALUE1] mm, Z [VALUE2] mm is reachable",
+    "block.aimech_rod_arm_move": "Move arm to Y (forward/backward) [VALUE1] mm, Z (up/down) [VALUE2] mm, duration [VALUE3] ms [VALUE4]",
+    "menu.delay_select.0": "Do not wait",
+    "menu.delay_select.1": "Wait"
+}

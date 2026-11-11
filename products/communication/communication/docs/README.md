@@ -1,5 +1,7 @@
 # PS3 手柄通信模块
 
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
 主要维护 src/index.ts：原生 class / getInfo、集中中英繁韩 messages、菜单和内联 getPython。通用接口见[原生 API](../../../../docs/native-api.md)，支持配置见[库配置](../../../../docs/configuration.md)。没有实际块图标或外部 Python 文件时，不创建空目录。
 
 ## 主控与初始化

@@ -1,0 +1,4 @@
+{
+    "product.name": "빗방울 센서",
+    "block.aimech_get_rain_drop_value": "포트 [PORT] 빗방울 아날로그 값(0~100)"
+}

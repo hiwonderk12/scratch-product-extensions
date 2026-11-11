@@ -1,0 +1,7 @@
+{
+    "product.name": "8-channel grayscale line follower sensor",
+    "block.linefollower8_init": "Initialize 8-channel grayscale line follower IIC port [PORT]",
+    "block.linefollower8_one_status": "8-channel grayscale line follower channel [NUM] detects [LINE]",
+    "block.linefollower8_status": "8-channel grayscale line follower channels detect [LINE]",
+    "block.linefollower8_get_value": "8-channel grayscale line follower channel [NUM] grayscale"
+}

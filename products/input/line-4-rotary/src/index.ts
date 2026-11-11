@@ -1,35 +1,16 @@
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 单入口维护巡线积木、集中四语、菜单和 Python；通道编号与位掩码保持不同语义。
+import locale0 from './locales/zh-cn.json';
+import locale1 from './locales/en.json';
+import locale2 from './locales/zh-tw.json';
+import locale3 from './locales/ko.json';
+
 export const messages = {
-    "zh-cn": {
-        "product.name": "旋钮四路巡线传感器",
-        "block.linefollower4_init": "初始化旋钮四路巡线传感器IIC接口 [PORT]",
-        "block.linefollower4_one_status": "四路巡线传感器通道 [NUM] 识别到 [LINE]",
-        "block.linefollower4_status_result": "四路巡线传感器通道识别到 [VALUE]",
-        "block.linefollower4_read_offset": "获取四路巡线传感器偏差值"
-    },
-    en: {
-        "product.name": "Rotary 4-channel line follower sensor",
-        "block.linefollower4_init": "Initialize rotary 4-channel line follower IIC port [PORT]",
-        "block.linefollower4_one_status": "4-channel line follower channel [NUM] detects [LINE]",
-        "block.linefollower4_status_result": "4-channel line follower channels detect [VALUE]",
-        "block.linefollower4_read_offset": "Get 4-channel line follower offset"
-    },
-    "zh-tw": {
-        "product.name": "旋鈕四路循線感測器",
-        "block.linefollower4_init": "初始化旋鈕四路循線感測器 IIC 介面 [PORT]",
-        "block.linefollower4_one_status": "四路循線感測器通道 [NUM] 辨識到 [LINE]",
-        "block.linefollower4_status_result": "四路循線感測器通道辨識到 [VALUE]",
-        "block.linefollower4_read_offset": "取得四路循線感測器偏差值"
-    },
-    ko: {
-        "product.name": "회전 노브형 4채널 라인 추적 센서",
-        "block.linefollower4_init": "회전 노브형 4채널 라인 추적 센서 IIC 포트 [PORT] 초기화",
-        "block.linefollower4_one_status": "4채널 라인 추적 센서 채널 [NUM] 에서 [LINE] 감지",
-        "block.linefollower4_status_result": "4채널 라인 추적 센서 채널 상태 [VALUE] 감지",
-        "block.linefollower4_read_offset": "4채널 라인 추적 센서 편차 읽기"
-    }
+    "zh-cn": locale0,
+    en: locale1,
+    "zh-tw": locale2,
+    ko: locale3
 } as const;
 
 export const product = {

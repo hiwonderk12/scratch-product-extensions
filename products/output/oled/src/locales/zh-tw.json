@@ -1,0 +1,16 @@
+{
+    "product.name": "OLED-12864",
+    "block.aimech_oled_init": "初始化 OLED 介面 [PORT]",
+    "block.aiblocks_oled_init": "初始化 OLED 介面 [PORT]",
+    "block.oled_draw_ascii": "OLED 顯示字元 [STR] 座標 X [XPOS] Y [YPOS]",
+    "block.oled_point": "OLED 在座標 X [XPOS] Y [YPOS] [STATUS]",
+    "block.oled_clear": "OLED 清空顯示",
+    "block.oled_draw_hline": "OLED 畫水平線 起點 X [XPOS] Y [YPOS] 長度 [LENGTH]",
+    "block.oled_draw_vline": "OLED 畫垂直線 起點 X [XPOS] Y [YPOS] 長度 [LENGTH]",
+    "block.oled_draw_line": "OLED 畫直線 起點 X [XPOS] Y [YPOS] 終點 X [XPOS1] Y [YPOS1]",
+    "block.oled_draw_rect": "OLED 畫 [SHAPE] 矩形 左上 X [XPOS] Y [YPOS] 右下 X [XPOS1] Y [YPOS1]",
+    "menu.oledstatus.on": "點亮",
+    "menu.oledstatus.off": "關閉",
+    "menu.shapetype.outline": "空心",
+    "menu.shapetype.filled": "實心"
+}

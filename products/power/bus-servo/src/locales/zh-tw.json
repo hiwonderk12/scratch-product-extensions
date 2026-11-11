@@ -1,0 +1,8 @@
+{
+    "product.name": "匯流排舵機",
+    "block.set_bus_servo": "設定匯流排舵機編號 [SERVO] 位置 (0~1000) [POS] 運行時間 (ms) [TIME]",
+    "block.set_bus_servo_motor_speed": "設定匯流排舵機編號 [SERVO] 馬達模式，轉速 [SPEED]",
+    "block.load_bus_servo": "設定匯流排舵機編號 [SERVO] 上電",
+    "block.unload_bus_servo": "設定匯流排舵機編號 [SERVO] 斷電",
+    "block.get_bus_servo_pos": "取得匯流排舵機編號 [SERVO] 位置"
+}

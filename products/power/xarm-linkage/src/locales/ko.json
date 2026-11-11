@@ -1,0 +1,9 @@
+{
+    "product.name": "AI 메카 링크 로봇 팔",
+    "group.arm": "링크 로봇 팔",
+    "block.aimech_rod_arm_init": "링크 로봇 팔 초기화하기",
+    "block.aimech_rod_reach_detect": "Y [VALUE1] mm, Z [VALUE2] mm 좌표에 도달할 수 있는지 확인하기",
+    "block.aimech_rod_arm_move": "로봇 팔을 Y축(앞뒤) [VALUE1] mm, Z축(위아래) [VALUE2] mm로 이동하기, 동작 시간 [VALUE3] ms [VALUE4]",
+    "menu.delay_select.0": "기다리지 않기",
+    "menu.delay_select.1": "기다리기"
+}

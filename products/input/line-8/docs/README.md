@@ -1,6 +1,8 @@
 # 八路灰度巡线传感器维护说明
 
-`src/index.ts` 在同文件维护 class/getInfo、集中四语、菜单与内联 Python。包身份在 `metadata.json`，namespace 为 sensor。旧实现没有卡片/积木图标，本包不为迁移凭空添加图片或空 assets 目录。
+四语译文在相邻的 `src/locales/{zh-cn,en,zh-tw,ko}.json` 管理，入口 `messages` 仅绑定语言表；格式与校验见[原生 API](../../../../docs/native-api.md#集中-i18n-配置)。
+
+`src/index.ts` 在同文件维护 class/getInfo、四语绑定、菜单与内联 Python。包身份在 `metadata.json`，namespace 为 sensor。旧实现没有卡片/积木图标，本包不为迁移凭空添加图片或空 assets 目录。
 
 ## 支持边界
 

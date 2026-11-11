@@ -1,0 +1,4 @@
+{
+    "product.name": "土壤传感器",
+    "block.aimech_get_soil_value": "接口 [PORT] 土壤湿度模拟值(0~100)"
+}

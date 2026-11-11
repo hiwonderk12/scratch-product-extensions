@@ -1,0 +1,13 @@
+{
+    "product.name": "LED matrix",
+    "block.brightness": "Set LED matrix port [PORT] brightness [BRIGHT] (1-8)",
+    "block.number": "LED matrix port [PORT] show number [DATA]",
+    "block.text": "LED matrix port [PORT] at x [XPOS] y [YPOS] show text [STR] [SCROLL]",
+    "block.pixel": "LED matrix port [PORT] pixel x [XPOS] y [YPOS] [LEDSTATUS]",
+    "block.bitmap": "LED matrix port [PORT] draw [MATRIX]",
+    "block.clear": "LED matrix port [PORT] clear display",
+    "menu.pixel.on": "on",
+    "menu.pixel.off": "off",
+    "menu.scroll.no": "no scrolling",
+    "menu.scroll.yes": "scroll"
+}
