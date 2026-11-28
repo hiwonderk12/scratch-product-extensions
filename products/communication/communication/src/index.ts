@@ -84,11 +84,11 @@ export default class CommunicationBlocks implements NativeExtension {
                     acceptReporters: false,
                     items: [
                         {
-                            text: "SELECT",
+                            text: this.context.t('menu.button_select'),
                             value: "SELECT"
                         },
                         {
-                            text: "START",
+                            text: this.context.t('menu.button_start'),
                             value: "START"
                         },
                         {

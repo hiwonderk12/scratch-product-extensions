@@ -17,5 +17,7 @@
     "menu.right-horizontal": "Right stick horizontal",
     "menu.right-vertical": "Right stick vertical",
     "menu.left-horizontal": "Left stick horizontal",
-    "menu.left-vertical": "Left stick vertical"
+    "menu.left-vertical": "Left stick vertical",
+    "menu.button_select": "SELECT",
+    "menu.button_start": "START"
 }

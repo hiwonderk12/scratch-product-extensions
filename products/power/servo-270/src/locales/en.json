@@ -1,0 +1,5 @@
+{
+    "product.name": "270° Building Block Servo",
+    "block.aidoggy_set_servo270_angle_time": "Set servo [SERVO] to [ANGLE]° over [TIME] ms",
+    "menu.aidoggy_servo.0": "All"
+}

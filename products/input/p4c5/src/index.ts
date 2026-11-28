@@ -306,27 +306,40 @@ export default class P4C5Online implements NativeExtension {
                             "value": "robot_move"
                         },
                         {
-                            "text": this.context.t("menu.aidoggy_mcp_names.1"),
+                            "text": this.context.t("menu.aidoggy_mcp_names.3"),
+                            "value": "arm_action"
+                        }
+                    ]
+                },
+                "aidoggy_mcp_value": {
+                    "acceptReporters": false,
+                    "items": [
+                        {
+                            "text": this.context.t("menu.aidoggy_mcp.0"),
+                            "value": "robot_move"
+                        },
+                        {
+                            "text": this.context.t("menu.aidoggy_mcp.1"),
                             "value": "robot_action"
                         },
                         {
-                            "text": this.context.t("menu.aidoggy_mcp_names.2"),
+                            "text": this.context.t("menu.aidoggy_mcp.2"),
                             "value": "buzzer"
                         },
                         {
-                            "text": this.context.t("menu.aidoggy_mcp_names.3"),
+                            "text": this.context.t("menu.aidoggy_mcp.3"),
                             "value": "arm_action"
                         },
                         {
-                            "text": this.context.t("menu.aidoggy_mcp_names.4"),
+                            "text": this.context.t("menu.aidoggy_mcp.4"),
                             "value": "body_offset"
                         },
                         {
-                            "text": this.context.t("menu.aidoggy_mcp_names.5"),
+                            "text": this.context.t("menu.aidoggy_mcp.5"),
                             "value": "body_angle"
                         },
                         {
-                            "text": this.context.t("menu.aidoggy_mcp_names.6"),
+                            "text": this.context.t("menu.aidoggy_mcp.6"),
                             "value": "robot_status"
                         }
                     ]
@@ -548,8 +561,45 @@ export default class P4C5Online implements NativeExtension {
                     }
                 },
                 {
+                    opcode: "p4c5_mcp_setting",
+                    "blockType": "command",
+                    "text": this.context.t("block.p4c5_mcp_setting"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {
+                        NAME: {
+                            "type": "string",
+                            "defaultValue": " "
+                        },
+                        COMMAND: {
+                            "type": "largetext",
+                            "defaultValue": " ",
+                            "literal": true
+                        },
+                        PARAMS: {
+                            "type": "largetext",
+                            "defaultValue": " ",
+                            "literal": true
+                        },
+                        BLOCK: {
+                            "type": "string",
+                            "defaultValue": "true",
+                            "menu": "trueorfalse",
+                            "literal": true
+                        },
+                        RETURN: {
+                            "type": "string",
+                            "defaultValue": "true",
+                            "menu": "trueorfalse",
+                            "literal": true
+                        }
+                    }
+                },
+                {
+                    // 旧版含 CMDNAME 的 MCP 配置保留隐藏，供旧课程加载与生成兼容。
                     opcode: "mcp_setting",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.mcp_setting"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -585,6 +635,13 @@ export default class P4C5Online implements NativeExtension {
                             "literal": true
                         }
                     }
+                },
+                {
+                    opcode: "aitv_get_msg",
+                    "blockType": "command",
+                    "text": this.context.t("block.aitv_get_msg"),
+                    "isEdgeActivated": false,
+                    "arguments": {}
                 },
                 {
                     "subCategory": this.context.t("group.5")
@@ -695,6 +752,22 @@ export default class P4C5Online implements NativeExtension {
                     }
                 },
                 {
+                    opcode: "aitv_vison_result_is_exist",
+                    "blockType": "Boolean",
+                    "text": this.context.t("block.aitv_vison_result_is_exist"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "aitv_get_vison_result",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.aitv_get_vison_result"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
                     "subCategory": this.context.t("group.15")
                 },
                 {
@@ -747,8 +820,18 @@ export default class P4C5Online implements NativeExtension {
                     "arguments": {}
                 },
                 {
+                    opcode: "aitv_mcp_exist",
+                    "blockType": "Boolean",
+                    "text": this.context.t("block.aitv_mcp_exist"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    // 1.4.0 由 aitv_mcp_exist 取代，旧块隐藏以兼容既有工程。
                     opcode: "get_aitv_status",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.get_aitv_status"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -761,10 +844,6 @@ export default class P4C5Online implements NativeExtension {
                     "isEdgeActivated": false,
                     "disableMonitor": true,
                     "arguments": {
-                        RESULT: {
-                            "type": "string",
-                            "defaultValue": " "
-                        },
                         VALUE: {
                             "type": "string",
                             "defaultValue": "robot_move",
@@ -780,10 +859,6 @@ export default class P4C5Online implements NativeExtension {
                     "isEdgeActivated": false,
                     "disableMonitor": true,
                     "arguments": {
-                        RESULT: {
-                            "type": "string",
-                            "defaultValue": " "
-                        },
                         VALUE: {
                             "type": "string",
                             "defaultValue": "go",
@@ -823,8 +898,65 @@ export default class P4C5Online implements NativeExtension {
                     }
                 },
                 {
+                    opcode: "aidoggy_get_arm_args",
+                    "blockType": "Boolean",
+                    "text": this.context.t("block.aidoggy_get_arm_args"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {
+                        VALUE: {
+                            "type": "string",
+                            "defaultValue": "grab",
+                            "menu": "aidoggy_arm_args",
+                            "literal": true
+                        }
+                    }
+                },
+                {
+                    opcode: "aidoggy_mcp_run_action",
+                    "blockType": "command",
+                    "text": this.context.t("block.aidoggy_mcp_run_action"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "aidoggy_mcp_buzzer",
+                    "blockType": "command",
+                    "text": this.context.t("block.aidoggy_mcp_buzzer"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "aidoggy_mcp_body_offset",
+                    "blockType": "command",
+                    "text": this.context.t("block.aidoggy_mcp_body_offset"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "aidoggy_mcp_body_posture",
+                    "blockType": "command",
+                    "text": this.context.t("block.aidoggy_mcp_body_posture"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "aidoggy_mcp_update_status",
+                    "blockType": "command",
+                    "text": this.context.t("block.aidoggy_mcp_update_status"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    // 以下 7 个旧积木在 1.4.0 由直接执行块替代，工具箱隐藏但保留旧课程加载与生成。
                     opcode: "aidoggy_get_robot_action_args",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_get_robot_action_args"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -838,6 +970,7 @@ export default class P4C5Online implements NativeExtension {
                 {
                     opcode: "aidoggy_get_buzzer_args",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_get_buzzer_args"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -855,27 +988,9 @@ export default class P4C5Online implements NativeExtension {
                     }
                 },
                 {
-                    opcode: "aidoggy_get_arm_args",
-                    "blockType": "Boolean",
-                    "text": this.context.t("block.aidoggy_get_arm_args"),
-                    "isEdgeActivated": false,
-                    "disableMonitor": true,
-                    "arguments": {
-                        RESULT: {
-                            "type": "string",
-                            "defaultValue": " "
-                        },
-                        VALUE: {
-                            "type": "string",
-                            "defaultValue": "grab",
-                            "menu": "aidoggy_arm_args",
-                            "literal": true
-                        }
-                    }
-                },
-                {
                     opcode: "aidoggy_get_body_offset_args",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_get_body_offset_args"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -895,6 +1010,7 @@ export default class P4C5Online implements NativeExtension {
                 {
                     opcode: "aidoggy_get_body_angle_args",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_get_body_angle_args"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -914,6 +1030,7 @@ export default class P4C5Online implements NativeExtension {
                 {
                     opcode: "aidoggy_get_robot_status_args",
                     "blockType": "Boolean",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_get_robot_status_args"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -933,6 +1050,7 @@ export default class P4C5Online implements NativeExtension {
                 {
                     opcode: "aidoggy_send_imu",
                     "blockType": "command",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_send_imu"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -941,6 +1059,7 @@ export default class P4C5Online implements NativeExtension {
                 {
                     opcode: "aidoggy_send_battery",
                     "blockType": "command",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.aidoggy_send_battery"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -964,7 +1083,8 @@ export default class P4C5Online implements NativeExtension {
                 "deferredEmission": {
                     "after": [
                         "sensor_init_aidoggy_mcp_setting",
-                        "sensor_mcp_setting"
+                        "sensor_mcp_setting",
+                        "sensor_p4c5_mcp_setting"
                     ],
                     "before": [
                         "sensor_p4c5_aidoggy_init"
@@ -989,7 +1109,7 @@ export default class P4C5Online implements NativeExtension {
                     "mcp_robot_move = {\"tool_name\":\"robot_move\",\"command\":\"按方向和时间运动，不支持直接指定距离或速度。go仅可选字符串'None'不平移、forward前进、backward后退、left左平移、right右平移、forward-left、forward-right、backward-left、backward-right；turn仅可选字符串'None'不转弯、left左转、right右转。go和turn可组合，两者均为'None'时停止。平移分量固定120mm/s，转速固定80度/s，左转正、右转负。duration为整数毫秒，范围1~30000，省略或小于等于0时使用4000，超出30000截断为30000；未指定时间或步数时使用4000，步数按每步约350ms估算。运动时间结束自动停止。角度与距离只能按时间估算，不能保证精确到达。\",\"params\":[[\"robot_move\",\"string\",\"\"],[\"go\",\"string\"],[\"turn\",\"string\"],[\"duration\",\"int\"]],\"block\":\"true\",\"return\":\"false\"}",
                     "mcp_robot_action = {\"tool_name\":\"robot_action\",\"command\":\"执行内置动作组。action必须提供，使用以下名称，大小写一致：3axis_preset三轴旋转、action_pitch_preset俯仰、action_roll_preset横滚、action_yaw_preset偏航、squat_preset下蹲、waveMotion_preset波浪运动、pee_preset撒尿、sway_preset摆动、handshake握手、coquetry撒娇、go_prone趴下、happy_trot欢快小跑、head_rubbing蹭头、nod点头、shake_buttocks摇屁股、shake_head摇头、sit_down坐下、stretch_oneself伸懒腰、suspicious_tilt疑惑歪头、stand_preset站立复位、sitting_salute坐姿敬礼、sitting_wave_hand坐姿招手。按动作组内容执行，等待执行完毕后返回；不要使用列表外的名称。\",\"params\":[[\"robot_action\",\"int\",\"0\"],[\"action\",\"string\"]],\"block\":\"true\",\"return\":\"false\"}",
                     "mcp_buzzer = {\"tool_name\":\"buzzer\",\"command\":\"控制蜂鸣器。freq为频率Hz，on_time为单次鸣响毫秒，off_time为间隔毫秒，count为次数；四项均为0~65535的整数，禁止负数和超范围值。省略时分别默认1000、100、100、1。freq=0或count=0关闭；count=65535循环鸣响，on_time=0且freq非0表示持续鸣响。程序发送后等待500ms返回完成通知，不表示整个鸣响序列已结束。\",\"params\":[[\"buzzer\",\"string\",\"\"],[\"freq\",\"int\"],[\"on_time\",\"int\"],[\"off_time\",\"int\"],[\"count\",\"int\"]],\"block\":\"true\",\"return\":\"false\"}",
-                    "mcp_arm_action = {\"tool_name\":\"arm_action\",\"command\":\"控制已安装的21~24号机械臂舵机。action必须提供，仅可选grab、release、open、close。grab在1000ms内将机械臂伸到夹取位置并张开夹爪，不自动闭合；close在500ms内关闭夹爪；release在1000ms内将机械臂恢复到收回位置，不自动张开夹爪；open在500ms内张开夹爪。抓取需依次grab、等待至少1000ms、close、等待至少500ms、release；放下物品需在目标放置位置调用open。位置和时间固定，不接受额外舵机位置参数。完成通知在命令发送后立即返回，动作间仍需等待对应时间，避免覆盖上一动作。\",\"params\":[[\"arm_action\",\"string\",\"\"],[\"action\",\"string\"]],\"block\":\"true\",\"return\":\"false\"}",
+                    "mcp_arm_action = {\"tool_name\":\"arm_action\",\"command\":\"控制已安装的21~24号机械臂舵机。action必须提供，仅可选grab、release、open、close。grab在听到机械臂夹取动作时调用；close在听到关闭夹爪时调用；release在听到机械臂放置物品时调用；open在听到张开夹爪时调用。完成通知在命令发送后立即返回，动作间仍需等待对应时间，避免覆盖上一动作。\",\"params\":[[\"arm_action\",\"string\",\"\"],[\"action\",\"string\"]],\"block\":\"true\",\"return\":\"false\"}",
                     "mcp_body_offset = {\"tool_name\":\"body_offset\",\"command\":\"设置身体目标坐标偏移。body_x、body_y、height必须全部提供数值，单位mm，每项范围-30~30，超范围自动截断。数值为目标偏移，不是在原值上累加；0表示对应偏移复位。当前代码不接受缺失值、None或字符串'None'；只改一项时其余项需填写已知当前值，不能假设0表示保持。身体旋转角保持原值。duration为整数毫秒，默认500，范围0~65535，超范围由库截断。发送后立即返回完成通知，不等待姿态过渡结束。例如往前偏移10：{'body_offset':'','body_x':20,'body_y':0,'height':0,'duration': 500}\",\"params\":[[\"body_offset\",\"string\",\"\"],[\"body_x\",\"int\"],[\"body_y\",\"int\"],[\"height\",\"int\"],[\"duration\",\"int\"]],\"block\":\"true\",\"return\":\"false\"}",
                     "mcp_body_angle = {\"tool_name\":\"body_angle\",\"command\":\"设置身体目标姿态角，pitch为俯仰、roll为横滚、yaw为偏航，三项必须全部提供数值，单位度，每项范围-30~30，超范围自动截断。数值为目标角度，不是在原值上累加；0表示对应角度复位。当前代码不接受缺失值、None或字符串'None'；只改一项时其余项需填写已知当前值，不能假设0表示保持。身体坐标偏移和高度保持原值。duration为整数毫秒，默认500，范围0~65535，超范围由库截断。发送后立即返回完成通知，不等待姿态过渡结束。例如前倾：{'body_angle':'','pitch':20,'roll':0,'yaw':0,'duration': 500}\",\"params\":[[\"body_angle\",\"string\",\"\"],[\"pitch\",\"int\"],[\"roll\",\"int\"],[\"yaw\",\"int\"],[\"duration\",\"int\"]],\"block\":\"true\",\"return\":\"false\"}",
                     "mcp_robot_status = {\"tool_name\":\"robot_status\",\"command\":\"获取机器狗实时状态。get_status可选battery读取电池电压、imu读取IMU姿态，也可同时传入battery,imu。battery单位mV；imu返回heading、pitch、roll，单位为度。仅支持读取，不支持设置或校准。\",\"params\":[[\"robot_status\",\"string\",\"\"],[\"get_status\",\"string\"]],\"block\":\"true\",\"return\":\"true\"}"
@@ -1022,7 +1142,7 @@ export default class P4C5Online implements NativeExtension {
                             "mcp_buzzer = {\"tool_name\":\"buzzer\",\"command\":\"控制蜂鸣器。freq为频率Hz，on_time为单次鸣响毫秒，off_time为间隔毫秒，count为次数；四项均为0~65535的整数，禁止负数和超范围值。省略时分别默认1000、100、100、1。freq=0或count=0关闭；count=65535循环鸣响，on_time=0且freq非0表示持续鸣响。程序发送后等待500ms返回完成通知，不表示整个鸣响序列已结束。\",\"params\":[[\"buzzer\",\"string\",\"\"],[\"freq\",\"int\"],[\"on_time\",\"int\"],[\"off_time\",\"int\"],[\"count\",\"int\"]],\"block\":\"true\",\"return\":\"false\"}"
                         ],
                         "4": [
-                            "mcp_arm_action = {\"tool_name\":\"arm_action\",\"command\":\"控制已安装的21~24号机械臂舵机。action必须提供，仅可选grab、release、open、close。grab在1000ms内将机械臂伸到夹取位置并张开夹爪，不自动闭合；close在500ms内关闭夹爪；release在1000ms内将机械臂恢复到收回位置，不自动张开夹爪；open在500ms内张开夹爪。抓取需依次grab、等待至少1000ms、close、等待至少500ms、release；放下物品需在目标放置位置调用open。位置和时间固定，不接受额外舵机位置参数。完成通知在命令发送后立即返回，动作间仍需等待对应时间，避免覆盖上一动作。\",\"params\":[[\"arm_action\",\"string\",\"\"],[\"action\",\"string\"]],\"block\":\"true\",\"return\":\"false\"}"
+                            "mcp_arm_action = {\"tool_name\":\"arm_action\",\"command\":\"控制已安装的21~24号机械臂舵机。action必须提供，仅可选grab、release、open、close。grab在听到机械臂夹取动作时调用；close在听到关闭夹爪时调用；release在听到机械臂放置物品时调用；open在听到张开夹爪时调用。完成通知在命令发送后立即返回，动作间仍需等待对应时间，避免覆盖上一动作。\",\"params\":[[\"arm_action\",\"string\",\"\"],[\"action\",\"string\"]],\"block\":\"true\",\"return\":\"false\"}"
                         ],
                         "5": [
                             "mcp_body_offset = {\"tool_name\":\"body_offset\",\"command\":\"设置身体目标坐标偏移。body_x、body_y、height必须全部提供数值，单位mm，每项范围-30~30，超范围自动截断。数值为目标偏移，不是在原值上累加；0表示对应偏移复位。当前代码不接受缺失值、None或字符串'None'；只改一项时其余项需填写已知当前值，不能假设0表示保持。身体旋转角保持原值。duration为整数毫秒，默认500，范围0~65535，超范围由库截断。发送后立即返回完成通知，不等待姿态过渡结束。例如往前偏移10：{'body_offset':'','body_x':20,'body_y':0,'height':0,'duration': 500}\",\"params\":[[\"body_offset\",\"string\",\"\"],[\"body_x\",\"int\"],[\"body_y\",\"int\"],[\"height\",\"int\"],[\"duration\",\"int\"]],\"block\":\"true\",\"return\":\"false\"}"
@@ -1035,6 +1155,27 @@ export default class P4C5Online implements NativeExtension {
                         ]
                     }
                 }
+            },
+            "p4c5_mcp_setting": {
+                "template": "AiBlock_LLM.send_message({NAME.memberName})\ntime.sleep(0.05)",
+                "imports": [
+                    "import time"
+                ],
+                "variables": [
+                    "{NAME.memberName} = {\"tool_name\":{NAME},\"command\":{COMMAND.jsonValue},\"params\":{PARAMS.compactHead}[{NAME}, \"string\"],{PARAMS.compactTail},\"block\":{BLOCK.jsonValue},\"return\":{RETURN.jsonValue}}"
+                ]
+            },
+            "mcp_setting": {
+                "template": "{NAME.memberName}",
+                "variables": [
+                    "{NAME.memberName} = {\"tool_name\":{NAME},\"command\":{COMMAND.jsonValue},\"params\":{PARAMS.compactHead}[{CMDNAME}, \"string\"],{PARAMS.compactTail},\"block\":{BLOCK.jsonValue},\"return\":{RETURN.jsonValue}}"
+                ]
+            },
+            "aitv_get_msg": {
+                "template": "_llm_result_f53d3 = AiBlock_LLM.get_message()",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
             },
             "select_voice_model": {
                 "template": "AiBlock_LLM.set_tts_model(\"{MODEL}\")"
@@ -1063,6 +1204,18 @@ export default class P4C5Online implements NativeExtension {
             "vision_text": {
                 "template": "AiBlock_LLM.vision({TEXT.jsonValue})"
             },
+            "aitv_vison_result_is_exist": {
+                "template": "'vision' in _llm_result_f53d3",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
+            "aitv_get_vison_result": {
+                "template": "_llm_result_f53d3.get(\"vision\")",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
             "aitv_send_msg": {
                 "template": "AiBlock_LLM.send_message({VALUE})\ntime.sleep(0.05)",
                 "imports": [
@@ -1087,16 +1240,31 @@ export default class P4C5Online implements NativeExtension {
                 "template": "AiBlock_LLM.send_status({VALUE})"
             },
             "get_aitv_message": {
-                "template": "AiBlock_LLM.get_message()"
+                "template": "_llm_result_f53d3",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
+            "aitv_mcp_exist": {
+                "template": "_llm_result_f53d3 is not None",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
             },
             "get_aitv_status": {
                 "template": "AiBlock_LLM.status"
             },
             "aidoggy_get_default_mcp_name": {
-                "template": "'{VALUE}' in {RESULT}"
+                "template": "'{VALUE}' in _llm_result_f53d3",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
             },
             "aidoggy_get_robot_move_args": {
-                "template": "{RESULT}.get(\"{VALUE}\")"
+                "template": "_llm_result_f53d3.get(\"{VALUE}\")",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
             },
             "aidoggy_get_robot_go_args": {
                 "template": "\"{VALUE}\""
@@ -1104,14 +1272,66 @@ export default class P4C5Online implements NativeExtension {
             "aidoggy_get_robot_turn_args": {
                 "template": "\"{VALUE}\""
             },
+            "aidoggy_get_arm_args": {
+                "template": "_llm_result_f53d3.get(\"action\") == \"{VALUE}\"",
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
+            "aidoggy_mcp_run_action": {
+                "template": "if 'robot_action' in _llm_result_f53d3:\n  _action_name = _llm_result_f53d3.get(\"action\")\n  aidoggy.run_action_group(_action_name,True)\n  AiBlock_LLM.send_action_finish(\"true\")\n  time.sleep(0.05)",
+                "imports": [
+                    "import time"
+                ],
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
+            "aidoggy_mcp_buzzer": {
+                "template": "if 'buzzer' in _llm_result_f53d3:\n  beep.set_buzzer(_llm_result_f53d3.get(\"freq\"),_llm_result_f53d3.get(\"on_time\"),_llm_result_f53d3.get(\"off_time\"),_llm_result_f53d3.get(\"count\"))\n  time.sleep(0.5)\n  AiBlock_LLM.send_action_finish(\"true\")\n  time.sleep(0.05)",
+                "imports": [
+                    "import Hiwonder",
+                    "import time"
+                ],
+                "variables": [
+                    "_llm_result_f53d3 = None",
+                    "beep = Hiwonder.Buzzer()"
+                ]
+            },
+            "aidoggy_mcp_body_offset": {
+                "template": "if 'body_offset' in _llm_result_f53d3:\n  aidoggy.set_body_offset(_llm_result_f53d3.get(\"body_x\"),_llm_result_f53d3.get(\"body_y\"),None,_llm_result_f53d3.get(\"duration\"))\n  aidoggy.set_body_offset(None,None,_llm_result_f53d3.get(\"height\"),_llm_result_f53d3.get(\"duration\"))\n  time.sleep(0.5)\n  AiBlock_LLM.send_action_finish(\"true\")\n  time.sleep(0.05)",
+                "imports": [
+                    "import time"
+                ],
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
+            "aidoggy_mcp_body_posture": {
+                "template": "if 'body_angle' in _llm_result_f53d3:\n  aidoggy.set_body_angle(_llm_result_f53d3.get(\"pitch\"),_llm_result_f53d3.get(\"roll\"),_llm_result_f53d3.get(\"yaw\"),_llm_result_f53d3.get(\"duration\"))\n  time.sleep(0.5)\n  AiBlock_LLM.send_action_finish(\"true\")\n  time.sleep(0.05)",
+                "imports": [
+                    "import time"
+                ],
+                "variables": [
+                    "_llm_result_f53d3 = None"
+                ]
+            },
+            "aidoggy_mcp_update_status": {
+                "template": "if 'robot_status' in _llm_result_f53d3:\n  _rec_state = _llm_result_f53d3.get(\"get_status\")\n  if 'battery' in _rec_state:\n    _robot_state = []\n    _robot_state.append({\"battery\":(str(rsys.read_battery_voltage()))})\n    AiBlock_LLM.send_status(_robot_state)\n  if 'imu' in _rec_state:\n    _robot_state = []\n    _robot_state.append({\"x\":imu.get_angle()[1]})\n    _robot_state.append({\"y\":imu.get_angle()[2]})\n    _robot_state.append({\"z\":imu.get_angle()[0]})\n    AiBlock_LLM.send_status(_robot_state)",
+                "imports": [
+                    "import Hiwonder"
+                ],
+                "variables": [
+                    "_llm_result_f53d3 = None",
+                    "rsys = Hiwonder.Robot_System()",
+                    "imu = Hiwonder.IMU()"
+                ]
+            },
             "aidoggy_get_robot_action_args": {
                 "template": "{RESULT}.get(\"action\")"
             },
             "aidoggy_get_buzzer_args": {
                 "template": "{RESULT}.get(\"{VALUE}\")"
-            },
-            "aidoggy_get_arm_args": {
-                "template": "{RESULT}.get(\"action\") == \"{VALUE}\""
             },
             "aidoggy_get_body_offset_args": {
                 "template": "{RESULT}.get(\"{VALUE}\")"
@@ -1140,12 +1360,6 @@ export default class P4C5Online implements NativeExtension {
                 "imports": [
                     "import Hiwonder",
                     "import time"
-                ]
-            },
-            "mcp_setting": {
-                "template": "{NAME.memberName}",
-                "variables": [
-                    "{NAME.memberName} = {\"tool_name\":{NAME},\"command\":{COMMAND.jsonValue},\"params\":{PARAMS.compactHead}[{CMDNAME}, \"string\"],{PARAMS.compactTail},\"block\":{BLOCK.jsonValue},\"return\":{RETURN.jsonValue}}"
                 ]
             }
         };

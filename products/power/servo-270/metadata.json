@@ -1,0 +1,13 @@
+{
+  "id": "servo-270",
+  "legacySources": [],
+  "icon": "assets/lego270.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "0.0.1",
+  "namespace": "actuator",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}

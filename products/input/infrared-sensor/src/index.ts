@@ -33,6 +33,15 @@ const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: 
             {text: 'D', value: '4'}
         ]
     },
+    aidoggy_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
     minihexa_io_single_port: {
         acceptReporters: false,
         items: [
@@ -57,9 +66,9 @@ const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: 
 export default class InfraredSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
-    // miniHexa保留原始IO；板端与五AI分别使用IIC、DEV端口。
+    // miniHexa保留原始IO；板端、AiDoggy与五AI分别使用IIC、aidoggy_iicport与DEV端口。
     private usesRawIo (): boolean {
-        if (!['wonderlab', 'hiwonder-dev-raw-io', 'hiwonder-iic'].includes(this.context.variant)) {
+        if (!['wonderlab', 'hiwonder-dev-raw-io', 'hiwonder-iic', 'hiwonder-dev-port-aidoggy'].includes(this.context.variant)) {
             throw new Error('input/infrared-sensor: 未支持的主控适配 ' + this.context.variant);
         }
         return this.context.variant === 'hiwonder-dev-raw-io';
@@ -69,7 +78,9 @@ export default class InfraredSensorBlocks implements NativeExtension {
         const usesRawIo = this.usesRawIo();
         const board = this.context.variant === 'hiwonder-iic';
         const {opcode} = board ? {opcode: 'aiblocks_get_avoid_value'} : {opcode: 'aimech_get_avoid_value'};
-        const portMenu = board ? 'aiblocks_iicport' : usesRawIo ? 'minihexa_io_single_port' : 'aimech_iicport';
+        const portMenu = board ? 'aiblocks_iicport' :
+            usesRawIo ? 'minihexa_io_single_port' :
+            this.context.variant === 'hiwonder-dev-port-aidoggy' ? 'aidoggy_iicport' : 'aimech_iicport';
         const block: ExtensionBlock = {
             opcode,
             blockType: "Boolean",

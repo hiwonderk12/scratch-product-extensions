@@ -23,10 +23,42 @@ export const product = {
     ]
 } as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aidoggy_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class RgbModuleBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
+    // 根据主控适配选择 IIC 端口菜单，拒绝未登记适配。
+    private portMenu (): string {
+        if (this.context.variant === 'hiwonder-dev-port-aidoggy') return 'aidoggy_iicport';
+        if (this.context.variant === 'wonderlab') return 'aimech_iicport';
+        throw new Error('output/rgb-module: 未支持的主控适配 ' + this.context.variant);
+    }
+
     getInfo (): ExtensionInfo {
+        const portMenu = this.portMenu();
         return {
             id: "display",
             name: this.context.t(product.name),
@@ -34,18 +66,7 @@ export default class RgbModuleBlocks implements NativeExtension {
             color2: "#FF6347",
             color3: "#FF6347",
             menus: {
-                aimech_iicport: {
-                    acceptReporters: false,
-                    items: [
-                        {text: 'A', value: '1'},
-                        {text: 'B', value: '2'},
-                        {text: 'C', value: '3'},
-                        {text: 'D', value: '4'},
-                        {text: 'E', value: '5'},
-                        {text: 'J', value: '9'},
-                        {text: 'K', value: '10'}
-                    ]
-                },
+                [portMenu]: PORT_MENUS[portMenu],
                 light_colors: {
                     items: [
                         {
@@ -93,7 +114,7 @@ export default class RgbModuleBlocks implements NativeExtension {
                         PORT: {
                             type: "string",
                             defaultValue: this.context.defaultPort('aimech_rgb_module_color_set', 'PORT'),
-                            menu: "aimech_iicport",
+                            menu: portMenu,
                             literal: true
                         },
                         RED: {
@@ -119,7 +140,7 @@ export default class RgbModuleBlocks implements NativeExtension {
                         PORT: {
                             type: "string",
                             defaultValue: this.context.defaultPort('aimech_rgb_module_color_select', 'PORT'),
-                            menu: "aimech_iicport",
+                            menu: portMenu,
                             literal: true
                         },
                         COLOR: {
@@ -137,7 +158,7 @@ export default class RgbModuleBlocks implements NativeExtension {
                         PORT: {
                             type: "string",
                             defaultValue: this.context.defaultPort('aimech_rgb_module_breath_one', 'PORT'),
-                            menu: "aimech_iicport",
+                            menu: portMenu,
                             literal: true
                         },
                         COLOR: {
@@ -161,7 +182,7 @@ export default class RgbModuleBlocks implements NativeExtension {
                         PORT: {
                             type: "string",
                             defaultValue: this.context.defaultPort('aimech_rgb_module_breath', 'PORT'),
-                            menu: "aimech_iicport",
+                            menu: portMenu,
                             literal: true
                         }
                     }
@@ -175,7 +196,7 @@ export default class RgbModuleBlocks implements NativeExtension {
                         PORT: {
                             type: "string",
                             defaultValue: this.context.defaultPort('aimech_rgb_module_close', 'PORT'),
-                            menu: "aimech_iicport",
+                            menu: portMenu,
                             literal: true
                         }
                     }
@@ -186,6 +207,7 @@ export default class RgbModuleBlocks implements NativeExtension {
 
     // 仅使用积木时收集初始化；对象名、端口字面值及生成接口保持旧工程语义。
     getPython () {
+        this.portMenu();
         return {
             aimech_rgb_module_color_set: {
                 template: "rgbModule_{PORT}.set_rgb({RED},{GREEN},{BLUE})",

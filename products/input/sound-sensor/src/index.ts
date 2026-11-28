@@ -33,6 +33,15 @@ const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: 
             {text: 'D', value: '4'}
         ]
     },
+    aidoggy_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
     aimech_iicport: {
         acceptReporters: false,
         items: [
@@ -50,13 +59,17 @@ const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: 
 export default class SoundSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
-    // 同时选择积木身份、端口菜单和驱动；wonderlab是已登记的五AI适配，不作默认回退。
+    // 同时选择积木身份、端口菜单和驱动；wonderlab与aidoggy均使用DEV接口，不作默认回退。
     private adapter (): {opcode: string; portMenu: string; board: boolean} {
         if (this.context.variant === 'hiwonder-iic') {
             return {opcode: 'aiblocksboard_read_sound', portMenu: 'aiblocks_iicport', board: true};
         }
-        if (this.context.variant === 'wonderlab') {
-            return {opcode: 'aimech_read_sound', portMenu: 'aimech_iicport', board: false};
+        if (['wonderlab', 'hiwonder-dev-port-aidoggy'].includes(this.context.variant)) {
+            return {
+                opcode: 'aimech_read_sound',
+                portMenu: this.context.variant === 'hiwonder-dev-port-aidoggy' ? 'aidoggy_iicport' : 'aimech_iicport',
+                board: false
+            };
         }
         throw new Error('input/sound-sensor: 未知适配 ' + this.context.variant);
     }

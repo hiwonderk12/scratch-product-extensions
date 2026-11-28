@@ -17,5 +17,7 @@
     "menu.right-horizontal": "右舵水平",
     "menu.right-vertical": "右舵垂直",
     "menu.left-horizontal": "左舵水平",
-    "menu.left-vertical": "左舵垂直"
+    "menu.left-vertical": "左舵垂直",
+    "menu.button_select": "选择",
+    "menu.button_start": "开始"
 }

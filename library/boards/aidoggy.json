@@ -13,8 +13,48 @@
       "portGroups": {"sensor.aidoggy_io_port": {"bindings": {"sensor_aidoggy_read_light.PORT": "5"}}}
     },
     "input/touch-sensor": {
-      "variant": "hiwonder-dev-io-aidoggy", "legacyNamespaces": ["sensor"],
-      "portGroups": {"sensor.aidoggy_io_port": {"bindings": {"sensor_aidoggy_read_touch.PORT": "5"}}}
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aidoggy_iicport": {
+          "bindings": {
+            "sensor_aimech_read_touch.PORT": "1"
+          }
+        },
+        "sensor.aidoggy_io_port": {
+          "bindings": {
+            "sensor_aidoggy_read_touch.PORT": "5"
+          }
+        }
+      }
+    },
+    "input/sound-sensor": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aidoggy_iicport": {
+          "bindings": {
+            "sensor_aimech_read_sound.PORT": "1"
+          }
+        }
+      }
+    },
+    "input/infrared-sensor": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "sensor"
+      ],
+      "portGroups": {
+        "sensor.aidoggy_iicport": {
+          "bindings": {
+            "sensor_aimech_get_avoid_value.PORT": "1"
+          }
+        }
+      }
     },
     "input/color-sensor": {
       "variant": "hiwonder-dev-port-aidoggy",
@@ -56,6 +96,20 @@
           "bindings": {}
         }
       }
+    },
+    "power/servo-180": {
+      "variant": "hiwonder-direct",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
+    },
+    "power/servo-270": {
+      "variant": "hiwonder-aidoggy",
+      "legacyNamespaces": [
+        "actuator"
+      ],
+      "portGroups": {}
     },
     "power/bus-servo": {
       "variant": "hiwonder",
@@ -109,6 +163,23 @@
         "actuator"
       ],
       "portGroups": {}
+    },
+    "output/rgb-module": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": [
+        "display"
+      ],
+      "portGroups": {
+        "display.aidoggy_iicport": {
+          "bindings": {
+            "display_aimech_rgb_module_color_set.PORT": "1",
+            "display_aimech_rgb_module_color_select.PORT": "1",
+            "display_aimech_rgb_module_breath_one.PORT": "1",
+            "display_aimech_rgb_module_breath.PORT": "1",
+            "display_aimech_rgb_module_close.PORT": "1"
+          }
+        }
+      }
     },
     "output/dot-matrix": {
       "variant": "hiwonder-dev-port-aidoggy",

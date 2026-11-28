@@ -188,6 +188,11 @@
       "sourceState": "native-source"
     },
     {
+      "moduleId": "power/servo-270",
+      "metadata": "products/power/servo-270/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
       "moduleId": "power/servo-360",
       "metadata": "products/power/servo-360/metadata.json",
       "sourceState": "native-source"

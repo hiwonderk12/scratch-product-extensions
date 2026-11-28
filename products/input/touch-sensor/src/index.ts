@@ -1,4 +1,4 @@
-import type {ExtensionContext, ExtensionInfo, NativeExtension} from '../../../../tools/sdk';
+import type {ExtensionBlock, ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 // 模块积木、菜单、集中四语文案和 Python 规则只在本文件维护。
 import locale0 from './locales/zh-cn.json';
@@ -33,6 +33,15 @@ const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: 
             {text: 'D', value: '4'}
         ]
     },
+    aidoggy_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
     aidoggy_io_port: {
         acceptReporters: false,
         items: [
@@ -57,22 +66,66 @@ const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: 
 export default class TouchSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
-    // 积木身份、端口控件和SDK共同由适配选择，AiDoggy IO按端口命名对象。
-    private adapter (): {opcode: string; menu: string; board: boolean; io: boolean} {
+    // 积木身份、端口控件和SDK共同由适配选择；AiDoggy 1.4.0 改用常规 IIC 端口并隐藏保留旧 IO 积木兼容。
+    private adapter (): {opcode: string; menu: string; board: boolean; io: boolean; aidoggyPort: boolean} {
         if (this.context.variant === 'hiwonder-iic') {
-            return {opcode: 'aiblocksboard_read_touch', menu: 'aiblocks_iicport', board: true, io: false};
+            return {opcode: 'aiblocksboard_read_touch', menu: 'aiblocks_iicport', board: true, io: false, aidoggyPort: false};
+        }
+        if (['wonderlab', 'hiwonder-dev-port-aidoggy'].includes(this.context.variant)) {
+            const aidoggyPort = this.context.variant === 'hiwonder-dev-port-aidoggy';
+            return {
+                opcode: 'aimech_read_touch',
+                menu: aidoggyPort ? 'aidoggy_iicport' : 'aimech_iicport',
+                board: false,
+                io: false,
+                aidoggyPort
+            };
         }
         if (this.context.variant === 'hiwonder-dev-io-aidoggy') {
-            return {opcode: 'aidoggy_read_touch', menu: 'aidoggy_io_port', board: false, io: true};
-        }
-        if (this.context.variant === 'wonderlab') {
-            return {opcode: 'aimech_read_touch', menu: 'aimech_iicport', board: false, io: false};
+            return {opcode: 'aidoggy_read_touch', menu: 'aidoggy_io_port', board: false, io: true, aidoggyPort: false};
         }
         throw new Error('input/touch-sensor: 未支持的主控适配 ' + this.context.variant);
     }
 
     getInfo (): ExtensionInfo {
-        const {opcode, menu} = this.adapter();
+        const {opcode, menu, aidoggyPort} = this.adapter();
+        const legacyAidoggyOpcode = 'aidoggy_read_touch';
+        const blocks: Array<ExtensionBlock | {subCategory: string}> = [
+            {
+                subCategory: this.context.t(product.name)
+            },
+            {
+                opcode,
+                blockType: "Boolean",
+                disableMonitor: true,
+                text: this.context.t('block.aimech_read_touch'),
+                arguments: {
+                    PORT: {
+                        type: "string",
+                        defaultValue: this.context.defaultPort(opcode, 'PORT'),
+                        menu,
+                        literal: true
+                    }
+                }
+            }
+        ];
+        if (aidoggyPort) {
+            blocks.push({
+                opcode: legacyAidoggyOpcode,
+                blockType: "Boolean",
+                disableMonitor: true,
+                hideFromPalette: true,
+                text: this.context.t('block.aimech_read_touch'),
+                arguments: {
+                    PORT: {
+                        type: "string",
+                        defaultValue: this.context.defaultPort(legacyAidoggyOpcode, 'PORT'),
+                        menu: "aidoggy_io_port",
+                        literal: true
+                    }
+                }
+            });
+        }
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -80,46 +133,37 @@ export default class TouchSensorBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                [menu]: PORT_MENUS[menu]
+                [menu]: PORT_MENUS[menu],
+                ...(aidoggyPort ? {aidoggy_io_port: PORT_MENUS.aidoggy_io_port} : {})
             },
-            blocks: [
-                {
-                    subCategory: this.context.t(product.name)
-                },
-                {
-                    opcode,
-                    blockType: "Boolean",
-                    disableMonitor: true,
-                    text: this.context.t('block.aimech_read_touch'),
-                    arguments: {
-                        PORT: {
-                            type: "string",
-                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
-                            menu,
-                            literal: true
-                        }
-                    }
-                }
-            ]
+            blocks
         };
     }
 
     // 仅使用积木时收集初始化；对象名、端口字面值及生成接口保持旧工程语义。
-    getPython () {
-        const {opcode, board, io} = this.adapter();
+    getPython (): Record<string, PythonTemplate> {
+        const {opcode, board, io, aidoggyPort} = this.adapter();
+        const legacyIoRule: PythonTemplate = {
+            template: 'touch_{PORT}.read()',
+            imports: ['import Hiwonder_DEV'],
+            variables: ['touch_{PORT} = Hiwonder_DEV.DEV_TOUCH_IO(Hiwonder_DEV.Port({PORT}))']
+        };
+        if (io) {
+            return {[opcode]: legacyIoRule};
+        }
         return {
             [opcode]: {
-                template: io ? 'touch_{PORT}.read()' : 'touch.read_state()',
+                template: 'touch.read_state()',
                 imports: [
                     board ? "import Hiwonder_IIC" : "import Hiwonder_DEV"
                 ],
                 variables: [
                     ...(board ? ['iic = Hiwonder_IIC.IIC()'] : []),
                     board ? 'touch = Hiwonder_IIC.DEV_TOUCH(iic,{PORT})' :
-                        io ? 'touch_{PORT} = Hiwonder_DEV.DEV_TOUCH_IO(Hiwonder_DEV.Port({PORT}))' :
-                            'touch = Hiwonder_DEV.DEV_TOUCH(Hiwonder_DEV.Port({PORT}))'
+                        'touch = Hiwonder_DEV.DEV_TOUCH(Hiwonder_DEV.Port({PORT}))'
                 ]
-            }
+            },
+            ...(aidoggyPort ? {aidoggy_read_touch: legacyIoRule} : {})
         };
     }
 }

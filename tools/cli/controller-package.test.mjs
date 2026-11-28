@@ -17,7 +17,7 @@ const moduleId = 'controllers/aiblocksboard';
 test('handwritten controller compiles, packs its real icon and enters the official download catalog', async () => {
     const collected = collectNativeModule(repository, moduleId, typescript);
     assert.equal(collected.descriptor.id, 'aiblocksboard');
-    assert.equal(collected.descriptor.version, '0.0.7');
+    assert.equal(collected.descriptor.version, '0.0.8');
     assert.match(collected.files['index.cjs'], /class AIBlocksBoard/);
     const library = JSON.parse(collected.files['library.json']);
     assert.equal(library.products.aiblocksboard.product, moduleId);
@@ -34,16 +34,20 @@ test('handwritten controller compiles, packs its real icon and enters the offici
     assert.equal(catalog.packages[0].libraryVersion, library.version);
 });
 
-for (const [id, count] of [['long-motor', 14], ['servo-180', 3], ['servo-360', 3]]) {
+for (const [id, count, expectedProducts] of [
+    ['long-motor', 14, ['aiblocksboard']],
+    ['servo-180', 3, ['aiblocksboard', 'aidoggy']],
+    ['servo-360', 3, ['aiblocksboard']]
+]) {
     test(`direct power ${id} compiles and packs only its verified controller support`, async () => {
         const collected = collectNativeModule(repository, `power/${id}`, typescript);
-        assert.equal(collected.descriptor.version, '0.0.6');
+        assert.equal(collected.descriptor.version, '0.0.7');
         assert.equal(collected.descriptor.namespace, 'actuator');
         assert.deepEqual(collected.descriptor.supportedLocales, ['zh-cn', 'en', 'zh-tw', 'ko']);
         const library = JSON.parse(collected.files['library.json']);
-        assert.equal(library.version, '0.0.8');
-        assert.deepEqual(Object.keys(library.products).filter(productId => library.products[productId].modules[`power/${id}`]),
-            ['aiblocksboard']);
+        assert.equal(library.version, '0.0.9');
+        assert.deepEqual(Object.keys(library.products).filter(productId => library.products[productId].modules[`power/${id}`]).sort(),
+            expectedProducts);
         const module = {exports: {}};
         // 执行本次编译的作者类，仅检查声明，不调用设备 SDK。
         new Function('module', 'exports', collected.files['index.cjs'])(module, module.exports);

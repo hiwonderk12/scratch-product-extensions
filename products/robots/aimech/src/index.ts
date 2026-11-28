@@ -721,6 +721,17 @@ export default class AimechBlocks implements NativeExtension {
                     }
                 },
                 {
+                    opcode: "set_rotate_bias",
+                    blockType: "command",
+                    text: this.context.t("block.set_rotate_bias"),
+                    arguments: {
+                        VALUE: {
+                            type: "number",
+                            defaultValue: 1.0
+                        }
+                    }
+                },
+                {
                     opcode: "set_motor_run_two_wheel",
                     blockType: "command",
                     text: this.context.t("block.set_motor_run_two_wheel"),
@@ -814,6 +825,21 @@ export default class AimechBlocks implements NativeExtension {
                         KD: {
                             type: "number",
                             defaultValue: 10
+                        }
+                    }
+                },
+                {
+                    opcode: "set_wheel_params",
+                    blockType: "command",
+                    text: this.context.t("block.set_wheel_params"),
+                    arguments: {
+                        VALUE1: {
+                            type: "number",
+                            defaultValue: 68
+                        },
+                        VALUE2: {
+                            type: "number",
+                            defaultValue: 130
                         }
                     }
                 },
@@ -1160,6 +1186,15 @@ motor.motor_run_angle(2,{ANGLE},{SPEED})`
                     }
                 }
             },
+            set_rotate_bias: {
+                template: "motor.set_rotate_bias({VALUE})",
+                imports: [
+                    "import Hiwonder"
+                ],
+                variables: [
+                    "motor = Hiwonder.Car()"
+                ]
+            },
             set_motor_run_two_wheel: {
                 template: "motor.motors_run_rpm({SPEED},{SPEED2})",
                 imports: [
@@ -1214,6 +1249,15 @@ motor.reset_motor_angle(2)`
             },
             pd_set_pd_line: {
                 template: "motor.pd_set_speed({OFFSET},{SPEED},{MAXSPEED},{KP},{KD})",
+                imports: [
+                    "import Hiwonder"
+                ],
+                variables: [
+                    "motor = Hiwonder.Car()"
+                ]
+            },
+            set_wheel_params: {
+                template: "motor.set_car_parameters({VALUE1},{VALUE2})",
                 imports: [
                     "import Hiwonder"
                 ],

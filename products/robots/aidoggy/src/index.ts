@@ -37,27 +37,26 @@ export default class AidoggyBlocks implements NativeExtension {
                 action_name: {
                     acceptReporters: false,
                     items: [
+                        {text: this.context.t("menu.action_name.nod"), value: "nod"},
                         {text: this.context.t("menu.action_name.sit_down"), value: "sit_down"},
                         {text: this.context.t("menu.action_name.go_prone"), value: "go_prone"},
+                        {text: this.context.t("menu.action_name.shake_head"), value: "shake_head"},
                         {text: this.context.t("menu.action_name.squat_preset"), value: "squat_preset"},
-                        {text: this.context.t("menu.action_name.stretch_oneself"), value: "stretch_oneself"},
-                        {text: this.context.t("menu.action_name.handshake"), value: "handshake"},
+                        {text: this.context.t("menu.action_name.action_roll_preset"), value: "action_roll_preset"},
+                        {text: this.context.t("menu.action_name.action_pitch_preset"), value: "action_pitch_preset"},
+                        {text: this.context.t("menu.action_name.action_yaw_preset"), value: "action_yaw_preset"},
+                        {text: this.context.t("menu.action_name.3axis_preset"), value: "3axis_preset"},
                         {text: this.context.t("menu.action_name.pee_preset"), value: "pee_preset"},
-                        {text: this.context.t("menu.action_name.sway_preset"), value: "sway_preset"},
-                        {text: this.context.t("menu.action_name.waveMotion_preset"), value: "waveMotion_preset"},
                         {text: this.context.t("menu.action_name.coquetry"), value: "coquetry"},
+                        {text: this.context.t("menu.action_name.handshake"), value: "handshake"},
+                        {text: this.context.t("menu.action_name.stretch_oneself"), value: "stretch_oneself"},
+                        {text: this.context.t("menu.action_name.sway_preset"), value: "sway_preset"},
                         {text: this.context.t("menu.action_name.happy_trot"), value: "happy_trot"},
                         {text: this.context.t("menu.action_name.head_rubbing"), value: "head_rubbing"},
-                        {text: this.context.t("menu.action_name.nod"), value: "nod"},
                         {text: this.context.t("menu.action_name.shake_buttocks"), value: "shake_buttocks"},
-                        {text: this.context.t("menu.action_name.shake_head"), value: "shake_head"},
                         {text: this.context.t("menu.action_name.sitting_salute"), value: "sitting_salute"},
                         {text: this.context.t("menu.action_name.sitting_wave_hand"), value: "sitting_wave_hand"},
-                        {text: this.context.t("menu.action_name.suspicious_tilt"), value: "suspicious_tilt"},
-                        {text: this.context.t("menu.action_name.3axis_preset"), value: "3axis_preset"},
-                        {text: this.context.t("menu.action_name.action_pitch_preset"), value: "action_pitch_preset"},
-                        {text: this.context.t("menu.action_name.action_roll_preset"), value: "action_roll_preset"},
-                        {text: this.context.t("menu.action_name.action_yaw_preset"), value: "action_yaw_preset"}
+                        {text: this.context.t("menu.action_name.suspicious_tilt"), value: "suspicious_tilt"}
                     ]
                 },
                 blocking: {

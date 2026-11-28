@@ -17,5 +17,7 @@
     "menu.right-horizontal": "오른쪽 스틱 수평",
     "menu.right-vertical": "오른쪽 스틱 수직",
     "menu.left-horizontal": "왼쪽 스틱 수평",
-    "menu.left-vertical": "왼쪽 스틱 수직"
+    "menu.left-vertical": "왼쪽 스틱 수직",
+    "menu.button_select": "선택",
+    "menu.button_start": "시작"
 }

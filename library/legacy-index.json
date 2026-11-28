@@ -2,6 +2,10 @@
   "formatVersion": 1,
   "profile": "wonderlab",
   "blocks": {
+    "actuator_aidoggy_set_servo270_angle_time": {
+      "module": "power/servo-270",
+      "source": "src/index.ts"
+    },
     "actuator_aimech_3dof_arm_init": {
       "module": "power/xarm-series",
       "source": "src/index.ts"
@@ -890,6 +894,14 @@
       "module": "robots/aimech",
       "source": "src/index.ts"
     },
+    "aimech_set_rotate_bias": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
+    "aimech_set_wheel_params": {
+      "module": "robots/aimech",
+      "source": "src/index.ts"
+    },
     "aimech_start_run_thread": {
       "module": "robots/aimech",
       "source": "src/index.ts"
@@ -1709,6 +1721,26 @@
       "module": "input/p4c5",
       "source": "src/index.ts"
     },
+    "sensor_aidoggy_mcp_body_offset": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_mcp_body_posture": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_mcp_buzzer": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_mcp_run_action": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_mcp_update_status": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
     "sensor_aidoggy_mcps": {
       "module": "input/p4c5",
       "source": "src/index.ts"
@@ -1848,6 +1880,18 @@
         "input/p4c5"
       ]
     },
+    "sensor_aitv_get_msg": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_get_vison_result": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aitv_mcp_exist": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
     "sensor_aitv_mcps": {
       "module": "input/wonder-mind",
       "source": "src/index.ts"
@@ -1876,6 +1920,10 @@
       "alternatives": [
         "input/p4c5"
       ]
+    },
+    "sensor_aitv_vison_result_is_exist": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
     },
     "sensor_get_aitv_message": {
       "module": "input/wonder-mind",
@@ -2737,7 +2785,15 @@
       "module": "input/p4c5",
       "source": "src/index.ts"
     },
+    "sensor_p4c5_mcp_setting": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
     "sensor_p4c5_offline_apriltag_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_cat_dog_update": {
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
@@ -2765,7 +2821,19 @@
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
+    "sensor_p4c5_offline_get_apriltag_count": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_apriltag_id_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
     "sensor_p4c5_offline_get_center_apriltag_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_cat_dog_result": {
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
@@ -2821,6 +2889,18 @@
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
+    "sensor_p4c5_offline_get_face_count": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_qrcode_data": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_qrcode_text_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
     "sensor_p4c5_offline_init": {
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
@@ -2833,7 +2913,15 @@
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
+    "sensor_p4c5_offline_is_detect_cat_dog": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
     "sensor_p4c5_offline_is_detect_color": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_color_id": {
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
@@ -2909,11 +2997,19 @@
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
+    "sensor_p4c5_offline_set_color_detect": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
     "sensor_p4c5_offline_set_color_mode": {
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },
     "sensor_p4c5_offline_set_line_mode": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_set_mode": {
       "module": "input/p4c5-offline",
       "source": "src/index.ts"
     },

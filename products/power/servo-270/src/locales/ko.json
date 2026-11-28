@@ -1,0 +1,5 @@
+{
+    "product.name": "270° 브릭 서보",
+    "block.aidoggy_set_servo270_angle_time": "서보 [SERVO] 를 [ANGLE]° 로 [TIME] ms 동안 회전",
+    "menu.aidoggy_servo.0": "전체"
+}

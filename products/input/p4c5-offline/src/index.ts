@@ -380,6 +380,93 @@ export default class P4C5Offline implements NativeExtension {
                         }
                     ]
                 },
+                "p4c5offline_work_mode": {
+                    "acceptReporters": false,
+                    "items": [
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.0"),
+                            "value": "MODE_COLOR"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.1"),
+                            "value": "MODE_LINE"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.2"),
+                            "value": "MODE_HAND_GESTURE"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.3"),
+                            "value": "MODE_APRILTAG"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.4"),
+                            "value": "MODE_FACE"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.5"),
+                            "value": "MODE_FACE_ID"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.6"),
+                            "value": "MODE_CAT_DOG"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.7"),
+                            "value": "MODE_PEDESTRIAN"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.8"),
+                            "value": "MODE_YOLO11N"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.9"),
+                            "value": "MODE_POSE"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_work_mode.10"),
+                            "value": "MODE_QRCODE"
+                        }
+                    ]
+                },
+                "p4c5offline_color_list": {
+                    "acceptReporters": false,
+                    "items": [
+                        {
+                            "text": "1",
+                            "value": "1"
+                        },
+                        {
+                            "text": "2",
+                            "value": "2"
+                        },
+                        {
+                            "text": "3",
+                            "value": "3"
+                        },
+                        {
+                            "text": "4",
+                            "value": "4"
+                        },
+                        {
+                            "text": "5",
+                            "value": "5"
+                        }
+                    ]
+                },
+                "onOff": {
+                    "acceptReporters": false,
+                    "items": [
+                        {
+                            "text": this.context.t("menu.onOff.1"),
+                            "value": "1"
+                        },
+                        {
+                            "text": this.context.t("menu.onOff.0"),
+                            "value": "0"
+                        }
+                    ]
+                },
                 "p4c5offline_color_config_param": {
                     "acceptReporters": false,
                     "items": [
@@ -397,10 +484,6 @@ export default class P4C5Offline implements NativeExtension {
                     "acceptReporters": false,
                     "items": [
                         {
-                            "text": this.context.t("menu.p4c5offline_color_result.0"),
-                            "value": "index"
-                        },
-                        {
                             "text": this.context.t("menu.p4c5offline_color_result.1"),
                             "value": "x"
                         },
@@ -415,6 +498,44 @@ export default class P4C5Offline implements NativeExtension {
                         {
                             "text": this.context.t("menu.p4c5offline_color_result.4"),
                             "value": "height"
+                        }
+                    ]
+                },
+                "p4c5offline_cat_dog_list": {
+                    "acceptReporters": false,
+                    "items": [
+                        {
+                            "text": this.context.t("menu.p4c5offline_cat_dog_list.0"),
+                            "value": "cat"
+                        },
+                        {
+                            "text": this.context.t("menu.p4c5offline_cat_dog_list.1"),
+                            "value": "dog"
+                        }
+                    ]
+                },
+                "p4c5offline_line_list": {
+                    "acceptReporters": false,
+                    "items": [
+                        {
+                            "text": "1",
+                            "value": "1"
+                        },
+                        {
+                            "text": "2",
+                            "value": "2"
+                        },
+                        {
+                            "text": "3",
+                            "value": "3"
+                        },
+                        {
+                            "text": "4",
+                            "value": "4"
+                        },
+                        {
+                            "text": "5",
+                            "value": "5"
                         }
                     ]
                 },
@@ -874,6 +995,19 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {}
                 },
                 {
+                    opcode: "p4c5_offline_set_mode",
+                    "blockType": "command",
+                    "text": this.context.t("block.p4c5_offline_set_mode"),
+                    "arguments": {
+                        MODE: {
+                            "type": "string",
+                            "defaultValue": "MODE_COLOR",
+                            "menu": "p4c5offline_work_mode",
+                            "literal": true
+                        }
+                    }
+                },
+                {
                     "subCategory": this.context.t("group.1")
                 },
                 {
@@ -941,14 +1075,75 @@ export default class P4C5Offline implements NativeExtension {
                     "subCategory": this.context.t("group.8")
                 },
                 {
+                    opcode: "p4c5_offline_set_color_detect",
+                    "blockType": "command",
+                    "text": this.context.t("block.p4c5_offline_set_color_detect"),
+                    "arguments": {
+                        ID: {
+                            "type": "string",
+                            "defaultValue": "1",
+                            "menu": "p4c5offline_color_list",
+                            "literal": true
+                        },
+                        ONOFF: {
+                            "type": "string",
+                            "defaultValue": "1",
+                            "menu": "onOff",
+                            "literal": true
+                        }
+                    }
+                },
+                {
                     opcode: "p4c5_offline_color_update",
                     "blockType": "command",
                     "text": this.context.t("block.p4c5_offline_color_update"),
                     "arguments": {}
                 },
                 {
+                    opcode: "p4c5_offline_is_detect_color",
+                    "blockType": "Boolean",
+                    "text": this.context.t("block.p4c5_offline_is_detect_color"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "p4c5_offline_is_detect_color_id",
+                    "blockType": "Boolean",
+                    "text": this.context.t("block.p4c5_offline_is_detect_color_id"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {
+                        VALUE: {
+                            "type": "number",
+                            "defaultValue": 1
+                        }
+                    }
+                },
+                {
+                    opcode: "p4c5_offline_get_center_color_result",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_center_color_result"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {
+                        VALUE: {
+                            "type": "number",
+                            "defaultValue": 1
+                        },
+                        PARAM: {
+                            "type": "string",
+                            "defaultValue": "x",
+                            "menu": "p4c5offline_color_result",
+                            "literal": true
+                        }
+                    }
+                },
+                {
+                    // 1.4.0 由 set_color_detect 取代，旧块隐藏以兼容既有工程。
                     opcode: "p4c5_offline_get_color_config",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_get_color_config"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -964,34 +1159,12 @@ export default class P4C5Offline implements NativeExtension {
                 {
                     opcode: "p4c5_offline_set_color_mode",
                     "blockType": "command",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_set_color_mode"),
                     "arguments": {
                         TARGETS: {
                             "type": "string",
                             "defaultValue": " "
-                        }
-                    }
-                },
-                {
-                    opcode: "p4c5_offline_is_detect_color",
-                    "blockType": "Boolean",
-                    "text": this.context.t("block.p4c5_offline_is_detect_color"),
-                    "isEdgeActivated": false,
-                    "disableMonitor": true,
-                    "arguments": {}
-                },
-                {
-                    opcode: "p4c5_offline_get_center_color_result",
-                    "blockType": "reporter",
-                    "text": this.context.t("block.p4c5_offline_get_center_color_result"),
-                    "isEdgeActivated": false,
-                    "disableMonitor": true,
-                    "arguments": {
-                        PARAM: {
-                            "type": "string",
-                            "defaultValue": "index",
-                            "menu": "p4c5offline_color_result",
-                            "literal": true
                         }
                     }
                 },
@@ -1005,7 +1178,9 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {
                         TARGETS: {
                             "type": "string",
-                            "defaultValue": " "
+                            "defaultValue": "1",
+                            "menu": "p4c5offline_line_list",
+                            "literal": true
                         }
                     }
                 },
@@ -1089,17 +1264,6 @@ export default class P4C5Offline implements NativeExtension {
                     "subCategory": this.context.t("group.24")
                 },
                 {
-                    opcode: "p4c5_offline_set_apriltag_family",
-                    "blockType": "command",
-                    "text": this.context.t("block.p4c5_offline_set_apriltag_family"),
-                    "arguments": {
-                        FAMILY: {
-                            "type": "string",
-                            "defaultValue": "36H11"
-                        }
-                    }
-                },
-                {
                     opcode: "p4c5_offline_apriltag_update",
                     "blockType": "command",
                     "text": this.context.t("block.p4c5_offline_apriltag_update"),
@@ -1114,17 +1278,46 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {}
                 },
                 {
+                    opcode: "p4c5_offline_get_apriltag_count",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_apriltag_count"),
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
                     opcode: "p4c5_offline_get_center_apriltag_result",
                     "blockType": "reporter",
                     "text": this.context.t("block.p4c5_offline_get_center_apriltag_result"),
-                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "p4c5_offline_get_apriltag_id_result",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_apriltag_id_result"),
                     "disableMonitor": true,
                     "arguments": {
+                        VALUE: {
+                            "type": "number",
+                            "defaultValue": 1
+                        },
                         PARAM: {
                             "type": "string",
-                            "defaultValue": "id",
-                            "menu": "p4c5offline_apriltag_result",
+                            "defaultValue": "x",
+                            "menu": "p4c5offline_color_result",
                             "literal": true
+                        }
+                    }
+                },
+                {
+                    opcode: "p4c5_offline_set_apriltag_family",
+                    "blockType": "command",
+                    "hideFromPalette": true,
+                    "text": this.context.t("block.p4c5_offline_set_apriltag_family"),
+                    "arguments": {
+                        FAMILY: {
+                            "type": "string",
+                            "defaultValue": "36H11"
                         }
                     }
                 },
@@ -1146,6 +1339,13 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {}
                 },
                 {
+                    opcode: "p4c5_offline_get_face_count",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_face_count"),
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
                     opcode: "p4c5_offline_get_center_face_result",
                     "blockType": "reporter",
                     "text": this.context.t("block.p4c5_offline_get_center_face_result"),
@@ -1154,24 +1354,69 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {
                         PARAM: {
                             "type": "string",
-                            "defaultValue": "index",
-                            "menu": "p4c5offline_face_result",
+                            "defaultValue": "x",
+                            "menu": "p4c5offline_color_result",
                             "literal": true
                         }
                     }
                 },
                 {
-                    "subCategory": this.context.t("group.33")
+                    "subCategory": this.context.t("group.cat_dog")
                 },
                 {
+                    opcode: "p4c5_offline_cat_dog_update",
+                    "blockType": "command",
+                    "text": this.context.t("block.p4c5_offline_cat_dog_update"),
+                    "arguments": {}
+                },
+                {
+                    opcode: "p4c5_offline_is_detect_cat_dog",
+                    "blockType": "Boolean",
+                    "text": this.context.t("block.p4c5_offline_is_detect_cat_dog"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {
+                        CAT_OR_DOG: {
+                            "type": "string",
+                            "defaultValue": "cat",
+                            "menu": "p4c5offline_cat_dog_list",
+                            "literal": true
+                        }
+                    }
+                },
+                {
+                    opcode: "p4c5_offline_get_center_cat_dog_result",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_center_cat_dog_result"),
+                    "isEdgeActivated": false,
+                    "disableMonitor": true,
+                    "arguments": {
+                        CAT_OR_DOG: {
+                            "type": "string",
+                            "defaultValue": "cat",
+                            "menu": "p4c5offline_cat_dog_list",
+                            "literal": true
+                        },
+                        PARAM: {
+                            "type": "string",
+                            "defaultValue": "x",
+                            "menu": "p4c5offline_color_result",
+                            "literal": true
+                        }
+                    }
+                },
+                {
+                    // 1.4.0 合并为猫狗检测积木，旧猫/狗积木隐藏以兼容既有工程，且不保留空分组标题。
                     opcode: "p4c5_offline_cat_update",
                     "blockType": "command",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_cat_update"),
                     "arguments": {}
                 },
                 {
                     opcode: "p4c5_offline_is_detect_cat",
                     "blockType": "Boolean",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_is_detect_cat"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -1180,6 +1425,7 @@ export default class P4C5Offline implements NativeExtension {
                 {
                     opcode: "p4c5_offline_get_center_cat_result",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_get_center_cat_result"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -1193,17 +1439,16 @@ export default class P4C5Offline implements NativeExtension {
                     }
                 },
                 {
-                    "subCategory": this.context.t("group.37")
-                },
-                {
                     opcode: "p4c5_offline_dog_update",
                     "blockType": "command",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_dog_update"),
                     "arguments": {}
                 },
                 {
                     opcode: "p4c5_offline_is_detect_dog",
                     "blockType": "Boolean",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_is_detect_dog"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -1212,6 +1457,7 @@ export default class P4C5Offline implements NativeExtension {
                 {
                     opcode: "p4c5_offline_get_center_dog_result",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_get_center_dog_result"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -1250,7 +1496,7 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {
                         PARAM: {
                             "type": "string",
-                            "defaultValue": "index",
+                            "defaultValue": "x",
                             "menu": "p4c5offline_color_result",
                             "literal": true
                         }
@@ -1297,7 +1543,7 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {
                         PARAM: {
                             "type": "string",
-                            "defaultValue": "index",
+                            "defaultValue": "x",
                             "menu": "p4c5offline_color_result",
                             "literal": true
                         }
@@ -1374,8 +1620,34 @@ export default class P4C5Offline implements NativeExtension {
                     "arguments": {}
                 },
                 {
+                    opcode: "p4c5_offline_get_qrcode_data",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_qrcode_data"),
+                    "disableMonitor": true,
+                    "arguments": {}
+                },
+                {
+                    opcode: "p4c5_offline_get_qrcode_text_result",
+                    "blockType": "reporter",
+                    "text": this.context.t("block.p4c5_offline_get_qrcode_text_result"),
+                    "disableMonitor": true,
+                    "arguments": {
+                        VALUE: {
+                            "type": "string",
+                            "defaultValue": " "
+                        },
+                        PARAM: {
+                            "type": "string",
+                            "defaultValue": "x",
+                            "menu": "p4c5offline_color_result",
+                            "literal": true
+                        }
+                    }
+                },
+                {
                     opcode: "p4c5_offline_get_center_qrcode_result",
                     "blockType": "reporter",
+                    "hideFromPalette": true,
                     "text": this.context.t("block.p4c5_offline_get_center_qrcode_result"),
                     "isEdgeActivated": false,
                     "disableMonitor": true,
@@ -1404,6 +1676,9 @@ export default class P4C5Offline implements NativeExtension {
                     "import Hiwonder"
                 ]
             },
+            "p4c5_offline_set_mode": {
+                "template": "P4C5offline.set_mode(P4C5offline.{MODE})"
+            },
             "p4c5_offline_speech_update": {
                 "template": "P4C5offline.update(\"speech\")"
             },
@@ -1422,6 +1697,19 @@ export default class P4C5Offline implements NativeExtension {
             "p4c5_offline_play_voice_prompt_num": {
                 "template": "P4C5offline.play_voice_prompt({NUM})"
             },
+            "p4c5_offline_set_color_detect": {
+                "variables": [
+                    "_p4c5colorlist = []"
+                ],
+                "template": "if {ID} not in _p4c5colorlist:\n  _p4c5colorlist.append({ID})\nP4C5offline.set_vision_mode(0, _p4c5colorlist)",
+                "templateSelector": {
+                    "argument": "ONOFF",
+                    "cases": {
+                        "1": "if {ID} not in _p4c5colorlist:\n  _p4c5colorlist.append({ID})\nP4C5offline.set_vision_mode(0, _p4c5colorlist)",
+                        "0": "if {ID} in _p4c5colorlist:\n  _p4c5colorlist.remove({ID})\nP4C5offline.set_vision_mode(0, _p4c5colorlist)"
+                    }
+                }
+            },
             "p4c5_offline_color_update": {
                 "template": "P4C5offline.update(\"color\")"
             },
@@ -1434,11 +1722,24 @@ export default class P4C5Offline implements NativeExtension {
             "p4c5_offline_is_detect_color": {
                 "template": "P4C5offline.result_available(\"color\")"
             },
+            "p4c5_offline_is_detect_color_id": {
+                "template": "P4C5offline.getResultAssign(\"color\", \"index\", {VALUE}) is not None"
+            },
             "p4c5_offline_get_center_color_result": {
-                "template": "P4C5offline.getResultNearCenter(\"color\",\"{PARAM}\")"
+                "template": "P4C5offline.getResultAssignKey(\"color\", \"index\", {VALUE}, \"{PARAM}\")"
             },
             "p4c5_offline_set_line_mode": {
-                "template": "P4C5offline.set_vision_mode(1, {TARGETS})"
+                "template": "P4C5offline.set_vision_mode(1, [1])",
+                "templateSelector": {
+                    "argument": "TARGETS",
+                    "cases": {
+                        "1": "P4C5offline.set_vision_mode(1, [1])",
+                        "2": "P4C5offline.set_vision_mode(1, [2])",
+                        "3": "P4C5offline.set_vision_mode(1, [3])",
+                        "4": "P4C5offline.set_vision_mode(1, [4])",
+                        "5": "P4C5offline.set_vision_mode(1, [5])"
+                    }
+                }
             },
             "p4c5_offline_line_update": {
                 "template": "P4C5offline.update(\"line\")"
@@ -1470,8 +1771,14 @@ export default class P4C5Offline implements NativeExtension {
             "p4c5_offline_is_detect_apriltag": {
                 "template": "P4C5offline.result_available(\"apriltag\")"
             },
+            "p4c5_offline_get_apriltag_count": {
+                "template": "len(P4C5offline.get_apriltag_result() or [])"
+            },
             "p4c5_offline_get_center_apriltag_result": {
-                "template": "P4C5offline.getResultNearCenter(\"apriltag\",\"{PARAM}\")"
+                "template": "P4C5offline.getResultNearCenter(\"apriltag\", \"id\")"
+            },
+            "p4c5_offline_get_apriltag_id_result": {
+                "template": "P4C5offline.getResultAssignKey(\"apriltag\", \"id\", {VALUE}, \"{PARAM}\")"
             },
             "p4c5_offline_face_update": {
                 "template": "P4C5offline.update(\"face\")"
@@ -1479,8 +1786,20 @@ export default class P4C5Offline implements NativeExtension {
             "p4c5_offline_is_detect_face": {
                 "template": "P4C5offline.result_available(\"face\")"
             },
+            "p4c5_offline_get_face_count": {
+                "template": "len(P4C5offline.get_face_result() or [])"
+            },
             "p4c5_offline_get_center_face_result": {
                 "template": "P4C5offline.getResultNearCenter(\"face\",\"{PARAM}\")"
+            },
+            "p4c5_offline_cat_dog_update": {
+                "template": "P4C5offline.update(\"cat\")\nP4C5offline.update(\"dog\")"
+            },
+            "p4c5_offline_is_detect_cat_dog": {
+                "template": "P4C5offline.result_available(\"{CAT_OR_DOG}\")"
+            },
+            "p4c5_offline_get_center_cat_dog_result": {
+                "template": "P4C5offline.getResultNearCenter(\"{CAT_OR_DOG}\", \"{PARAM}\")"
             },
             "p4c5_offline_cat_update": {
                 "template": "P4C5offline.update(\"cat\")"
@@ -1538,6 +1857,12 @@ export default class P4C5Offline implements NativeExtension {
             },
             "p4c5_offline_is_detect_qrcode": {
                 "template": "P4C5offline.result_available(\"qrcode\")"
+            },
+            "p4c5_offline_get_qrcode_data": {
+                "template": "P4C5offline.getResultNearCenter(\"qrcode\", \"text\")"
+            },
+            "p4c5_offline_get_qrcode_text_result": {
+                "template": "P4C5offline.getResultAssignKey(\"qrcode\", \"text\", {VALUE}, \"{PARAM}\")"
             },
             "p4c5_offline_get_center_qrcode_result": {
                 "template": "P4C5offline.getResultNearCenter(\"qrcode\",\"{PARAM}\")"

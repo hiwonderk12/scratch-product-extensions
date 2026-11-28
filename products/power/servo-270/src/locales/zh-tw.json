@@ -1,0 +1,5 @@
+{
+    "product.name": "270° 積木舵機",
+    "block.aidoggy_set_servo270_angle_time": "設定舵機 [SERVO] 旋轉到 [ANGLE]° 運行時間 [TIME] 毫秒",
+    "menu.aidoggy_servo.0": "全部"
+}
