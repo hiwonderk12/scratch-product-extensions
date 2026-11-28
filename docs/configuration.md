@@ -146,7 +146,7 @@ sensor.ultra_port 定义普通超声波的 2/6/8，默认 2。普通超声波实
 
 同一模块可以有多个具名端口组。默认值必须属于对应组，显示名调整不改变实际 value；旧课程已有字段不能在新版本恢复时被静默改写。
 
-原生类通过 `context.ports('sensor.aimech_iicport')` 取菜单，通过 `context.defaultPort('aimech_read_light', 'PORT')` 取默认值。软件按当前主控查 `modules['input/light-sensor']`；未列出的模块拒绝加载，不读取软件旧支持矩阵作为补充。
+原生类统一在各自 `src/index.ts` 的 `getInfo().menus` 中直接**内联声明**与端口组 `{label, value}` 一致的 `{acceptReporters: false, items: [{text, value}, ...]}` 菜单（单文件内可直接声明局部常量，严禁跨文件 import 额外 `.ts`），并通过 `context.defaultPort('aimech_read_light', 'PORT')` 读取当前主控默认值。`context.ports()` 仅作历史包（`0.0.1–0.0.8`）及可选兼容保留接口，不在新官方模块中使用。软件与 `node tools/cli/check.mjs` 会校验同主控同命名空间下同名菜单一致，以及内联端口菜单项与 `portGroups`/`defaultPort` 完全对齐；未列出的模块拒绝加载，不读取软件旧支持矩阵作为补充。
 
 修改配置后更新 `library.config.json` 的 `version`，递增受影响主控及需要共存模块的包版本，再生成同快照配套。已安装快照不会被仓库文件自动改变；当前原生协议支持多版本安装、显式配套选择和工程版本锁，安装新包不会自动升级已打开作品。旧课程仍恢复锁定版本，不能静默改用最新版或通过卸载旧包绕过冲突。功能要求与真实发行版的验收边界见[导入说明](importing.md)，不把开发协议能力当作所有已发行软件均支持。
 

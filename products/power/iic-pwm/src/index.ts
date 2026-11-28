@@ -33,11 +33,22 @@ export default class IicPwmBlocks implements NativeExtension {
             menus: {
                 aimech_iicport: {
                     acceptReporters: false,
-                    items: this.context.ports('actuator.aimech_iicport')
+                    items: [
+                        {text: 'A', value: '1'},
+                        {text: 'B', value: '2'},
+                        {text: 'C', value: '3'},
+                        {text: 'D', value: '4'},
+                        {text: 'E', value: '5'},
+                        {text: 'J', value: '9'},
+                        {text: 'K', value: '10'}
+                    ]
                 },
                 iic_pwm_port: {
                     acceptReporters: false,
-                    items: this.context.ports('actuator.iic_pwm_port')
+                    items: [
+                        {text: '1', value: '1'},
+                        {text: '2', value: '2'}
+                    ]
                 }
             },
             blocks: [

@@ -7,7 +7,7 @@
 
 光敏、土壤及其他基础输入模块位于 `products/input/`，RGB 模块位于 `products/output/rgb-module/`，机器人位于 `products/robots/`。已迁移模块直接导出 TypeScript 类，标准编译成 CommonJS，客户端实例化后消费 `getInfo()` 与 `getPython()`，没有并行维护的旧作者目录。
 
-同一传感器可能因主控不同而使用不同初始化接口。主控支持条目配置 `variant`，类通过 `context.variant` 在同一个 index 中选择 Python 依赖和初始化规则；`context.ports()` / `defaultPort()` 只管理端口，不能代替驱动适配。具体职责和验收要求见[主控差异初始化](configuration.md#同一模块按主控选择初始化接口)。
+同一传感器可能因主控不同而使用不同初始化接口。主控支持条目配置 `variant`，类通过 `context.variant` 在同一个 index 中选择 Python 依赖和初始化规则；端口菜单统一在 `src/index.ts` 内联声明并通过 `defaultPort()` 读取默认值（`context.ports()` 为兼容旧包保留的只读接口），三者均只管理端口与适配分支，不能代替驱动验收。具体职责和验收要求见[主控差异初始化](configuration.md#同一模块按主控选择初始化接口)。
 
 ## 检查与打包
 
@@ -98,10 +98,20 @@ export default class LightSensorBlocks implements NativeExtension {
                     defaultValue: this.context.defaultPort('aimech_read_light', 'PORT')
                 }}
             }],
-            menus: {aimech_iicport: {
-                acceptReporters: false,
-                items: this.context.ports('sensor.aimech_iicport')
-            }}
+            menus: {
+                aimech_iicport: {
+                    acceptReporters: false,
+                    items: [
+                        {text: 'A', value: '1'},
+                        {text: 'B', value: '2'},
+                        {text: 'C', value: '3'},
+                        {text: 'D', value: '4'},
+                        {text: 'E', value: '5'},
+                        {text: 'J', value: '9'},
+                        {text: 'K', value: '10'}
+                    ]
+                }
+            }
         };
     }
 
@@ -165,12 +175,11 @@ context 由软件根据所选主控、包资源和当前语言提供，不需要
 例如 en-US 先尝试精确译文再 en；ko-KR 可匹配 ko；zh-Hans/CN/SG 对应简中，zh-Hant/TW/HK 对应繁中。
 未提供译文的语言回退中文，不改变参数值、Python 或包版本。
 
-### ports(group)
+### ports(group)（旧包兼容保留接口）
 
-- 用途：读取当前主控允许的端口组菜单。
+- 用途：兼容已发布旧官方包（`0.0.1–0.0.8`）及可选独立包在运行期从端口组读取菜单；**新官方模块不再调用此方法**，统一在单文件 `src/index.ts` 的 `getInfo().menus` 内联声明 `{acceptReporters: false, items: [{text, value}, ...]}`（禁止跨文件 import 额外 `.ts`）。
 - 参数：库配置中的完整组名字符串，例如 sensor.aimech_iicport。
 - 返回：Array<{text: string; value: string}>；显示标签按当前语言解析，value 保持原值。
-- 示例：items: this.context.ports('sensor.aimech_iicport')，放在 getInfo().menus 对应项。
 - 常见错误：主控未配置该组会报错，不能通过调用方法绕过支持表。
 - 限制：不创建端口、不验证实际接线，也不决定初始化驱动。
 
@@ -344,7 +353,7 @@ Python 直接内联字符串；确有独立职责的复杂资源仍可使用 `co
 | - | - |
 | `variant` | 当前主控支持配置中的适配标识 |
 | `t('block.opcode')` | 从导出的 messages 取文案，按 VM 当前语言选择；未知 key 报错 |
-| `ports(group)` | 从当前主控允许的端口组返回菜单，不在类中复制端口表 |
+| `ports(group)` | 旧包（`0.0.1–0.0.8`）及可选兼容接口：从端口组返回菜单；新官方模块在 `src/index.ts` 内联声明端口菜单 |
 | `defaultPort(opcode, argument)` | 查完整旧类型/参数的默认值，值必须在端口组中 |
 | `python(path)` | 读取包内独立模板，移除文件末尾换行 |
 | `asset(path)` | 读取包内图片 data URI；路径相对模块根目录 |

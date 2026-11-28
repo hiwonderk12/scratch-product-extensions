@@ -15,6 +15,37 @@ export const messages = {
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    fanport: {
+        acceptReporters: false,
+        items: [
+            {text: '6', value: '6'},
+            {text: '8', value: '8'}
+        ]
+    },
+    aidoggy_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'F', value: '6'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class FanBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
@@ -31,7 +62,7 @@ export default class FanBlocks implements NativeExtension {
             return {
                 id: 'display', name: this.context.t(product.name),
                 color1: '#FF6347', color2: '#FF6347', color3: '#FF6347',
-                menus: {fanport: {acceptReporters: false, items: this.context.ports('display.fanport')}},
+                menus: {fanport: PORT_MENUS.fanport},
                 blocks: [
                     {subCategory: this.context.t('group.fan')},
                     {opcode: 'fan_module_speed', blockType: 'command',
@@ -49,7 +80,7 @@ export default class FanBlocks implements NativeExtension {
         return {
             id: 'actuator', name: this.context.t(product.name),
             color1: '#2D87C9', color2: '#2D87C9', color3: '#2D87C9',
-            menus: {[menu]: {acceptReporters: false, items: this.context.ports('actuator.' + menu)}},
+            menus: {[menu]: PORT_MENUS[menu]},
             blocks: [
                 {subCategory: this.context.t(product.name)},
                 {opcode: 'aimech_fan_iic_set_module_speed', blockType: 'command',

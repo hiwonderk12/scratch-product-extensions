@@ -29,8 +29,14 @@ export default class Mp3Blocks implements NativeExtension {
             color1: '#FF6347', color2: '#FF6347', color3: '#FF6347',
             menus: {
                 "mp3_port": {
-                    "items": this.context.ports('display.mp3_port'),
-                    "acceptReporters": false
+                    acceptReporters: false,
+                    items: [
+                        {text: '3', value: '3'},
+                        {text: '4', value: '4'},
+                        {text: '5', value: '5'},
+                        {text: '6', value: '6'},
+                        {text: '9', value: '9'}
+                    ]
                 },
                 "play_mode": {
                     "items": [

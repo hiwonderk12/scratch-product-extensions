@@ -169,9 +169,9 @@ npm run ext -- check
 npm run ext -- check output/hello-text
 ~~~
 
-第一条检查 TypeScript、集中四语与资源引用，不运行产品类或硬件。
+第一条检查 TypeScript（仅限单入口 `src/index.ts` 与相邻 `locales/*.json`，禁止 import 额外 `.ts`）、集中四语与资源引用，不运行硬件。
 索引生成只更新 library/modules.json 和 library/legacy-index.json，审阅差异中应增加新模块与 textdemo_show_text。
-全库 check 校验目录、归属和支持配置，不代替模块编译，更不代替软件内生成。
+全库 check 校验目录、归属和支持配置，并在全主控 `variant × 四语` 下执行 `getInfo()` 验证同命名空间无菜单冲突、端口菜单与 `portGroups`/`defaultPort` 一致；新模块涉及端口菜单时统一在 `src/index.ts` 内联声明，不调用旧 `context.ports()`。
 
 **成功标志**：模块检查输出“原生类编译检查通过：output/hello-text”，全库检查输出“检查通过”；索引差异只有预期新模块与其完整类型。
 失败时先按报错中的文件位置检查 JSON 逗号、四语 key／占位符或版本／支持条目；对照[类 API](native-api.md)和[配置说明](configuration.md)，不要跳过检查直接交付 ZIP。

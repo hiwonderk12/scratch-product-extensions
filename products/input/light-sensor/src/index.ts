@@ -23,46 +23,56 @@ export const product = {
     ]
 } as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aidoggy_io_port: {
+        acceptReporters: false,
+        items: [
+            {text: 'E', value: '5'},
+            {text: 'F', value: '6'}
+        ]
+    },
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class LightSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
     // 未声明的适配不能静默落到机器人DEV驱动。
-    private checkAdapter (): void {
-        if (!['wonderlab', 'hiwonder-iic', 'hiwonder-dev-io-aidoggy'].includes(this.context.variant)) {
-            throw new Error('light-sensor: 未支持的主控适配 ' + this.context.variant);
+    private adapter (): {opcode: string; portMenu: string} {
+        if (this.context.variant === 'hiwonder-dev-io-aidoggy') {
+            return {opcode: 'aidoggy_read_light', portMenu: 'aidoggy_io_port'};
         }
+        if (this.context.variant === 'hiwonder-iic') {
+            return {opcode: 'aiblocksboard_read_light', portMenu: 'aiblocks_iicport'};
+        }
+        if (this.context.variant === 'wonderlab') {
+            return {opcode: 'aimech_read_light', portMenu: 'aimech_iicport'};
+        }
+        throw new Error('light-sensor: 未支持的主控适配 ' + this.context.variant);
     }
 
     getInfo (): ExtensionInfo {
-        this.checkAdapter();
-        if (this.context.variant === 'hiwonder-dev-io-aidoggy') {
-            return {
-                id: 'sensor', name: this.context.t(product.name),
-                color1: '#7B68EE', color2: '#7B68EE', color3: '#7B68EE',
-                blocks: [{opcode: 'aidoggy_read_light', blockType: 'reporter',
-                    text: this.context.t('block.aimech_read_light'), disableMonitor: true,
-                    blockIconURI: this.context.asset('assets/light.svg'),
-                    arguments: {PORT: {type: 'string', menu: 'aidoggy_io_port', literal: true,
-                        defaultValue: this.context.defaultPort('aidoggy_read_light', 'PORT')}}}],
-                menus: {aidoggy_io_port: {acceptReporters: false, items: this.context.ports('sensor.aidoggy_io_port')}}
-            };
-        }
-        if (this.context.variant === 'hiwonder-iic') {
-            return {
-                id: 'sensor', name: this.context.t(product.name),
-                color1: '#7B68EE', color2: '#7B68EE', color3: '#7B68EE',
-                blocks: [{
-                    opcode: 'aiblocksboard_read_light', blockType: 'reporter',
-                    text: this.context.t('block.aimech_read_light'),
-                    disableMonitor: true, blockIconURI: this.context.asset('assets/light.svg'),
-                    arguments: {PORT: {
-                        type: 'string', menu: 'aiblocks_iicport', literal: true,
-                        defaultValue: this.context.defaultPort('aiblocksboard_read_light', 'PORT')
-                    }}
-                }],
-                menus: {aiblocks_iicport: {acceptReporters: false, items: this.context.ports('sensor.aiblocks_iicport')}}
-            };
-        }
+        const {opcode, portMenu} = this.adapter();
         return {
             id: 'sensor',
             name: this.context.t(product.name),
@@ -70,29 +80,29 @@ export default class LightSensorBlocks implements NativeExtension {
             color2: '#7B68EE',
             color3: '#7B68EE',
             blocks: [{
-                opcode: 'aimech_read_light',
+                opcode,
                 blockType: 'reporter',
-                text: this.context.t("block.aimech_read_light"),
+                text: this.context.t('block.aimech_read_light'),
                 disableMonitor: true,
                 blockIconURI: this.context.asset('assets/light.svg'),
                 arguments: {
                     PORT: {
                         type: 'string',
-                        menu: 'aimech_iicport',
-                        defaultValue: this.context.defaultPort('aimech_read_light', 'PORT'),
+                        menu: portMenu,
+                        defaultValue: this.context.defaultPort(opcode, 'PORT'),
                         literal: true
                     }
                 }
             }],
             menus: {
-                aimech_iicport: {acceptReporters: false, items: this.context.ports('sensor.aimech_iicport')}
+                [portMenu]: PORT_MENUS[portMenu]
             }
         };
     }
 
     // 生成规则按设备 SDK 初始化与取值，只在用到该积木时收集依赖。
     getPython (): Record<string, PythonTemplate> {
-        this.checkAdapter();
+        this.adapter();
         // IO读取按端口创建独立对象，E／F同时使用不会互相覆盖。
         if (this.context.variant === 'hiwonder-dev-io-aidoggy') {
             return {aidoggy_read_light: {

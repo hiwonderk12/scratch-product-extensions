@@ -22,7 +22,15 @@ export default class P4C5Online implements NativeExtension {
             "color2": "#7B68EE",
             "color3": "#7B68EE",
             "menus": {
-                "aidoggy_iicport": {acceptReporters: false, items: this.context.ports("sensor.aidoggy_iicport")},
+                "aidoggy_iicport": {
+                    acceptReporters: false,
+                    items: [
+                        {text: 'A', value: '1'},
+                        {text: 'B', value: '2'},
+                        {text: 'C', value: '3'},
+                        {text: 'D', value: '4'}
+                    ]
+                },
                 "aitv_set": {
                     "acceptReporters": false,
                     "items": [

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import ts from 'typescript';
 import {validateLegacyOwners} from './legacy-owners.mjs';
+import {validateNativeMenuConsistency} from './menu-consistency.mjs';
 import {validateSourceDeferredEmissions} from './python-template-schema.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -206,6 +207,7 @@ for (const [productId, reference] of Object.entries(library.products)) {
 }
 validateLegacyOwners(blocks, Object.fromEntries(Object.entries(library.products)
     .map(([id, reference]) => [id, readSupport(reference).modules])));
+validateNativeMenuConsistency({root, library, ports, modules, readSupport, ts});
 const placeholders = readJson(resolveFile(root, library.placeholders));
 assert(placeholders.every(item => item.name?.['zh-cn']), '占位卡片必须提供中文名称');
 const catalog = readJson(resolveFile(root, 'catalog.json'));

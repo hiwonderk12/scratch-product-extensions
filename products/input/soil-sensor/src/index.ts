@@ -23,34 +23,46 @@ export const product = {
     ]
 } as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class SoilSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
     // 未声明的适配不能静默落到机器人DEV驱动。
-    private checkAdapter (): void {
-        if (!['wonderlab', 'hiwonder-iic'].includes(this.context.variant)) {
-            throw new Error('soil-sensor: 未支持的主控适配 ' + this.context.variant);
+    private adapter (): {opcode: string; portMenu: string} {
+        if (this.context.variant === 'hiwonder-iic') {
+            return {opcode: 'aiblocksboard_get_soil_moisture_value', portMenu: 'aiblocks_iicport'};
         }
+        if (this.context.variant === 'wonderlab') {
+            return {opcode: 'aimech_get_soil_value', portMenu: 'aimech_iicport'};
+        }
+        throw new Error('soil-sensor: 未支持的主控适配 ' + this.context.variant);
     }
 
     getInfo (): ExtensionInfo {
-        this.checkAdapter();
-        if (this.context.variant === 'hiwonder-iic') {
-            return {
-                id: 'sensor', name: this.context.t(product.name),
-                color1: '#7B68EE', color2: '#7B68EE', color3: '#7B68EE',
-                blocks: [{
-                    opcode: 'aiblocksboard_get_soil_moisture_value', blockType: 'reporter',
-                    text: this.context.t('block.aimech_get_soil_value'),
-                    disableMonitor: true, blockIconURI: this.context.asset('assets/soil.svg'),
-                    arguments: {PORT: {
-                        type: 'string', menu: 'aiblocks_iicport', literal: true,
-                        defaultValue: this.context.defaultPort('aiblocksboard_get_soil_moisture_value', 'PORT')
-                    }}
-                }],
-                menus: {aiblocks_iicport: {acceptReporters: false, items: this.context.ports('sensor.aiblocks_iicport')}}
-            };
-        }
+        const {opcode, portMenu} = this.adapter();
         return {
             id: 'sensor',
             name: this.context.t(product.name),
@@ -58,29 +70,29 @@ export default class SoilSensorBlocks implements NativeExtension {
             color2: '#7B68EE',
             color3: '#7B68EE',
             blocks: [{
-                opcode: 'aimech_get_soil_value',
+                opcode,
                 blockType: 'reporter',
-                text: this.context.t("block.aimech_get_soil_value"),
+                text: this.context.t('block.aimech_get_soil_value'),
                 disableMonitor: true,
                 blockIconURI: this.context.asset('assets/soil.svg'),
                 arguments: {
                     PORT: {
                         type: 'string',
-                        menu: 'aimech_iicport',
-                        defaultValue: this.context.defaultPort('aimech_get_soil_value', 'PORT'),
+                        menu: portMenu,
+                        defaultValue: this.context.defaultPort(opcode, 'PORT'),
                         literal: true
                     }
                 }
             }],
             menus: {
-                aimech_iicport: {acceptReporters: false, items: this.context.ports('sensor.aimech_iicport')}
+                [portMenu]: PORT_MENUS[portMenu]
             }
         };
     }
 
     // 独立模板保留原 IIC 地址及 read_value API。
     getPython (): Record<string, PythonTemplate> {
-        this.checkAdapter();
+        this.adapter();
         // 板端先建立共享IIC；设备地址保留在传感器构造参数，不套用DEV.Port。
         if (this.context.variant === 'hiwonder-iic') {
             return {

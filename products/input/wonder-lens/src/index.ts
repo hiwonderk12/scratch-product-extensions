@@ -15,6 +15,30 @@ export const messages = {
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class WonderLensBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
@@ -370,7 +394,7 @@ export default class WonderLensBlocks implements NativeExtension {
         };
         if (this.context.variant !== 'hiwonder-dev-onboard') {
             const menu = this.context.variant === 'hiwonder-dev-port' ? 'aimech_iicport' : 'aiblocks_iicport';
-            menus[menu] = {acceptReporters: false, items: this.context.ports('sensor.' + menu)};
+            menus[menu] = PORT_MENUS[menu];
         }
         return {
             id: "sensor",

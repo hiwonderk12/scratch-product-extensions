@@ -15,6 +15,30 @@ export const messages = {
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class WonderEchoBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
@@ -37,10 +61,7 @@ export default class WonderEchoBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                [menu]: {
-                    acceptReporters: false,
-                    items: this.context.ports('sensor.' + menu)
-                },
+                [menu]: PORT_MENUS[menu],
                 mechdog_speech_cmd_word: {
                     acceptReporters: false,
                     items: [

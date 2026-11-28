@@ -49,7 +49,12 @@ export default class WonderMindBlocks implements NativeExtension {
                 },
                 [board ? "aiblocks_iicport" : "aimech_iicport"]: {
                     "acceptReporters": false,
-                    "items": board ? this.context.ports('sensor.aiblocks_iicport') : [
+                    "items": board ? [
+                        {text: 'A', value: '1'},
+                        {text: 'B', value: '2'},
+                        {text: 'C', value: '3'},
+                        {text: 'D', value: '4'}
+                    ] : [
                         {
                             "text": "A",
                             "value": "1"

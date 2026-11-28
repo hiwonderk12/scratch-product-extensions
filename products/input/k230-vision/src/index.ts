@@ -18,6 +18,30 @@ export const messages = {
 
 export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 'zh-tw', 'ko']} as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class K230VisionBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
@@ -32,10 +56,7 @@ export default class K230VisionBlocks implements NativeExtension {
         this.checkVariant();
         const portMenu = this.context.variant === 'hiwonder-dev-port' ? 'aiblocks_iicport' : 'aimech_iicport';
         const menus: NonNullable<ExtensionInfo['menus']> = {
-            [portMenu]: {
-                acceptReporters: false,
-                items: this.context.ports('sensor.' + portMenu)
-            },
+            [portMenu]: PORT_MENUS[portMenu],
             tts_person: {
                 acceptReporters: false,
                 items: [

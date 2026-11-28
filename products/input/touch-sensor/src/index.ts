@@ -23,6 +23,37 @@ export const product = {
     ]
 } as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aidoggy_io_port: {
+        acceptReporters: false,
+        items: [
+            {text: 'E', value: '5'},
+            {text: 'F', value: '6'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class TouchSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
@@ -49,10 +80,7 @@ export default class TouchSensorBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                [menu]: {
-                    items: this.context.ports('sensor.' + menu),
-                    acceptReporters: false
-                }
+                [menu]: PORT_MENUS[menu]
             },
             blocks: [
                 {

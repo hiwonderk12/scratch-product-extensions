@@ -98,8 +98,11 @@ export default class RgbStripBlocks implements NativeExtension {
                     "acceptReporters": false
                 },
                 "rgbport": {
-                    "items": this.context.ports('display.rgbport'),
-                    "acceptReporters": false
+                    acceptReporters: false,
+                    items: [
+                        {text: '3', value: '3'},
+                        {text: '8', value: '8'}
+                    ]
                 }
             },
             blocks: [{ subCategory: this.context.t(product.name) },

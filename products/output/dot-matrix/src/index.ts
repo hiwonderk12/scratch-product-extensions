@@ -287,14 +287,31 @@ export default class DotMatrixBlocks implements NativeExtension {
                 }
             }
         ];
+        const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+            aiblocks_iicport: {
+                acceptReporters: false,
+                items: [
+                    {text: 'A', value: '1'},
+                    {text: 'B', value: '2'},
+                    {text: 'C', value: '3'},
+                    {text: 'D', value: '4'}
+                ]
+            },
+            aidoggy_iicport: {
+                acceptReporters: false,
+                items: [
+                    {text: 'A', value: '1'},
+                    {text: 'B', value: '2'},
+                    {text: 'C', value: '3'},
+                    {text: 'D', value: '4'}
+                ]
+            }
+        };
         return {
             id: 'display', name: this.context.t(product.name),
             color1: '#FF6347', color2: '#FF6347', color3: '#FF6347',
             menus: {
-                [portMenu]: {
-                    "items": this.context.ports('display.' + portMenu),
-                    "acceptReporters": false
-                },
+                [portMenu]: PORT_MENUS[portMenu],
                 "ledstatus": {
                     "items": [
                         {

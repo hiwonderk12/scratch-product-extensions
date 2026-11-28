@@ -23,6 +23,39 @@ export const product = {
     ]
 } as const;
 
+const PORT_MENUS: Record<string, {acceptReporters: boolean; items: Array<{text: string; value: string}>}> = {
+    aiblocks_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aidoggy_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'}
+        ]
+    },
+    aimech_iicport: {
+        acceptReporters: false,
+        items: [
+            {text: 'A', value: '1'},
+            {text: 'B', value: '2'},
+            {text: 'C', value: '3'},
+            {text: 'D', value: '4'},
+            {text: 'E', value: '5'},
+            {text: 'J', value: '9'},
+            {text: 'K', value: '10'}
+        ]
+    }
+};
+
 export default class LedUltrasonicBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
@@ -47,13 +80,8 @@ export default class LedUltrasonicBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                [portMenu]: {
-                    items: this.context.ports('sensor.' + portMenu),
-                    acceptReporters: false
-                },
-                ...(portMenu === 'aidoggy_iicport' ? {aimech_iicport: {
-                    items: this.context.ports('sensor.aimech_iicport'), acceptReporters: false
-                }} : {}),
+                [portMenu]: PORT_MENUS[portMenu],
+                ...(portMenu === 'aidoggy_iicport' ? {aimech_iicport: PORT_MENUS.aimech_iicport} : {}),
                 num: {
                     items: [
                         {

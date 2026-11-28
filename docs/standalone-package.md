@@ -53,7 +53,7 @@ support.products 按软件当前主控 ID 选择适配，优先于 support.defau
 }
 ~~~
 
-在类中用 context.variant 选择 import、Port 包装、构造函数和生成模板；用 context.ports 和 context.defaultPort 读取对应菜单与默认值。不同主控不能只改端口显示文字而复用错误的驱动初始化。上例对应完整参考的可选 read_light 分支，需要真实 Hiwonder_DEV SDK；不是全主控硬件兼容声明。
+在类中用 context.variant 选择 import、Port 包装、构造函数和生成模板；菜单推荐在 `src/index.ts` 内联声明，并用 context.defaultPort 读取对应默认值（`context.ports` 继续作为兼容接口支持读取包内 support.ports）。不同主控不能只改端口显示文字而复用错误的驱动初始化。上例对应完整参考的可选 read_light 分支，需要真实 Hiwonder_DEV SDK；不是全主控硬件兼容声明。
 
 ## 安装与更新规则
 

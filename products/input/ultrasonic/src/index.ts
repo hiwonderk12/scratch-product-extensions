@@ -43,8 +43,12 @@ export default class UltrasonicBlocks implements NativeExtension {
             color3: "#7B68EE",
             menus: {
                 ultra_port: {
-                    items: this.context.ports('sensor.ultra_port'),
-                    acceptReporters: false
+                    acceptReporters: false,
+                    items: [
+                        {text: '2', value: '2'},
+                        {text: '6', value: '6'},
+                        {text: '8', value: '8'}
+                    ]
                 }
             },
             blocks: [

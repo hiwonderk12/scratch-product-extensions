@@ -35,8 +35,16 @@ export default class RgbModuleBlocks implements NativeExtension {
             color3: "#FF6347",
             menus: {
                 aimech_iicport: {
-                    items: this.context.ports('display.aimech_iicport'),
-                    acceptReporters: false
+                    acceptReporters: false,
+                    items: [
+                        {text: 'A', value: '1'},
+                        {text: 'B', value: '2'},
+                        {text: 'C', value: '3'},
+                        {text: 'D', value: '4'},
+                        {text: 'E', value: '5'},
+                        {text: 'J', value: '9'},
+                        {text: 'K', value: '10'}
+                    ]
                 },
                 light_colors: {
                     items: [

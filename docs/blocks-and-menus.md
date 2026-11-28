@@ -75,7 +75,7 @@ ExtensionArgument 的字段：
 
 菜单为 {acceptReporters: boolean, items: [{text: string, value: string}]}。
 text 可翻译，value、参数名和菜单名不翻译。acceptReporters 决定能否接入 reporter，和 literal 是否原样生成是两件事。
-共享 namespace 下同名菜单必须有一致的文字、实际值、顺序与 acceptReporters；新菜单尽量使用模块特有的名称。
+端口菜单与普通业务菜单统一在所属模块单文件 `src/index.ts` 的 `getInfo().menus` 内联声明（严禁新建共享 `.ts` 跨文件导入），默认端口继续通过 `this.context.defaultPort()` 从主控支持绑定读取；`node tools/cli/check.mjs` 会校验同主控共享 namespace 下同名菜单的文字、实际值、顺序与 acceptReporters 完全一致，且端口菜单项与 `library/ports.json` 及 `defaultPort` 默认值保持一致。新菜单仍尽量使用模块特有的名称。
 
 ### 阅读手写示例中的菜单和表达式
 
