@@ -56,5 +56,7 @@
     "block.get_aitv_status": "내장 데이터 상태 가져오기",
     "block.aitv_cmds": "명령 [CMD]",
     "block.aitv_args": "매개변수 [CMD]",
-    "block.mcp_setting": "MCP 도구 매개변수 설정: 도구 이름 [NAME], 도구 설명 [COMMAND], 명령 이름 [CMDNAME], 반환 매개변수 [PARAMS], 호출 완료까지 대기 여부 [BLOCK], 데이터 반환 여부 [RETURN]"
+    "block.mcp_setting": "MCP 도구 매개변수 설정: 도구 이름 [NAME], 도구 설명 [COMMAND], 명령 이름 [CMDNAME], 반환 매개변수 [PARAMS], 호출 완료까지 대기 여부 [BLOCK], 데이터 반환 여부 [RETURN]",
+    "block.aitv_aiblocksboard_init": "포트 [PORT] 초기화",
+    "block.aitv_send_action_finish": "동작 완료 응답 보내기"
 }

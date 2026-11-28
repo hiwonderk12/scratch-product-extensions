@@ -1,6 +1,78 @@
 {
   "product": "controllers/aiblocksboard",
   "modules": {
+    "input/line-4": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_linefollower_init.PORT": "1"}}}
+    },
+    "input/line-6": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_linefollower6_init.PORT": "1"}}}
+    },
+    "input/wonder-mind": {
+      "variant": "mcp-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aitv_aiblocksboard_init.PORT": "1"}}}
+    },
+    "input/k230-vision": {
+      "variant": "hiwonder-dev-port", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_k230_aimech_init.PORT": "1"}}}
+    },
+    "input/infrared-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_get_avoid_value.PORT": "1"}}}
+    },
+    "input/touch-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_read_touch.PORT": "1"}}}
+    },
+    "input/led-ultrasonic": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_led_ultrasonic_init.PORT": "1"}}}
+    },
+    "input/wonder-lens": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_wondercamInitI2c.IICPORT": "1"}}}
+    },
+    "input/wonder-echo": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_wonderecho_init.PORT": "1"}}}
+    },
+    "input/knob": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_read_knob.PORT": "1"}}}
+    },
+    "input/sound-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_read_sound.PORT": "1"}}}
+    },
+    "input/rain-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_get_rain_drop_value.PORT": "1"}}}
+    },
+    "input/button-module": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_key_is_pressed.PORT": "1"}}}
+    },
+    "input/imu-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_imu_init.PORT": "1"}}}
+    },
+    "input/temperature-humidity": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_temphumi_init.PORT": "1"}}}
+    },
+    "input/color-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocks_colorsensor_init.PORT": "1"}}}
+    },
+    "input/light-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_read_light.PORT": "1"}}}
+    },
+    "input/soil-sensor": {
+      "variant": "hiwonder-iic", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aiblocks_iicport": {"bindings": {"sensor_aiblocksboard_get_soil_moisture_value.PORT": "1"}}}
+    },
     "power/long-motor": {"variant": "hiwonder-direct", "legacyNamespaces": ["actuator"], "portGroups": {}},
     "power/servo-180": {"variant": "hiwonder-direct", "legacyNamespaces": ["actuator"], "portGroups": {}},
     "power/servo-360": {"variant": "hiwonder-direct", "legacyNamespaces": ["actuator"], "portGroups": {}}

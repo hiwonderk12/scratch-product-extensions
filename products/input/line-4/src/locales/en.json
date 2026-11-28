@@ -4,5 +4,8 @@
     "block.linefollower_one_status": "4-channel line follower channel [NUM] detects [LINE]",
     "block.linefollower_status": "4-channel line follower detects [LINE]",
     "block.linefollower_status_result": "4-channel line follower channels detect [VALUE]",
-    "block.linefollower_read_offset": "Get 4-channel line follower offset"
+    "block.linefollower_read_offset": "Get 4-channel line follower offset",
+    "block.aiblocks_linefollower_init": "Initialize 4-channel line follower IIC port [PORT]",
+    "block.linefollower_set_threshold": "Set the threshold ratio (range 1~9) of the four line following sensors to [VALUE]",
+    "block.linefollower_get_value": "Four line following sensor channels [NUM] Grayscale value (0~100)"
 }

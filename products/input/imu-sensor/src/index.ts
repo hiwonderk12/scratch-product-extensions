@@ -27,14 +27,18 @@ export default class ImuSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
     // 驱动由库配置选择；拒绝未知适配，避免仅更换端口却调用错误 SDK。
-    private checkAdapter (): void {
-        if (this.context.variant !== 'hiwonder-dev-port') {
-            throw new Error('input/imu-sensor: 未知适配 ' + this.context.variant);
+    private adapter (): {opcode: string; portMenu: string; board: boolean} {
+        if (this.context.variant === 'hiwonder-iic') {
+            return {opcode: 'aiblocks_imu_init', portMenu: 'aiblocks_iicport', board: true};
         }
+        if (this.context.variant === 'hiwonder-dev-port') {
+            return {opcode: 'aimech_imu_init', portMenu: 'aimech_iicport', board: false};
+        }
+        throw new Error('input/imu-sensor: 未知适配 ' + this.context.variant);
     }
 
     getInfo (): ExtensionInfo {
-        this.checkAdapter();
+        const {opcode, portMenu} = this.adapter();
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -42,8 +46,8 @@ export default class ImuSensorBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                aimech_iicport: {
-                    items: this.context.ports('sensor.aimech_iicport'),
+                [portMenu]: {
+                    items: this.context.ports('sensor.' + portMenu),
                     acceptReporters: false
                 },
                 euler_element: {
@@ -69,14 +73,14 @@ export default class ImuSensorBlocks implements NativeExtension {
                     subCategory: this.context.t(product.name)
                 },
                 {
-                    opcode: "aimech_imu_init",
+                    opcode,
                     blockType: "command",
                     text: this.context.t('block.aimech_imu_init'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_imu_init', 'PORT'),
-                            menu: "aimech_iicport",
+                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
+                            menu: portMenu,
                             literal: true
                         }
                     },
@@ -126,15 +130,17 @@ export default class ImuSensorBlocks implements NativeExtension {
 
     // 显式初始化使用 imu_sensor，不覆盖主控 imu；轴选择 reporter 只输出索引。
     getPython (): Record<string, PythonTemplate> {
-        this.checkAdapter();
+        const {opcode, board} = this.adapter();
         return {
-            aimech_imu_init: {
+            [opcode]: {
                 template: "",
                 imports: [
-                    "import Hiwonder_DEV"
+                    board ? "import Hiwonder_IIC" : "import Hiwonder_DEV"
                 ],
                 variables: [
-                    "imu_sensor = Hiwonder_DEV.DEV_IMU(Hiwonder_DEV.Port({PORT}))"
+                    ...(board ? ["iic = Hiwonder_IIC.IIC()"] : []),
+                    board ? "imu_sensor = Hiwonder_IIC.DEV_IMU(iic,{PORT})" :
+                        "imu_sensor = Hiwonder_DEV.DEV_IMU(Hiwonder_DEV.Port({PORT}))"
                 ]
             },
             get_euler_angle_element_value: {

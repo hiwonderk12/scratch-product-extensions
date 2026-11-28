@@ -27,7 +27,7 @@ const fixture = context => {
         fs.writeFileSync(filename, JSON.stringify(value, null, 2) + '\n');
         return filename;
     };
-    for (const relative of ['tools/sdk/index.d.ts', 'tools/cli/native-package.mjs', 'tools/cli/authoring-config.mjs', 'tools/cli/authoring-locales.mjs']) {
+    for (const relative of ['tools/sdk/index.d.ts', 'tools/cli/python-template-schema.mjs', 'tools/cli/native-package.mjs', 'tools/cli/authoring-config.mjs', 'tools/cli/authoring-locales.mjs']) {
         fs.mkdirSync(path.dirname(path.join(root, relative)), {recursive: true});
         fs.copyFileSync(path.join(repository, relative), path.join(root, relative));
     }
@@ -308,21 +308,25 @@ test('existing module metadata cannot redirect edits to another module, and junc
     assert.deepEqual(fs.readdirSync(destination), []);
 });
 
-test('generation preserves CRLF and an existing sensor class without rewriting its old declarations', context => {
-    const {root, write} = fixture(context);
+test('generation preserves CRLF and refuses rewriting a branched sensor class', context => {
+    const {root, write, create} = fixture(context);
     fs.mkdirSync(path.join(root, 'products/input'), {recursive: true});
     fs.cpSync(path.join(repository, 'products/input/light-sensor'), path.join(root, 'products/input/light-sensor'), {recursive: true});
-    const filename = path.join(root, 'products/input/light-sensor/src/index.ts');
+    const sensorFile = path.join(root, 'products/input/light-sensor/src/index.ts');
+    const sensorBefore = fs.readFileSync(sensorFile, 'utf8');
+    const filename = path.join(root, create('plain'));
     const original = fs.readFileSync(filename, 'utf8').replace(/\r?\n/g, '\r\n');
     fs.writeFileSync(filename, original);
     const spec = write('block.json', blockSpec);
-    const plan = planAuthoringCommand(root, ['g', 'block', 'input/light-sensor', 'cli_double_value', '--type', 'reporter', '--spec', spec], ts);
+    assert.throws(() => planAuthoringCommand(root, ['g', 'block', 'input/light-sensor', 'cli_double_value',
+        '--type', 'reporter', '--spec', spec], ts), /分支|直接返回/);
+    assert.equal(fs.readFileSync(sensorFile, 'utf8'), sensorBefore);
+    const plan = planAuthoringCommand(root, ['g', 'block', 'input/plain', 'cli_double_value', '--type', 'reporter', '--spec', spec], ts);
     applyAuthoringPlan(plan);
     const after = fs.readFileSync(filename, 'utf8');
     assert.equal(/(?<!\r)\n/.test(after), false);
-    assert.ok(after.includes("imports: ['import Hiwonder_DEV']"));
-    assert.ok(after.includes('light.read_value()'));
-    assert.match(collectNativeModule(root, 'input/light-sensor', ts).files['index.cjs'], /cli_double_value/);
+    assert.ok(after.includes("template: 'print({TEXT})'"));
+    assert.match(collectNativeModule(root, 'input/plain', ts).files['index.cjs'], /cli_double_value/);
 });
 
 test('stale plans and branchy classes fail before writing rather than guessing an adaptation branch', context => {

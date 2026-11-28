@@ -5,5 +5,6 @@
     "block.linefollower6_status": "6채널 라인 추적 센서 채널 상태 [LINE] 감지",
     "block.linefollower6_set_threshold": "6채널 라인 추적 센서 임계값 비율(1~9)을 [VALUE] 로 설정",
     "block.linefollower6_get_value": "6채널 라인 추적 센서 채널 [NUM] 그레이스케일 값(0~100)",
-    "block.linefollower6_read_offset": "6채널 라인 추적 센서 편차 읽기"
+    "block.linefollower6_read_offset": "6채널 라인 추적 센서 편차 읽기",
+    "block.aiblocksboard_linefollower6_init": "6채널 라인 추적 센서 IIC 포트 [PORT] 초기화"
 }

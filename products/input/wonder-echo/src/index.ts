@@ -19,7 +19,7 @@ export default class WonderEchoBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
     private checkVariant (): void {
-        if (!['hiwonder-dev-port', 'hiwonder-dev-onboard'].includes(this.context.variant)) {
+        if (!['hiwonder-dev-port', 'hiwonder-dev-onboard', 'hiwonder-iic'].includes(this.context.variant)) {
             throw new Error('input/wonder-echo: 未支持的主控适配 ' + this.context.variant);
         }
     }
@@ -27,6 +27,9 @@ export default class WonderEchoBlocks implements NativeExtension {
     getInfo (): ExtensionInfo {
         this.checkVariant();
         const onboard = this.context.variant === 'hiwonder-dev-onboard';
+        const board = this.context.variant === 'hiwonder-iic';
+        const {opcode} = board ? {opcode: 'aiblocks_wonderecho_init'} : {opcode: 'aimech_wonderecho_init'};
+        const menu = board ? 'aiblocks_iicport' : 'aimech_iicport';
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -34,9 +37,9 @@ export default class WonderEchoBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                aimech_iicport: {
+                [menu]: {
                     acceptReporters: false,
-                    items: this.context.ports('sensor.aimech_iicport')
+                    items: this.context.ports('sensor.' + menu)
                 },
                 mechdog_speech_cmd_word: {
                     acceptReporters: false,
@@ -506,7 +509,7 @@ export default class WonderEchoBlocks implements NativeExtension {
                     arguments: {}
                 } satisfies ExtensionBlock] : []),
                 {
-                    opcode: "aimech_wonderecho_init",
+                    opcode,
                     ...(onboard ? {hideFromPalette: true} : {}),
                     blockType: "command",
                     text: this.context.t('block.aimech_wonderecho_init'),
@@ -514,8 +517,8 @@ export default class WonderEchoBlocks implements NativeExtension {
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_wonderecho_init', 'PORT'),
-                            menu: "aimech_iicport",
+                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
+                            menu,
                             literal: true
                         }
                     }
@@ -641,6 +644,14 @@ export default class WonderEchoBlocks implements NativeExtension {
                 template: "asr2.speak(asr2.ASR_ANNOUNCER, {NUM})"
             }
         };
+        // 板端沿用asr2对象与共享读取规则，仅初始化使用IIC的asr_module。
+        if (this.context.variant === 'hiwonder-iic') {
+            templates.aiblocks_wonderecho_init = {
+                template: '', imports: ['import Hiwonder_IIC'],
+                variables: ['iic = Hiwonder_IIC.IIC()', 'asr2 = Hiwonder_IIC.asr_module(iic,{PORT})']
+            };
+            delete templates.aimech_wonderecho_init;
+        }
         if (this.context.variant === 'hiwonder-dev-onboard') {
             templates.aimech_wonderecho_init.variables = ["asr2 = Hiwonder_DEV.DEV_ASR()"];
             templates.minihexa_wonderecho_init = templates.aimech_wonderecho_init;

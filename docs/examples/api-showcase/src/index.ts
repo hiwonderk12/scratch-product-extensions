@@ -681,6 +681,9 @@ export default class ApiShowcaseBlocks implements NativeExtension {
       },
       reset_history: {
         template: "apishowcase_history.clear()", // 每次执行的行为放 template。
+        // 尾注释位于后续最后一个追加历史块之后；下次重置截断扫描，无匹配则立即输出。
+        deferredEmission: {after: ["apishowcase_add_history"], before: ["apishowcase_reset_history"],
+          template: "# history reset complete"},
         forcedVariables: [{ name: "apishowcase_history", code: "apishowcase_history = []" }],
         // name 是覆盖身份，code 是初始化代码；都支持参数替换。
         // forcedVariables 替换同名普通初始化，不是每次积木执行时重新定义变量。
@@ -739,10 +742,10 @@ export default class ApiShowcaseBlocks implements NativeExtension {
       compact_json: { template: "print({TEXT.compactJson})" }, // 删除空白后再编码，连字符串内部空格也会删！
       assign_named: { template: "{NAME.identifier} = {VALUE}" }, // 静态名称转合法 Python 标识符。
       member_name: { template: "apishowcase_{NAME.memberName} = {VALUE}" },
-      // memberName 仅取工具路径末段并去双引号，不修复非法标识符；本例限制为固定菜单。
+      // memberName 取工具路径末段并规整标识符；固定菜单使用协议原值，不重复解码引号。
       insert_parameters: { template: "print({PARAMS.compactHead}0,{PARAMS.compactTail})" },
-      // compactHead/Tail 删除 ASCII 空格后取首字符/剩余内容；默认 [1, 2] → print([0,1,2])。
-      // 不是 Python 列表解析器，不对自由文本或动态 reporter 使用这种兼容拼接。
+      // compactHead/Tail 解析 JSON 数组并保留字符串内部空格；默认 [1, 2] → print([0,1,2])。
+      // 空白代表空数组，拒绝非数组 JSON；不对动态 reporter 使用这种静态配置拼接。
       legacy_color: { template: "{COLOR.colorName}" }, // 旧中文颜色值转换，不是界面多语言翻译 API。
       show_resource: {
         template: this.cachedResource,

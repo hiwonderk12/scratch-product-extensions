@@ -4,5 +4,8 @@
     "block.linefollower_one_status": "四路巡线传感器通道 [NUM] 识别到 [LINE]",
     "block.linefollower_status": "四路巡线传感器识别到 [LINE]",
     "block.linefollower_status_result": "四路巡线传感器通道识别到 [VALUE]",
-    "block.linefollower_read_offset": "获取四路巡线传感器偏差值"
+    "block.linefollower_read_offset": "获取四路巡线传感器偏差值",
+    "block.aiblocks_linefollower_init": "初始化四路巡线传感器IIC接口 [PORT]",
+    "block.linefollower_set_threshold": "设置四路巡线传感器阈值比例（范围1~9）为 [VALUE]",
+    "block.linefollower_get_value": "四路巡线传感器通道 [NUM] 灰度值（0~100）"
 }

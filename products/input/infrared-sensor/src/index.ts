@@ -26,8 +26,9 @@ export const product = {
 export default class InfraredSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
+    // miniHexa保留原始IO；板端与五AI分别使用IIC、DEV端口。
     private usesRawIo (): boolean {
-        if (!['wonderlab', 'hiwonder-dev-raw-io'].includes(this.context.variant)) {
+        if (!['wonderlab', 'hiwonder-dev-raw-io', 'hiwonder-iic'].includes(this.context.variant)) {
             throw new Error('input/infrared-sensor: 未支持的主控适配 ' + this.context.variant);
         }
         return this.context.variant === 'hiwonder-dev-raw-io';
@@ -35,9 +36,11 @@ export default class InfraredSensorBlocks implements NativeExtension {
 
     getInfo (): ExtensionInfo {
         const usesRawIo = this.usesRawIo();
-        const portMenu = usesRawIo ? 'minihexa_io_single_port' : 'aimech_iicport';
+        const board = this.context.variant === 'hiwonder-iic';
+        const {opcode} = board ? {opcode: 'aiblocks_get_avoid_value'} : {opcode: 'aimech_get_avoid_value'};
+        const portMenu = board ? 'aiblocks_iicport' : usesRawIo ? 'minihexa_io_single_port' : 'aimech_iicport';
         const block: ExtensionBlock = {
-            opcode: "aimech_get_avoid_value",
+            opcode,
             blockType: "Boolean",
             disableMonitor: true,
             ...(usesRawIo ? {hideFromPalette: true} : {}),
@@ -46,7 +49,7 @@ export default class InfraredSensorBlocks implements NativeExtension {
             arguments: {
                 PORT: {
                     type: "string",
-                    defaultValue: this.context.defaultPort('aimech_get_avoid_value', 'PORT'),
+                    defaultValue: this.context.defaultPort(opcode, 'PORT'),
                     menu: portMenu,
                     literal: true
                 }
@@ -78,6 +81,12 @@ export default class InfraredSensorBlocks implements NativeExtension {
     // 仅使用积木时收集初始化；对象名、端口字面值及生成接口保持旧工程语义。
     getPython (): Record<string, PythonTemplate> {
         const usesRawIo = this.usesRawIo();
+        if (this.context.variant === 'hiwonder-iic') {
+            return {aiblocks_get_avoid_value: {
+                template: 'ir_{PORT}.read_state()', imports: ['import Hiwonder_IIC'],
+                variables: ['iic = Hiwonder_IIC.IIC()', 'ir_{PORT} = Hiwonder_IIC.DEV_IR(iic,{PORT})']
+            }};
+        }
         const rule = {
             template: usesRawIo ? "avoid_{PORT}.read()" : "ir_{PORT}.read_state()",
             imports: ["import Hiwonder_DEV"],

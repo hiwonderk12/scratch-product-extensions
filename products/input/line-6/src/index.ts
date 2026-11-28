@@ -28,13 +28,16 @@ export default class Line6Blocks implements NativeExtension {
 
     // 库配置选择真实驱动；不接受只改端口而不匹配 SDK 的未知适配。
     private checkAdapter (): void {
-        if (this.context.variant !== 'hiwonder-dev-port') {
+        if (!['hiwonder-dev-port', 'hiwonder-iic'].includes(this.context.variant)) {
             throw new Error('input/line-6: 未知适配 ' + this.context.variant);
         }
     }
 
     getInfo (): ExtensionInfo {
         this.checkAdapter();
+        const board = this.context.variant === 'hiwonder-iic';
+        const {opcode: initOpcode} = board ? {opcode: 'aiblocksboard_linefollower6_init'} : {opcode: 'aimech_linefollower6_init'};
+        const portMenu = board ? 'aiblocks_iicport' : 'aimech_iicport';
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -42,8 +45,8 @@ export default class Line6Blocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                aimech_iicport: {
-                    items: this.context.ports('sensor.aimech_iicport'),
+                [portMenu]: {
+                    items: this.context.ports('sensor.' + portMenu),
                     acceptReporters: false
                 },
                 linedot2: {
@@ -123,15 +126,15 @@ export default class Line6Blocks implements NativeExtension {
                     subCategory: this.context.t(product.name)
                 },
                 {
-                    opcode: "aimech_linefollower6_init",
+                    opcode: initOpcode,
                     blockType: "command",
-                    text: this.context.t('block.aimech_linefollower6_init'),
+                    text: board ? this.context.t('block.aiblocksboard_linefollower6_init') : this.context.t('block.aimech_linefollower6_init'),
                     blockIconURI: this.context.asset('assets/linefollow.svg'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_linefollower6_init', 'PORT'),
-                            menu: "aimech_iicport",
+                            defaultValue: this.context.defaultPort(initOpcode, 'PORT'),
+                            menu: portMenu,
                             literal: true
                         }
                     }
@@ -212,14 +215,16 @@ export default class Line6Blocks implements NativeExtension {
     // 仅初始化积木收集独立设备对象；亮灭由选择器区分 == 0 与 > 0，LINE 值直接组成十六进制。
     getPython (): Record<string, PythonTemplate> {
         this.checkAdapter();
+        const board = this.context.variant === 'hiwonder-iic';
         return {
-            aimech_linefollower6_init: {
+            [board ? 'aiblocksboard_linefollower6_init' : 'aimech_linefollower6_init']: {
                 template: "",
                 imports: [
-                    "import Hiwonder_DEV"
+                    board ? "import Hiwonder_IIC" : "import Hiwonder_DEV"
                 ],
                 variables: [
-                    "linefollow6 = Hiwonder_DEV.DEV_LINE_FOLLOW_6(Hiwonder_DEV.Port({PORT}))"
+                    ...(board ? ["iic = Hiwonder_IIC.IIC()", "linefollow6 = Hiwonder_IIC.LINE_FOLLOW_6_module(iic,{PORT})"] :
+                        ["linefollow6 = Hiwonder_DEV.DEV_LINE_FOLLOW_6(Hiwonder_DEV.Port({PORT}))"])
                 ]
             },
             linefollower6_one_status: {

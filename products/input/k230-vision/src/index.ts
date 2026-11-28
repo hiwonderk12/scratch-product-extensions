@@ -21,18 +21,69 @@ export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 
 export default class K230VisionBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
+    // 板端使用 DEV_K230 + Port，驱动导入由初始化模板显式收集。
     private checkVariant (): void {
-        if (!["hiwonder-dev-dual-drive","hiwonder-dev-mecanum","hiwonder-dev-quadruped","hiwonder-dev-quadruped-pro","hiwonder-dev-hexa"].includes(this.context.variant)) {
+        if (!["hiwonder-dev-port","hiwonder-dev-dual-drive","hiwonder-dev-mecanum","hiwonder-dev-quadruped","hiwonder-dev-quadruped-pro","hiwonder-dev-hexa"].includes(this.context.variant)) {
             throw new Error('k230-vision: 未支持的主控适配 ' + this.context.variant);
         }
     }
 
     getInfo (): ExtensionInfo {
         this.checkVariant();
+        const portMenu = this.context.variant === 'hiwonder-dev-port' ? 'aiblocks_iicport' : 'aimech_iicport';
         const menus: NonNullable<ExtensionInfo['menus']> = {
-            aimech_iicport: {
+            [portMenu]: {
                 acceptReporters: false,
-                items: this.context.ports('sensor.aimech_iicport')
+                items: this.context.ports('sensor.' + portMenu)
+            },
+            tts_person: {
+                acceptReporters: false,
+                items: [
+                    {text: this.context.t('menu.tts_person.0'), value: "Cherry"},
+                    {text: this.context.t('menu.tts_person.1'), value: "Dylan"},
+                    {text: this.context.t('menu.tts_person.2'), value: "Elias"},
+                    {text: this.context.t('menu.tts_person.3'), value: "Eric"},
+                    {text: this.context.t('menu.tts_person.4'), value: "Ethan"},
+                    {text: this.context.t('menu.tts_person.5'), value: "Jada"},
+                    {text: this.context.t('menu.tts_person.6'), value: "Jennifer"},
+                    {text: this.context.t('menu.tts_person.7'), value: "Katerina"},
+                    {text: this.context.t('menu.tts_person.8'), value: "Kiki"},
+                    {text: this.context.t('menu.tts_person.9'), value: "Li"},
+                    {text: this.context.t('menu.tts_person.10'), value: "Marcus"},
+                    {text: this.context.t('menu.tts_person.11'), value: "Nofish"},
+                    {text: this.context.t('menu.tts_person.12'), value: "Peter"},
+                    {text: this.context.t('menu.tts_person.13'), value: "Rocky"},
+                    {text: this.context.t('menu.tts_person.14'), value: "Roy"},
+                    {text: this.context.t('menu.tts_person.15'), value: "Ryan"},
+                    {text: this.context.t('menu.tts_person.16'), value: "Sunny"},
+                    {text: this.context.t('menu.tts_person.17'), value: "en_female_dacey_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.18'), value: "en_male_tim_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.19'), value: "zh_female_yingyujiaoxue_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.20'), value: "zh_female_vv_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.21'), value: "zh_male_m191_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.22'), value: "zh_female_peiqi_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.23'), value: "zh_male_ruyayichen_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.24'), value: "zh_female_xiaoxue_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.25'), value: "zh_male_liufei_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.26'), value: "zh_male_dayi_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.27'), value: "zh_female_xiaohe_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.28'), value: "zh_male_taocheng_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.29'), value: "zh_male_shaonianzixin_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.30'), value: "zh_female_sajiaoxuemei_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.31'), value: "zh_female_kefunvsheng_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.32'), value: "zh_female_liuchangnv_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.33'), value: "zh_female_qingxinnvsheng_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.34'), value: "zh_female_shuangkuaisisi_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.35'), value: "zh_male_sunwukong_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.36'), value: "zh_female_tianmeixiaoyuan_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.37'), value: "zh_female_tianmeitaozi_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.38'), value: "zh_female_cancan_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.39'), value: "zh_female_linjianvhai_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.40'), value: "zh_female_meilinvyou_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.41'), value: "zh_male_sophie_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.42'), value: "zh_female_jitangnv_uranus_bigtts"},
+                    {text: this.context.t('menu.tts_person.43'), value: "zh_female_mizai_uranus_bigtts"}
+                ]
             },
             arm_claw_params: {
                 acceptReporters: false,
@@ -1727,7 +1778,7 @@ export default class K230VisionBlocks implements NativeExtension {
                         PORT: {
                             type: "string",
                             defaultValue: this.context.defaultPort('k230_aimech_init', 'PORT'),
-                            menu: "aimech_iicport",
+                            menu: portMenu,
                             literal: true
                         }
                     }
@@ -1789,6 +1840,24 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 },
                 {
+                    opcode: 'k230_tts_set_apikey', blockType: 'command', disableMonitor: true,
+                    text: this.context.t('block.k230_tts_set_apikey'),
+                    blockIconURI: this.context.asset('assets/k230.svg'),
+                    arguments: {VALUE: {type: 'string', defaultValue: ' '}}
+                },
+                {
+                    opcode: 'k230_tts_set_person', blockType: 'command', disableMonitor: true,
+                    text: this.context.t('block.k230_tts_set_person'),
+                    blockIconURI: this.context.asset('assets/k230.svg'),
+                    arguments: {VALUE: {type: 'string', menu: 'tts_person', defaultValue: 'Cherry', literal: true}}
+                },
+                {
+                    opcode: 'k230_tts_speak', blockType: 'command', disableMonitor: true,
+                    text: this.context.t('block.k230_tts_speak'),
+                    blockIconURI: this.context.asset('assets/k230.svg'),
+                    arguments: {VALUE: {type: 'string', defaultValue: ' '}}
+                },
+                {
                     opcode: "k230_update_detect_result",
                     blockType: "command",
                     text: this.context.t("block.k230_update_detect_result"),
@@ -1843,7 +1912,7 @@ export default class K230VisionBlocks implements NativeExtension {
                     arguments: {
                         NAME: {
                             type: "string",
-                            defaultValue: "tool"
+                            defaultValue: " "
                         },
                         COMMAND: {
                             type: "largetext",
@@ -2074,7 +2143,7 @@ export default class K230VisionBlocks implements NativeExtension {
                     }
                 } satisfies ExtensionBlock
                 ] : []),
-                ...((this.context.variant === "hiwonder-dev-dual-drive" || this.context.variant === "hiwonder-dev-quadruped" || this.context.variant === "hiwonder-dev-quadruped-pro" || this.context.variant === "hiwonder-dev-hexa") ? [
+                ...((this.context.variant === "hiwonder-dev-port" || this.context.variant === "hiwonder-dev-dual-drive" || this.context.variant === "hiwonder-dev-quadruped" || this.context.variant === "hiwonder-dev-quadruped-pro" || this.context.variant === "hiwonder-dev-hexa") ? [
                     {
                     opcode: "k230_get_robot_runAction_params",
                     blockType: "reporter",
@@ -3594,11 +3663,65 @@ export default class K230VisionBlocks implements NativeExtension {
                 template: "k230.set_run_enabled({MODE})"
             },
             k230_set_volumn: {
-                template: "k230.set_volumn({VALUE})"
+                template: "k230.set_volume({VALUE})"
             },
             k230_set_wifi: {
                 template: "k230.set_wifi({VALUE1},{VALUE2})"
             },
+            k230_tts_set_apikey: {
+                template: "k230.set_llm_key({VALUE})\nk230.set_speech_url('wss://hiwonder.cc/v1/audio/realtime/speech')"
+            },
+            // 音色名称采用固定协议常量，不读取随界面语言变化的菜单标签。
+            k230_tts_set_person: {
+                template: "k230.set_tts_voice(\"Cherry - 芊悦\", \"Cherry\")",
+                templateSelector: {argument: 'VALUE', cases: {
+                    "Cherry": "k230.set_tts_voice(\"Cherry - 芊悦\", \"Cherry\")",
+                    "Dylan": "k230.set_tts_voice(\"Dylan - 北京晓东\", \"Dylan\")",
+                    "Elias": "k230.set_tts_voice(\"Elias - 墨讲师\", \"Elias\")",
+                    "Eric": "k230.set_tts_voice(\"Eric - 四川程川\", \"Eric\")",
+                    "Ethan": "k230.set_tts_voice(\"Ethan - 晨煦\", \"Ethan\")",
+                    "Jada": "k230.set_tts_voice(\"Jada - 上海阿珍\", \"Jada\")",
+                    "Jennifer": "k230.set_tts_voice(\"Jennifer - 詹妮弗\", \"Jennifer\")",
+                    "Katerina": "k230.set_tts_voice(\"Katerina - 卡捷琳娜\", \"Katerina\")",
+                    "Kiki": "k230.set_tts_voice(\"Kiki - 粤语阿清\", \"Kiki\")",
+                    "Li": "k230.set_tts_voice(\"Li - 南京老李\", \"Li\")",
+                    "Marcus": "k230.set_tts_voice(\"Marcus - 陕西秦川\", \"Marcus\")",
+                    "Nofish": "k230.set_tts_voice(\"Nofish - 不吃鱼\", \"Nofish\")",
+                    "Peter": "k230.set_tts_voice(\"Peter - 天津李彼得\", \"Peter\")",
+                    "Rocky": "k230.set_tts_voice(\"Rocky - 粤语阿强\", \"Rocky\")",
+                    "Roy": "k230.set_tts_voice(\"Roy - 闽南阿杰\", \"Roy\")",
+                    "Ryan": "k230.set_tts_voice(\"Ryan - 甜茶\", \"Ryan\")",
+                    "Sunny": "k230.set_tts_voice(\"Sunny - 四川晴儿\", \"Sunny\")",
+                    "en_female_dacey_uranus_bigtts": "k230.set_tts_voice(\"Dacey\", \"en_female_dacey_uranus_bigtts\")",
+                    "en_male_tim_uranus_bigtts": "k230.set_tts_voice(\"Tim\", \"en_male_tim_uranus_bigtts\")",
+                    "zh_female_yingyujiaoxue_uranus_bigtts": "k230.set_tts_voice(\"Tina老师 2.0\", \"zh_female_yingyujiaoxue_uranus_bigtts\")",
+                    "zh_female_vv_uranus_bigtts": "k230.set_tts_voice(\"Vivi 2.0\", \"zh_female_vv_uranus_bigtts\")",
+                    "zh_male_m191_uranus_bigtts": "k230.set_tts_voice(\"云舟 2.0\", \"zh_male_m191_uranus_bigtts\")",
+                    "zh_female_peiqi_uranus_bigtts": "k230.set_tts_voice(\"佩奇猪 2.0\", \"zh_female_peiqi_uranus_bigtts\")",
+                    "zh_male_ruyayichen_uranus_bigtts": "k230.set_tts_voice(\"儒雅逸辰 2.0\", \"zh_male_ruyayichen_uranus_bigtts\")",
+                    "zh_female_xiaoxue_uranus_bigtts": "k230.set_tts_voice(\"儿童绘本 2.0\", \"zh_female_xiaoxue_uranus_bigtts\")",
+                    "zh_male_liufei_uranus_bigtts": "k230.set_tts_voice(\"刘飞 2.0\", \"zh_male_liufei_uranus_bigtts\")",
+                    "zh_male_dayi_uranus_bigtts": "k230.set_tts_voice(\"大壹 2.0\", \"zh_male_dayi_uranus_bigtts\")",
+                    "zh_female_xiaohe_uranus_bigtts": "k230.set_tts_voice(\"小何 2.0\", \"zh_female_xiaohe_uranus_bigtts\")",
+                    "zh_male_taocheng_uranus_bigtts": "k230.set_tts_voice(\"小天 2.0\", \"zh_male_taocheng_uranus_bigtts\")",
+                    "zh_male_shaonianzixin_uranus_bigtts": "k230.set_tts_voice(\"少年梓辛/Brayan 2.0\", \"zh_male_shaonianzixin_uranus_bigtts\")",
+                    "zh_female_sajiaoxuemei_uranus_bigtts": "k230.set_tts_voice(\"撒娇学妹 2.0\", \"zh_female_sajiaoxuemei_uranus_bigtts\")",
+                    "zh_female_kefunvsheng_uranus_bigtts": "k230.set_tts_voice(\"暖阳女声 2.0\", \"zh_female_kefunvsheng_uranus_bigtts\")",
+                    "zh_female_liuchangnv_uranus_bigtts": "k230.set_tts_voice(\"流畅女声 2.0\", \"zh_female_liuchangnv_uranus_bigtts\")",
+                    "zh_female_qingxinnvsheng_uranus_bigtts": "k230.set_tts_voice(\"清新女声 2.0\", \"zh_female_qingxinnvsheng_uranus_bigtts\")",
+                    "zh_female_shuangkuaisisi_uranus_bigtts": "k230.set_tts_voice(\"爽快思思 2.0\", \"zh_female_shuangkuaisisi_uranus_bigtts\")",
+                    "zh_male_sunwukong_uranus_bigtts": "k230.set_tts_voice(\"猴哥 2.0\", \"zh_male_sunwukong_uranus_bigtts\")",
+                    "zh_female_tianmeixiaoyuan_uranus_bigtts": "k230.set_tts_voice(\"甜美小源 2.0\", \"zh_female_tianmeixiaoyuan_uranus_bigtts\")",
+                    "zh_female_tianmeitaozi_uranus_bigtts": "k230.set_tts_voice(\"甜美桃子 2.0\", \"zh_female_tianmeitaozi_uranus_bigtts\")",
+                    "zh_female_cancan_uranus_bigtts": "k230.set_tts_voice(\"知性灿灿 2.0\", \"zh_female_cancan_uranus_bigtts\")",
+                    "zh_female_linjianvhai_uranus_bigtts": "k230.set_tts_voice(\"邻家女孩 2.0\", \"zh_female_linjianvhai_uranus_bigtts\")",
+                    "zh_female_meilinvyou_uranus_bigtts": "k230.set_tts_voice(\"魅力女友 2.0\", \"zh_female_meilinvyou_uranus_bigtts\")",
+                    "zh_male_sophie_uranus_bigtts": "k230.set_tts_voice(\"魅力苏菲 2.0\", \"zh_male_sophie_uranus_bigtts\")",
+                    "zh_female_jitangnv_uranus_bigtts": "k230.set_tts_voice(\"鸡汤女 2.0\", \"zh_female_jitangnv_uranus_bigtts\")",
+                    "zh_female_mizai_uranus_bigtts": "k230.set_tts_voice(\"黑猫侦探社咪仔 2.0\", \"zh_female_mizai_uranus_bigtts\")"
+                }}
+            },
+            k230_tts_speak: {template: "k230.tts_speak({VALUE})"},
             k230_update_detect_result: {
                 template: "k230.update_result()"
             },

@@ -1,6 +1,30 @@
 {
   "product": "robots/aidoggy",
   "modules": {
+    "input/p4c5": {
+      "variant": "hiwonder-aidoggy", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aidoggy_iicport": {"bindings": {"sensor_p4c5_aidoggy_init.PORT": "1"}}}
+    },
+    "input/p4c5-offline": {
+      "variant": "hiwonder-aidoggy", "legacyNamespaces": ["sensor"], "portGroups": {}
+    },
+    "input/light-sensor": {
+      "variant": "hiwonder-dev-io-aidoggy", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aidoggy_io_port": {"bindings": {"sensor_aidoggy_read_light.PORT": "5"}}}
+    },
+    "input/touch-sensor": {
+      "variant": "hiwonder-dev-io-aidoggy", "legacyNamespaces": ["sensor"],
+      "portGroups": {"sensor.aidoggy_io_port": {"bindings": {"sensor_aidoggy_read_touch.PORT": "5"}}}
+    },
+    "input/color-sensor": {
+      "variant": "hiwonder-dev-port-aidoggy",
+      "legacyNamespaces": ["sensor"],
+      "portGroups": {
+        "sensor.aidoggy_iicport": {
+          "bindings": {"sensor_aidoggy_colorsensor_init.PORT": "1"}
+        }
+      }
+    },
     "input/temperature-humidity": {
       "variant": "hiwonder-dev-port-aidoggy",
       "legacyNamespaces": [

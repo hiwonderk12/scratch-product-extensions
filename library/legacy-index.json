@@ -1524,10 +1524,21 @@
     },
     "sensor_abort_llm": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_aiblocks_check_color": {
       "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_colorsensor_init": {
+      "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_get_avoid_value": {
+      "module": "input/infrared-sensor",
       "source": "src/index.ts"
     },
     "sensor_aiblocks_get_color": {
@@ -1538,8 +1549,124 @@
       "module": "input/color-sensor",
       "source": "src/index.ts"
     },
+    "sensor_aiblocks_imu_init": {
+      "module": "input/imu-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_key_is_pressed": {
+      "module": "input/button-module",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_linefollower_init": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
     "sensor_aiblocks_wondercamInitI2c": {
       "module": "input/wonder-lens",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocks_wonderecho_init": {
+      "module": "input/wonder-echo",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_get_rain_drop_value": {
+      "module": "input/rain-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_get_soil_moisture_value": {
+      "module": "input/soil-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_led_ultrasonic_init": {
+      "module": "input/led-ultrasonic",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_linefollower6_init": {
+      "module": "input/line-6",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_read_knob": {
+      "module": "input/knob",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_read_light": {
+      "module": "input/light-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_read_sound": {
+      "module": "input/sound-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_read_touch": {
+      "module": "input/touch-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aiblocksboard_temphumi_init": {
+      "module": "input/temperature-humidity",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_colorsensor_init": {
+      "module": "input/color-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_arm_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_body_angle_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_body_offset_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_buzzer_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_default_mcp_name": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_robot_action_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_robot_go_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_robot_move_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_robot_status_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_get_robot_turn_args": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_mcps": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_read_light": {
+      "module": "input/light-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_read_touch": {
+      "module": "input/touch-sensor",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_send_battery": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_aidoggy_send_imu": {
+      "module": "input/p4c5",
       "source": "src/index.ts"
     },
     "sensor_aimech_close_led_ultrasonic": {
@@ -1638,6 +1765,10 @@
       "module": "input/wonder-echo",
       "source": "src/index.ts"
     },
+    "sensor_aitv_aiblocksboard_init": {
+      "module": "input/wonder-mind",
+      "source": "src/index.ts"
+    },
     "sensor_aitv_aimech_init": {
       "module": "input/wonder-mind",
       "source": "src/index.ts"
@@ -1652,7 +1783,10 @@
     },
     "sensor_aitv_control": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_aitv_mcps": {
       "module": "input/wonder-mind",
@@ -1660,23 +1794,42 @@
     },
     "sensor_aitv_send_action": {
       "module": "input/wonder-mind",
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
+    },
+    "sensor_aitv_send_action_finish": {
+      "module": "input/wonder-mind",
       "source": "src/index.ts"
     },
     "sensor_aitv_send_msg": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_aitv_send_status": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_get_aitv_message": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_get_aitv_status": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_get_euler_angle": {
       "module": "input/imu-sensor",
@@ -1798,13 +1951,20 @@
       "module": "input/wonder-lens",
       "source": "src/index.ts"
     },
+    "sensor_init_aidoggy_mcp_setting": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
     "sensor_init_mcp_setting": {
       "module": "input/wonder-mind",
       "source": "src/index.ts"
     },
     "sensor_init_speech_setting": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_isAnyBarCodeDetected": {
       "module": "input/wonder-lens",
@@ -2366,6 +2526,18 @@
       "module": "input/k230-vision",
       "source": "src/index.ts"
     },
+    "sensor_k230_tts_set_apikey": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_tts_set_person": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
+    "sensor_k230_tts_speak": {
+      "module": "input/k230-vision",
+      "source": "src/index.ts"
+    },
     "sensor_k230_update_detect_result": {
       "module": "input/k230-vision",
       "source": "src/index.ts"
@@ -2378,11 +2550,19 @@
       "module": "input/wonder-lens",
       "source": "src/index.ts"
     },
+    "sensor_linefollower_get_value": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
     "sensor_linefollower_one_status": {
       "module": "input/line-4",
       "source": "src/index.ts"
     },
     "sensor_linefollower_read_offset": {
+      "module": "input/line-4",
+      "source": "src/index.ts"
+    },
+    "sensor_linefollower_set_threshold": {
       "module": "input/line-4",
       "source": "src/index.ts"
     },
@@ -2448,7 +2628,10 @@
     },
     "sensor_mcp_setting": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_minihexa_get_avoid_value": {
       "module": "input/infrared-sensor",
@@ -2490,21 +2673,225 @@
       "module": "input/wonder-lens",
       "source": "src/index.ts"
     },
+    "sensor_p4c5_aidoggy_init": {
+      "module": "input/p4c5",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_apriltag_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_cat_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_color_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_detect_speech_num": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_dog_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_face_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_gesture_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_apriltag_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_cat_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_color_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_dog_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_face_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_gesture_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_line_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_pedestrian_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_posture_keypoint": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_posture_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_qrcode_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_target_result": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_center_target_result_check": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_get_color_config": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_init": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_apriltag": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_cat": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_color": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_dog": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_face": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_gesture": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_gesture_name": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_line": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_pedestrian": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_posture": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_qrcode": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_speech": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_speech_name": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_is_detect_target": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_line_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_pedestrian_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_play_voice_prompt": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_play_voice_prompt_num": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_posture_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_qrcode_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_set_apriltag_family": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_set_color_mode": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_set_line_mode": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_speech_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
+    "sensor_p4c5_offline_target_update": {
+      "module": "input/p4c5-offline",
+      "source": "src/index.ts"
+    },
     "sensor_select_voice_model": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_set_speech_person": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_set_speech_person_ali": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_set_speech_person_arg": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_setLed": {
       "module": "input/wonder-lens",
@@ -2516,7 +2903,10 @@
     },
     "sensor_speech_text": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_switchFunc": {
       "module": "input/wonder-lens",
@@ -2524,7 +2914,10 @@
     },
     "sensor_vision_text": {
       "module": "input/wonder-mind",
-      "source": "src/index.ts"
+      "source": "src/index.ts",
+      "alternatives": [
+        "input/p4c5"
+      ]
     },
     "sensor_wondercamUpdateResult": {
       "module": "input/wonder-lens",

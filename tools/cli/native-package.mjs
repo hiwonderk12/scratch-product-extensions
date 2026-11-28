@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {validateSourceDeferredEmissions} from './python-template-schema.mjs';
 import path from 'node:path';
 import {readNativeAuthoring} from './authoring-config.mjs';
 import {prepareNativeLocales} from './authoring-locales.mjs';
@@ -125,6 +126,7 @@ const collectNativeDirectory = (root, directory, moduleId, typescript, standalon
         typescript.forEachChild(node, checkResources);
     };
     checkResources(authoringSource);
+    validateSourceDeferredEmissions(authoringSource, typescript, moduleId);
     const {source, legacySources, ...descriptor} = metadata;
     let extension;
     if (standalone) {

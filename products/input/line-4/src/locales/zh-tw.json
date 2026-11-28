@@ -4,5 +4,8 @@
     "block.linefollower_one_status": "四路循線感測器通道 [NUM] 辨識到 [LINE]",
     "block.linefollower_status": "四路循線感測器辨識到 [LINE]",
     "block.linefollower_status_result": "四路循線感測器通道辨識到 [VALUE]",
-    "block.linefollower_read_offset": "取得四路循線感測器偏差值"
+    "block.linefollower_read_offset": "取得四路循線感測器偏差值",
+    "block.aiblocks_linefollower_init": "初始化四路循線感測器 IIC 介面 [PORT]",
+    "block.linefollower_set_threshold": "設定四路巡線感測器閾值比例（範圍1~9）為 [VALUE]",
+    "block.linefollower_get_value": "四路巡線感測器通道 [NUM] 灰階值（0~100）"
 }

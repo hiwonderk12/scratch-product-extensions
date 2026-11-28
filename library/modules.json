@@ -73,6 +73,16 @@
       "sourceState": "native-source"
     },
     {
+      "moduleId": "input/p4c5",
+      "metadata": "products/input/p4c5/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
+      "moduleId": "input/p4c5-offline",
+      "metadata": "products/input/p4c5-offline/metadata.json",
+      "sourceState": "native-source"
+    },
+    {
       "moduleId": "input/rain-sensor",
       "metadata": "products/input/rain-sensor/metadata.json",
       "sourceState": "native-source"

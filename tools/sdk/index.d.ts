@@ -58,6 +58,8 @@ export interface PythonTemplate {
     template: string;
     templateSelector?: {argument: string; cases: Record<string, string>; matchInputCode?: boolean;
         variableCases?: Record<string, string[]>};
+    /** 在后续链最后匹配块（含值输入）后发射；before 截断，无匹配立即发射。 */
+    deferredEmission?: {after: string[]; before: string[]; template: string};
     runtimeFiles?: string[];
     imports?: string[];
     variables?: string[];

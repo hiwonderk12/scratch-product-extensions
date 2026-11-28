@@ -5,5 +5,6 @@
     "block.linefollower6_status": "六路循線感測器通道偵測到 [LINE]",
     "block.linefollower6_set_threshold": "設定六路循線感測器閾值比例（範圍 1~9）為 [VALUE]",
     "block.linefollower6_get_value": "六路循線感測器通道 [NUM] 灰階值（0~100）",
-    "block.linefollower6_read_offset": "取得六路循線感測器偏差值"
+    "block.linefollower6_read_offset": "取得六路循線感測器偏差值",
+    "block.aiblocksboard_linefollower6_init": "初始化六路循線感測器 IIC 介面 [PORT]"
 }

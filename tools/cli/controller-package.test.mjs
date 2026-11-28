@@ -17,11 +17,11 @@ const moduleId = 'controllers/aiblocksboard';
 test('handwritten controller compiles, packs its real icon and enters the official download catalog', async () => {
     const collected = collectNativeModule(repository, moduleId, typescript);
     assert.equal(collected.descriptor.id, 'aiblocksboard');
-    assert.equal(collected.descriptor.version, '0.0.2');
+    assert.equal(collected.descriptor.version, '0.0.7');
     assert.match(collected.files['index.cjs'], /class AIBlocksBoard/);
     const library = JSON.parse(collected.files['library.json']);
     assert.equal(library.products.aiblocksboard.product, moduleId);
-    assert.deepEqual(Object.keys(library.products.aiblocksboard.modules).sort(),
+    assert.deepEqual(Object.keys(library.products.aiblocksboard.modules).filter(id => id.startsWith('power/')).sort(),
         ['power/long-motor', 'power/servo-180', 'power/servo-360']);
     const data = await createNativeArchive(collected, JSZip);
     const zip = await JSZip.loadAsync(data);
@@ -37,11 +37,11 @@ test('handwritten controller compiles, packs its real icon and enters the offici
 for (const [id, count] of [['long-motor', 14], ['servo-180', 3], ['servo-360', 3]]) {
     test(`direct power ${id} compiles and packs only its verified controller support`, async () => {
         const collected = collectNativeModule(repository, `power/${id}`, typescript);
-        assert.equal(collected.descriptor.version, '0.0.1');
+        assert.equal(collected.descriptor.version, '0.0.6');
         assert.equal(collected.descriptor.namespace, 'actuator');
         assert.deepEqual(collected.descriptor.supportedLocales, ['zh-cn', 'en', 'zh-tw', 'ko']);
         const library = JSON.parse(collected.files['library.json']);
-        assert.equal(library.version, '0.0.3');
+        assert.equal(library.version, '0.0.8');
         assert.deepEqual(Object.keys(library.products).filter(productId => library.products[productId].modules[`power/${id}`]),
             ['aiblocksboard']);
         const module = {exports: {}};

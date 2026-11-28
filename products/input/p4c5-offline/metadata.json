@@ -1,0 +1,14 @@
+{
+  "id": "p4c5-offline",
+  "legacySources": [],
+  "icon": "assets/cards/p4c5_offline.png",
+  "format": "hiwonder-native-extension",
+  "formatVersion": 1,
+  "apiVersion": 1,
+  "mode": "python",
+  "version": "0.0.8",
+  "namespace": "sensor",
+  "source": "src/index.ts",
+  "entry": "index.cjs"
+}
+

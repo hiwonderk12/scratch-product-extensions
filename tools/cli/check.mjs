@@ -1,4 +1,7 @@
 import fs from 'node:fs';
+import ts from 'typescript';
+import {validateLegacyOwners} from './legacy-owners.mjs';
+import {validateSourceDeferredEmissions} from './python-template-schema.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateNativeReleaseCatalog} from './native-releases.mjs';
@@ -93,6 +96,7 @@ for (const category of fs.readdirSync(productsDirectory).sort()) {
         const namespaces = new Map();
         if (metadata.format === 'hiwonder-native-extension') {
             const source = fs.readFileSync(resolveFile(directory, metadata.source), 'utf8');
+            validateSourceDeferredEmissions(ts.createSourceFile(metadata.source, source, ts.ScriptTarget.Latest, true), ts, moduleId);
             assert(metadata.name?.['zh-cn'] || (/export const messages\s*=/.test(source) && /export const product\s*=/.test(source)),
                 `${moduleId}: 缺少名称或集中 i18n 配置；完整文案检查请执行 check ${moduleId}`);
             const declared = metadata.namespaces === undefined ? [metadata.namespace] : metadata.namespaces;
@@ -112,8 +116,10 @@ for (const category of fs.readdirSync(productsDirectory).sort()) {
                 assert(opcodes.size > 0 && opcodes.size === functions.length, moduleId + ': 原生 opcode 为空或重复');
                 for (const opcode of opcodes) {
                     const type = section.namespace + '_' + opcode;
-                    assert(!Object.hasOwn(blocks, type), moduleId + ': 完整旧类型重复 ' + type);
-                    blocks[type] = {module: moduleId, source: metadata.source};
+                    // 保留既有默认归属；额外作者必须在全部主控支持展开后证明互斥。
+                    const previous = blocks[type];
+                    blocks[type] = {module: moduleId, source: metadata.source,
+                        ...(previous ? {alternatives: [previous.module, ...(previous.alternatives || [])]} : {})};
                 }
                 namespaces.set(section.namespace, {config: {id: section.namespace}, source: section.source, opcodes, native: true});
             }
@@ -188,7 +194,7 @@ for (const [productId, reference] of Object.entries(library.products)) {
                 const separator = binding.lastIndexOf('.');
                 const type = binding.slice(0, separator);
                 const argument = binding.slice(separator + 1);
-                assert(blocks[type]?.module === moduleId, `${filename}: 端口引用错误 ${binding}`);
+                assert([blocks[type]?.module, ...(blocks[type]?.alternatives || [])].includes(moduleId), `${filename}: 端口引用错误 ${binding}`);
                 assert(values.includes(String(defaultValue)), `${filename}: 默认端口不在端口组中 ${binding}=${defaultValue}`);
                 const namespace = module.namespaces.get(type.slice(0, type.indexOf('_')));
                 assert(namespace && setting.legacyNamespaces.includes(namespace.config.id), `${filename}: 未选择端口对应的旧命名空间 ${binding}`);
@@ -198,6 +204,8 @@ for (const [productId, reference] of Object.entries(library.products)) {
         }
     }
 }
+validateLegacyOwners(blocks, Object.fromEntries(Object.entries(library.products)
+    .map(([id, reference]) => [id, readSupport(reference).modules])));
 const placeholders = readJson(resolveFile(root, library.placeholders));
 assert(placeholders.every(item => item.name?.['zh-cn']), '占位卡片必须提供中文名称');
 const catalog = readJson(resolveFile(root, 'catalog.json'));

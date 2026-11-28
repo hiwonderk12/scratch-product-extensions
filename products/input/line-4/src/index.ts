@@ -28,13 +28,16 @@ export default class Line4Blocks implements NativeExtension {
 
     // 库配置选择真实驱动；不接受只改端口而不匹配 SDK 的未知适配。
     private checkAdapter (): void {
-        if (this.context.variant !== 'hiwonder-dev-port') {
+        if (!['hiwonder-dev-port', 'hiwonder-iic'].includes(this.context.variant)) {
             throw new Error('input/line-4: 未知适配 ' + this.context.variant);
         }
     }
 
     getInfo (): ExtensionInfo {
         this.checkAdapter();
+        const board = this.context.variant === 'hiwonder-iic';
+        const {opcode: initOpcode} = board ? {opcode: 'aiblocks_linefollower_init'} : {opcode: 'aimech_linefollower_init'};
+        const portMenu = board ? 'aiblocks_iicport' : 'aimech_iicport';
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -42,8 +45,12 @@ export default class Line4Blocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                aimech_iicport: {
-                    items: this.context.ports('sensor.aimech_iicport'),
+                [portMenu]: {
+                    items: this.context.ports('sensor.' + portMenu),
+                    acceptReporters: false
+                },
+                linefollows: {
+                    items: ['1', '2', '3', '4'].map(value => ({text: value, value})),
                     acceptReporters: false
                 },
                 linedot2: {
@@ -86,15 +93,15 @@ export default class Line4Blocks implements NativeExtension {
                     subCategory: this.context.t(product.name)
                 },
                 {
-                    opcode: "aimech_linefollower_init",
+                    opcode: initOpcode,
                     blockType: "command",
-                    text: this.context.t('block.aimech_linefollower_init'),
+                    text: board ? this.context.t('block.aiblocks_linefollower_init') : this.context.t('block.aimech_linefollower_init'),
                     blockIconURI: this.context.asset('assets/linefollow.svg'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_linefollower_init', 'PORT'),
-                            menu: "aimech_iicport",
+                            defaultValue: this.context.defaultPort(initOpcode, 'PORT'),
+                            menu: portMenu,
                             literal: true
                         }
                     }
@@ -146,6 +153,17 @@ export default class Line4Blocks implements NativeExtension {
                         }
                     }
                 },
+                ...(board ? [{
+                    opcode: "linefollower_set_threshold", blockType: "command" as const,
+                    text: this.context.t('block.linefollower_set_threshold'),
+                    blockIconURI: this.context.asset('assets/linefollow.svg'),
+                    arguments: {VALUE: {type: "number" as const, defaultValue: 7}}
+                }, {
+                    opcode: "linefollower_get_value", blockType: "reporter" as const, disableMonitor: true,
+                    text: this.context.t('block.linefollower_get_value'),
+                    blockIconURI: this.context.asset('assets/linefollow.svg'),
+                    arguments: {NUM: {type: "string" as const, defaultValue: "1", menu: "linefollows", literal: true}}
+                }] : []),
                 {
                     opcode: "linefollower_read_offset",
                     blockType: "reporter",
@@ -161,14 +179,16 @@ export default class Line4Blocks implements NativeExtension {
     // 仅初始化积木收集独立设备对象；亮灭由选择器区分 == 0 与 > 0，LINE 值直接组成十六进制。
     getPython (): Record<string, PythonTemplate> {
         this.checkAdapter();
+        const board = this.context.variant === 'hiwonder-iic';
         return {
-            aimech_linefollower_init: {
+            [board ? 'aiblocks_linefollower_init' : 'aimech_linefollower_init']: {
                 template: "",
                 imports: [
-                    "import Hiwonder_DEV"
+                    board ? "import Hiwonder_IIC" : "import Hiwonder_DEV"
                 ],
                 variables: [
-                    "linefollow = Hiwonder_DEV.DEV_LINE_FOLLOW_4(Hiwonder_DEV.Port({PORT}))"
+                    ...(board ? ["iic = Hiwonder_IIC.IIC()", "linefollow = Hiwonder_IIC.LINE_FOLLOW_4_module(iic,{PORT})"] :
+                        ["linefollow = Hiwonder_DEV.DEV_LINE_FOLLOW_4(Hiwonder_DEV.Port({PORT}))"])
                 ]
             },
             linefollower_one_status: {
@@ -187,6 +207,10 @@ export default class Line4Blocks implements NativeExtension {
             linefollower_status_result: {
                 template: "linefollow.get_result_data() == 0x{VALUE}"
             },
+            ...(board ? {
+                linefollower_set_threshold: {template: "linefollow.set_ThresholdRatioReg({VALUE})"},
+                linefollower_get_value: {template: "linefollow.read_AnalogQuantity({NUM})"}
+            } : {}),
             linefollower_read_offset: {
                 template: "linefollow.read_offset()"
             }

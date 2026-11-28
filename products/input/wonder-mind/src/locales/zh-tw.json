@@ -56,5 +56,7 @@
     "block.get_aitv_status": "取得內建資料狀態",
     "block.aitv_cmds": "指令 [CMD]",
     "block.aitv_args": "參數 [CMD]",
-    "block.mcp_setting": "設定 MCP 工具參數，工具名稱 [NAME]，工具描述 [COMMAND]，指令名稱 [CMDNAME]，回傳參數 [PARAMS]，是否阻塞等待呼叫完成 [BLOCK]，是否回傳資料 [RETURN]"
+    "block.mcp_setting": "設定 MCP 工具參數，工具名稱 [NAME]，工具描述 [COMMAND]，指令名稱 [CMDNAME]，回傳參數 [PARAMS]，是否阻塞等待呼叫完成 [BLOCK]，是否回傳資料 [RETURN]",
+    "block.aitv_aiblocksboard_init": "初始化連接埠 [PORT]",
+    "block.aitv_send_action_finish": "傳送動作完成回覆"
 }

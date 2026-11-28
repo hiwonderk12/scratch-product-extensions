@@ -4,5 +4,8 @@
     "block.linefollower_one_status": "4채널 라인 추적 센서 채널 [NUM] 에서 [LINE] 감지",
     "block.linefollower_status": "4채널 라인 추적 센서 [LINE] 감지",
     "block.linefollower_status_result": "4채널 라인 추적 센서 채널 상태 [VALUE] 감지",
-    "block.linefollower_read_offset": "4채널 라인 추적 센서 편차 읽기"
+    "block.linefollower_read_offset": "4채널 라인 추적 센서 편차 읽기",
+    "block.aiblocks_linefollower_init": "4채널 라인 추적 센서 IIC 포트 [PORT] 초기화",
+    "block.linefollower_set_threshold": "4채널 라인 센서 임계값 비율(범위 1~9)을 [VALUE]로 설정",
+    "block.linefollower_get_value": "4채널 라인 센서 채널 [NUM]의 회색조 값(0~100)"
 }

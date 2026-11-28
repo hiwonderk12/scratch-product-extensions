@@ -28,7 +28,7 @@ export default class LedUltrasonicBlocks implements NativeExtension {
 
     // 驱动由库配置选择；拒绝未知适配，避免仅更换端口却调用错误 SDK。
     private checkAdapter (): void {
-        if (!['hiwonder-dev-port', 'hiwonder-dev-port-aidoggy', 'hiwonder-dev-onboard'].includes(this.context.variant)) {
+        if (!['hiwonder-dev-port', 'hiwonder-dev-port-aidoggy', 'hiwonder-dev-onboard', 'hiwonder-iic'].includes(this.context.variant)) {
             throw new Error('input/led-ultrasonic: 未知适配 ' + this.context.variant);
         }
     }
@@ -36,7 +36,10 @@ export default class LedUltrasonicBlocks implements NativeExtension {
     getInfo (): ExtensionInfo {
         this.checkAdapter();
         const onboard = this.context.variant === 'hiwonder-dev-onboard';
-        const portMenu = this.context.variant === 'hiwonder-dev-port-aidoggy' ? 'aidoggy_iicport' : 'aimech_iicport';
+        const board = this.context.variant === 'hiwonder-iic';
+        const {opcode} = board ? {opcode: 'aiblocksboard_led_ultrasonic_init'} : {opcode: 'aimech_led_ultrasonic_init'};
+        const portMenu = board ? 'aiblocks_iicport' :
+            this.context.variant === 'hiwonder-dev-port-aidoggy' ? 'aidoggy_iicport' : 'aimech_iicport';
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -111,14 +114,14 @@ export default class LedUltrasonicBlocks implements NativeExtension {
                     arguments: {}
                 } satisfies ExtensionBlock] : []),
                 {
-                    opcode: "aimech_led_ultrasonic_init",
+                    opcode,
                     ...(onboard ? {hideFromPalette: true} : {}),
                     blockType: "command",
                     text: this.context.t('block.aimech_led_ultrasonic_init'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_led_ultrasonic_init', 'PORT'),
+                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
                             menu: portMenu,
                             literal: true
                         }
@@ -258,6 +261,13 @@ export default class LedUltrasonicBlocks implements NativeExtension {
                 template: "sonar.startSymphony()"
             }
         };
+        if (this.context.variant === 'hiwonder-iic') {
+            templates.aiblocksboard_led_ultrasonic_init = {
+                template: '', imports: ['import Hiwonder_IIC'],
+                variables: ['iic = Hiwonder_IIC.IIC()', 'sonar = Hiwonder_IIC.DEV_SONAR(iic,{PORT})']
+            };
+            delete templates.aimech_led_ultrasonic_init;
+        }
         if (this.context.variant === 'hiwonder-dev-onboard') {
             templates.aimech_led_ultrasonic_init.variables = ["sonar = Hiwonder_DEV.DEV_SONAR()"];
             templates.minihexa_led_ultrasonic_init = templates.aimech_led_ultrasonic_init;

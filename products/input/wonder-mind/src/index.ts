@@ -1,4 +1,4 @@
-// WonderMind 单类维护积木与 Python，四语由相邻 locales 管理；五款主控共用 MCP_Tools 接口。
+// WonderMind 单类维护积木与 Python，四语由相邻 locales 管理；主控共用 MCP_Tools 接口。
 import type {ExtensionContext, ExtensionInfo, NativeExtension, PythonTemplate} from '../../../../tools/sdk';
 
 import zhCN from './locales/zh-cn.json';
@@ -13,14 +13,16 @@ export const product = {name: 'product.name', supportedLocales: ['zh-cn', 'en', 
 export default class WonderMindBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
-    // 支持表仅开放旧版五款 AI 机甲；不借用其他主控的初始化接口。
+    // 板端与 AI 主控共用 MCP_Tools，端口集合由各自支持配置提供。
     private checkVariant (): void {
-        if (this.context.variant !== 'wonderlab') throw new Error('input/wonder-mind: 未支持的主控适配 ' + this.context.variant);
+        if (!['wonderlab', 'mcp-iic'].includes(this.context.variant)) throw new Error('input/wonder-mind: 未支持的主控适配 ' + this.context.variant);
     }
 
-    // 五款主控的旧端口值相同；沿用本地菜单，不改已发行公共配置快照或伪造默认端口绑定。
+    // AI 主控保留原菜单，板端严格绑定 A–D，不引入 Hiwonder_IIC 驱动。
     getInfo (): ExtensionInfo {
         this.checkVariant();
+        const board = this.context.variant === 'mcp-iic';
+        const {opcode: initOpcode} = board ? {opcode: 'aitv_aiblocksboard_init'} : {opcode: 'aitv_aimech_init'};
         return {
             id: "sensor",
             "name": this.context.t(product.name),
@@ -45,9 +47,9 @@ export default class WonderMindBlocks implements NativeExtension {
                         }
                     ]
                 },
-                "aimech_iicport": {
+                [board ? "aiblocks_iicport" : "aimech_iicport"]: {
                     "acceptReporters": false,
-                    "items": [
+                    "items": board ? this.context.ports('sensor.aiblocks_iicport') : [
                         {
                             "text": "A",
                             "value": "1"
@@ -428,15 +430,15 @@ export default class WonderMindBlocks implements NativeExtension {
                     "subCategory": this.context.t('product.name')
                 },
                 {
-                    opcode: "aitv_aimech_init",
-                    "text": this.context.t("block.aitv_aimech_init"),
+                    opcode: initOpcode,
+                    "text": board ? this.context.t('block.aitv_aiblocksboard_init') : this.context.t('block.aitv_aimech_init'),
                     "isEdgeActivated": false,
                     "blockType": "command",
                     "arguments": {
-                        "PORT": {
+                        PORT: {
                             "type": "string",
-                            "menu": "aimech_iicport",
-                            "defaultValue": "1",
+                            "menu": board ? "aiblocks_iicport" : "aimech_iicport",
+                            "defaultValue": board ? this.context.defaultPort(initOpcode, 'PORT') : "1",
                             "literal": true
                         }
                     }
@@ -596,6 +598,10 @@ export default class WonderMindBlocks implements NativeExtension {
                     }
                 },
                 {
+                    opcode: 'aitv_send_action_finish', blockType: 'command', hideFromPalette: true,
+                    text: this.context.t('block.aitv_send_action_finish'), arguments: {}
+                },
+                {
                     opcode: "aitv_send_action",
                     "text": this.context.t("block.aitv_send_action"),
                     "isEdgeActivated": false,
@@ -718,7 +724,7 @@ export default class WonderMindBlocks implements NativeExtension {
     getPython (): Record<string, PythonTemplate> {
         this.checkVariant();
         return {
-            "aitv_aimech_init": {
+            [this.context.variant === 'mcp-iic' ? 'aitv_aiblocksboard_init' : 'aitv_aimech_init']: {
                 "template": "",
                 "imports": [
                     "from mcp_tools import MCP_Tools"
@@ -810,6 +816,8 @@ export default class WonderMindBlocks implements NativeExtension {
             "aitv_send_msg": {
                 "template": "AiBlock_LLM.send_message({VALUE})\ntime.sleep(0.05)"
             },
+            // 旧课程的独立完成回执保留可加载身份，不在新工具箱重复展示。
+            aitv_send_action_finish: {template: 'AiBlock_LLM.send_action_finish("true")'},
             "aitv_send_action": {
                 "template": "time.sleep(0.05)",
                 "templateSelector": {
@@ -839,7 +847,7 @@ export default class WonderMindBlocks implements NativeExtension {
             "mcp_setting": {
                 "template": "{NAME.memberName}",
                 "variables": [
-                    "{NAME.memberName} = {\"tool_name\":{NAME},\"command\":\"{COMMAND}\",\"params\":{PARAMS.compactHead}[{CMDNAME}, \"string\"],{PARAMS.compactTail},\"block\":\"{BLOCK}\",\"return\":\"{RETURN}\"}"
+                    "{NAME.memberName} = {\"tool_name\":{NAME},\"command\":{COMMAND.jsonValue},\"params\":{PARAMS.compactHead}[{CMDNAME}, \"string\"],{PARAMS.compactTail},\"block\":{BLOCK.jsonValue},\"return\":{RETURN.jsonValue}}"
                 ]
             }
         };

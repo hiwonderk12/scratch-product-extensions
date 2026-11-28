@@ -27,14 +27,21 @@ export default class ColorSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
     // 驱动由库配置选择；拒绝未知适配，避免仅更换端口却调用错误 SDK。
-    private checkAdapter (): void {
-        if (this.context.variant !== 'hiwonder-dev-port') {
-            throw new Error('input/color-sensor: 未知适配 ' + this.context.variant);
+    private adapter (): {opcode: string; menu: string; board: boolean} {
+        if (this.context.variant === 'hiwonder-iic') {
+            return {opcode: 'aiblocks_colorsensor_init', menu: 'aiblocks_iicport', board: true};
         }
+        if (this.context.variant === 'hiwonder-dev-port') {
+            return {opcode: 'aimech_colorsensor_init', menu: 'aimech_iicport', board: false};
+        }
+        if (this.context.variant === 'hiwonder-dev-port-aidoggy') {
+            return {opcode: 'aidoggy_colorsensor_init', menu: 'aidoggy_iicport', board: false};
+        }
+        throw new Error('input/color-sensor: 未知适配 ' + this.context.variant);
     }
 
     getInfo (): ExtensionInfo {
-        this.checkAdapter();
+        const {opcode, menu} = this.adapter();
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -76,8 +83,8 @@ export default class ColorSensorBlocks implements NativeExtension {
                     ],
                     acceptReporters: false
                 },
-                aimech_iicport: {
-                    items: this.context.ports('sensor.aimech_iicport'),
+                [menu]: {
+                    items: this.context.ports('sensor.' + menu),
                     acceptReporters: false
                 }
             },
@@ -86,14 +93,14 @@ export default class ColorSensorBlocks implements NativeExtension {
                     subCategory: this.context.t(product.name)
                 },
                 {
-                    opcode: "aimech_colorsensor_init",
+                    opcode,
                     blockType: "command",
                     text: this.context.t('block.aimech_colorsensor_init'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_colorsensor_init', 'PORT'),
-                            menu: "aimech_iicport",
+                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
+                            menu,
                             literal: true
                         }
                     },
@@ -147,16 +154,15 @@ export default class ColorSensorBlocks implements NativeExtension {
 
     // 初始化只由初始化积木收集；读取和控制不隐式补默认端口。
     getPython (): Record<string, PythonTemplate> {
-        this.checkAdapter();
+        const {opcode, board} = this.adapter();
         return {
-            aimech_colorsensor_init: {
+            [opcode]: {
                 template: "",
-                imports: [
-                    "import Hiwonder_DEV"
-                ],
-                variables: [
-                    "color = Hiwonder_DEV.DEV_COLOR_RECOGNIZE(Hiwonder_DEV.Port({PORT}))"
-                ]
+                imports: [board ? 'import Hiwonder_IIC' : 'import Hiwonder_DEV'],
+                // 板端与其他IIC输入共享总线；机器人通过各自端口对象初始化。
+                variables: board ? ['iic = Hiwonder_IIC.IIC()',
+                    'color = Hiwonder_IIC.COLOR_RECOGNIZE_module(iic,{PORT})'] :
+                    ['color = Hiwonder_DEV.DEV_COLOR_RECOGNIZE(Hiwonder_DEV.Port({PORT}))']
             },
             aiblocks_check_color: {
                 template: "color.get_color_name() == {COLOR}"

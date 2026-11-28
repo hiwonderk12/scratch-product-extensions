@@ -56,5 +56,7 @@
     "block.get_aitv_status": "Get built-in data status",
     "block.aitv_cmds": "Command [CMD]",
     "block.aitv_args": "Parameter [CMD]",
-    "block.mcp_setting": "Set MCP tool parameters, tool name [NAME], tool description [COMMAND], command name [CMDNAME], return parameter [PARAMS], whether to block until the call is completed [BLOCK], whether to return data [RETURN]"
+    "block.mcp_setting": "Set MCP tool parameters, tool name [NAME], tool description [COMMAND], command name [CMDNAME], return parameter [PARAMS], whether to block until the call is completed [BLOCK], whether to return data [RETURN]",
+    "block.aitv_aiblocksboard_init": "Initialization at port [PORT]",
+    "block.aitv_send_action_finish": "Send action completion"
 }

@@ -27,15 +27,20 @@ export default class TemperatureHumidityBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
     // 驱动由库配置选择；拒绝未知适配，避免仅更换端口却调用错误 SDK。
-    private checkAdapter (): void {
-        if (!['hiwonder-dev-port', 'hiwonder-dev-port-aidoggy'].includes(this.context.variant)) {
-            throw new Error('input/temperature-humidity: 未知适配 ' + this.context.variant);
+    private adapter (): {opcode: string; portMenu: string; board: boolean} {
+        if (this.context.variant === 'hiwonder-iic') {
+            return {opcode: 'aiblocksboard_temphumi_init', portMenu: 'aiblocks_iicport', board: true};
         }
+        if (['hiwonder-dev-port', 'hiwonder-dev-port-aidoggy'].includes(this.context.variant)) {
+            return {opcode: 'aimech_temphumi_init',
+                portMenu: this.context.variant === 'hiwonder-dev-port-aidoggy' ? 'aidoggy_iicport' : 'aimech_iicport',
+                board: false};
+        }
+        throw new Error('input/temperature-humidity: 未知适配 ' + this.context.variant);
     }
 
     getInfo (): ExtensionInfo {
-        this.checkAdapter();
-        const portMenu = this.context.variant === 'hiwonder-dev-port-aidoggy' ? 'aidoggy_iicport' : 'aimech_iicport';
+        const {opcode, portMenu} = this.adapter();
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -69,13 +74,13 @@ export default class TemperatureHumidityBlocks implements NativeExtension {
                     subCategory: this.context.t(product.name)
                 },
                 {
-                    opcode: "aimech_temphumi_init",
+                    opcode,
                     blockType: "command",
                     text: this.context.t('block.aimech_temphumi_init'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_temphumi_init', 'PORT'),
+                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
                             menu: portMenu,
                             literal: true
                         }
@@ -111,16 +116,14 @@ export default class TemperatureHumidityBlocks implements NativeExtension {
 
     // 初始化只由初始化积木收集；读取和控制不隐式补默认端口。
     getPython (): Record<string, PythonTemplate> {
-        this.checkAdapter();
+        const {opcode, board} = this.adapter();
         return {
-            aimech_temphumi_init: {
+            [opcode]: {
                 template: "",
-                imports: [
-                    "import Hiwonder_DEV"
-                ],
-                variables: [
-                    "temphumi = Hiwonder_DEV.DEV_TH(Hiwonder_DEV.Port({PORT}))"
-                ]
+                imports: [board ? 'import Hiwonder_IIC' : 'import Hiwonder_DEV'],
+                // 板端与其他IIC输入共用总线，机器人保持DEV端口对象和原初始化身份。
+                variables: board ? ['iic = Hiwonder_IIC.IIC()', 'temphumi = Hiwonder_IIC.DEV_TH(iic,{PORT})'] :
+                    ['temphumi = Hiwonder_DEV.DEV_TH(Hiwonder_DEV.Port({PORT}))']
             },
             aimech_get_temp_and_humi: {
                 template: "temphumi.read_Temp_Humi()"

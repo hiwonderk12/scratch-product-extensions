@@ -26,7 +26,19 @@ export const product = {
 export default class SoundSensorBlocks implements NativeExtension {
     constructor (private readonly context: ExtensionContext) {}
 
+    // 同时选择积木身份、端口菜单和驱动；wonderlab是已登记的五AI适配，不作默认回退。
+    private adapter (): {opcode: string; portMenu: string; board: boolean} {
+        if (this.context.variant === 'hiwonder-iic') {
+            return {opcode: 'aiblocksboard_read_sound', portMenu: 'aiblocks_iicport', board: true};
+        }
+        if (this.context.variant === 'wonderlab') {
+            return {opcode: 'aimech_read_sound', portMenu: 'aimech_iicport', board: false};
+        }
+        throw new Error('input/sound-sensor: 未知适配 ' + this.context.variant);
+    }
+
     getInfo (): ExtensionInfo {
+        const {opcode, portMenu} = this.adapter();
         return {
             id: "sensor",
             name: this.context.t(product.name),
@@ -34,8 +46,8 @@ export default class SoundSensorBlocks implements NativeExtension {
             color2: "#7B68EE",
             color3: "#7B68EE",
             menus: {
-                aimech_iicport: {
-                    items: this.context.ports('sensor.aimech_iicport'),
+                [portMenu]: {
+                    items: this.context.ports('sensor.' + portMenu),
                     acceptReporters: false
                 }
             },
@@ -44,15 +56,15 @@ export default class SoundSensorBlocks implements NativeExtension {
                     subCategory: this.context.t(product.name)
                 },
                 {
-                    opcode: "aimech_read_sound",
+                    opcode,
                     blockType: "reporter",
                     disableMonitor: true,
                     text: this.context.t('block.aimech_read_sound'),
                     arguments: {
                         PORT: {
                             type: "string",
-                            defaultValue: this.context.defaultPort('aimech_read_sound', 'PORT'),
-                            menu: "aimech_iicport",
+                            defaultValue: this.context.defaultPort(opcode, 'PORT'),
+                            menu: portMenu,
                             literal: true
                         }
                     }
@@ -63,14 +75,17 @@ export default class SoundSensorBlocks implements NativeExtension {
 
     // 仅使用积木时收集初始化；对象名、端口字面值及生成接口保持旧工程语义。
     getPython () {
+        const {opcode, board} = this.adapter();
         return {
-            aimech_read_sound: {
+            [opcode]: {
                 template: "sound.read_value()",
                 imports: [
-                    "import Hiwonder_DEV"
+                    board ? "import Hiwonder_IIC" : "import Hiwonder_DEV"
                 ],
                 variables: [
-                    "sound = Hiwonder_DEV.DEV_SOUND(Hiwonder_DEV.Port({PORT}))"
+                    ...(board ? ["iic = Hiwonder_IIC.IIC()"] : []),
+                    board ? "sound = Hiwonder_IIC.DEV_SOUND(iic,{PORT})" :
+                        "sound = Hiwonder_DEV.DEV_SOUND(Hiwonder_DEV.Port({PORT}))"
                 ]
             }
         };
