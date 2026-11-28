@@ -1825,7 +1825,15 @@ time.sleep(0.05)`,
                     "import Hiwonder"
                 ],
                 variables: [
-                    "imu = Hiwonder.IMU()"
+                    "buttonA = Hiwonder.Button('A')",
+                    `def is_stop_3091ratyxq():
+  return buttonA.read()`
+                ],
+                forcedVariables: [
+                    {
+                        name: "imu",
+                        code: "imu = Hiwonder.IMU(True, is_stop_3091ratyxq)"
+                    }
                 ]
             },
             get_euler_angle_element_value: {
@@ -1910,7 +1918,7 @@ time.sleep(0.05)`,
                 ]
             },
             close_led_ultrasonic: {
-                template: "mecanumCar.sonar.setRGB({NUMS},0,0,0)",
+                template: "mecanumCar.sonar.setRGB({NUMS},0x00,0x00,0x00)",
                 imports: [
                     "import Hiwonder_DEV"
                 ],

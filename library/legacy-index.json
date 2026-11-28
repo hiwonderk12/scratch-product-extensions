@@ -226,11 +226,31 @@
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
+    "aidoggy_get_euler_angle_element_value": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_imu_cali": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_imu_init": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_pose_init": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
     "aidoggy_print_number": {
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
     "aidoggy_print_str": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_read_servos_pose": {
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
@@ -242,7 +262,23 @@
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
+    "aidoggy_set_all_servos_torque": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_frequency_move": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
     "aidoggy_set_gait": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_keep_move": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_leg_angle": {
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
@@ -254,11 +290,35 @@
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
+    "aidoggy_set_move_left_right": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
     "aidoggy_set_move_xyz": {
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
     "aidoggy_set_pose": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_pose_body": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_pose_height": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_servo_torque": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_servos_pose": {
+      "module": "robots/aidoggy",
+      "source": "src/index.ts"
+    },
+    "aidoggy_set_step_length_move": {
       "module": "robots/aidoggy",
       "source": "src/index.ts"
     },
